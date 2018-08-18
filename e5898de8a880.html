@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>rBAS使用文档</title>
+  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="rBAS使用文档" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="github-repo" content="jywang2016/rBAS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="rBAS使用文档" />
+  
+  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  
+
+<meta name="author" content="王江宇">
+
+
+<meta name="date" content="2018-08-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rBAS中文文档</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path=""><a href="#e5898de8a880"><i class="fa fa-check"></i>前言</a><ul>
+<li class="chapter" data-level="" data-path=""><a href="#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rBAS使用文档</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">rBAS使用文档</h1>
+<h4 class="author"><em>王江宇</em></h4>
+<h4 class="date"><em>2018-08-18</em></h4>
+</div>
+<div id="e5898de8a880" class="section level1 unnumbered">
+<h1>前言</h1>
+<div id="e6898be5868ce58685e5aeb9e6a682e8bfb0" class="section level2 unnumbered">
+<h2>手册内容概述</h2>
+<p>本手册是为了大家更好地使用<strong>rBAS</strong> <span class="citation">(Wang, Li, and Jiang <a href="#ref-R-rBAS">2018</a>)</span>包而撰写，内容如下:</p>
+<ul>
+<li><p>第 <a href="#install"><strong>??</strong></a> 章介绍了如何安装<code>R</code>语言的环境，来使用<code>rBAS</code>包。不用担心，<code>R</code>的语法很简单，各种功能是按照自身的需要安装各种<code>packages</code>，所以比<code>matlab</code>体积更小，入门时间成本也较低。<strong>哪怕你无意于<code>R</code>的学习，也可以看看本手册的原理篇(第 <a href="#algorithm"><strong>??</strong></a> 章)，应用篇(第<a href="#examples"><strong>??</strong></a>章)以及后续的更新计划(第 <a href="#updates"><strong>??</strong></a> 章)，来了解算法的原理，出现了哪些变种，以及有着什么样的工程应用</strong>。</p></li>
+<li><p>第 <a href="#algorithm"><strong>??</strong></a> 章介绍了<strong>BAS算法</strong>以及在其基础上出现的各种<strong>改进算法</strong>的<strong>原理</strong>，当然，随着算法的不断改进和发展，这个文档还需要随之不断更新。</p></li>
+<li><p>第 <a href="#rBAS"><strong>??</strong></a> 章讲述了如何在<code>R</code>中使用<code>rBAS</code>包<strong>调用收录的算法的对应函数</strong>，以及一些简单的<strong>案例</strong>（大部分是<code>BAS</code>相关文献中的算例和<code>benchmark functions</code>）。每一句出现的代码我都会尽我所能去注释，让大家了解每一步的意义，以及<code>R</code>的简单易用。我也希望，自己的语言能尽力通俗，对于其他工具的使用者来说。</p></li>
+<li><p>第 <a href="#examples"><strong>??</strong></a> 章主要介绍的是BAS及变体算法<strong>在各种领域的应用</strong>，当然，少不了对应的案例描述和代码。<strong>可能有些涉及到各位作者的研究，不会做到完全的开源</strong>，但在<strong>李帅</strong>老师的组织下，我相信这会是最完善全面的<code>BAS</code>应用大全。</p></li>
+<li><p>第 <a href="#updates"><strong>??</strong></a> 章讲述了<code>rBAS</code>包的<strong>开发和使用手册更新的计划</strong>。因为算法总是会不断地推陈出新，所以<code>rBAS</code>包也必须和目前的研究保持一致。如果你有好的想法，可以看此章的内容，然后把自己的建议传达给我们。</p></li>
+</ul>
+<blockquote>
+<p>好了，冗长的章节介绍完毕。大家可以开始浏览正文了。</p>
+</blockquote>
+</div>
+<div id="e5a4b9e5b8a6e7a781e8b4a7" class="section level2 unnumbered">
+<h2>夹带私货</h2>
+<p>如果你对这本手册本身的撰写环境感兴趣的话，那我可能还要啰嗦两句。</p>
+<p><em>第一句</em>：照搬 <a href="http://yihui.name/">Yihui</a> 的一句话：我用了两个 R 包编译这本书，分别是 <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span> 和 <strong>bookdown</strong> <span class="citation">(Xie <a href="#ref-R-bookdown">2018</a>)</span>。</p>
+<p><em>第二句</em>：感谢 Yihui。嗯…，因为这个男人，R用户的读书笔记，文章，学位论文，个人网站等等都可以在R里面撰写或者开发。不得不感慨他的天才和对需求的把握。</p>
+</div>
+<div id="e887b4e8b0a2" class="section level2 unnumbered">
+<h2>致谢</h2>
+<p>感谢提倡者<code>李帅</code>老师，以及<code>姜向远</code>博士。他们是<code>BAS</code>的提出者，也在算法原理与改进上，给了我这个做暖通的门外汉以启发。</p>
+<p>此外，还感谢<code>李晓晓</code>,<code>王甜甜</code>,<code>莫小娟</code>,<code>阮月</code>同学贡献自己的算法代码和应用案例，他(她)们改进了算法，并且让其应用部分变得更加丰富。</p>
+<p>当然，还得感谢Yihui的<code>bookdown</code>。</p>
+<p>老实讲，2018/07,也就是一个月以前，我刚开始用<code>R</code>编写这个算法，然后用在自己的建筑系统辨识研究中，没想到<span class="math inline">\(\dots\)</span> 所以，这个手册是比较仓促的产物，再加之自身关于优化算法理论水平较低，如果大家发现了本手册的各种问题，欢迎在QQ群(437958608)内留言，或者是在<code>rBAS</code>的 github上提出 <a href="https://github.com/jywang2016/rBAS/issues">issues</a>。</p>
+<p>总之，谢谢上述老师及同学，也谢谢未来给我提供问题或建议的同学，你们的帮助，让手册更加完善。</p>
+
+<p class="flushright">
+王江宇<br />
+2018/08/18<br />
+华中科技大学
+</p>
+
+<div id="refs" class="references">
+<div>
+<p>Wang, Jiangyu, Shuai Li, and Xiangyuan Jiang. 2018. <em>RBAS: Implementation of the Bas Algorithm and Its Mutation</em>. <a href="https://github.com/jywang2016/rBAS" class="uri">https://github.com/jywang2016/rBAS</a>.</p>
+</div>
+<div>
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+</div>
+<div>
+<p>———. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-rBAS">
+<p>Wang, Jiangyu, Shuai Li, and Xiangyuan Jiang. 2018. <em>RBAS: Implementation of the Bas Algorithm and Its Mutation</em>. <a href="https://github.com/jywang2016/rBAS" class="uri">https://github.com/jywang2016/rBAS</a>.</p>
+</div>
+<div id="ref-xie2015">
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+</div>
+<div id="ref-R-bookdown">
+<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

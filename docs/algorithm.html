@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>rBAS使用文档</title>
+  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="rBAS使用文档" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="github-repo" content="jywang2016/rBAS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="rBAS使用文档" />
+  
+  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  
+
+<meta name="author" content="王江宇">
+
+
+<meta name="date" content="2018-08-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="install.html">
+<link rel="next" href="rBAS.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rBAS中文文档</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a><ul>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html#e4bd9ce88085e4bfa1e681af"><i class="fa fa-check"></i>作者信息</a></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html#e794a8e688b7e7958ce99da2e9878ce79a84e4bd9ce88085e4bfa1e681af"><i class="fa fa-check"></i>用户界面里的作者信息</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#Rinstall"><i class="fa fa-check"></i><b>1.1</b> R安装</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#Rstudioinstall"><i class="fa fa-check"></i><b>1.2</b> Rstudio安装</a></li>
+<li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#rBASinstall"><i class="fa fa-check"></i><b>1.3</b> rBAS安装</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="algorithm.html"><a href="algorithm.html"><i class="fa fa-check"></i><b>2</b> 算法原理</a><ul>
+<li class="chapter" data-level="2.1" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>2.1</b> BAS</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="algorithm.html"><a href="algorithm.html#BASflow"><i class="fa fa-check"></i><b>2.1.1</b> 算法流程</a></li>
+<li class="chapter" data-level="2.1.2" data-path="algorithm.html"><a href="algorithm.html#BASimprove"><i class="fa fa-check"></i><b>2.1.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="algorithm.html"><a href="algorithm.html#bsas"><i class="fa fa-check"></i><b>2.2</b> BSAS</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="algorithm.html"><a href="algorithm.html#BSASflow"><i class="fa fa-check"></i><b>2.2.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.2.2" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.2.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>3</b> 函数使用</a><ul>
+<li class="chapter" data-level="3.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>3.1</b> BASoptim</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>3.1.1</b> BASoptim参数说明</a></li>
+<li class="chapter" data-level="3.1.2" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>3.1.2</b> BASoptim简单案例</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>3.2</b> BSASoptim</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>3.2.1</b> BSASoptim参数说明</a></li>
+<li class="chapter" data-level="3.2.2" data-path="rBAS.html"><a href="rBAS.html#BSAStrick"><i class="fa fa-check"></i><b>3.2.2</b> BSASoptim取值摸索</a></li>
+<li class="chapter" data-level="3.2.3" data-path="rBAS.html"><a href="rBAS.html#BSASexample"><i class="fa fa-check"></i><b>3.2.3</b> BSASoptim案例</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="rBAS.html"><a href="rBAS.html#bsaswpt"><i class="fa fa-check"></i><b>3.3</b> BSAS-WPT</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="rBAS.html"><a href="rBAS.html#bsaswptparms"><i class="fa fa-check"></i><b>3.3.1</b> BSAS-WPT 参数说明</a></li>
+<li class="chapter" data-level="3.3.2" data-path="rBAS.html"><a href="rBAS.html#bsaswptexample"><i class="fa fa-check"></i><b>3.3.2</b> BSAS-WPT 案例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>4</b> BAS案例</a><ul>
+<li class="chapter" data-level="4.1" data-path="examples.html"><a href="examples.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 多杆机构优化问题</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>5</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="5.1" data-path="updates.html"><a href="updates.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="5.2" data-path="updates.html"><a href="updates.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 联系方式</a></li>
+</ul></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rBAS使用文档</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="algorithm" class="section level1">
+<h1><span class="header-section-number">第 2 章</span> 算法原理</h1>
+<p>本章讲述目前<code>rBAS</code>集成的三种算法的原理。如有错漏，还请指出。</p>
+<div id="bas" class="section level2">
+<h2><span class="header-section-number">2.1</span> BAS</h2>
+<p>关于<code>BAS</code>，主要的参考资料为<code>姜向远</code>博士和<code>李帅</code>老师在<code>arXiv</code>上的论文，<a href="https://arxiv.org/abs/1710.10724">BAS: beetle antennae search algorithm for optimization problems</a>。而我是在知乎上看到一篇<a href="https://zhuanlan.zhihu.com/p/30742461">文章</a>后，才开始复现<code>BAS</code>算法。</p>
+<div id="BASflow" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> 算法流程</h3>
+<p>1.随机生成方向向量，标准化</p>
+<span class="math display" id="eq:dir">\[\begin{equation}
+\overrightarrow{\mathbf{b}}=\frac{\text{rnd}(n,1)}{\|\text{rnd}(n,1)\|}
+\tag{2.1}
+\end{equation}\]</span>
+<p>其中，<span class="math inline">\(n\)</span>是待优化参数的维度。</p>
+<p>2.计算左右须的坐标</p>
+<span class="math display" id="eq:xlxr">\[\begin{equation}
+\begin{split}
+\mathbf{x}_r&amp;=\mathbf{x}^t+d^t\overrightarrow{\mathbf{b}} \\
+\mathbf{x}_l&amp;=\mathbf{x}^t-d^t\overrightarrow{\mathbf{b}}
+\end{split}
+\tag{2.2}
+\end{equation}\]</span>
+<p>其中，<span class="math inline">\(\mathbf{x}^t\)</span>为<span class="math inline">\(t\)</span>时刻天牛的位置，<span class="math inline">\(d^t\)</span>则是<span class="math inline">\(t\)</span>时刻，质心到须的距离。</p>
+<p>3.根据两须对应函数值，决定天牛下一时刻移动位置</p>
+<span class="math display" id="eq:xupdate">\[\begin{equation}
+\mathbf{x}^t=\mathbf{x}^{t-1}+\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
+\tag{2.3}
+\end{equation}\]</span>
+<p>其中，<span class="math inline">\(\delta^t\)</span>为t时刻的步长,<span class="math inline">\(f\)</span>为待优化目标函数。</p>
+<p>4.步长与搜索距离更新</p>
+<span class="math display" id="eq:deltaupdate" id="eq:dupdate">\[\begin{align}
+d^t&amp;= \eta_d d^{t-1}+d_0 \tag{2.4}\\
+\delta^t&amp;=\eta_{\delta} \delta^{t-1} \tag{2.5}
+\end{align}\]</span>
+<p>其中，<span class="math inline">\(d_0\)</span>是人为设定的距离的常数，<span class="math inline">\(\eta_d\)</span>与<span class="math inline">\(\eta_\delta\)</span>分别是搜索距离和步长的更新衰减系数。</p>
+为了避免参数过多，姜向远博士在<code>BAS-WPT</code>算法中是按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来更新搜索距离和步长的。其中，<span class="math inline">\(c_2\)</span>是人为设定的常数。
+<span class="math display" id="eq:WPTupdate">\[\begin{align}
+\delta^t&amp;=\eta_{\delta} \delta^{t-1}\\
+d^t &amp;= \frac{\delta^t}{c_2}
+\tag{2.6} 
+\end{align}\]</span>
+</div>
+<div id="BASimprove" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> 不足与改进</h3>
+<p>在对<code>BAS</code>算法的复现与案例应用中，我个人认为，其可能存在如下的缺点。</p>
+<ul>
+<li>步长更新策略（反馈）
+<ul>
+<li>缺点：无论每一步得到的结果是否变得更优，步长总会衰减；</li>
+<li>改进：带有反馈的步长更新，在无法找到更优的位置时，才进行步长的更新；</li>
+<li>关键：反馈</li>
+</ul></li>
+<li>初始步长选取（参数标准化）
+<ul>
+<li>缺点：对于多参数且量纲相差较大的问题，步长 <span class="math inline">\(\delta\)</span> 的初始值并不好选取；</li>
+<li>改进：标准化参数后，再进行调节，这也是<code>BAS-WPT</code>的技巧所在；</li>
+<li>关键：标准化</li>
+</ul></li>
+<li>群体寻优
+<ul>
+<li>缺点：1只天牛在随机方向上搜索更优的位置，容易迷失；</li>
+<li>改进：多只天牛寻优，设定的回合内无法找到更优位置，再考虑步长更新；</li>
+<li>关键：群体智能</li>
+</ul></li>
+<li>约束处理能力不足
+<ul>
+<li>缺点：在约束边界上优化目标突变问题的处理上表现不佳</li>
+<li>改进：二阶<code>BAS</code></li>
+<li>关键：<code>暂时没有能力归纳</code>，有待学习二阶<code>BAS</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="bsas" class="section level2">
+<h2><span class="header-section-number">2.2</span> BSAS</h2>
+<p>在<a href="algorithm.html#BASimprove">2.1.2</a>节中提及，<code>BAS</code>可能在<strong>步长更新</strong>和<strong>群体寻优</strong>两个方面的策略上有一定的不足。因此，我比较莽撞地改出一个粗糙的算法，那就是所谓的<code>BSAS</code>，即<code>beetle swarm antennae search</code>。在<a href="https://arxiv.org/abs/1807.10470"><code>BSAS: Beetle Swarm Antennae Search Algorithm for Optimization Problems</code></a>中，我给出了更为详细的材料。至于具体和<code>王甜甜</code>同学的<code>BSO</code>，即<code>beetle swarm optimization</code>有何不同，我需要进一步研究她的论文材料。</p>
+<div id="BSASflow" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> 与BAS不同之处</h3>
+<p>此部分没有公式，因为和<code>BAS</code>算法核心公式思路是一致的。而图<a href="algorithm.html#fig:basflow">2.1</a>与图<a href="algorithm.html#fig:bsasflow">2.2</a>描述了一种假设的寻优场景，能比较清晰地体现<code>BSAS</code>与<code>BAS</code>之间的不同。</p>
+<div class="figure" style="text-align: center"><span id="fig:basflow"></span>
+<img src="img/BAS.png" alt="BAS寻优过程示意" width="80%" />
+<p class="caption">
+图 2.1: BAS寻优过程示意
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:bsasflow"></span>
+<img src="img/BSAS.png" alt="BSAS寻优过程示意" width="80%" />
+<p class="caption">
+图 2.2: BSAS寻优过程示意
+</p>
+</div>
+<p>假定，天牛要找到图中<strong>最蓝的点</strong>。图<a href="algorithm.html#fig:basflow">2.1</a> 中，天牛的起点在距离最优点较远处。由于位置更新只与时间有关，也就是每一步，天牛的步长都会缩减（为了可视化效果，天牛的大小我并没有缩放）。如果初始位置距离最优点较远，那在给定的步长缩减情况下，天牛只能在一个<strong>局部最优点</strong>处收敛。而图<a href="algorithm.html#fig:bsasflow">2.2</a>中，每回合天牛会派出<span class="math inline">\(k\)</span>只天牛在外试探，如果有更优的点，那么更新天牛位置。这样天牛可以更好地到达<strong>全局最优点</strong>。</p>
+</div>
+<div id="BSASimprove" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> 不足与改进</h3>
+<p>虽然解决了步长更新和群体寻优的策略问题，但是还有两点并未解决。</p>
+<ul>
+<li>初始步长选取（参数标准化）
+<ul>
+<li>缺点：对于多参数且量纲相差较大的问题，步长 <span class="math inline">\(\delta\)</span> 的初始值并不好选取；</li>
+<li>改进：标准化参数后，再进行调节，这也是<code>BAS-WPT</code>的技巧所在；</li>
+</ul></li>
+<li>约束处理能力不足
+<ul>
+<li>缺点：在约束边界上优化目标突变问题的处理上表现不佳</li>
+<li>改进：二阶<code>BAS</code></li>
+</ul></li>
+</ul>
+<p>好的是，在<code>rBAS 0.1.5</code>中，我们吸收了<code>BAS-WPT</code>中<strong>参数标准化</strong>的想法，加入了<code>BSAS-WPT</code>算法，来解决步长调参的问题，并取得了一定的改进效果。</p>
+</div>
+</div>
+<div id="bas-wpt" class="section level2">
+<h2><span class="header-section-number">2.3</span> BAS-WPT</h2>
+<p>相比于<a href="algorithm.html#BASflow">2.1.1</a>节中描绘的<code>BAS</code>， <a href="https://arxiv.org/abs/1711.02395">Beetle Antennae Search without Parameter Tuning (BAS-WPT) for Multi-objective Optimization</a>一文给出了改进后的<code>BAS</code>是如何处理<strong>步长调节</strong>和<strong>约束问题抽象</strong>的。</p>
+<div id="BASWPTflow" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> 与BAS不同之处</h3>
+<p><code>BAS-WPT</code>的小尾巴<code>without parameter tunning</code>已经说明了两者之间的区别，即<code>BAS-WPT</code>是不需要进行参数调节的。当然，按照我现在的理解，是<code>BAS-WPT</code>一方面简化了<strong>每回合搜索距离</strong>(质心到须的距离)的<strong>更新</strong>，不需要再<strong>额外设定与调节</strong>诸如<span class="math inline">\(d_0\)</span>，<span class="math inline">\(\eta_d\)</span>等参数，用户只需要按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来设置<span class="math inline">\(c_2\)</span>便可；另一方面，参数标准化，让<strong>存在量级差异</strong>的参数之间不必再像<code>BAS</code>一样，共享一个你不知道该怎么设定的步长<span class="math inline">\(\delta^t\)</span>（步长过大，小的参数可能经常处于在边界的状态；步长过小，大的参数可能搜索范围达不到）。</p>
+<p>那么上述两方面的优势归纳起来是什么呢，那就是你可以设置一个在 <span class="math inline">\(1\)</span> 附近 <span class="math inline">\(\delta\)</span> ，然后设定一个衰减率 <span class="math inline">\(\eta_{\delta}\)</span>，以及步长与搜索距离之比 <span class="math inline">\(c_2\)</span>，那么你的天牛就不会出太大的岔子，并且方便调整调节。也就是说，<code>WPT</code>不是让你不用调参，而是减轻了调参的负担。</p>
+<blockquote>
+<p>“不必就纠结归一化处理，之所以这么处理，仅仅是为了调参方便”</p>
+<p>— 姜向远</p>
+</blockquote>
+<p>果然，偷懒催生了这一技巧的诞生。不过，我还得再次啰嗦一句标准化的好（是不是我没有接触这个领域，所以喜欢大惊小怪……）。我们在之后，压力容器约束问题(<strong>混合整型规划</strong>)中，可以看到，待优化参数存在量级差异时，标准化技巧下的步长会比原始的<code>BAS</code>步长设定要更加合理。</p>
+</div>
+<div id="constrform" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> 约束问题抽象形式</h3>
+<p>此外，<code>BAS-WPT</code>还为<code>BAS</code>引入了约束问题处理的手段。不过，这和我做模型预测控制时候看到的抽象方式是相同的。我觉得<code>BAS</code>的用户们应该都早已了解，此处就照本宣科。</p>
+<div id="section-2.3.2.1" class="section level4">
+<h4><span class="header-section-number">2.3.2.1</span> 约束问题一般形式</h4>
+<span class="math display" id="eq:ConProb">\[\begin{equation}
+\begin{split}
+&amp; \frac{\text{Minimize}}{\text{Maximize}} f(\mathbf{x}) \\
+s.t.  &amp; g_j(\mathbf{x})\leq 0, j=1, \cdots, K \\
+&amp; x^\text{max}_i \leq x_i \leq x^\text{min}_i, i=1, \cdots N
+\end{split}
+\tag{2.7}
+\end{equation}\]</span>
+<p><span class="math inline">\(g_j(\mathbf{x})\leq 0\)</span> 和 <span class="math inline">\(x^\text{max}_i \leq x_i \leq x^\text{min}_i\)</span> 表示了参数本身的范围和更为精细具体的不等式约束控制。在<code>rBAS</code>包中，我们会有很<strong>直观和简便</strong>的方式，来设置这些约束。</p>
+</div>
+<div id="section-2.3.2.2" class="section level4">
+<h4><span class="header-section-number">2.3.2.2</span> 惩罚函数</h4>
+<span class="math display" id="eq:penalty">\[\begin{equation}
+F(\mathbf{x})=f(\mathbf{x})+\lambda\sum_{j=1}^{K}h_j(\mathbf{x})g_j(\mathbf{x})
+\tag{2.8}
+\end{equation}\]</span>
+<span class="math display" id="eq:violation">\[\begin{equation}
+h_j(\mathbf{x}) = \begin{cases} 
+1, &amp; g_j(\mathbf{x})&gt;0 \\ 
+0, &amp; g_j(\mathbf{x})\leq0
+\end{cases}
+\tag{2.9}
+\end{equation}\]</span>
+<p>其中，式<a href="algorithm.html#eq:penalty">(2.8)</a>中的<span class="math inline">\(\lambda\)</span>表示约束违背的惩罚因子，选取尽量大的正数。而后的<span class="math inline">\(h_j(\mathbf{x})\)</span>为<code>Heaviside</code>函数，即不等式约束满足时，该函数为0，反之为1。</p>
+</div>
+</div>
+<div id="BSASimprove" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> 不足与改进</h3>
+<ul>
+<li>约束处理能力不足
+<ul>
+<li>缺点：在约束边界上优化目标突变问题的处理上表现不佳</li>
+<li>改进：二阶<code>BAS</code></li>
+</ul></li>
+</ul>
+<p>此处的不足，还需要考虑步长反馈和群体搜索的问题。不过，既然<code>BSAS</code>把姜博的<code>WPT</code>给窃来了，摇身变为了<code>BSAS-WPT</code>，那就不说上述两个问题了。等他日有闲，再去整合<code>李晓晓</code>同学的二阶<code>BAS</code>。</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rBAS.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

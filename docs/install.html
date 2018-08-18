@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>rBAS使用文档</title>
+  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="rBAS使用文档" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="github-repo" content="jywang2016/rBAS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="rBAS使用文档" />
+  
+  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  
+
+<meta name="author" content="王江宇">
+
+
+<meta name="date" content="2018-08-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="author.html">
+<link rel="next" href="algorithm.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rBAS中文文档</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a><ul>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html#e4bd9ce88085e4bfa1e681af"><i class="fa fa-check"></i>作者信息</a></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html#e794a8e688b7e7958ce99da2e9878ce79a84e4bd9ce88085e4bfa1e681af"><i class="fa fa-check"></i>用户界面里的作者信息</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#Rinstall"><i class="fa fa-check"></i><b>1.1</b> R安装</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#Rstudioinstall"><i class="fa fa-check"></i><b>1.2</b> Rstudio安装</a></li>
+<li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#rBASinstall"><i class="fa fa-check"></i><b>1.3</b> rBAS安装</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="algorithm.html"><a href="algorithm.html"><i class="fa fa-check"></i><b>2</b> 算法原理</a><ul>
+<li class="chapter" data-level="2.1" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>2.1</b> BAS</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="algorithm.html"><a href="algorithm.html#BASflow"><i class="fa fa-check"></i><b>2.1.1</b> 算法流程</a></li>
+<li class="chapter" data-level="2.1.2" data-path="algorithm.html"><a href="algorithm.html#BASimprove"><i class="fa fa-check"></i><b>2.1.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="algorithm.html"><a href="algorithm.html#bsas"><i class="fa fa-check"></i><b>2.2</b> BSAS</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="algorithm.html"><a href="algorithm.html#BSASflow"><i class="fa fa-check"></i><b>2.2.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.2.2" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.2.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>3</b> 函数使用</a><ul>
+<li class="chapter" data-level="3.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>3.1</b> BASoptim</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>3.1.1</b> BASoptim参数说明</a></li>
+<li class="chapter" data-level="3.1.2" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>3.1.2</b> BASoptim简单案例</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>3.2</b> BSASoptim</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>3.2.1</b> BSASoptim参数说明</a></li>
+<li class="chapter" data-level="3.2.2" data-path="rBAS.html"><a href="rBAS.html#BSAStrick"><i class="fa fa-check"></i><b>3.2.2</b> BSASoptim取值摸索</a></li>
+<li class="chapter" data-level="3.2.3" data-path="rBAS.html"><a href="rBAS.html#BSASexample"><i class="fa fa-check"></i><b>3.2.3</b> BSASoptim案例</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="rBAS.html"><a href="rBAS.html#bsaswpt"><i class="fa fa-check"></i><b>3.3</b> BSAS-WPT</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="rBAS.html"><a href="rBAS.html#bsaswptparms"><i class="fa fa-check"></i><b>3.3.1</b> BSAS-WPT 参数说明</a></li>
+<li class="chapter" data-level="3.3.2" data-path="rBAS.html"><a href="rBAS.html#bsaswptexample"><i class="fa fa-check"></i><b>3.3.2</b> BSAS-WPT 案例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>4</b> BAS案例</a><ul>
+<li class="chapter" data-level="4.1" data-path="examples.html"><a href="examples.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 多杆机构优化问题</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>5</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="5.1" data-path="updates.html"><a href="updates.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="5.2" data-path="updates.html"><a href="updates.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 联系方式</a></li>
+</ul></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rBAS使用文档</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="install" class="section level1">
+<h1><span class="header-section-number">第 1 章</span> R以及rBAS安装</h1>
+<p><code>R</code>以及其集成开发环境(IDE)<code>Rstudio</code>加起来都不到200M，所以大家放心下载安装，不会是需要10+G的庞然大物。当然，<code>matlab</code>也是很好的科学计算软件，这里仅仅是说明安装的大小。</p>
+<p>总体来说，R的安装十分简单，类似于把大象装进冰箱只需要三步。</p>
+<div id="Rinstall" class="section level2">
+<h2><span class="header-section-number">1.1</span> R安装</h2>
+<p><code>Step1</code>: 进入R的网站 <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a> ，然后点击左上角<code>Download</code>底下的<code>CRAN</code>。</p>
+<p><code>Step2</code>: 选择并点击<code>China</code>底下的镜像网址，方便下载。然后点击<code>Download R for windows</code>，出现的界面右上角有<code>install R for the first time</code>，点击即可下载。</p>
+<p><code>Step3</code>: 安装，不需要各种复杂的配置，按照给定提示操作即可。</p>
+<p>但是，打开R，你会发现是如图<a href="install.html#fig:rface">1.1</a>这样过于<code>简洁</code>的界面。</p>
+<div class="figure" style="text-align: center"><span id="fig:rface"></span>
+<img src="img/R.png" alt="R界面" width="80%" />
+<p class="caption">
+图 1.1: R界面
+</p>
+</div>
+<p>这并不符合新手的操作和开发习惯。因此，你可能需要一个集成开发环境，最好是有函数、变量的提示，方便浏览代码和结果等等优势的软件。那么，我想你说的应该是 <code>Rstudio</code>。</p>
+</div>
+<div id="Rstudioinstall" class="section level2">
+<h2><span class="header-section-number">1.2</span> Rstudio安装</h2>
+<p><code>Step1</code>: 进入下载页面 <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> 。</p>
+<p><code>Step2</code>: 选择<code>free</code>版本的下载。</p>
+<p><code>Step3</code>: 安装，无需配置特别的环境变量等。</p>
+<p>那么，打开<code>Rstudio</code>后，会看到如图<a href="install.html#fig:rstudioface">1.2</a>这样的界面。</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudioface"></span>
+<img src="img/Rstudio.png" alt="Rstudio界面" width="80%" />
+<p class="caption">
+图 1.2: Rstudio界面
+</p>
+</div>
+<p>左上角是撰写代码脚本的区域，左下角是结果输出的窗口。右下角的<code>files</code>可以查看工作路径下的文件，和<code>matlab</code>左侧的栏目是类似的；<code>plots</code>用于查看使用代码绘制的图像，<code>packages</code>可以用于安装<code>CRAN</code>上发布，或者是本地的<code>packages</code>，也就类似<code>matlab</code>的<code>toolbox</code>；<code>help</code>则是用来显示各个函数的帮助文档；<code>Viewer</code>则是用来预览<code>R</code>生成的交互图像(比如<code>plotly</code>绘制的图)，生成的网页(比如我现在正在使用<code>bookdown</code>包来写本手册，那就可以预览生成的<code>gitbook</code>电子书的内容)等等。右上角的<code>Environment</code>显示被加载进来的函数，变量等信息，和<code>matlab</code>的<code>workspace</code>是类似的。 剩下的和本手册无关，可以在后面的开发中慢慢了解。</p>
+</div>
+<div id="rBASinstall" class="section level2">
+<h2><span class="header-section-number">1.3</span> rBAS安装</h2>
+<p>在<code>Rstudio</code>的<code>Console</code>框内输入:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</code></pre></div>
+<p>因为目前<code>rBAS</code>包还不在<code>CRAN</code>内，所以需要通过<code>devtools</code>包，来从<code>github</code>上安装。所以我们先在本地安装<code>devtools</code>包。如果觉得代码敲的累，那么有个更直观的方式，如图<a href="install.html#fig:devtools">1.3</a>：</p>
+<div class="figure" style="text-align: center"><span id="fig:devtools"></span>
+<img src="img/rBAS.png" alt="devtools手动安装示意图" width="80%" />
+<p class="caption">
+图 1.3: devtools手动安装示意图
+</p>
+</div>
+<p>最后，有了<code>devtools</code>包，我们可以从<code>github</code>上安装<code>rBAS</code>包了。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#不加载devtools，只调用其中的函数</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;jywang2016/rBAS&quot;</span>)</code></pre></div>
+<p>接下来，我们可以使用<code>rBAS</code>的函数了。</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="author.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="algorithm.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

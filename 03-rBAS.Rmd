@@ -1,0 +1,412 @@
+# 函数使用 {#rBAS}
+
+首先,加载`rBAS`包，然后在\@ref(basoptim)节到\@ref(bsaswpt)节中，我们详细讲述每个参数的含义。如果可能的话，我会加上调参时的经验（可能只对我的问题有用）。 <img src="img/rBASlogo.png" align="right" />
+
+```{r message=FALSE, warning=FALSE}
+library(rBAS)
+```
+
+打开[网址](https://jywang2016.github.io/rBAS/)，可以看到托管在`github`上的`rBAS`文档。大家可以通过`Reference`来访问里面所有函数的帮助文档，通过`Changelog`来看每次包的更新及`bugs`修复记录。
+
+>文档网页是由[`pkgdown`](http://pkgdown.r-lib.org/)包制作而成，logo由[`hexSticker`](https://github.com/GuangchuangYu/hexSticker)包制作。
+
+## BASoptim {#basoptim}
+
+除了通过访问函数文档网站外，还可以在`R`中输入下面的命令，来查看文档。
+```{r,eval=FALSE}
+help(BASoptim)
+```
+
+### BASoptim参数说明 {#BASparms}
+
+[`BASoptim`函数](https://jywang2016.github.io/rBAS/reference/BASoptim.html)(对应`BAS`算法)调用的格式如下：
+
+```{r,eval=FALSE}
+BASoptim(fn, 
+         init = NULL, 
+         lower = c(-6, 0), upper = c(-1, 2),
+         constr = NULL, pen = 1e+05,
+         d0 = 0.001, d1 = 3, eta_d = 0.95, 
+         l0 = 0,l1 = 0, eta_l = 0.95, 
+         step = 0.8, eta_step = 0.95, 
+         n = 200,steptol = 0.01, 
+         seed = NULL, trace = T )
+```
+
+由于英文蹩脚，所以大家看起包自带的文档会比较吃力。因此，在此处给出中文说明。
+
+- 已知条件：目标函数与约束
+    +   fn  待优化的目标函数
+    +   init  参数初始值，默认为`NULL`，即在上下限内随机选取，也可以自行指定
+    +   constr  不等式约束
+    +   lower/upper 上下限
+    +   pen 惩罚因子$\lambda$
+- `BAS`待调参数
+    +   d0  参见式\@ref(eq:dupdate)中所述的搜索距离（也就是质心到须的距离）参数，一个比较小的值，默认为0.001
+    +   d1  初始的搜索距离，默认为3
+    +   eta_d 搜索距离的衰减系数
+    +   l0/l1/eta_l 这一系列关于$l$ 的参数，来源于**BAS**\index{BAS} [@Jiang2017BAS]论文中给出的`matlab`代码。其作用在于每回合位置更新时，产生一个**随机抖动**$x = x - step * dir * sign(fn(left) - fn(right)) + l *random(npars)$
+    +   step/eta_step 步长以及步长的衰减率
+    +   steptol 停止更新的步长临界值
+    +   n 回合数或者迭代次数
+-   其他
+    +   seed  给定随机种子，用来固定寻优结果。不同的种子，对结果的影响**非常大**。
+    +   trace 是否显示寻优过程信息
+
+### BASoptim简单案例 {#BASexamples}
+
+这里采用**BAS**\index{BAS} [@Jiang2017BAS]一文中给出的测试函数，即`Michalewicz function` 与 `Goldstein-Price function`。
+
+#### Michalewicz function {#BASmich}
+
+$$
+f(x)=\sum_{i=1}^{d=2}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{20}
+$$
+图\@ref(fig:mich)为`Michalewicz`函数在给定的约束范围的三维示意图。可以看到，最小值在$x = -5,y = 1.5$的附近。
+```{r mich, fig.cap=' Michalewicz函数示意', out.width='80%', fig.align='center', echo=FALSE}
+knitr::include_graphics("img/mich.png")
+```
+
+我们先在`R`的脚本中构建出函数：
+```{r}
+# <- 可以视作 = 即用等于号在此处也是可以的 
+mich <- function(x){
+  y1 <- -sin(x[1])*(sin((x[1]^2)/pi))^20
+  y2 <- -sin(x[2])*(sin((2*x[2]^2)/pi))^20
+  return(y1+y2)
+}
+```
+
+然后利用`rBAS`包中的`BASoptim`函数求解：
+```{r}
+# 把BASoptim的寻优结果赋值给test
+test<-
+  BASoptim(fn = mich,
+           lower = c(-6,0), upper = c(-1,2),
+           seed = 1, n = 100,trace = FALSE)
+
+test$par
+test$value
+```
+
+可以看到，`BAS`在100个回合内找到了全局的最小值。非`R`用户可能对上下限的声明有点陌生，`c(-6,0)`中`c()`，其实是声明了一个向量，这也是`R`里面最基本的数据类型，和`matlab`里面的`[-6 0]`效果类似。整体看来，代码还是很简洁的。
+
+#### Goldstein-Price function {#BASgold}
+
+\begin{equation}
+\begin{split}
+f({x})=& [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
+& +6x_1x_2+3x_2^2)][30+(2x_1-3X_2)^2(18-32x_1\notag  \\
+& +12x_1^2+48x_2-36x_1x_2+27x_2^2)]\notag
+\end{split}
+\end{equation}
+
+图\@ref(fig:gold)为`Goldstein-Price`函数在给定的约束范围的三维示意图。可以看到，最小值在$x = -5,y = 1.5$的附近。图\@ref(fig:mich)与\@ref(fig:gold)均使用[`plotly`](https://plot.ly/r/)绘制。
+```{r gold, fig.cap=' Michalewicz函数示意', out.width='80%', fig.align='center', echo=FALSE}
+knitr::include_graphics("img/gold.png")
+```
+
+函数构造：
+```{r}
+gold <- function(x){
+  x1 <- x[1]
+  x2 <- x[2]
+  y1 <- 1 + (x1 + x2 + 1)^2*
+    (19 - 14*x1+3*x1^2 - 14*x2 + 6*x1*x2 + 3*x2^2)
+  y2 <- 30 + (2*x1 -3*x2)^2*
+    (18 - 32*x1 + 12*x1^2+48*x2-36*x1*x2 + 27*x2^2)
+  return(y1*y2)
+}
+```
+
+其中，`x[1]`表示向量`x`的第一个元素。举例，`x = c(1,2)`，那么`x[1]`等于1，`x[2]`等于2。索引从1开始，并不是从0开始（`python`和`C++`用户可能需要在此处注意）。
+
+优化代码：
+```{r}
+test<-
+  BASoptim(fn = gold,
+           lower = c(-2,-2), upper = c(2,2),
+           seed = NULL, n = 100,trace = F)
+
+test$par
+test$value
+```
+
+同样，结果也是给出了全局最优点（或在此附近，继续迭代下去，可能会有更精确更小的值）。
+
+## BSASoptim {#bsasoptim}
+
+[`BSASoptim`函数](https://jywang2016.github.io/rBAS/reference/BSASoptim.html)(对应`BSAS`算法)，在`BAS`的基础上，加入了步长反馈和群体策略。调用的格式如下：
+
+```{r,eval=FALSE}
+BSASoptim(fn, 
+          init = NULL, constr = NULL, 
+          lower = c(-6, 0), upper = c(-1, 2),
+          k = 5, pen = 1e+05,
+          d0 = 0.001, d1 = 3, eta_d = 0.95,
+          l0 = 0, l1 = 0, eta_l = 0.95, 
+          step = 0.8, eta_step = 0.95,steptol = 0.01,
+          n = 200, seed = NULL, trace = T,  
+          p_min = 0.2,p_step = 0.2, n_flag = 2)
+```
+
+### BSASoptim参数说明 {#BSASparms}
+
+与`BAS`相比，`BSAS`在下面几处不同参数：
+
+- k 每回合的外出试探的天牛数目，越多结果会越稳定(多次执行，结果更接近)，但是计算时长会相应增长。适当选取天牛数目，有助于避免随机的初始值和方向带来影响的同时，计算时长也可以接受。
+- p_min 当k只外出的天牛存在超过1只找到了更优的位置，也就是比当前的最佳值要更小。那是否需要**更新到那k只天牛中最优的那一只所在的位置呢**？经过一些尝试，我片面地认为，未必是每次都最佳，最后的位置一定最佳。因此，给定一个概率$p_{min}$。当有2只或以上的天牛找到更好的位置时，会在[0,1]间生成一个随机数，如果大于$p_{min}$，那么就选k只天牛里**最优天牛**作为下次的更新位置牛；如果小于$p_{min}$，那么就在找到了更好的位置的天牛里面，**随机选出**一只天牛，作为下次的更新位置。
+- p_step  想法与`p_min`类同，用于**控制步长反馈策略**。在k只天牛找不到更优位置时，算法认为是步长过大，下一回合天牛位置不更新，且会减小步长。反之，则更新天牛位置，并保持当前步长直至不能找到更优位置。**那么，是否存在由于随机方向的原因，或者是k过小，导致在当前步长条件下，存在更优位置，但是找不到**。这个时候，我们设置一个更新概率$p_{step}$，即在找不到更优的天牛位置下，步长有$p_{step}$概率不更新，继续寻找。
+- n_flag  为了防止设定过大的`p_step`，让数次产生的随机数都小于`p_step`，影响迭代的效率。我们给定了这个参数，默认为2，只要在同一个步长上的无效搜索(因为找不到更优位置而反复搜索)次数保持3次及以上，则会强制更新步长。
+
+### BSASoptim取值摸索 {#BSAStrick}
+
+好吧，用中文说明都这么绕口，何况是我撰写的可怜的英文文档。有同学会问了，为什么要后面那几个概率和什么次数的参数，这不是画蛇添足吗？回答是，这几个参数**来源于生活**···
+
+我在做建筑阻容模型系统辨识时，每回合的寻优，都是在用龙哥库塔法求解一次常微分方程组(`ODEs`)。在我的问题规模下，每回合纯粹的R代码要**耗费0.25s左右**来求解一次这样的`ODEs`。也就是说，在求解目标函数上，程序耗费的时间就有$k*n*0.25$，还不算其他的计算开销。（换言之，用遗传算法，会带来更大的计算开销，因为每回合至少计算10*参数个数次的目标函数）
+
+所以，我必须要结果较好的同时，尽量减少不必要的计算。因此，k不能太大，但是这又会在随机方向的影响下，**错失一些优化的位置**，那就需要`p_step`参数了。但是初始位置或者说中间位置附近的最优，**不代表在这附近或方向上，有全局最优**，所以我还需要`p_min`来保证，我有那么**一丝可能**，跳出**每次都找最优，可是收敛结果与全局最优背离**的怪圈。至于`n_flag`，是因为我之前设置了`p_step`为0.5，所以算法效率极低，几乎每个找不到更优的夜，这些天牛都悲伤地多做数次运行，所以我设置了这个参数。
+
+>还是需要强调，在我的问题里，这些参数起到了较好的效果。但是换成大家的研究，这些参数可能就是被害妄想症的产物了。有意思的是，我在默认参数下执行50次 `Michalewicz` 函数的寻优，效果并没有`BASoptim`好。但在RC模型辨识上，`BSASoptim`远好于`BASoptim`。
+
+接下来就是这几个参数的调节的一些小技巧了。
+
+-   设置`k`为1，那就是带步长反馈的BAS了
+-   如果求解目标函数速度快，可以设置较大的k
+-   `p_step`设置为0，只要k只天牛找不到最优位置，步长就会更新；不存在不更新继续找的可能
+-   `p_step`设置为1，那算法会在一个步长下一直执行，直到找到更优的位置，才会更新步长
+-   `p_min`设置为0，在k只出去试探的天牛中找到了更优的位置时，那么当前时刻的天牛，总会选择这k只中最好的一只的位置来作为下一时刻的位置
+-   `p_min`设置为1，下一时刻的位置是k只中更优天牛的位置的随机选择
+-   为了求解效率，`p_step`会选择较小的值；`p_min`我也没有摸清楚个规律，但是在我的研究对象中，为0得到的结果在多次试验中，整体看来没有为较小值0.2好。
+
+上述是我在自身研究方向上摸出的规律，可能问题的类型不同，需要做的取舍也不同。大家可以保持默认参数，然后进行符合自身情况的微调。更为详细的结果可以参见**BSAS**\index{BSAS} [@Wang2018BSAS]论文。
+
+### BSASoptim案例 {#BSASexample}
+
+#### Michalewicz function
+
+不做过多的阐述对于此案例，可以参看\@ref(BASmich)节。
+
+```{r}
+library(rBAS)
+mich <- function(x){
+   y1 <- -sin(x[1])*(sin((x[1]^2)/pi))^20
+   y2 <- -sin(x[2])*(sin((2*x[2]^2)/pi))^20
+   return(y1+y2)
+}
+result <- BSASoptim(fn = mich,
+                    lower = c(-6,0), upper = c(-1,2),
+                    seed = 1, n = 100,k=5,step = 0.6,
+                    trace = FALSE)
+result$par
+result$value
+```
+
+#### Pressure Vessel function {#BSASpv}
+
+使用**BAS-WPT**\index{BAS-WPT}[@Jiangwpt]
+论文中压力容器优化函数来测试`BSASoptim`处理约束的能力。问题背景如下：
+
+
+\begin{align}
+\text{minimize} f(\mathbf{x}) = &0.6224x_1x_3x_4+1.7781x_2x^2_3 \notag\\
+&+3.1661x^2_1x_4 + 19.84x^2_1x_3 \notag \\
+s.t. ~~ g_1(\mathbf{x}) = & -x1 + 0.0193x_3 \leq 0 \notag \\
+g_2(\mathbf{x}) = & -x_2 + 0.00954x_3 \leq 0 \notag \\
+g_3(\mathbf{x}) = & -\pi x^2_3x_4 -\frac{4}{3}\pi x^3_3 + 1296000 \leq 0 \notag \\
+g_4(\mathbf{x}) = & x_4-240\leq 0 \notag \\
+x_1 \in& \{1,2,3,\cdots,99\}\times0.0625 \notag \\
+x_2 \in& \{1,2,3,\cdots,99\}\times0.0625 \notag \\
+x_3 \in& [10,200] \notag \\
+x_4 \in& [10,200] \notag \\
+(\#eq:PV)
+\end{align}
+
+构造一个列表，也就是`list()`。其中包含有2个函数，一个是我们的目标函数`obj`，一个是我们的不等式约束函数`con`。为了方便起见，我并没有写每一个函数的返回值，那么，`R`会自动返回计算的最后一个对象。比如，在`obj`函数中，是`result`变量（标量）被返回。而在`con`函数中，是由`c()`声明的向量被返回。
+```{r}
+pressure_Vessel <- list(
+  obj = function(x){
+    x1 <- floor(x[1])*0.0625
+    x2 <- floor(x[2])*0.0625
+    x3 <- x[3]
+    x4 <- x[4]
+    result <- 0.6224*x1*x3*x4 + 
+      1.7781*x2*x3^2 +
+      3.1611*x1^2*x4 + 
+      19.84*x1^2*x3
+  },
+  con = function(x){
+    x1 <- floor(x[1])*0.0625
+    x2 <- floor(x[2])*0.0625
+    x3 <- x[3]
+    x4 <- x[4]
+    c(#把所有的不等式约束，全部写为小于等于0的形式
+      0.0193*x3 - x1,
+      0.00954*x3 - x2,
+      750.0*1728.0 - pi*x3^2*x4 - 4/3*pi*x3^3
+    )
+  }
+)
+```
+
+使用`BSASoptim`函数进行优化。需要注意的是,`pressure_Vessel`是一个列表，对于其中包含的元素，使用`$`符号进行访问。也可以使用`[[`符号，即 `pressure_Vessel$obj` 等价于 `pressure_Vessel[[1]]`。
+```{r}
+result <- BSASoptim(fn = pressure_Vessel$obj,
+                    k = 5,
+                    lower =c( 1, 1, 10, 10),
+                    upper = c(100, 100, 200, 200),
+                    constr = pressure_Vessel$con,
+                    n = 200,
+                    step = 100,
+                    d1 = 5,
+                    pen = 1e6,
+                    steptol = 1e-6,
+                    n_flag = 2,
+                    seed = 2,trace = FALSE)
+
+result$par
+result$value
+```
+
+可以看到结果与论文**BAS-WPT**\index{BAS-WPT}[@Jiangwpt]中`TABLE 1`给出的优化值还是有一定的差距。不过，这也让我意识到了，对于**复杂的优化问题，调试其中的参数是个困难的活**。歧路亡羊呀！
+
+好在，改进后的`BSAS-WPT`能够比较好地得到不逊于**BAS-WPT**\index{BAS-WPT}[@Jiangwpt]中的结果（在\@ref(bsaswptexample)节可以看到）。更多更优地结果，等待你去调参，如果你还有勇气的话。
+
+#### Himmelblau function {#BSAShim}
+
+\begin{align}
+\text{minimize} f(\mathbf{x}) =& 5.3578547x^2_3 +0.8356891x_1x_5\notag \\
+&+ 37.29329x_1 - 40792.141 \notag\\
+s.t. ~~g_1(\mathbf{x}) =& 85.334407 + 0.0056858x_2x_5\notag\\
+&+ 0.00026x_1x_4 - 0.0022053x_3x_5  \notag\\
+g_2(\mathbf{x}) =&80.51249 +0.0071317x_2x_5\notag\\
+&+ 0.0029955x_1x_2 + 0.0021813x^2_3  \notag\\
+g_3(\mathbf{x}) =& 9.300961 +0.0047026x_3x_5\notag\\
+&+ 0.0012547x_1x_3 + 0.0019085x_3x_4 \notag\\
+g_1(\mathbf{x})\in&[0,92] \notag\\
+g_2(\mathbf{x})\in&[90,110] \notag\\
+g_3(\mathbf{x})\in&[20,25] \notag\\
+x_1\in&[78,102] \notag\\
+x_2\in&[33,45] \notag\\
+x_3\in&[27,45] \notag\\
+x_4\in&[27,45] \notag\\
+x_5\in&[27,45] \notag\\
+(\#eq:him)
+\end{align}
+
+构造优化目标函数和约束：
+```{r}
+himmelblau <- list(
+  obj = function(x){
+    x1 <- x[1]
+    x3 <- x[3]
+    x5 <- x[5]
+    result <- 5.3578547*x3^2 + 
+      0.8356891*x1*x5 + 
+      37.29329*x[1] - 
+      40792.141
+  },
+  con = function(x){
+    x1 <- x[1]
+    x2 <- x[2]
+    x3 <- x[3]
+    x4 <- x[4]
+    x5 <- x[5]
+    g1 <- 85.334407 + 0.0056858*x2*x5 + 
+      0.00026*x1*x4 - 0.0022053*x3*x5
+    g2 <- 80.51249 + 0.0071317*x2*x5 + 
+      0.0029955*x1*x2 + 0.0021813*x3^2
+    g3 <- 9.300961 + 0.0047026*x3*x5 + 
+      0.0012547*x1*x3 + 0.0019085*x3*x4
+    c(
+      -g1,
+      g1-92,
+      90-g2,
+      g2 - 110,
+      20 - g3,
+      g3 - 25
+    )
+  }
+)
+```
+
+使用`BSASoptim`函数进行优化：
+```{r}
+result <- BSASoptim(fn = himmelblau$obj,
+                    k = 5,
+                    lower =c(78,33,27,27,27),
+                    upper = c(102,45,45,45,45),
+                    constr = himmelblau$con,
+                    n = 200,
+                    step = 100,
+                    d1 = 10,
+                    pen = 1e6,
+                    steptol = 1e-6,
+                    n_flag = 2,
+                    seed = 11,trace = FALSE)
+result$par 
+result$value
+```
+
+这个结果，比**BAS-WPT**\index{BAS-WPT}[@Jiangwpt]中`TABLE 2`记载的结果都要好。但只要你愿意调差，嘿嘿，总有更好的。
+
+## BSAS-WPT {#bsaswpt}
+
+在进行`BSAS-WPT`参数讲解的这一部分前，我想问个问题。在式\@ref(eq:PV)和式\@ref(eq:him)中，我们可以看到，有些$x_i$的约束范围较小，有的较大。比如，压力容器中，$x_1$和$x_2$就偏小，只是经过提取出0.0625，勉强能达到$x_3$和$x_4$的一半。那么，如果某些优化问题，其参数约束范围之间，相差了量级，该**如何选择步长**呢？这就是`WPT`的便捷之处了。
+
+[`BSAS-WPT`函数](https://jywang2016.github.io/rBAS/reference/BSAS_WPT.html)(对应`BSAS-WPT`算法)调用的格式如下：
+
+```{r,eval=FALSE}
+BSAS_WPT(fn, 
+         init = NULL, 
+         lower = c(-6, 0), upper = c(-1, 2),
+         k = 5, constr = NULL, pen = 1e+05, 
+         c2 = 5, 
+         step = 1, eta_step = 0.95,steptol = 0.001, 
+         n = 200, seed = NULL, trace = T, 
+         p_min = 0.2,p_step = 0.2, n_flag = 2)
+```
+
+### BSAS-WPT 参数说明{#bsaswptparms}
+
+与`BSAS`相比，除去我人为略去的抖动部分，减少了搜索距离`d`相关的参数，这些用`c2`来替代。而初始步长`step`，我们可以设定为一个在1附近的数。由于算法先标准化了参数，然后根据式\@ref(eq:xupdate)在计算位置后，再根据上下限进行反标准化，而后导入目标函数。所以，你可以认为，`BSAS`中，把step变成一个$n$维的向量，假设$n$是参数个数，每个步长元素都根据参数的约束范围大小来设定，那么算法就会变成`BSAS-WPT`。
+
+总之，现在要调节的参数，主要有2个，即`c2`和`step`。
+
+### BSAS-WPT 案例{#bsaswptexample}
+
+我们使用和`BSASoptim`函数相同的例子来对比效果。但是，这些效果都是不固定的，即给定不同的参数，结果也会不同，所以不能根据一次结果评价算法的优劣。
+
+####  Pressure Vessel function {#bsaswptPV}
+
+```{r}
+result <- BSAS_WPT(fn = pressure_Vessel$obj,
+                   k = 8,
+                   lower =c( 1, 1, 10, 10),
+                   upper = c(100, 100, 200, 200),
+                   constr = pressure_Vessel$con,
+                   c2 = 10, n = 200, step = 2,
+                   seed = 1,
+                   n_flag = 3,
+                   trace = FALSE,
+                   steptol = 1e-6)
+result$par
+result$value
+```
+
+
+####  Himmelblau function {#bsaswpthim}
+
+```{r}
+result <- BSAS_WPT(fn = himmelblau$obj,
+                   k = 10,
+                   lower =c(78,33,27,27,27),
+                   upper = c(102,45,45,45,45),
+                   constr = himmelblau$con,
+                   c2 = 5, n = 200, step = 1.6,
+                   pen = 1e5,trace = FALSE,seed = 11)
+result$par 
+result$value 
+```
+
+`BSAS-WPT`没有做过多的参数调节，即可获得更畅快地优化体验。举例，在对`Himmelblau`函数进行优化时，我仅仅设定了随机种子`seed`，然后把`step`从1调到了2，看了看效果的变化。发现都不错，最后每隔0.1选取`step`，试探最好的效果在哪里，于是就成了上面的例子。 如果把这一套，放在`BSASoptim`函数上，对于复杂的优化问题，就**成了一种折磨**。

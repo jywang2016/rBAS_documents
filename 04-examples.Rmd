@@ -1,0 +1,14 @@
+# BAS案例 {#examples}
+
+## 多杆机构优化问题 
+
+> 由莫小娟同学提供案例，尚待补全
+
+```{r multibars,fig.cap='多杆机构优化',echo=FALSE,fig.align='center'}
+if (knitr:::is_latex_output()) {
+  knitr::asis_output('\\url{img/case3.gif}')
+} else {
+  knitr::include_graphics("img/case3.gif")
+}
+```
+

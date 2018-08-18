@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>rBAS使用文档</title>
+  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="rBAS使用文档" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="github-repo" content="jywang2016/rBAS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="rBAS使用文档" />
+  
+  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  
+
+<meta name="author" content="王江宇">
+
+
+<meta name="date" content="2018-08-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="algorithm.html">
+<link rel="next" href="examples.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rBAS中文文档</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a><ul>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html#e4bd9ce88085e4bfa1e681af"><i class="fa fa-check"></i>作者信息</a></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html#e794a8e688b7e7958ce99da2e9878ce79a84e4bd9ce88085e4bfa1e681af"><i class="fa fa-check"></i>用户界面里的作者信息</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#Rinstall"><i class="fa fa-check"></i><b>1.1</b> R安装</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#Rstudioinstall"><i class="fa fa-check"></i><b>1.2</b> Rstudio安装</a></li>
+<li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#rBASinstall"><i class="fa fa-check"></i><b>1.3</b> rBAS安装</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="algorithm.html"><a href="algorithm.html"><i class="fa fa-check"></i><b>2</b> 算法原理</a><ul>
+<li class="chapter" data-level="2.1" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>2.1</b> BAS</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="algorithm.html"><a href="algorithm.html#BASflow"><i class="fa fa-check"></i><b>2.1.1</b> 算法流程</a></li>
+<li class="chapter" data-level="2.1.2" data-path="algorithm.html"><a href="algorithm.html#BASimprove"><i class="fa fa-check"></i><b>2.1.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="algorithm.html"><a href="algorithm.html#bsas"><i class="fa fa-check"></i><b>2.2</b> BSAS</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="algorithm.html"><a href="algorithm.html#BSASflow"><i class="fa fa-check"></i><b>2.2.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.2.2" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.2.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>3</b> 函数使用</a><ul>
+<li class="chapter" data-level="3.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>3.1</b> BASoptim</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>3.1.1</b> BASoptim参数说明</a></li>
+<li class="chapter" data-level="3.1.2" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>3.1.2</b> BASoptim简单案例</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>3.2</b> BSASoptim</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>3.2.1</b> BSASoptim参数说明</a></li>
+<li class="chapter" data-level="3.2.2" data-path="rBAS.html"><a href="rBAS.html#BSAStrick"><i class="fa fa-check"></i><b>3.2.2</b> BSASoptim取值摸索</a></li>
+<li class="chapter" data-level="3.2.3" data-path="rBAS.html"><a href="rBAS.html#BSASexample"><i class="fa fa-check"></i><b>3.2.3</b> BSASoptim案例</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="rBAS.html"><a href="rBAS.html#bsaswpt"><i class="fa fa-check"></i><b>3.3</b> BSAS-WPT</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="rBAS.html"><a href="rBAS.html#bsaswptparms"><i class="fa fa-check"></i><b>3.3.1</b> BSAS-WPT 参数说明</a></li>
+<li class="chapter" data-level="3.3.2" data-path="rBAS.html"><a href="rBAS.html#bsaswptexample"><i class="fa fa-check"></i><b>3.3.2</b> BSAS-WPT 案例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>4</b> BAS案例</a><ul>
+<li class="chapter" data-level="4.1" data-path="examples.html"><a href="examples.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 多杆机构优化问题</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>5</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="5.1" data-path="updates.html"><a href="updates.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="5.2" data-path="updates.html"><a href="updates.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 联系方式</a></li>
+</ul></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rBAS使用文档</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rBAS" class="section level1">
+<h1><span class="header-section-number">第 3 章</span> 函数使用</h1>
+<p>首先,加载<code>rBAS</code>包，然后在<a href="rBAS.html#basoptim">3.1</a>节到<a href="rBAS.html#bsaswpt">3.3</a>节中，我们详细讲述每个参数的含义。如果可能的话，我会加上调参时的经验（可能只对我的问题有用）。 <img src="img/rBASlogo.png" align="right" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)</code></pre></div>
+<p>打开<a href="https://jywang2016.github.io/rBAS/">网址</a>，可以看到托管在<code>github</code>上的<code>rBAS</code>文档。大家可以通过<code>Reference</code>来访问里面所有函数的帮助文档，通过<code>Changelog</code>来看每次包的更新及<code>bugs</code>修复记录。</p>
+<blockquote>
+<p>文档网页是由<a href="http://pkgdown.r-lib.org/"><code>pkgdown</code></a>包制作而成，logo由<a href="https://github.com/GuangchuangYu/hexSticker"><code>hexSticker</code></a>包制作。</p>
+</blockquote>
+<div id="basoptim" class="section level2">
+<h2><span class="header-section-number">3.1</span> BASoptim</h2>
+<p>除了通过访问函数文档网站外，还可以在<code>R</code>中输入下面的命令，来查看文档。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(BASoptim)</code></pre></div>
+<div id="BASparms" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> BASoptim参数说明</h3>
+<p><a href="https://jywang2016.github.io/rBAS/reference/BASoptim.html"><code>BASoptim</code>函数</a>(对应<code>BAS</code>算法)调用的格式如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BASoptim</span>(fn, 
+         <span class="dt">init =</span> <span class="ot">NULL</span>, 
+         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
+         <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,
+         <span class="dt">d0 =</span> <span class="fl">0.001</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.95</span>, 
+         <span class="dt">l0 =</span> <span class="dv">0</span>,<span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>, 
+         <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>, 
+         <span class="dt">n =</span> <span class="dv">200</span>,<span class="dt">steptol =</span> <span class="fl">0.01</span>, 
+         <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T )</code></pre></div>
+<p>由于英文蹩脚，所以大家看起包自带的文档会比较吃力。因此，在此处给出中文说明。</p>
+<ul>
+<li>已知条件：目标函数与约束
+<ul>
+<li>fn 待优化的目标函数</li>
+<li>init 参数初始值，默认为<code>NULL</code>，即在上下限内随机选取，也可以自行指定</li>
+<li>constr 不等式约束</li>
+<li>lower/upper 上下限</li>
+<li>pen 惩罚因子<span class="math inline">\(\lambda\)</span></li>
+</ul></li>
+<li><code>BAS</code>待调参数
+<ul>
+<li>d0 参见式<a href="algorithm.html#eq:dupdate">(2.4)</a>中所述的搜索距离（也就是质心到须的距离）参数，一个比较小的值，默认为0.001</li>
+<li>d1 初始的搜索距离，默认为3</li>
+<li>eta_d 搜索距离的衰减系数</li>
+<li>l0/l1/eta_l 这一系列关于<span class="math inline">\(l\)</span> 的参数，来源于<strong>BAS</strong> <span class="citation">(Jiang Xiangyuan <a href="#ref-Jiang2017BAS">2017</a><a href="#ref-Jiang2017BAS">a</a>)</span>论文中给出的<code>matlab</code>代码。其作用在于每回合位置更新时，产生一个<strong>随机抖动</strong><span class="math inline">\(x = x - step * dir * sign(fn(left) - fn(right)) + l *random(npars)\)</span></li>
+<li>step/eta_step 步长以及步长的衰减率</li>
+<li>steptol 停止更新的步长临界值</li>
+<li>n 回合数或者迭代次数</li>
+</ul></li>
+<li>其他
+<ul>
+<li>seed 给定随机种子，用来固定寻优结果。不同的种子，对结果的影响<strong>非常大</strong>。</li>
+<li>trace 是否显示寻优过程信息</li>
+</ul></li>
+</ul>
+</div>
+<div id="BASexamples" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> BASoptim简单案例</h3>
+<p>这里采用<strong>BAS</strong> <span class="citation">(Jiang Xiangyuan <a href="#ref-Jiang2017BAS">2017</a><a href="#ref-Jiang2017BAS">a</a>)</span>一文中给出的测试函数，即<code>Michalewicz function</code> 与 <code>Goldstein-Price function</code>。</p>
+<div id="BASmich" class="section level4">
+<h4><span class="header-section-number">3.1.2.1</span> Michalewicz function</h4>
+<span class="math display">\[
+f(x)=\sum_{i=1}^{d=2}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{20}
+\]</span> 图<a href="rBAS.html#fig:mich">3.1</a>为<code>Michalewicz</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。
+<div class="figure" style="text-align: center"><span id="fig:mich"></span>
+<img src="img/Mich.png" alt=" Michalewicz函数示意" width="80%" />
+<p class="caption">
+图 3.1:  Michalewicz函数示意
+</p>
+</div>
+<p>我们先在<code>R</code>的脚本中构建出函数：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># &lt;- 可以视作 = 即用等于号在此处也是可以的 </span>
+mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+  <span class="kw">return</span>(y1<span class="op">+</span>y2)
+}</code></pre></div>
+<p>然后利用<code>rBAS</code>包中的<code>BASoptim</code>函数求解：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 把BASoptim的寻优结果赋值给test</span>
+test&lt;-
+<span class="st">  </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> mich,
+           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
+           <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
+
+test<span class="op">$</span>par</code></pre></div>
+<pre><code>## [1] -4.964687  1.575415</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] -1.966817</code></pre>
+<p>可以看到，<code>BAS</code>在100个回合内找到了全局的最小值。非<code>R</code>用户可能对上下限的声明有点陌生，<code>c(-6,0)</code>中<code>c()</code>，其实是声明了一个向量，这也是<code>R</code>里面最基本的数据类型，和<code>matlab</code>里面的<code>[-6 0]</code>效果类似。整体看来，代码还是很简洁的。</p>
+</div>
+<div id="BASgold" class="section level4">
+<h4><span class="header-section-number">3.1.2.2</span> Goldstein-Price function</h4>
+<span class="math display">\[\begin{equation}
+\begin{split}
+f({x})=&amp; [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
+&amp; +6x_1x_2+3x_2^2)][30+(2x_1-3X_2)^2(18-32x_1\notag  \\
+&amp; +12x_1^2+48x_2-36x_1x_2+27x_2^2)]\notag
+\end{split}
+\end{equation}\]</span>
+图<a href="rBAS.html#fig:gold">3.2</a>为<code>Goldstein-Price</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。图<a href="rBAS.html#fig:mich">3.1</a>与<a href="rBAS.html#fig:gold">3.2</a>均使用<a href="https://plot.ly/r/"><code>plotly</code></a>绘制。
+<div class="figure" style="text-align: center"><span id="fig:gold"></span>
+<img src="img/Gold.png" alt=" Michalewicz函数示意" width="80%" />
+<p class="caption">
+图 3.2:  Michalewicz函数示意
+</p>
+</div>
+<p>函数构造：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gold &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]
+  x2 &lt;-<span class="st"> </span>x[<span class="dv">2</span>]
+  y1 &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(x1 <span class="op">+</span><span class="st"> </span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>
+<span class="st">    </span>(<span class="dv">19</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span><span class="op">*</span>x1<span class="op">+</span><span class="dv">3</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span><span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">6</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>)
+  y2 &lt;-<span class="st"> </span><span class="dv">30</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>x1 <span class="op">-</span><span class="dv">3</span><span class="op">*</span>x2)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>
+<span class="st">    </span>(<span class="dv">18</span> <span class="op">-</span><span class="st"> </span><span class="dv">32</span><span class="op">*</span>x1 <span class="op">+</span><span class="st"> </span><span class="dv">12</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="dv">48</span><span class="op">*</span>x2<span class="op">-</span><span class="dv">36</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">27</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>)
+  <span class="kw">return</span>(y1<span class="op">*</span>y2)
+}</code></pre></div>
+<p>其中，<code>x[1]</code>表示向量<code>x</code>的第一个元素。举例，<code>x = c(1,2)</code>，那么<code>x[1]</code>等于1，<code>x[2]</code>等于2。索引从1开始，并不是从0开始（<code>python</code>和<code>C++</code>用户可能需要在此处注意）。</p>
+<p>优化代码：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test&lt;-
+<span class="st">  </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> gold,
+           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),
+           <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> F)
+
+test<span class="op">$</span>par</code></pre></div>
+<pre><code>## [1]  0.001870855 -0.996496153</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] 3.004756</code></pre>
+<p>同样，结果也是给出了全局最优点（或在此附近，继续迭代下去，可能会有更精确更小的值）。</p>
+</div>
+</div>
+</div>
+<div id="bsasoptim" class="section level2">
+<h2><span class="header-section-number">3.2</span> BSASoptim</h2>
+<p><a href="https://jywang2016.github.io/rBAS/reference/BSASoptim.html"><code>BSASoptim</code>函数</a>(对应<code>BSAS</code>算法)，在<code>BAS</code>的基础上，加入了步长反馈和群体策略。调用的格式如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSASoptim</span>(fn, 
+          <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, 
+          <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
+          <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,
+          <span class="dt">d0 =</span> <span class="fl">0.001</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.95</span>,
+          <span class="dt">l0 =</span> <span class="dv">0</span>, <span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>, 
+          <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>,<span class="dt">steptol =</span> <span class="fl">0.01</span>,
+          <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T,  
+          <span class="dt">p_min =</span> <span class="fl">0.2</span>,<span class="dt">p_step =</span> <span class="fl">0.2</span>, <span class="dt">n_flag =</span> <span class="dv">2</span>)</code></pre></div>
+<div id="BSASparms" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> BSASoptim参数说明</h3>
+<p>与<code>BAS</code>相比，<code>BSAS</code>在下面几处不同参数：</p>
+<ul>
+<li>k 每回合的外出试探的天牛数目，越多结果会越稳定(多次执行，结果更接近)，但是计算时长会相应增长。适当选取天牛数目，有助于避免随机的初始值和方向带来影响的同时，计算时长也可以接受。</li>
+<li>p_min 当k只外出的天牛存在超过1只找到了更优的位置，也就是比当前的最佳值要更小。那是否需要<strong>更新到那k只天牛中最优的那一只所在的位置呢</strong>？经过一些尝试，我片面地认为，未必是每次都最佳，最后的位置一定最佳。因此，给定一个概率<span class="math inline">\(p_{min}\)</span>。当有2只或以上的天牛找到更好的位置时，会在[0,1]间生成一个随机数，如果大于<span class="math inline">\(p_{min}\)</span>，那么就选k只天牛里<strong>最优天牛</strong>作为下次的更新位置牛；如果小于<span class="math inline">\(p_{min}\)</span>，那么就在找到了更好的位置的天牛里面，<strong>随机选出</strong>一只天牛，作为下次的更新位置。</li>
+<li>p_step 想法与<code>p_min</code>类同，用于<strong>控制步长反馈策略</strong>。在k只天牛找不到更优位置时，算法认为是步长过大，下一回合天牛位置不更新，且会减小步长。反之，则更新天牛位置，并保持当前步长直至不能找到更优位置。<strong>那么，是否存在由于随机方向的原因，或者是k过小，导致在当前步长条件下，存在更优位置，但是找不到</strong>。这个时候，我们设置一个更新概率<span class="math inline">\(p_{step}\)</span>，即在找不到更优的天牛位置下，步长有<span class="math inline">\(p_{step}\)</span>概率不更新，继续寻找。</li>
+<li>n_flag 为了防止设定过大的<code>p_step</code>，让数次产生的随机数都小于<code>p_step</code>，影响迭代的效率。我们给定了这个参数，默认为2，只要在同一个步长上的无效搜索(因为找不到更优位置而反复搜索)次数保持3次及以上，则会强制更新步长。</li>
+</ul>
+</div>
+<div id="BSAStrick" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> BSASoptim取值摸索</h3>
+<p>好吧，用中文说明都这么绕口，何况是我撰写的可怜的英文文档。有同学会问了，为什么要后面那几个概率和什么次数的参数，这不是画蛇添足吗？回答是，这几个参数<strong>来源于生活</strong>···</p>
+<p>我在做建筑阻容模型系统辨识时，每回合的寻优，都是在用龙哥库塔法求解一次常微分方程组(<code>ODEs</code>)。在我的问题规模下，每回合纯粹的R代码要<strong>耗费0.25s左右</strong>来求解一次这样的<code>ODEs</code>。也就是说，在求解目标函数上，程序耗费的时间就有<span class="math inline">\(k*n*0.25\)</span>，还不算其他的计算开销。（换言之，用遗传算法，会带来更大的计算开销，因为每回合至少计算10*参数个数次的目标函数）</p>
+<p>所以，我必须要结果较好的同时，尽量减少不必要的计算。因此，k不能太大，但是这又会在随机方向的影响下，<strong>错失一些优化的位置</strong>，那就需要<code>p_step</code>参数了。但是初始位置或者说中间位置附近的最优，<strong>不代表在这附近或方向上，有全局最优</strong>，所以我还需要<code>p_min</code>来保证，我有那么<strong>一丝可能</strong>，跳出<strong>每次都找最优，可是收敛结果与全局最优背离</strong>的怪圈。至于<code>n_flag</code>，是因为我之前设置了<code>p_step</code>为0.5，所以算法效率极低，几乎每个找不到更优的夜，这些天牛都悲伤地多做数次运行，所以我设置了这个参数。</p>
+<blockquote>
+<p>还是需要强调，在我的问题里，这些参数起到了较好的效果。但是换成大家的研究，这些参数可能就是被害妄想症的产物了。有意思的是，我在默认参数下执行50次 <code>Michalewicz</code> 函数的寻优，效果并没有<code>BASoptim</code>好。但在RC模型辨识上，<code>BSASoptim</code>远好于<code>BASoptim</code>。</p>
+</blockquote>
+<p>接下来就是这几个参数的调节的一些小技巧了。</p>
+<ul>
+<li>设置<code>k</code>为1，那就是带步长反馈的BAS了</li>
+<li>如果求解目标函数速度快，可以设置较大的k</li>
+<li><code>p_step</code>设置为0，只要k只天牛找不到最优位置，步长就会更新；不存在不更新继续找的可能</li>
+<li><code>p_step</code>设置为1，那算法会在一个步长下一直执行，直到找到更优的位置，才会更新步长</li>
+<li><code>p_min</code>设置为0，在k只出去试探的天牛中找到了更优的位置时，那么当前时刻的天牛，总会选择这k只中最好的一只的位置来作为下一时刻的位置</li>
+<li><code>p_min</code>设置为1，下一时刻的位置是k只中更优天牛的位置的随机选择</li>
+<li>为了求解效率，<code>p_step</code>会选择较小的值；<code>p_min</code>我也没有摸清楚个规律，但是在我的研究对象中，为0得到的结果在多次试验中，整体看来没有为较小值0.2好。</li>
+</ul>
+<p>上述是我在自身研究方向上摸出的规律，可能问题的类型不同，需要做的取舍也不同。大家可以保持默认参数，然后进行符合自身情况的微调。更为详细的结果可以参见<strong>BSAS</strong> <span class="citation">(Wang Jiangyu <a href="#ref-Wang2018BSAS">2018</a>)</span>论文。</p>
+</div>
+<div id="BSASexample" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> BSASoptim案例</h3>
+<div id="michalewicz-function" class="section level4">
+<h4><span class="header-section-number">3.2.3.1</span> Michalewicz function</h4>
+<p>不做过多的阐述对于此案例，可以参看<a href="rBAS.html#BASmich">3.1.2.1</a>节。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
+mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+   y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+   y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+   <span class="kw">return</span>(y1<span class="op">+</span>y2)
+}
+result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> mich,
+                    <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
+                    <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">k=</span><span class="dv">5</span>,<span class="dt">step =</span> <span class="fl">0.6</span>,
+                    <span class="dt">trace =</span> <span class="ot">FALSE</span>)
+result<span class="op">$</span>par</code></pre></div>
+<pre><code>## [1] -4.970202  1.578791</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] -1.963534</code></pre>
+</div>
+<div id="BSASpv" class="section level4">
+<h4><span class="header-section-number">3.2.3.2</span> Pressure Vessel function</h4>
+<p>使用<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span> 论文中压力容器优化函数来测试<code>BSASoptim</code>处理约束的能力。问题背景如下：</p>
+<span class="math display" id="eq:PV">\[\begin{align}
+\text{minimize} f(\mathbf{x}) = &amp;0.6224x_1x_3x_4+1.7781x_2x^2_3 \notag\\
+&amp;+3.1661x^2_1x_4 + 19.84x^2_1x_3 \notag \\
+s.t. ~~ g_1(\mathbf{x}) = &amp; -x1 + 0.0193x_3 \leq 0 \notag \\
+g_2(\mathbf{x}) = &amp; -x_2 + 0.00954x_3 \leq 0 \notag \\
+g_3(\mathbf{x}) = &amp; -\pi x^2_3x_4 -\frac{4}{3}\pi x^3_3 + 1296000 \leq 0 \notag \\
+g_4(\mathbf{x}) = &amp; x_4-240\leq 0 \notag \\
+x_1 \in&amp; \{1,2,3,\cdots,99\}\times0.0625 \notag \\
+x_2 \in&amp; \{1,2,3,\cdots,99\}\times0.0625 \notag \\
+x_3 \in&amp; [10,200] \notag \\
+x_4 \in&amp; [10,200] \notag \\
+\tag{3.1}
+\end{align}\]</span>
+<p>构造一个列表，也就是<code>list()</code>。其中包含有2个函数，一个是我们的目标函数<code>obj</code>，一个是我们的不等式约束函数<code>con</code>。为了方便起见，我并没有写每一个函数的返回值，那么，<code>R</code>会自动返回计算的最后一个对象。比如，在<code>obj</code>函数中，是<code>result</code>变量（标量）被返回。而在<code>con</code>函数中，是由<code>c()</code>声明的向量被返回。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pressure_Vessel &lt;-<span class="st"> </span><span class="kw">list</span>(
+  <span class="dt">obj =</span> <span class="cf">function</span>(x){
+    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span>
+    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span>
+    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
+    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
+    result &lt;-<span class="st"> </span><span class="fl">0.6224</span><span class="op">*</span>x1<span class="op">*</span>x3<span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">1.7781</span><span class="op">*</span>x2<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span>
+<span class="st">      </span><span class="fl">3.1611</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">19.84</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3
+  },
+  <span class="dt">con =</span> <span class="cf">function</span>(x){
+    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span>
+    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span>
+    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
+    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
+    <span class="kw">c</span>(<span class="co">#把所有的不等式约束，全部写为小于等于0的形式</span>
+      <span class="fl">0.0193</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x1,
+      <span class="fl">0.00954</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x2,
+      <span class="fl">750.0</span><span class="op">*</span><span class="fl">1728.0</span> <span class="op">-</span><span class="st"> </span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">3</span>
+    )
+  }
+)</code></pre></div>
+<p>使用<code>BSASoptim</code>函数进行优化。需要注意的是,<code>pressure_Vessel</code>是一个列表，对于其中包含的元素，使用<code>$</code>符号进行访问。也可以使用<code>[[</code>符号，即 <code>pressure_Vessel$obj</code> 等价于 <code>pressure_Vessel[[1]]</code>。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,
+                    <span class="dt">k =</span> <span class="dv">5</span>,
+                    <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),
+                    <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),
+                    <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,
+                    <span class="dt">n =</span> <span class="dv">200</span>,
+                    <span class="dt">step =</span> <span class="dv">100</span>,
+                    <span class="dt">d1 =</span> <span class="dv">5</span>,
+                    <span class="dt">pen =</span> <span class="fl">1e6</span>,
+                    <span class="dt">steptol =</span> <span class="fl">1e-6</span>,
+                    <span class="dt">n_flag =</span> <span class="dv">2</span>,
+                    <span class="dt">seed =</span> <span class="dv">2</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
+
+result<span class="op">$</span>par</code></pre></div>
+<pre><code>## [1]  14.92195   7.87620  43.51377 159.87104</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] 6309.406</code></pre>
+<p>可以看到结果与论文<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span>中<code>TABLE 1</code>给出的优化值还是有一定的差距。不过，这也让我意识到了，对于<strong>复杂的优化问题，调试其中的参数是个困难的活</strong>。歧路亡羊呀！</p>
+<p>好在，改进后的<code>BSAS-WPT</code>能够比较好地得到不逊于<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span>中的结果（在<a href="rBAS.html#bsaswptexample">3.3.2</a>节可以看到）。更多更优地结果，等待你去调参，如果你还有勇气的话。</p>
+</div>
+<div id="BSAShim" class="section level4">
+<h4><span class="header-section-number">3.2.3.3</span> Himmelblau function</h4>
+<span class="math display" id="eq:him">\[\begin{align}
+\text{minimize} f(\mathbf{x}) =&amp; 5.3578547x^2_3 +0.8356891x_1x_5\notag \\
+&amp;+ 37.29329x_1 - 40792.141 \notag\\
+s.t. ~~g_1(\mathbf{x}) =&amp; 85.334407 + 0.0056858x_2x_5\notag\\
+&amp;+ 0.00026x_1x_4 - 0.0022053x_3x_5  \notag\\
+g_2(\mathbf{x}) =&amp;80.51249 +0.0071317x_2x_5\notag\\
+&amp;+ 0.0029955x_1x_2 + 0.0021813x^2_3  \notag\\
+g_3(\mathbf{x}) =&amp; 9.300961 +0.0047026x_3x_5\notag\\
+&amp;+ 0.0012547x_1x_3 + 0.0019085x_3x_4 \notag\\
+g_1(\mathbf{x})\in&amp;[0,92] \notag\\
+g_2(\mathbf{x})\in&amp;[90,110] \notag\\
+g_3(\mathbf{x})\in&amp;[20,25] \notag\\
+x_1\in&amp;[78,102] \notag\\
+x_2\in&amp;[33,45] \notag\\
+x_3\in&amp;[27,45] \notag\\
+x_4\in&amp;[27,45] \notag\\
+x_5\in&amp;[27,45] \notag\\
+\tag{3.2}
+\end{align}\]</span>
+<p>构造优化目标函数和约束：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">himmelblau &lt;-<span class="st"> </span><span class="kw">list</span>(
+  <span class="dt">obj =</span> <span class="cf">function</span>(x){
+    x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]
+    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
+    x5 &lt;-<span class="st"> </span>x[<span class="dv">5</span>]
+    result &lt;-<span class="st"> </span><span class="fl">5.3578547</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">0.8356891</span><span class="op">*</span>x1<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">37.29329</span><span class="op">*</span>x[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">40792.141</span>
+  },
+  <span class="dt">con =</span> <span class="cf">function</span>(x){
+    x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]
+    x2 &lt;-<span class="st"> </span>x[<span class="dv">2</span>]
+    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
+    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
+    x5 &lt;-<span class="st"> </span>x[<span class="dv">5</span>]
+    g1 &lt;-<span class="st"> </span><span class="fl">85.334407</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0056858</span><span class="op">*</span>x2<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">0.00026</span><span class="op">*</span>x1<span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="fl">0.0022053</span><span class="op">*</span>x3<span class="op">*</span>x5
+    g2 &lt;-<span class="st"> </span><span class="fl">80.51249</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0071317</span><span class="op">*</span>x2<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">0.0029955</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="fl">0.0021813</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>
+    g3 &lt;-<span class="st"> </span><span class="fl">9.300961</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0047026</span><span class="op">*</span>x3<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="fl">0.0012547</span><span class="op">*</span>x1<span class="op">*</span>x3 <span class="op">+</span><span class="st"> </span><span class="fl">0.0019085</span><span class="op">*</span>x3<span class="op">*</span>x4
+    <span class="kw">c</span>(
+      <span class="op">-</span>g1,
+      g1<span class="op">-</span><span class="dv">92</span>,
+      <span class="dv">90</span><span class="op">-</span>g2,
+      g2 <span class="op">-</span><span class="st"> </span><span class="dv">110</span>,
+      <span class="dv">20</span> <span class="op">-</span><span class="st"> </span>g3,
+      g3 <span class="op">-</span><span class="st"> </span><span class="dv">25</span>
+    )
+  }
+)</code></pre></div>
+<p>使用<code>BSASoptim</code>函数进行优化：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> himmelblau<span class="op">$</span>obj,
+                    <span class="dt">k =</span> <span class="dv">5</span>,
+                    <span class="dt">lower =</span><span class="kw">c</span>(<span class="dv">78</span>,<span class="dv">33</span>,<span class="dv">27</span>,<span class="dv">27</span>,<span class="dv">27</span>),
+                    <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">102</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>),
+                    <span class="dt">constr =</span> himmelblau<span class="op">$</span>con,
+                    <span class="dt">n =</span> <span class="dv">200</span>,
+                    <span class="dt">step =</span> <span class="dv">100</span>,
+                    <span class="dt">d1 =</span> <span class="dv">10</span>,
+                    <span class="dt">pen =</span> <span class="fl">1e6</span>,
+                    <span class="dt">steptol =</span> <span class="fl">1e-6</span>,
+                    <span class="dt">n_flag =</span> <span class="dv">2</span>,
+                    <span class="dt">seed =</span> <span class="dv">11</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
+result<span class="op">$</span>par </code></pre></div>
+<pre><code>## [1] 78.01565 33.00000 27.07409 45.00000 44.95878</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] -31024.17</code></pre>
+<p>这个结果，比<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span>中<code>TABLE 2</code>记载的结果都要好。但只要你愿意调差，嘿嘿，总有更好的。</p>
+</div>
+</div>
+</div>
+<div id="bsaswpt" class="section level2">
+<h2><span class="header-section-number">3.3</span> BSAS-WPT</h2>
+<p>在进行<code>BSAS-WPT</code>参数讲解的这一部分前，我想问个问题。在式<a href="rBAS.html#eq:PV">(3.1)</a>和式<a href="rBAS.html#eq:him">(3.2)</a>中，我们可以看到，有些<span class="math inline">\(x_i\)</span>的约束范围较小，有的较大。比如，压力容器中，<span class="math inline">\(x_1\)</span>和<span class="math inline">\(x_2\)</span>就偏小，只是经过提取出0.0625，勉强能达到<span class="math inline">\(x_3\)</span>和<span class="math inline">\(x_4\)</span>的一半。那么，如果某些优化问题，其参数约束范围之间，相差了量级，该<strong>如何选择步长</strong>呢？这就是<code>WPT</code>的便捷之处了。</p>
+<p><a href="https://jywang2016.github.io/rBAS/reference/BSAS_WPT.html"><code>BSAS-WPT</code>函数</a>(对应<code>BSAS-WPT</code>算法)调用的格式如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSAS_WPT</span>(fn, 
+         <span class="dt">init =</span> <span class="ot">NULL</span>, 
+         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
+         <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>, 
+         <span class="dt">c2 =</span> <span class="dv">5</span>, 
+         <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>,<span class="dt">steptol =</span> <span class="fl">0.001</span>, 
+         <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T, 
+         <span class="dt">p_min =</span> <span class="fl">0.2</span>,<span class="dt">p_step =</span> <span class="fl">0.2</span>, <span class="dt">n_flag =</span> <span class="dv">2</span>)</code></pre></div>
+<div id="bsaswptparms" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> BSAS-WPT 参数说明</h3>
+<p>与<code>BSAS</code>相比，除去我人为略去的抖动部分，减少了搜索距离<code>d</code>相关的参数，这些用<code>c2</code>来替代。而初始步长<code>step</code>，我们可以设定为一个在1附近的数。由于算法先标准化了参数，然后根据式<a href="algorithm.html#eq:xupdate">(2.3)</a>在计算位置后，再根据上下限进行反标准化，而后导入目标函数。所以，你可以认为，<code>BSAS</code>中，把step变成一个<span class="math inline">\(n\)</span>维的向量，假设<span class="math inline">\(n\)</span>是参数个数，每个步长元素都根据参数的约束范围大小来设定，那么算法就会变成<code>BSAS-WPT</code>。</p>
+<p>总之，现在要调节的参数，主要有2个，即<code>c2</code>和<code>step</code>。</p>
+</div>
+<div id="bsaswptexample" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> BSAS-WPT 案例</h3>
+<p>我们使用和<code>BSASoptim</code>函数相同的例子来对比效果。但是，这些效果都是不固定的，即给定不同的参数，结果也会不同，所以不能根据一次结果评价算法的优劣。</p>
+<div id="bsaswptPV" class="section level4">
+<h4><span class="header-section-number">3.3.2.1</span> Pressure Vessel function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSAS_WPT</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,
+                   <span class="dt">k =</span> <span class="dv">8</span>,
+                   <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),
+                   <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),
+                   <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,
+                   <span class="dt">c2 =</span> <span class="dv">10</span>, <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">step =</span> <span class="dv">2</span>,
+                   <span class="dt">seed =</span> <span class="dv">1</span>,
+                   <span class="dt">n_flag =</span> <span class="dv">3</span>,
+                   <span class="dt">trace =</span> <span class="ot">FALSE</span>,
+                   <span class="dt">steptol =</span> <span class="fl">1e-6</span>)
+result<span class="op">$</span>par</code></pre></div>
+<pre><code>## [1]  13.882270   7.434164  42.094999 176.932890</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] 6065.478</code></pre>
+</div>
+<div id="bsaswpthim" class="section level4">
+<h4><span class="header-section-number">3.3.2.2</span> Himmelblau function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSAS_WPT</span>(<span class="dt">fn =</span> himmelblau<span class="op">$</span>obj,
+                   <span class="dt">k =</span> <span class="dv">10</span>,
+                   <span class="dt">lower =</span><span class="kw">c</span>(<span class="dv">78</span>,<span class="dv">33</span>,<span class="dv">27</span>,<span class="dv">27</span>,<span class="dv">27</span>),
+                   <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">102</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>),
+                   <span class="dt">constr =</span> himmelblau<span class="op">$</span>con,
+                   <span class="dt">c2 =</span> <span class="dv">5</span>, <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">step =</span> <span class="fl">1.6</span>,
+                   <span class="dt">pen =</span> <span class="fl">1e5</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>,<span class="dt">seed =</span> <span class="dv">11</span>)</code></pre></div>
+<pre><code>## ----step &lt; steptol---------stop the iteration------</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>par </code></pre></div>
+<pre><code>## [1] 78.00000 33.00000 27.07176 45.00000 44.96713</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value </code></pre></div>
+<pre><code>## [1] -31025.47</code></pre>
+<p><code>BSAS-WPT</code>没有做过多的参数调节，即可获得更畅快地优化体验。举例，在对<code>Himmelblau</code>函数进行优化时，我仅仅设定了随机种子<code>seed</code>，然后把<code>step</code>从1调到了2，看了看效果的变化。发现都不错，最后每隔0.1选取<code>step</code>，试探最好的效果在哪里，于是就成了上面的例子。 如果把这一套，放在<code>BSASoptim</code>函数上，对于复杂的优化问题，就<strong>成了一种折磨</strong>。</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>参考文献</h3>
+<div id="refs" class="references">
+<div id="ref-Jiang2017BAS">
+<p>Jiang Xiangyuan, Li Shuai. 2017a. “BAS: Beetle Antennae Search Algorithm for Optimization Problems.” <em>arXiv</em>.</p>
+</div>
+<div id="ref-Wang2018BSAS">
+<p>Wang Jiangyu, Chen Huanxin. 2018. “BSAS: Beetle Swarm Antennae Search Algorithm for Optimization Problems.” <em>arXiv</em>.</p>
+</div>
+<div id="ref-Jiangwpt">
+<p>Jiang Xiangyuan, Li Shuai. 2017b. “Beetle Antennae Search Without Parameter Tuning (Bas-Wpt) for Multi-Objective Optimization.” <em>arXiv</em>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="algorithm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

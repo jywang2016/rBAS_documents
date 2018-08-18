@@ -1,0 +1,69 @@
+--- 
+title: "rBAS使用文档"
+author: "王江宇"
+date: "`r Sys.Date()`"
+documentclass: ctexbook
+bibliography: [book.bib, packages.bib,article.bib]
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+lot: yes
+lof: yes
+geometry: [b5paper, tmargin=2.5cm, bmargin=2.5cm, lmargin=3.5cm, rmargin=2.5cm]
+site: bookdown::bookdown_site
+description: "rBAS中文使用说明版本V0.1"
+github-repo: jywang2016/rBAS
+#cover-image: images/cover.jpg
+---
+\mainmatter
+
+# 前言 {-}
+
+## 手册内容概述 {-}
+
+本手册是为了大家更好地使用**rBAS**\index{rBAS} [@R-rBAS]包而撰写，内容如下:
+
+- 第 \@ref(install) 章介绍了如何安装`R`语言的环境，来使用`rBAS`包。不用担心，`R`的语法很简单，各种功能是按照自身的需要安装各种`packages`，所以比`matlab`体积更小，入门时间成本也较低。**哪怕你无意于`R`的学习，也可以看看本手册的原理篇(第 \@ref(algorithm) 章)，应用篇(第\@ref(examples)章)以及后续的更新计划(第 \@ref(updates) 章)，来了解算法的原理，出现了哪些变种，以及有着什么样的工程应用**。
+
+- 第 \@ref(algorithm) 章介绍了**BAS算法**以及在其基础上出现的各种**改进算法**的**原理**，当然，随着算法的不断改进和发展，这个文档还需要随之不断更新。
+
+- 第 \@ref(rBAS) 章讲述了如何在`R`中使用`rBAS`包**调用收录的算法的对应函数**，以及一些简单的**案例**（大部分是`BAS`相关文献中的算例和`benchmark functions`）。每一句出现的代码我都会尽我所能去注释，让大家了解每一步的意义，以及`R`的简单易用。我也希望，自己的语言能尽力通俗，对于其他工具的使用者来说。
+
+- 第 \@ref(examples) 章主要介绍的是BAS及变体算法**在各种领域的应用**，当然，少不了对应的案例描述和代码。**可能有些涉及到各位作者的研究，不会做到完全的开源**，但在**李帅**老师的组织下，我相信这会是最完善全面的`BAS`应用大全。
+
+- 第 \@ref(updates) 章讲述了`rBAS`包的**开发和使用手册更新的计划**。因为算法总是会不断地推陈出新，所以`rBAS`包也必须和目前的研究保持一致。如果你有好的想法，可以看此章的内容，然后把自己的建议传达给我们。
+
+>好了，冗长的章节介绍完毕。大家可以开始浏览正文了。
+
+
+## 夹带私货 {-}
+
+如果你对这本手册本身的撰写环境感兴趣的话，那我可能还要啰嗦两句。
+
+*第一句*：照搬 [Yihui](http://yihui.name/) 的一句话：我用了两个 R 包编译这本书，分别是 **knitr**\index{knitr} [@xie2015] 和 **bookdown**\index{bookdown} [@R-bookdown]。
+
+*第二句*：感谢 Yihui。嗯...，因为这个男人，R用户的读书笔记，文章，学位论文，个人网站等等都可以在R里面撰写或者开发。不得不感慨他的天才和对需求的把握。
+
+## 致谢 {-}
+
+感谢提倡者`李帅`老师，以及`姜向远`博士。他们是`BAS`的提出者，也在算法原理与改进上，给了我这个做暖通的门外汉以启发。
+
+此外，还感谢`李晓晓`,`王甜甜`,`莫小娟`,`阮月`同学贡献自己的算法代码和应用案例，他(她)们改进了算法，并且让其应用部分变得更加丰富。
+
+当然，还得感谢Yihui的`bookdown`。
+
+老实讲，2018/07,也就是一个月以前，我刚开始用`R`编写这个算法，然后用在自己的建筑系统辨识研究中，没想到$\dots$ 所以，这个手册是比较仓促的产物，再加之自身关于优化算法理论水平较低，如果大家发现了本手册的各种问题，欢迎在QQ群(437958608)内留言，或者是在`rBAS`的 github上提出 [issues](https://github.com/jywang2016/rBAS/issues)。
+
+总之，谢谢上述老师及同学，也谢谢未来给我提供问题或建议的同学，你们的帮助，让手册更加完善。
+
+
+```{block2, type='flushright', html.tag='p'}
+王江宇    
+2018/08/18          
+华中科技大学    
+```
+
+```{r,echo=FALSE}
+options(knitr.graphics.auto_pdf = TRUE)
+```
+
