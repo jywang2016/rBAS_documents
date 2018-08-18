@@ -26,7 +26,7 @@
 用户界面:
 
 - 基本界面
-    + ~~基本的shiny[shiny](https://github.com/rstudio/shiny)界面~~
+    + ~~基本的`shiny`界面~~
     + ~~更新了约束处理功能~~
     + ...
 
