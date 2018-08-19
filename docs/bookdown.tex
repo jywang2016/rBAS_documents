@@ -171,7 +171,7 @@
 
 \title{rBAS使用文档}
 \author{王江宇}
-\date{2018-08-18}
+\date{2018-08-19}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -270,9 +270,6 @@ github上提出 \href{https://github.com/jywang2016/rBAS/issues}{issues}。
 \chapter*{作者简介}\label{author}
 
 
-\section*{作者信息}
-
-
 \begin{itemize}
 \tightlist
 \item
@@ -306,38 +303,6 @@ github上提出 \href{https://github.com/jywang2016/rBAS/issues}{issues}。
     莫小娟： 多杆机构优化问题
   \end{itemize}
 \end{itemize}
-
-\section*{用户界面里的作者信息}
-
-
-在\texttt{R}里面输入以下代码：
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{rBAS}\OperatorTok{::}\KeywordTok{run_BAS_App}\NormalTok{(}\DataTypeTok{theme =} \StringTok{'united'}\NormalTok{)}
-\CommentTok{#从rBAS包中调用run_BAS_App函数，theme参数是用户界面的主题}
-\end{Highlighting}
-\end{Shaded}
-
-上面的代码，与下述代码等价：
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(rBAS) }\CommentTok{#加载rBAS包，此后调用函数就不需要 rBAS::}
-\KeywordTok{run_BAS_App}\NormalTok{(}\DataTypeTok{theme =} \StringTok{'united'}\NormalTok{) }\CommentTok{#直接调用函数}
-\end{Highlighting}
-\end{Shaded}
-
-可以看到\texttt{rBAS}的用户界面，里面有关于\texttt{rBAS}的作者信息。\texttt{Rstudio-connect}支持网页上嵌入\texttt{shiny}界面的骚操作，有待之后探究，所以用截图\ref{fig:authors}来展示该作者信息界面。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{img/Authors} 
-
-}
-
-\caption{用户界面作者信息}\label{fig:authors}
-\end{figure}
 
 \chapter{R以及rBAS安装}\label{install}
 
@@ -1310,6 +1275,207 @@ x_5\in&[27,45] \notag\\
 
 \texttt{BSAS-WPT}没有做过多的参数调节，即可获得更畅快地优化体验。举例，在对\texttt{Himmelblau}函数进行优化时，我仅仅设定了随机种子\texttt{seed}，然后把\texttt{step}从1调到了2，看了看效果的变化。发现都不错，最后每隔0.1选取\texttt{step}，试探最好的效果在哪里，于是就成了上面的例子。
 如果把这一套，放在\texttt{BSASoptim}函数上，对于复杂的优化问题，就\textbf{成了一种折磨}。
+
+\chapter{用户界面}\label{interface}
+
+用户界面基于\href{https://github.com/rstudio/shiny}{shiny}包开发。核心思想是，把目标函数或者约束在\texttt{R}的脚本中预先定义好，然后调用\texttt{run\_BAS\_App(func\ =\ ...,\ constr\ =\ ...,theme\ =\ ...)}函数来人为调节参数，运行以及可视化。
+
+\section{调用语句}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{run_BAS_App}\NormalTok{(}\DataTypeTok{func =}\NormalTok{ Your}\OperatorTok{-}\NormalTok{objective}\OperatorTok{-}\NormalTok{func,}
+            \DataTypeTok{constr =}\NormalTok{ Your}\OperatorTok{-}\NormalTok{constraint}\OperatorTok{-}\NormalTok{func,}
+            \DataTypeTok{theme =} \StringTok{'united'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+其中：
+
+\begin{itemize}
+\item
+  \texttt{func}指的是，需要优化的目标函数
+\item
+  \texttt{constr}则是不等式约束，至于上下限约束，可以直接在用户界面里面定义
+\item
+  \texttt{theme}也就是界面主题，即\textbf{皮肤}，默认的主题是\texttt{united}。可以使用\texttt{help(run\_BAS\_App)}语句来看可选的主题样式都有哪些，如\texttt{superhero},\texttt{cosmo},\texttt{paper},\texttt{journal}等主题。这些主题是调用\href{https://github.com/rstudio/shinythemes}{shinythemes}而来。
+\end{itemize}
+
+\section{使用案例}
+
+\subsection{Michalewicz function}\label{michalewicz-function-1}
+
+先在代码中预定义函数：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mich <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  y1 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((x[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+\NormalTok{  y2 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((}\DecValTok{2}\OperatorTok{*}\NormalTok{x[}\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+  \KeywordTok{return}\NormalTok{(y1}\OperatorTok{+}\NormalTok{y2)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+然后调用用户界面：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{run_BAS_App}\NormalTok{(}\DataTypeTok{func =}\NormalTok{ mich)}
+\CommentTok{#run_BAS_App(func = mich, theme = 'paper') 可以尝试下paper或是其他的主题}
+\end{Highlighting}
+\end{Shaded}
+
+出现了如图\ref{fig:basapp}的界面：
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{img/app1} 
+
+}
+
+\caption{shiny interface}\label{fig:basapp}
+\end{figure}
+
+左边是固定的参数调节栏，最上方有目前的收录的三种算法可供选择，以及本包的作者信息。右侧也有三个选项，分别是\textbf{优化过程信息}，\textbf{优化参数结果}以及\textbf{优化结果可视化}。
+
+按照你的需要，调节好左边的参数信息（第一个参数，也就是初始值\texttt{init}，默认为空，也可以指定），然后点击左下方的\texttt{Run\ BAS}键，即可看到如图\ref{fig:basprogress}的内容：
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{img/app2} 
+
+}
+
+\caption{optimization progress栏信息}\label{fig:basprogress}
+\end{figure}
+
+\begin{quote}
+由于回合数较大，因此只截取了部分内容显示。
+\end{quote}
+
+分别点击\texttt{Optimization\ Parameters}和\texttt{Progress\ Plot}键，可以看到最后的结果，以及可视化信息，分别如图\ref{fig:basparms}与
+\ref{fig:basplot}所示。
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{img/app3} 
+
+}
+
+\caption{Optimization Parameters栏信息}\label{fig:basparms}
+\end{figure}
+
+可以看到，窗口的\texttt{\$par}显示的是参数的优化结果，而\texttt{\$value}则是对应的目标函数值。
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{img/app4} 
+
+}
+
+\caption{Progress Plot栏信息}\label{fig:basplot}
+\end{figure}
+
+\texttt{BAS}与其他两种算法有着不同的可视化结果，其并不是基于反馈来控制步长的。因此，图中的两条曲线，红色的为每一回合的目标函数值，而蓝色的为此前回合中最优的目标函数值。
+
+\subsection{Pressure Vessel function}\label{pressure-vessel-function}
+
+这次，我们在\texttt{BSAS-WPT}栏下进行界面使用。先在代码中预定义目标函数和约束：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pressure_Vessel <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+  \DataTypeTok{obj =} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{    x1 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{    x2 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{    x3 <-}\StringTok{ }\NormalTok{x[}\DecValTok{3}\NormalTok{]}
+\NormalTok{    x4 <-}\StringTok{ }\NormalTok{x[}\DecValTok{4}\NormalTok{]}
+\NormalTok{    result <-}\StringTok{ }\FloatTok{0.6224}\OperatorTok{*}\NormalTok{x1}\OperatorTok{*}\NormalTok{x3}\OperatorTok{*}\NormalTok{x4 }\OperatorTok{+}\StringTok{ }
+\StringTok{      }\FloatTok{1.7781}\OperatorTok{*}\NormalTok{x2}\OperatorTok{*}\NormalTok{x3}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}
+\StringTok{      }\FloatTok{3.1611}\OperatorTok{*}\NormalTok{x1}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{x4 }\OperatorTok{+}\StringTok{ }
+\StringTok{      }\FloatTok{19.84}\OperatorTok{*}\NormalTok{x1}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{x3}
+\NormalTok{  \},}
+  \DataTypeTok{con =} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{    x1 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{    x2 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{    x3 <-}\StringTok{ }\NormalTok{x[}\DecValTok{3}\NormalTok{]}
+\NormalTok{    x4 <-}\StringTok{ }\NormalTok{x[}\DecValTok{4}\NormalTok{]}
+    \KeywordTok{c}\NormalTok{(}
+      \FloatTok{0.0193}\OperatorTok{*}\NormalTok{x3 }\OperatorTok{-}\StringTok{ }\NormalTok{x1,}\CommentTok{#<=0}
+      \FloatTok{0.00954}\OperatorTok{*}\NormalTok{x3 }\OperatorTok{-}\StringTok{ }\NormalTok{x2,}
+      \FloatTok{750.0}\OperatorTok{*}\FloatTok{1728.0} \OperatorTok{-}\StringTok{ }\NormalTok{pi}\OperatorTok{*}\NormalTok{x3}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{x4 }\OperatorTok{-}\StringTok{ }\DecValTok{4}\OperatorTok{/}\DecValTok{3}\OperatorTok{*}\NormalTok{pi}\OperatorTok{*}\NormalTok{x3}\OperatorTok{^}\DecValTok{3}
+\NormalTok{    )}
+\NormalTok{  \}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+调用用户界面，注意此时多出了\texttt{constr}，也就是约束函数，\texttt{\$}符号在索引列表中的元素时使用：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{run_BAS_App}\NormalTok{(}\DataTypeTok{func =}\NormalTok{ pressure_Vessel}\OperatorTok{$}\NormalTok{obj,}
+            \DataTypeTok{constr =}\NormalTok{ pressure_Vessel}\OperatorTok{$}\NormalTok{con)}
+\end{Highlighting}
+\end{Shaded}
+
+自行调整参数后，用户界面如图\ref{fig:wpt1}所示：
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{img/wpt1} 
+
+}
+
+\caption{BSAS-WPT参数调整}\label{fig:wpt1}
+\end{figure}
+
+点击\texttt{Run\ BAS-WPT}之后，选择\texttt{optimization\ Parameters}栏目，可以看到优化结果如图\ref{fig:wptparms}所示：
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{img/wpt2} 
+
+}
+
+\caption{BSAS-WPT优化结果}\label{fig:wptparms}
+\end{figure}
+
+选择\texttt{Progress\ Plot}栏目，过程可视化如图\ref{fig:wptplot}所示：
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{img/wpt3} 
+
+}
+
+\caption{BSAS-WPT优化过程可视化}\label{fig:wptplot}
+\end{figure}
+
+\section{Authors界面}\label{authors}
+
+如果并不想执行任何函数优化，则可以不指定函数和约束。在\texttt{R}里面输入以下代码：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rBAS) }\CommentTok{#加载rBAS包}
+\KeywordTok{run_BAS_App}\NormalTok{() }\CommentTok{#直接调用函数}
+\end{Highlighting}
+\end{Shaded}
+
+可以看到\texttt{rBAS}的用户界面，里面有关于\texttt{rBAS}的作者信息，如图\ref{fig:author}所示。
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{img/author} 
+
+}
+
+\caption{用户界面作者信息}\label{fig:author}
+\end{figure}
+
+如果大家对该项目有兴趣，参与了包的开发，或者\texttt{BAS}算法应用案例的提出。我会在征得当事人同意的情况下，将名字加入该界面:)。
 
 \chapter{BAS案例}\label{examples}
 
