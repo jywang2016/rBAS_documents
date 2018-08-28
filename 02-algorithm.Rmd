@@ -49,11 +49,13 @@ d^t&= \eta_d d^{t-1}+d_0 (\#eq:dupdate)\\
 其中，$d_0$是人为设定的距离的常数，$\eta_d$与$\eta_\delta$分别是搜索距离和步长的更新衰减系数。
 
 为了避免参数过多，姜向远博士在`BAS-WPT`算法中是按照式\@ref(eq:WPTupdate)来更新搜索距离和步长的。其中，$c_2$是人为设定的常数。
-\begin{align}
+\begin{equation}
+\begin{split}
 \delta^t&=\eta_{\delta} \delta^{t-1}\\
-d^t &= \frac{\delta^t}{c_2}
+d^t &= \frac{\delta^t}{c_2}\\
 (\#eq:WPTupdate) 
-\end{align}
+\end{split}
+\end{equation}
 
 ### 不足与改进 {#BASimprove}
 

@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-08-20">
+<meta name="date" content="2018-08-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,8 +152,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="interface.html"><a href="interface.html#authors"><i class="fa fa-check"></i><b>4.3</b> Authors界面</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>5</b> BAS案例</a><ul>
-<li class="chapter" data-level="5.1" data-path="examples.html"><a href="examples.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 多杆机构优化问题</a></li>
+<li class="chapter" data-level="5" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>5</b> BAS案例一:多杆机构优化问题</a><ul>
+<li class="chapter" data-level="5.1" data-path="examples.html"><a href="examples.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 背景</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="examples.html"><a href="examples.html#bars4"><i class="fa fa-check"></i><b>5.1.1</b> 四连杆机构(Four-bar linkage mechanism)</a></li>
+<li class="chapter" data-level="5.1.2" data-path="examples.html"><a href="examples.html#bars6"><i class="fa fa-check"></i><b>5.1.2</b> 六连杆机构(Stephenson III Six-bar linkage mechanism)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="examples.html"><a href="examples.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 优化问题</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="examples.html"><a href="examples.html#bars4optim"><i class="fa fa-check"></i><b>5.2.1</b> 四连杆机构</a></li>
+<li class="chapter" data-level="5.2.2" data-path="examples.html"><a href="examples.html#bars6optim"><i class="fa fa-check"></i><b>5.2.2</b> 六连杆机构</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="examples.html"><a href="examples.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 优化理论</a></li>
+<li class="chapter" data-level="5.4" data-path="examples.html"><a href="examples.html#section-5.4"><i class="fa fa-check"></i><b>5.4</b> 优化结果</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="examples.html"><a href="examples.html#case1-path-generation-without-prescribed-timing"><i class="fa fa-check"></i><b>5.4.1</b> Case1 无规定时间内轨迹生成(Path generation without prescribed timing)</a></li>
+<li class="chapter" data-level="5.4.2" data-path="examples.html"><a href="examples.html#case2-with-prescribed-timing"><i class="fa fa-check"></i><b>5.4.2</b> Case2 有规定时间的轨迹生成(with prescribed timing)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="examples.html"><a href="examples.html#case3-path-generation-with-prescribed-timing"><i class="fa fa-check"></i><b>5.4.3</b> Case3 规定时间内路径生成（Path generation with prescribed timing）</a></li>
+<li class="chapter" data-level="5.4.4" data-path="examples.html"><a href="examples.html#case4-"><i class="fa fa-check"></i><b>5.4.4</b> Case4 规定时间路径生成问题</a></li>
+<li class="chapter" data-level="5.4.5" data-path="examples.html"><a href="examples.html#case5-"><i class="fa fa-check"></i><b>5.4.5</b> Case5 规定时间内路径生成问题</a></li>
+<li class="chapter" data-level="5.4.6" data-path="examples.html"><a href="examples.html#case6-"><i class="fa fa-check"></i><b>5.4.6</b> Case6 六杆机构路径生成</a></li>
+<li class="chapter" data-level="5.4.7" data-path="examples.html"><a href="examples.html#case7-"><i class="fa fa-check"></i><b>5.4.7</b> Case7 无规定时间的路径生成</a></li>
+<li class="chapter" data-level="5.4.8" data-path="examples.html"><a href="examples.html#case8-"><i class="fa fa-check"></i><b>5.4.8</b> Case8 无规定时间的路径生成</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>6</b> 更新及维护计划</a><ul>
 <li class="chapter" data-level="6.1" data-path="updates.html"><a href="updates.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 待加入的功能</a></li>
@@ -218,11 +236,13 @@ d^t&amp;= \eta_d d^{t-1}+d_0 \tag{2.4}\\
 \end{align}\]</span>
 <p>其中，<span class="math inline">\(d_0\)</span>是人为设定的距离的常数，<span class="math inline">\(\eta_d\)</span>与<span class="math inline">\(\eta_\delta\)</span>分别是搜索距离和步长的更新衰减系数。</p>
 为了避免参数过多，姜向远博士在<code>BAS-WPT</code>算法中是按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来更新搜索距离和步长的。其中，<span class="math inline">\(c_2\)</span>是人为设定的常数。
-<span class="math display" id="eq:WPTupdate">\[\begin{align}
+<span class="math display" id="eq:WPTupdate">\[\begin{equation}
+\begin{split}
 \delta^t&amp;=\eta_{\delta} \delta^{t-1}\\
-d^t &amp;= \frac{\delta^t}{c_2}
+d^t &amp;= \frac{\delta^t}{c_2}\\
 \tag{2.6} 
-\end{align}\]</span>
+\end{split}
+\end{equation}\]</span>
 </div>
 <div id="BASimprove" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> 不足与改进</h3>
