@@ -53,8 +53,8 @@ d^t&= \eta_d d^{t-1}+d_0 (\#eq:dupdate)\\
 \begin{split}
 \delta^t&=\eta_{\delta} \delta^{t-1}\\
 d^t &= \frac{\delta^t}{c_2}\\
-(\#eq:WPTupdate) 
 \end{split}
+(\#eq:WPTupdate) 
 \end{equation}
 
 ### 不足与改进 {#BASimprove}
