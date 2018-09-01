@@ -1470,11 +1470,11 @@ x_5\in&[27,45] \notag\\
 \texttt{BSAS-WPT}没有做过多的参数调节，即可获得更畅快地优化体验。举例，在对\texttt{Himmelblau}函数进行优化时，我仅仅设定了随机种子\texttt{seed}，然后把\texttt{step}从1调到了2，看了看效果的变化。发现都不错，最后每隔0.1选取\texttt{step}，试探最好的效果在哪里，于是就成了上面的例子。
 如果把这一套，放在\texttt{BSASoptim}函数上，对于复杂的优化问题，就\textbf{成了一种折磨}。
 
-\section{BSO}\label{bso-1}
+\section{BSOoptim}\label{bsooptim}
 
-\subsection{BSO参数说明}\label{bso}
+\subsection{BSO参数说明}\label{BSOfuncparms}
 
-由于BSO参数与原理中的公式较为复杂。因此，在讲述其原理时，对函数的参数也进行了说明。故大家可以参考@ref(\#BSOparms)节。此处，仅仅复制该节内容。
+由于BSO参数与原理中的公式较为复杂。因此，在讲述其原理时，对函数的参数也进行了说明。故大家可以参考\ref{BSOparms}节。此处，仅仅复制该节内容。
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1497,7 +1497,7 @@ x_5\in&[27,45] \notag\\
 是\(\lambda\)，也就是式\eqref{eq:bsox}中天牛速度和移动步长之间的权重，直观地理解为\texttt{weight\ between\ velocity\ and\ step-size}。\texttt{step}和\texttt{c}仍然是表示步长和步长与须距离之比。而\(step_w\)为一个向量，表示的是式\eqref{eq:basstep}中的\(\omega_{\delta_1} = 0.4\)，
 \(\omega_{\delta_0} = 0.9\)。
 
-\subsection{BSO案例}\label{bso}
+\subsection{BSO案例}\label{bsoexample}
 
 \subsubsection{Michalewicz function}\label{michalewicz-function-1}
 

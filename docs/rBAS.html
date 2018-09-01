@@ -151,9 +151,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3.1" data-path="rBAS.html"><a href="rBAS.html#bsaswptparms"><i class="fa fa-check"></i><b>4.3.1</b> BSAS-WPT 参数说明</a></li>
 <li class="chapter" data-level="4.3.2" data-path="rBAS.html"><a href="rBAS.html#bsaswptexample"><i class="fa fa-check"></i><b>4.3.2</b> BSAS-WPT 案例</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="rBAS.html"><a href="rBAS.html#bso-1"><i class="fa fa-check"></i><b>4.4</b> BSO</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>4.4.1</b> BSO参数说明</a></li>
-<li class="chapter" data-level="4.4.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>4.4.2</b> BSO案例</a></li>
+<li class="chapter" data-level="4.4" data-path="rBAS.html"><a href="rBAS.html#bsooptim"><i class="fa fa-check"></i><b>4.4</b> BSOoptim</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="rBAS.html"><a href="rBAS.html#BSOfuncparms"><i class="fa fa-check"></i><b>4.4.1</b> BSO参数说明</a></li>
+<li class="chapter" data-level="4.4.2" data-path="rBAS.html"><a href="rBAS.html#bsoexample"><i class="fa fa-check"></i><b>4.4.2</b> BSO案例</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>5</b> 用户界面</a><ul>
@@ -591,11 +591,11 @@ result<span class="op">$</span>par</code></pre></div>
 </div>
 </div>
 </div>
-<div id="bso-1" class="section level2">
-<h2><span class="header-section-number">4.4</span> BSO</h2>
-<div id="bso" class="section level3">
+<div id="bsooptim" class="section level2">
+<h2><span class="header-section-number">4.4</span> BSOoptim</h2>
+<div id="BSOfuncparms" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> BSO参数说明</h3>
-<p>由于BSO参数与原理中的公式较为复杂。因此，在讲述其原理时，对函数的参数也进行了说明。故大家可以参考@ref(#BSOparms)节。此处，仅仅复制该节内容。</p>
+<p>由于BSO参数与原理中的公式较为复杂。因此，在讲述其原理时，对函数的参数也进行了说明。故大家可以参考<a href="mixedalgorithm.html#BSOparms">3.1.4</a>节。此处，仅仅复制该节内容。</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSOoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, 
          <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>, <span class="op">-</span><span class="dv">50</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">n =</span> <span class="dv">300</span>, 
          <span class="dt">s =</span> <span class="kw">floor</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(lower))), 
@@ -610,7 +610,7 @@ result<span class="op">$</span>par</code></pre></div>
          <span class="dt">pen =</span> <span class="fl">1e+06</span>)</code></pre></div>
 <p>上面的代码是函数的默认调用形式，其中<span class="math inline">\(s\)</span>表示设定的天牛或者粒子数目，<span class="math inline">\(w\)</span>也就是式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>中提到的<span class="math inline">\(\omega_{max}\)</span>和<span class="math inline">\(\omega_{min}\)</span>。<code>w_vs</code> 是<span class="math inline">\(\lambda\)</span>，也就是式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>中天牛速度和移动步长之间的权重，直观地理解为<code>weight between velocity and step-size</code>。<code>step</code>和<code>c</code>仍然是表示步长和步长与须距离之比。而<span class="math inline">\(step_w\)</span>为一个向量，表示的是式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>中的<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。</p>
 </div>
-<div id="bso" class="section level3">
+<div id="bsoexample" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> BSO案例</h3>
 <div id="michalewicz-function-1" class="section level4">
 <h4><span class="header-section-number">4.4.2.1</span> Michalewicz function</h4>
