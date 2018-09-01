@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>rBAS使用文档</title>
+  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="rBAS使用文档" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="github-repo" content="jywang2016/rBAS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="rBAS使用文档" />
+  
+  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  
+
+<meta name="author" content="王江宇">
+
+
+<meta name="date" content="2018-09-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="algorithm.html">
+<link rel="next" href="rBAS.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rBAS中文文档</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#Rinstall"><i class="fa fa-check"></i><b>1.1</b> R安装</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#Rstudioinstall"><i class="fa fa-check"></i><b>1.2</b> Rstudio安装</a></li>
+<li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#rBASinstall"><i class="fa fa-check"></i><b>1.3</b> rBAS安装</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="algorithm.html"><a href="algorithm.html"><i class="fa fa-check"></i><b>2</b> 算法原理</a><ul>
+<li class="chapter" data-level="2.1" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>2.1</b> BAS</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="algorithm.html"><a href="algorithm.html#BASflow"><i class="fa fa-check"></i><b>2.1.1</b> 算法流程</a></li>
+<li class="chapter" data-level="2.1.2" data-path="algorithm.html"><a href="algorithm.html#BASimprove"><i class="fa fa-check"></i><b>2.1.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="algorithm.html"><a href="algorithm.html#bsas"><i class="fa fa-check"></i><b>2.2</b> BSAS</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="algorithm.html"><a href="algorithm.html#BSASflow"><i class="fa fa-check"></i><b>2.2.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.2.2" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.2.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
+<li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.1"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
+<li class="chapter" data-level="3.1.2" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
+<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.3"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
+<li class="chapter" data-level="3.1.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#BSOparms"><i class="fa fa-check"></i><b>3.1.4</b> 算法调用说明</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
+<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>4.1.1</b> BASoptim参数说明</a></li>
+<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.2</b> BASoptim简单案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>4.2</b> BSASoptim</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>4.2.1</b> BSASoptim参数说明</a></li>
+<li class="chapter" data-level="4.2.2" data-path="rBAS.html"><a href="rBAS.html#BSAStrick"><i class="fa fa-check"></i><b>4.2.2</b> BSASoptim取值摸索</a></li>
+<li class="chapter" data-level="4.2.3" data-path="rBAS.html"><a href="rBAS.html#BSASexample"><i class="fa fa-check"></i><b>4.2.3</b> BSASoptim案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="rBAS.html"><a href="rBAS.html#bsaswpt"><i class="fa fa-check"></i><b>4.3</b> BSAS-WPT</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rBAS.html"><a href="rBAS.html#bsaswptparms"><i class="fa fa-check"></i><b>4.3.1</b> BSAS-WPT 参数说明</a></li>
+<li class="chapter" data-level="4.3.2" data-path="rBAS.html"><a href="rBAS.html#bsaswptexample"><i class="fa fa-check"></i><b>4.3.2</b> BSAS-WPT 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rBAS.html"><a href="rBAS.html#bso-1"><i class="fa fa-check"></i><b>4.4</b> BSO</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>4.4.1</b> BSO参数说明</a></li>
+<li class="chapter" data-level="4.4.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>4.4.2</b> BSO案例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>5</b> 用户界面</a><ul>
+<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
+<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="interface.html"><a href="interface.html#michalewicz-function-2"><i class="fa fa-check"></i><b>5.2.1</b> Michalewicz function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="interface.html"><a href="interface.html#pressure-vessel-function-1"><i class="fa fa-check"></i><b>5.2.2</b> Pressure Vessel function</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="interface.html"><a href="interface.html#authors"><i class="fa fa-check"></i><b>5.3</b> Authors界面</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> BAS案例一:多杆机构优化问题</a><ul>
+<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="examples.html"><a href="examples.html#bars4"><i class="fa fa-check"></i><b>6.1.1</b> 四连杆机构(Four-bar linkage mechanism)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="examples.html"><a href="examples.html#bars6"><i class="fa fa-check"></i><b>6.1.2</b> 六连杆机构(Stephenson III Six-bar linkage mechanism)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="examples.html"><a href="examples.html#bars4optim"><i class="fa fa-check"></i><b>6.2.1</b> 四连杆机构</a></li>
+<li class="chapter" data-level="6.2.2" data-path="examples.html"><a href="examples.html#bars6optim"><i class="fa fa-check"></i><b>6.2.2</b> 六连杆机构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
+<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-6.4"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="examples.html"><a href="examples.html#case1-path-generation-without-prescribed-timing"><i class="fa fa-check"></i><b>6.4.1</b> Case1 无规定时间内轨迹生成(Path generation without prescribed timing)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="examples.html"><a href="examples.html#case2-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.2</b> Case2 有规定时间的轨迹生成(with prescribed timing)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="examples.html"><a href="examples.html#case3-path-generation-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.3</b> Case3 规定时间内路径生成（Path generation with prescribed timing）</a></li>
+<li class="chapter" data-level="6.4.4" data-path="examples.html"><a href="examples.html#case4-"><i class="fa fa-check"></i><b>6.4.4</b> Case4 规定时间路径生成问题</a></li>
+<li class="chapter" data-level="6.4.5" data-path="examples.html"><a href="examples.html#case5-"><i class="fa fa-check"></i><b>6.4.5</b> Case5 规定时间内路径生成问题</a></li>
+<li class="chapter" data-level="6.4.6" data-path="examples.html"><a href="examples.html#case6-"><i class="fa fa-check"></i><b>6.4.6</b> Case6 六杆机构路径生成</a></li>
+<li class="chapter" data-level="6.4.7" data-path="examples.html"><a href="examples.html#case7-"><i class="fa fa-check"></i><b>6.4.7</b> Case7 无规定时间的路径生成</a></li>
+<li class="chapter" data-level="6.4.8" data-path="examples.html"><a href="examples.html#case8-"><i class="fa fa-check"></i><b>6.4.8</b> Case8 无规定时间的路径生成</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>7</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="7.1" data-path="updates.html"><a href="updates.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="7.2" data-path="updates.html"><a href="updates.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 联系方式</a></li>
+</ul></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rBAS使用文档</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mixedalgorithm" class="section level1">
+<h1><span class="header-section-number">第 3 章</span> 混合算法</h1>
+<p>在第<a href="algorithm.html#algorithm">2</a>章中说明过，在基本<code>BAS</code>算法及变体的基础上，做出了大的改动的算法在本章说明。</p>
+<div id="bso" class="section level2">
+<h2><span class="header-section-number">3.1</span> BSO</h2>
+<p>关于<code>BSO</code>，主要的参考资料为<code>王糖糖</code>同学的论文<a href="https://arxiv.org/abs/1808.00206">Beetle Swarm Optimization Algorithm:Theory and Application</a>。作为一个捣鼓了两天算法的能源人，论文对我而言很是吃力。因为我此前只听说过粒子群算法，却从未了解过其原理。在囫囵看过几篇入门粒子群算法的博文后，再阅读上述的论文，就看到了很多有意思的地方。</p>
+<p>首先，假设大家都阅读过第<a href="algorithm.html#algorithm">2</a>章，对<code>BAS</code>有了一定的了解。那么，接下来就能看看，<code>BSO</code>是如何把<code>BAS</code>和<code>PSO</code>结合起来的。此处，只把我的认知写在此处，如有问题，还请大家指出。</p>
+<div id="section-3.1.1" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> 粒子群算法流程</h3>
+<p>我们先说一下标准的粒子群算法的几个核心更新关系。</p>
+<p>粒子在第 <span class="math inline">\(k+1\)</span> 回合中，其速度与第 <span class="math inline">\(k\)</span> 回合的速度关系如式<a href="mixedalgorithm.html#eq:psov">(3.1)</a>:</p>
+<span class="math display" id="eq:psov">\[\begin{equation}
+v_{i,k+1} = \omega v_{i,k} + c_1*rand_1*(pbest_i-x_{i,k})+c_2*rand_2*(gbest_k-x_{i,k})
+\tag{3.1}
+\end{equation}\]</span>
+<p>那么第 <span class="math inline">\(k+1\)</span> 回合中粒子位置如式<a href="mixedalgorithm.html#eq:psox">(3.2)</a>更新。</p>
+<span class="math display" id="eq:psox">\[\begin{equation}
+x_{i,k} = x_{i,k} + v_{i,k}
+\tag{3.2}
+\end{equation}\]</span>
+<p>其中，<span class="math inline">\(i=1,2,\cdots,S\)</span>，<span class="math inline">\(S\)</span> 为设定的粒子数目。而<span class="math inline">\(k=1,2,\cdots,n\)</span>，<span class="math inline">\(n\)</span> 为设定的最大循环数。<span class="math inline">\(\omega\)</span> 表示粒子速度的惯性，也就是本回合速度对下回合速度更新的影响。 <span class="math inline">\(c1,c2\)</span>则是学习因子，<span class="math inline">\(pbest_i-x_{i,k}\)</span> 表示粒子<span class="math inline">\(i\)</span> 当前的位置和其历史最优的位置的差距，而 <span class="math inline">\(gbest_k-x_{i,k}\)</span>则表示，粒子<span class="math inline">\(i\)</span> 当前的位置和历史全局最优的粒子的位置（所有粒子在历史时间跨度中最好的位置）的差距。</p>
+<p>那么，这样更新了粒子的位置之后，自然要计算这一回合的适应度，也就是目标函数的值。如果<strong>存在适应度比自身历史或全局历史更优</strong>，那么就相应地更新<span class="math inline">\(pbest\)</span>和<span class="math inline">\(gbest\)</span>。然后，就重复上述过程，直到设定的终止条件满足。</p>
+<p><span class="math inline">\(\omega\)</span>动态变化，能取得好的效果，一般，它如式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>所示变化。</p>
+<span class="math display" id="eq:psoomega">\[\begin{equation}
+\omega = \omega_{max} - (\omega_{max}-\omega_{min})\frac{k}{n}
+\tag{3.3}
+\end{equation}\]</span>
+<p>当然，如果 <span class="math inline">\(k\)</span> 取0，也就是初始回合，那么<span class="math inline">\(\omega = \omega_{max}\)</span>。如果 <span class="math inline">\(k\)</span> 取<span class="math inline">\(n\)</span> （也就是最终的回合）,那么<span class="math inline">\(\omega = \omega_{min}\)</span>。所以，这也是个权重线性递减的过程。</p>
+</div>
+<div id="bas" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> 与BAS的结合</h3>
+<p>我们假想一下，要把PSO和BAS结合，从什么方向入手呢？</p>
+<p>作为门外汉，我可能会想，那就多放置几只天牛，让它们像粒子一样，信息共享，但是本身的更新寻优还按照BAS的来（后面会讲，这类似于BSAS，但不是BSO）。</p>
+<p>不过呢，BSO给了一种很丰满和交错的方式，让BAS和PSO不是那么的泾渭分明。</p>
+<p>首先，位置更新时，按照PSO和BAS的方式各自更新后加权得到新的位置。也就是，利用了BAS的触须方向和步长，同时也利用了粒子（在BSO中就是天牛）的速度。如式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>:</p>
+<span class="math display" id="eq:bsox">\[\begin{equation}
+X_{s}^{k+1} = X_{s}^{k} + \lambda V_{s}^k + (1 - \lambda)\xi_{s}^k
+\tag{3.4}
+\end{equation}\]</span>
+<p>第一项 <span class="math inline">\(X_{s}^{k}\)</span> 自然是表明粒子 <span class="math inline">\(s\)</span> 在 <span class="math inline">\(k\)</span> 回合的位置了，第二项 <span class="math inline">\(\lambda V_{s}^k\)</span> 也就是PSO中的天牛速度乘以权重 <span class="math inline">\(\lambda\)</span>。那么第三项中的 <span class="math inline">\(\xi_{s}^k\)</span> 应该是BAS中的步长乘以方向向量才对。但是，<strong>方向并不是BAS中随机生成的方向</strong>。</p>
+<p>我们看看 <span class="math inline">\(\xi_s^k\)</span> 怎么得到。在文中，给出了式<a href="mixedalgorithm.html#eq:bsoxi">(3.5)</a>。</p>
+<span class="math display" id="eq:bsoxi">\[\begin{equation}
+\xi_s^{k+1} = \delta^kV_s^ksign(f(X_{rs}^k) - f(X_{ls}^k))
+\tag{3.5}
+\end{equation}\]</span>
+<p>这就是我们熟悉的BAS更新的方式，不过，把随机生成的天牛方向，换为了粒子速度 <span class="math inline">\(V_s^k\)</span>。在BSO中，并没有BAS中成方向的操作。有同学可能会问，<strong>既然没有随机方向，那么天牛的左右须坐标怎么来的呢？</strong> 和式<a href="mixedalgorithm.html#eq:bsoxi">(3.5)</a>中使用<strong>速度替代方向</strong>的操作相同，计算左右须坐标时，也是用的速度，来代替方向。即，如式<a href="mixedalgorithm.html#eq:bsolr">(3.6)</a>。</p>
+<span class="math display" id="eq:bsolr">\[\begin{equation}
+\begin{split}
+X_{rs}^k&amp;=X_{s}^k+V_s^k\frac{d}{2} \\
+X_{ls}^k&amp;=X_{s}^k-V_s^k\frac{d}{2}
+\end{split}
+\tag{3.6}
+\end{equation}\]</span>
+<p>这样，就完成了BSO算法的更新过程。里面的速度，和粒子群算法的更新方式相同。</p>
+<blockquote>
+<p>注明，原文中使用的上一回合的左右须坐标， 更新这回合的左右须坐标。但是根据代码来看，是文章存在了脚标的小错误，应该是用天牛坐标，更新须坐标。</p>
+</blockquote>
+<p><code>王糖糖</code>同学还给出了一个动态的（BAS）步长更新系数，如式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>:</p>
+<span class="math display" id="eq:basstep">\[\begin{equation}
+\eta = \omega_{\delta_1}(\frac{\omega_{\delta_1}}{\omega_{\delta_0}})^{1/(1+10k/n)}
+\tag{3.7}
+\end{equation}\]</span>
+<p>默认参数为<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。即，步长在回合初始，衰减最快，回合临终时，衰减最慢。</p>
+</div>
+<div id="section-3.1.3" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> 总结</h3>
+<p>此前，在写BSAS算法说明的时候，我把BSO加入到了待完成列表内。看了双方的英文名，是在是太巧了。BSAS是<code>Beetle Swarm Antennae Search</code>，而BSO是<code>Beetle Swarm Optimization</code>。彼时，我还不知晓PSO是啥含义。现在看来，这样的名称所包含的意义是千差万别的。后来，在复现BSO的过程中（此句为马后炮，毕竟是有了王糖糖同学提供的代码），也深刻地体会到两者的不同，下面我们来做一下罗列。</p>
+<ul>
+<li>区别
+<ul>
+<li>BSAS：是BAS的衍生，移动和搜索的方式也很BAS。一言蔽之，BSAS就像天牛有了k对须而不是一对，在每回合，它必须要沿着这些须的方向都探索一遍。所谓的<code>Swarm</code>，是因为每回合有k只（虚拟的）天牛在探索这k对须的方向。</li>
+<li>BSO：在粒子群算法的大框架下，由速度的更新（PSO）和步长的更新（BAS）共同决定下一步的天牛位置。这其中的<code>Swarm</code>，可以视作是真正独立的群体，它们间共享信息。</li>
+</ul></li>
+<li>联系
+<ul>
+<li>BSO和BSAS保留着BAS的搜寻和移动方式</li>
+<li>BSO和BSAS都是意图通过每回合搜索更多的位置（也可以视为方向），达到更优的效果。</li>
+</ul></li>
+</ul>
+</div>
+<div id="BSOparms" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> 算法调用说明</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSOoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, 
+         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>, <span class="op">-</span><span class="dv">50</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">n =</span> <span class="dv">300</span>, 
+         <span class="dt">s =</span> <span class="kw">floor</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(lower))), 
+         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
+         <span class="dt">w_vs =</span> <span class="fl">0.4</span>, 
+         <span class="dt">step =</span> <span class="dv">10</span>,
+         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
+         <span class="dt">c =</span> <span class="dv">8</span>, 
+         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>, <span class="fl">5.12</span>), 
+         <span class="dt">trace =</span> T,
+         <span class="dt">seed =</span> <span class="ot">NULL</span>, 
+         <span class="dt">pen =</span> <span class="fl">1e+06</span>)</code></pre></div>
+<p>在本节写函数调用，是因为函数内有部分参数和本节的公式变量名称有出入。上面的代码是函数的默认调用形式，其中<span class="math inline">\(s\)</span>表示设定的天牛或者粒子数目，<span class="math inline">\(w\)</span>也就是式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>中提到的<span class="math inline">\(\omega_{max}\)</span>和<span class="math inline">\(\omega_{min}\)</span>。<code>w_vs</code> 是<span class="math inline">\(\lambda\)</span>，也就是式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>中天牛速度和移动步长之间的权重，直观地理解为<code>weight between velocity and step-size</code>。<code>step</code>和<code>c</code>仍然是表示步长和步长与须距离之比。而<span class="math inline">\(step_w\)</span>为一个向量，表示的是式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>中的<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。</p>
+<p>一个简单的例子如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
+mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+<span class="kw">return</span>(y1<span class="op">+</span>y2)
+}
+result &lt;-
+<span class="st"> </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> mich,
+           <span class="dt">init =</span> <span class="ot">NULL</span>,
+           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),
+           <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
+           <span class="dt">n =</span> <span class="dv">100</span>,
+           <span class="dt">step =</span> <span class="dv">5</span>,
+           <span class="dt">s =</span> <span class="dv">10</span>,<span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">trace =</span> F)
+result<span class="op">$</span>par; result<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] -4.965998  1.570796</code></pre>
+<pre><code>## [1] -1.967851</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="algorithm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rBAS.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -171,7 +171,7 @@
 
 \title{rBAS使用文档}
 \author{王江宇}
-\date{2018-08-29}
+\date{2018-09-01}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -393,7 +393,7 @@ github上提出 \href{https://github.com/jywang2016/rBAS/issues}{issues}。
 
 \chapter{算法原理}\label{algorithm}
 
-本章讲述目前\texttt{rBAS}集成的三种算法的原理。如有错漏，还请指出。
+本章讲述目前\texttt{rBAS}集成的三种算法，即\texttt{BAS}，\texttt{BSAS}，\texttt{BSAS-WPT}的原理。如有错漏，还请指出。此外，本章所述的算法，在原始的\texttt{BAS}基础上，并没有过多地改变根本上的东西。第\ref{mixedalgorithm}章的算法，则是\texttt{BAS}和其他一些算法的结合，又或者，有更多根本性改动。如王糖糖同学提出的\texttt{BSO}，很典型地\texttt{BAS}和\texttt{PSO}的结合，则不在此章节。
 
 \section{BAS}\label{bas}
 
@@ -646,6 +646,196 @@ h_j(\mathbf{x}) = \begin{cases}
 \end{itemize}
 
 此处的不足，还需要考虑步长反馈和群体搜索的问题。不过，既然\texttt{BSAS}把姜博的\texttt{WPT}给窃来了，摇身变为了\texttt{BSAS-WPT}，那就不说上述两个问题了。等他日有闲，再去整合\texttt{李晓晓}同学的二阶\texttt{BAS}。
+
+\chapter{混合算法}\label{mixedalgorithm}
+
+在第\ref{algorithm}章中说明过，在基本\texttt{BAS}算法及变体的基础上，做出了大的改动的算法在本章说明。
+
+\section{BSO}\label{bso}
+
+关于\texttt{BSO}，主要的参考资料为\texttt{王糖糖}同学的论文\href{https://arxiv.org/abs/1808.00206}{Beetle
+Swarm Optimization Algorithm:Theory and
+Application}。作为一个捣鼓了两天算法的能源人，论文对我而言很是吃力。因为我此前只听说过粒子群算法，却从未了解过其原理。在囫囵看过几篇入门粒子群算法的博文后，再阅读上述的论文，就看到了很多有意思的地方。
+
+首先，假设大家都阅读过第\ref{algorithm}章，对\texttt{BAS}有了一定的了解。那么，接下来就能看看，\texttt{BSO}是如何把\texttt{BAS}和\texttt{PSO}结合起来的。此处，只把我的认知写在此处，如有问题，还请大家指出。
+
+\subsection{粒子群算法流程}
+
+我们先说一下标准的粒子群算法的几个核心更新关系。
+
+粒子在第 \(k+1\) 回合中，其速度与第 \(k\)
+回合的速度关系如式\eqref{eq:psov}:
+
+\begin{equation}
+v_{i,k+1} = \omega v_{i,k} + c_1*rand_1*(pbest_i-x_{i,k})+c_2*rand_2*(gbest_k-x_{i,k})
+\label{eq:psov}
+\end{equation}
+
+那么第 \(k+1\) 回合中粒子位置如式\eqref{eq:psox}更新。
+
+\begin{equation}
+x_{i,k} = x_{i,k} + v_{i,k}
+\label{eq:psox}
+\end{equation}
+
+其中，\(i=1,2,\cdots,S\)，\(S\)
+为设定的粒子数目。而\(k=1,2,\cdots,n\)，\(n\)
+为设定的最大循环数。\(\omega\)
+表示粒子速度的惯性，也就是本回合速度对下回合速度更新的影响。
+\(c1,c2\)则是学习因子，\(pbest_i-x_{i,k}\) 表示粒子\(i\)
+当前的位置和其历史最优的位置的差距，而
+\(gbest_k-x_{i,k}\)则表示，粒子\(i\)
+当前的位置和历史全局最优的粒子的位置（所有粒子在历史时间跨度中最好的位置）的差距。
+
+那么，这样更新了粒子的位置之后，自然要计算这一回合的适应度，也就是目标函数的值。如果\textbf{存在适应度比自身历史或全局历史更优}，那么就相应地更新\(pbest\)和\(gbest\)。然后，就重复上述过程，直到设定的终止条件满足。
+
+\(\omega\)动态变化，能取得好的效果，一般，它如式\eqref{eq:psoomega}所示变化。
+
+\begin{equation}
+\omega = \omega_{max} - (\omega_{max}-\omega_{min})\frac{k}{n}
+\label{eq:psoomega}
+\end{equation}
+
+当然，如果 \(k\)
+取0，也就是初始回合，那么\(\omega = \omega_{max}\)。如果 \(k\) 取\(n\)
+（也就是最终的回合）,那么\(\omega = \omega_{min}\)。所以，这也是个权重线性递减的过程。
+
+\subsection{与BAS的结合}\label{bas}
+
+我们假想一下，要把PSO和BAS结合，从什么方向入手呢？
+
+作为门外汉，我可能会想，那就多放置几只天牛，让它们像粒子一样，信息共享，但是本身的更新寻优还按照BAS的来（后面会讲，这类似于BSAS，但不是BSO）。
+
+不过呢，BSO给了一种很丰满和交错的方式，让BAS和PSO不是那么的泾渭分明。
+
+首先，位置更新时，按照PSO和BAS的方式各自更新后加权得到新的位置。也就是，利用了BAS的触须方向和步长，同时也利用了粒子（在BSO中就是天牛）的速度。如式\eqref{eq:bsox}:
+
+\begin{equation}
+X_{s}^{k+1} = X_{s}^{k} + \lambda V_{s}^k + (1 - \lambda)\xi_{s}^k
+\label{eq:bsox}
+\end{equation}
+
+第一项 \(X_{s}^{k}\) 自然是表明粒子 \(s\) 在 \(k\) 回合的位置了，第二项
+\(\lambda V_{s}^k\) 也就是PSO中的天牛速度乘以权重
+\(\lambda\)。那么第三项中的 \(\xi_{s}^k\)
+应该是BAS中的步长乘以方向向量才对。但是，\textbf{方向并不是BAS中随机生成的方向}。
+
+我们看看 \(\xi_s^k\) 怎么得到。在文中，给出了式\eqref{eq:bsoxi}。
+
+\begin{equation}
+\xi_s^{k+1} = \delta^kV_s^ksign(f(X_{rs}^k) - f(X_{ls}^k))
+\label{eq:bsoxi}
+\end{equation}
+
+这就是我们熟悉的BAS更新的方式，不过，把随机生成的天牛方向，换为了粒子速度
+\(V_s^k\)。在BSO中，并没有BAS中成方向的操作。有同学可能会问，\textbf{既然没有随机方向，那么天牛的左右须坐标怎么来的呢？}
+和式\eqref{eq:bsoxi}中使用\textbf{速度替代方向}的操作相同，计算左右须坐标时，也是用的速度，来代替方向。即，如式\eqref{eq:bsolr}。
+
+\begin{equation}
+\begin{split}
+X_{rs}^k&=X_{s}^k+V_s^k\frac{d}{2} \\
+X_{ls}^k&=X_{s}^k-V_s^k\frac{d}{2}
+\end{split}
+\label{eq:bsolr}
+\end{equation}
+
+这样，就完成了BSO算法的更新过程。里面的速度，和粒子群算法的更新方式相同。
+
+\begin{quote}
+注明，原文中使用的上一回合的左右须坐标，
+更新这回合的左右须坐标。但是根据代码来看，是文章存在了脚标的小错误，应该是用天牛坐标，更新须坐标。
+\end{quote}
+
+\texttt{王糖糖}同学还给出了一个动态的（BAS）步长更新系数，如式\eqref{eq:basstep}:
+
+\begin{equation}
+\eta = \omega_{\delta_1}(\frac{\omega_{\delta_1}}{\omega_{\delta_0}})^{1/(1+10k/n)}
+\label{eq:basstep}
+\end{equation}
+
+默认参数为\(\omega_{\delta_1} = 0.4\)，
+\(\omega_{\delta_0} = 0.9\)。即，步长在回合初始，衰减最快，回合临终时，衰减最慢。
+
+\subsection{总结}
+
+此前，在写BSAS算法说明的时候，我把BSO加入到了待完成列表内。看了双方的英文名，是在是太巧了。BSAS是\texttt{Beetle\ Swarm\ Antennae\ Search}，而BSO是\texttt{Beetle\ Swarm\ Optimization}。彼时，我还不知晓PSO是啥含义。现在看来，这样的名称所包含的意义是千差万别的。后来，在复现BSO的过程中（此句为马后炮，毕竟是有了王糖糖同学提供的代码），也深刻地体会到两者的不同，下面我们来做一下罗列。
+
+\begin{itemize}
+\tightlist
+\item
+  区别
+
+  \begin{itemize}
+  \tightlist
+  \item
+    BSAS：是BAS的衍生，移动和搜索的方式也很BAS。一言蔽之，BSAS就像天牛有了k对须而不是一对，在每回合，它必须要沿着这些须的方向都探索一遍。所谓的\texttt{Swarm}，是因为每回合有k只（虚拟的）天牛在探索这k对须的方向。
+  \item
+    BSO：在粒子群算法的大框架下，由速度的更新（PSO）和步长的更新（BAS）共同决定下一步的天牛位置。这其中的\texttt{Swarm}，可以视作是真正独立的群体，它们间共享信息。
+  \end{itemize}
+\item
+  联系
+
+  \begin{itemize}
+  \tightlist
+  \item
+    BSO和BSAS保留着BAS的搜寻和移动方式
+  \item
+    BSO和BSAS都是意图通过每回合搜索更多的位置（也可以视为方向），达到更优的效果。
+  \end{itemize}
+\end{itemize}
+
+\subsection{算法调用说明}\label{BSOparms}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{BSOoptim}\NormalTok{(fn, }\DataTypeTok{init =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{constr =} \OtherTok{NULL}\NormalTok{, }
+         \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{50}\NormalTok{, }\OperatorTok{-}\DecValTok{50}\NormalTok{), }\DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{50}\NormalTok{), }\DataTypeTok{n =} \DecValTok{300}\NormalTok{, }
+         \DataTypeTok{s =} \KeywordTok{floor}\NormalTok{(}\DecValTok{10} \OperatorTok{+}\StringTok{ }\DecValTok{2} \OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{length}\NormalTok{(lower))), }
+         \DataTypeTok{w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{, }\FloatTok{0.4}\NormalTok{), }
+         \DataTypeTok{w_vs =} \FloatTok{0.4}\NormalTok{, }
+         \DataTypeTok{step =} \DecValTok{10}\NormalTok{,}
+         \DataTypeTok{step_w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{, }\FloatTok{0.4}\NormalTok{), }
+         \DataTypeTok{c =} \DecValTok{8}\NormalTok{, }
+         \DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{, }\FloatTok{5.12}\NormalTok{), }
+         \DataTypeTok{trace =}\NormalTok{ T,}
+         \DataTypeTok{seed =} \OtherTok{NULL}\NormalTok{, }
+         \DataTypeTok{pen =} \FloatTok{1e+06}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+在本节写函数调用，是因为函数内有部分参数和本节的公式变量名称有出入。上面的代码是函数的默认调用形式，其中\(s\)表示设定的天牛或者粒子数目，\(w\)也就是式\eqref{eq:psoomega}中提到的\(\omega_{max}\)和\(\omega_{min}\)。\texttt{w\_vs}
+是\(\lambda\)，也就是式\eqref{eq:bsox}中天牛速度和移动步长之间的权重，直观地理解为\texttt{weight\ between\ velocity\ and\ step-size}。\texttt{step}和\texttt{c}仍然是表示步长和步长与须距离之比。而\(step_w\)为一个向量，表示的是式\eqref{eq:basstep}中的\(\omega_{\delta_1} = 0.4\)，
+\(\omega_{\delta_0} = 0.9\)。
+
+一个简单的例子如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rBAS)}
+\NormalTok{mich <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{y1 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((x[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+\NormalTok{y2 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((}\DecValTok{2}\OperatorTok{*}\NormalTok{x[}\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+\KeywordTok{return}\NormalTok{(y1}\OperatorTok{+}\NormalTok{y2)}
+\NormalTok{\}}
+\NormalTok{result <-}
+\StringTok{ }\KeywordTok{BSOoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ mich,}
+           \DataTypeTok{init =} \OtherTok{NULL}\NormalTok{,}
+           \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{6}\NormalTok{,}\DecValTok{0}\NormalTok{),}
+           \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),}
+           \DataTypeTok{n =} \DecValTok{100}\NormalTok{,}
+           \DataTypeTok{step =} \DecValTok{5}\NormalTok{,}
+           \DataTypeTok{s =} \DecValTok{10}\NormalTok{,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{, }\DataTypeTok{trace =}\NormalTok{ F)}
+\NormalTok{result}\OperatorTok{$}\NormalTok{par; result}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -4.965998  1.570796
+\end{verbatim}
+
+\begin{verbatim}
+## [1] -1.967851
+\end{verbatim}
 
 \chapter{函数使用}\label{rBAS}
 
@@ -1280,6 +1470,166 @@ x_5\in&[27,45] \notag\\
 \texttt{BSAS-WPT}没有做过多的参数调节，即可获得更畅快地优化体验。举例，在对\texttt{Himmelblau}函数进行优化时，我仅仅设定了随机种子\texttt{seed}，然后把\texttt{step}从1调到了2，看了看效果的变化。发现都不错，最后每隔0.1选取\texttt{step}，试探最好的效果在哪里，于是就成了上面的例子。
 如果把这一套，放在\texttt{BSASoptim}函数上，对于复杂的优化问题，就\textbf{成了一种折磨}。
 
+\section{BSO}\label{bso-1}
+
+\subsection{BSO参数说明}\label{bso}
+
+由于BSO参数与原理中的公式较为复杂。因此，在讲述其原理时，对函数的参数也进行了说明。故大家可以参考@ref(\#BSOparms)节。此处，仅仅复制该节内容。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{BSOoptim}\NormalTok{(fn, }\DataTypeTok{init =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{constr =} \OtherTok{NULL}\NormalTok{, }
+         \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{50}\NormalTok{, }\OperatorTok{-}\DecValTok{50}\NormalTok{), }\DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{50}\NormalTok{), }\DataTypeTok{n =} \DecValTok{300}\NormalTok{, }
+         \DataTypeTok{s =} \KeywordTok{floor}\NormalTok{(}\DecValTok{10} \OperatorTok{+}\StringTok{ }\DecValTok{2} \OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{length}\NormalTok{(lower))), }
+         \DataTypeTok{w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{, }\FloatTok{0.4}\NormalTok{), }
+         \DataTypeTok{w_vs =} \FloatTok{0.4}\NormalTok{, }
+         \DataTypeTok{step =} \DecValTok{10}\NormalTok{,}
+         \DataTypeTok{step_w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{, }\FloatTok{0.4}\NormalTok{), }
+         \DataTypeTok{c =} \DecValTok{8}\NormalTok{, }
+         \DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{, }\FloatTok{5.12}\NormalTok{), }
+         \DataTypeTok{trace =}\NormalTok{ T,}
+         \DataTypeTok{seed =} \OtherTok{NULL}\NormalTok{, }
+         \DataTypeTok{pen =} \FloatTok{1e+06}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+上面的代码是函数的默认调用形式，其中\(s\)表示设定的天牛或者粒子数目，\(w\)也就是式\eqref{eq:psoomega}中提到的\(\omega_{max}\)和\(\omega_{min}\)。\texttt{w\_vs}
+是\(\lambda\)，也就是式\eqref{eq:bsox}中天牛速度和移动步长之间的权重，直观地理解为\texttt{weight\ between\ velocity\ and\ step-size}。\texttt{step}和\texttt{c}仍然是表示步长和步长与须距离之比。而\(step_w\)为一个向量，表示的是式\eqref{eq:basstep}中的\(\omega_{\delta_1} = 0.4\)，
+\(\omega_{\delta_0} = 0.9\)。
+
+\subsection{BSO案例}\label{bso}
+
+\subsubsection{Michalewicz function}\label{michalewicz-function-1}
+
+一个简单的例子（\texttt{Michalewicz\ function}）如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rBAS)}
+\NormalTok{mich <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{y1 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((x[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+\NormalTok{y2 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((}\DecValTok{2}\OperatorTok{*}\NormalTok{x[}\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+\KeywordTok{return}\NormalTok{(y1}\OperatorTok{+}\NormalTok{y2)}
+\NormalTok{\}}
+\NormalTok{result <-}
+\StringTok{ }\KeywordTok{BSOoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ mich,}
+           \DataTypeTok{init =} \OtherTok{NULL}\NormalTok{,}
+           \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{6}\NormalTok{,}\DecValTok{0}\NormalTok{),}
+           \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),}
+           \DataTypeTok{n =} \DecValTok{100}\NormalTok{,}
+           \DataTypeTok{step =} \DecValTok{5}\NormalTok{,}
+           \DataTypeTok{s =} \DecValTok{10}\NormalTok{,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{, }\DataTypeTok{trace =}\NormalTok{ F)}
+\NormalTok{result}\OperatorTok{$}\NormalTok{par; result}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -4.965998  1.570796
+\end{verbatim}
+
+\begin{verbatim}
+## [1] -1.967851
+\end{verbatim}
+
+\subsubsection{Pressure Vessel function}\label{pressure-vessel-function}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pressure_Vessel <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+\DataTypeTok{obj =} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  x1 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{  x2 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{  x3 <-}\StringTok{ }\NormalTok{x[}\DecValTok{3}\NormalTok{]}
+\NormalTok{  x4 <-}\StringTok{ }\NormalTok{x[}\DecValTok{4}\NormalTok{]}
+\NormalTok{  result <-}\StringTok{ }\FloatTok{0.6224}\OperatorTok{*}\NormalTok{x1}\OperatorTok{*}\NormalTok{x3}\OperatorTok{*}\NormalTok{x4 }\OperatorTok{+}\StringTok{ }\FloatTok{1.7781}\OperatorTok{*}\NormalTok{x2}\OperatorTok{*}\NormalTok{x3}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\FloatTok{3.1611}\OperatorTok{*}\NormalTok{x1}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{x4 }\OperatorTok{+}\StringTok{ }\FloatTok{19.84}\OperatorTok{*}\NormalTok{x1}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{x3}
+\NormalTok{\},}
+\DataTypeTok{con =} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  x1 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{  x2 <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\FloatTok{0.0625}
+\NormalTok{  x3 <-}\StringTok{ }\NormalTok{x[}\DecValTok{3}\NormalTok{]}
+\NormalTok{  x4 <-}\StringTok{ }\NormalTok{x[}\DecValTok{4}\NormalTok{]}
+  \KeywordTok{c}\NormalTok{(}
+    \FloatTok{0.0193}\OperatorTok{*}\NormalTok{x3 }\OperatorTok{-}\StringTok{ }\NormalTok{x1,}\CommentTok{#<=0}
+    \FloatTok{0.00954}\OperatorTok{*}\NormalTok{x3 }\OperatorTok{-}\StringTok{ }\NormalTok{x2,}
+    \FloatTok{750.0}\OperatorTok{*}\FloatTok{1728.0} \OperatorTok{-}\StringTok{ }\NormalTok{pi}\OperatorTok{*}\NormalTok{x3}\OperatorTok{^}\DecValTok{2}\OperatorTok{*}\NormalTok{x4 }\OperatorTok{-}\StringTok{ }\DecValTok{4}\OperatorTok{/}\DecValTok{3}\OperatorTok{*}\NormalTok{pi}\OperatorTok{*}\NormalTok{x3}\OperatorTok{^}\DecValTok{3}
+\NormalTok{  )}
+\NormalTok{\}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result<-}
+\KeywordTok{BSOoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ pressure_Vessel}\OperatorTok{$}\NormalTok{obj,}
+         \DataTypeTok{init =} \OtherTok{NULL}\NormalTok{,}
+         \DataTypeTok{constr =}\NormalTok{ pressure_Vessel}\OperatorTok{$}\NormalTok{con,}
+         \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{( }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),}
+         \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{200}\NormalTok{),}
+         \DataTypeTok{n =} \DecValTok{1000}\NormalTok{,}
+         \DataTypeTok{w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
+         \DataTypeTok{w_vs =} \FloatTok{0.9}\NormalTok{,}
+         \DataTypeTok{step =} \DecValTok{100}\NormalTok{,}
+         \DataTypeTok{step_w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
+         \DataTypeTok{c =} \DecValTok{35}\NormalTok{,}
+         \DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,}\FloatTok{5.12}\NormalTok{),}
+         \DataTypeTok{trace =}\NormalTok{ F,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{,}
+         \DataTypeTok{pen =} \FloatTok{1e6}\NormalTok{)}
+\NormalTok{ result}\OperatorTok{$}\NormalTok{par}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  13.955250   7.550179  42.098446 176.636596
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ result}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6059.131
+\end{verbatim}
+
+得到的结果十分好（甚至比论文\citep{Wang2018BSO}还要高出那么一点点）。但是，这是调参调出来的结果。
+
+总的来说，我自己的经验是：
+
+\begin{itemize}
+\tightlist
+\item
+  调节最大迭代次数\texttt{n}
+\item
+  调节步长\texttt{step}和步长与须距离比值\texttt{c}（让搜索距离的尺度尽量在迭代后不要太大）
+\item
+  调节\texttt{w\_vs}，该值越大，粒子群算法更新方式所占的比重越大。
+\end{itemize}
+
+而\texttt{王糖糖}同学给出的建议是：
+
+\begin{quote}
+``在试验的时候发现，当维度提高时，步长和迭代次数也要相应的提高''
+
+\begin{flushright}---王糖糖\end{flushright}
+\end{quote}
+
+最后呢，我们为什么要改算法！
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{img/BSO_w} 
+
+}
+
+\caption{为什么我们孜孜不倦改算法}\label{fig:bsow}
+\end{figure}
+
+\begin{quote}
+开个玩笑，祝大家周末愉快，学业顺心。
+\end{quote}
+
 \chapter{用户界面}\label{interface}
 
 用户界面基于\href{https://github.com/rstudio/shiny}{shiny}包开发。核心思想是，把目标函数或者约束在\texttt{R}的脚本中预先定义好，然后调用\texttt{run\_BAS\_App(func\ =\ ...,\ constr\ =\ ...,theme\ =\ ...)}函数来人为调节参数，运行以及可视化。
@@ -1307,7 +1657,7 @@ x_5\in&[27,45] \notag\\
 
 \section{使用案例}
 
-\subsection{Michalewicz function}\label{michalewicz-function-1}
+\subsection{Michalewicz function}\label{michalewicz-function-2}
 
 先在代码中预定义函数：
 
@@ -1383,7 +1733,7 @@ x_5\in&[27,45] \notag\\
 
 \texttt{BAS}与其他两种算法有着不同的可视化结果，其并不是基于反馈来控制步长的。因此，图中的两条曲线，红色的为每一回合的目标函数值，而蓝色的为此前回合中最优的目标函数值。
 
-\subsection{Pressure Vessel function}\label{pressure-vessel-function}
+\subsection{Pressure Vessel function}\label{pressure-vessel-function-1}
 
 这次，我们在\texttt{BSAS-WPT}栏下进行界面使用。先在代码中预定义目标函数和约束：
 
@@ -2261,7 +2611,7 @@ r_1,r_2,r_3,r_4\in[0,5]\quad r_p,x_0,y_0\in[-5,5] \quad \theta_0,\theta_2^1,\cdo
 \item
   加入二阶 \texttt{BAS} (李晓晓)
 \item
-  add \texttt{BSO(Beetle\ Swarm\ Optimizaiton)} (王甜甜)
+  \sout{add \texttt{BSO(Beetle\ Swarm\ Optimizaiton)}} (王甜甜)
 \item
   \ldots{}
 \end{itemize}
