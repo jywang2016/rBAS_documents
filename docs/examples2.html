@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="algorithm.html">
-<link rel="next" href="rBAS.html">
+<link rel="prev" href="examples.html">
+<link rel="next" href="matlabr.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -233,121 +233,283 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="mixedalgorithm" class="section level1">
-<h1><span class="header-section-number">第 3 章</span> 混合算法</h1>
-<p>在第<a href="algorithm.html#algorithm">2</a>章中说明过，在基本<code>BAS</code>算法及变体的基础上，做出了大的改动的算法在本章说明。</p>
-<div id="bso" class="section level2">
-<h2><span class="header-section-number">3.1</span> BSO</h2>
-<p>关于<code>BSO</code>，主要的参考资料为<code>王糖糖</code>同学的论文<a href="https://arxiv.org/abs/1808.00206">Beetle Swarm Optimization Algorithm:Theory and Application</a>。作为一个捣鼓了两天算法的能源人，论文对我而言很是吃力。因为我此前只听说过粒子群算法，却从未了解过其原理。在囫囵看过几篇入门粒子群算法的博文后，再阅读上述的论文，就看到了很多有意思的地方。</p>
-<p>首先，假设大家都阅读过第<a href="algorithm.html#algorithm">2</a>章，对<code>BAS</code>有了一定的了解。那么，接下来就能看看，<code>BSO</code>是如何把<code>BAS</code>和<code>PSO</code>结合起来的。此处，只把我的认知写在此处，如有问题，还请大家指出。</p>
-<div id="section-3.1.1" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> 粒子群算法流程</h3>
-<p>我们先说一下标准的粒子群算法的几个核心更新关系。</p>
-<p>粒子在第 <span class="math inline">\(k+1\)</span> 回合中，其速度与第 <span class="math inline">\(k\)</span> 回合的速度关系如式<a href="mixedalgorithm.html#eq:psov">(3.1)</a>:</p>
-<span class="math display" id="eq:psov">\[\begin{equation}
-v_{i,k+1} = \omega v_{i,k} + c_1*rand_1*(pbest_i-x_{i,k})+c_2*rand_2*(gbest_k-x_{i,k})
-\tag{3.1}
-\end{equation}\]</span>
-<p>那么第 <span class="math inline">\(k+1\)</span> 回合中粒子位置如式<a href="mixedalgorithm.html#eq:psox">(3.2)</a>更新。</p>
-<span class="math display" id="eq:psox">\[\begin{equation}
-x_{i,k} = x_{i,k} + v_{i,k}
-\tag{3.2}
-\end{equation}\]</span>
-<p>其中，<span class="math inline">\(i=1,2,\cdots,S\)</span>，<span class="math inline">\(S\)</span> 为设定的粒子数目。而<span class="math inline">\(k=1,2,\cdots,n\)</span>，<span class="math inline">\(n\)</span> 为设定的最大循环数。<span class="math inline">\(\omega\)</span> 表示粒子速度的惯性，也就是本回合速度对下回合速度更新的影响。 <span class="math inline">\(c1,c2\)</span>则是学习因子，<span class="math inline">\(pbest_i-x_{i,k}\)</span> 表示粒子<span class="math inline">\(i\)</span> 当前的位置和其历史最优的位置的差距，而 <span class="math inline">\(gbest_k-x_{i,k}\)</span>则表示，粒子<span class="math inline">\(i\)</span> 当前的位置和历史全局最优的粒子的位置（所有粒子在历史时间跨度中最好的位置）的差距。</p>
-<p>那么，这样更新了粒子的位置之后，自然要计算这一回合的适应度，也就是目标函数的值。如果<strong>存在适应度比自身历史或全局历史更优</strong>，那么就相应地更新<span class="math inline">\(pbest\)</span>和<span class="math inline">\(gbest\)</span>。然后，就重复上述过程，直到设定的终止条件满足。</p>
-<p><span class="math inline">\(\omega\)</span>动态变化，能取得好的效果，一般，它如式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>所示变化。</p>
-<span class="math display" id="eq:psoomega">\[\begin{equation}
-\omega = \omega_{max} - (\omega_{max}-\omega_{min})\frac{k}{n}
-\tag{3.3}
-\end{equation}\]</span>
-<p>当然，如果 <span class="math inline">\(k\)</span> 取0，也就是初始回合，那么<span class="math inline">\(\omega = \omega_{max}\)</span>。如果 <span class="math inline">\(k\)</span> 取<span class="math inline">\(n\)</span> （也就是最终的回合）,那么<span class="math inline">\(\omega = \omega_{min}\)</span>。所以，这也是个权重线性递减的过程。</p>
-</div>
-<div id="bas" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> 与BAS的结合</h3>
-<p>我们假想一下，要把PSO和BAS结合，从什么方向入手呢？</p>
-<p>作为门外汉，我可能会想，那就多放置几只天牛，让它们像粒子一样，信息共享，但是本身的更新寻优还按照BAS的来（后面会讲，这类似于BSAS，但不是BSO）。</p>
-<p>不过呢，BSO给了一种很丰满和交错的方式，让BAS和PSO不是那么的泾渭分明。</p>
-<p>首先，位置更新时，按照PSO和BAS的方式各自更新后加权得到新的位置。也就是，利用了BAS的触须方向和步长，同时也利用了粒子（在BSO中就是天牛）的速度。如式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>:</p>
-<span class="math display" id="eq:bsox">\[\begin{equation}
-X_{s}^{k+1} = X_{s}^{k} + \lambda V_{s}^k + (1 - \lambda)\xi_{s}^k
-\tag{3.4}
-\end{equation}\]</span>
-<p>第一项 <span class="math inline">\(X_{s}^{k}\)</span> 自然是表明粒子 <span class="math inline">\(s\)</span> 在 <span class="math inline">\(k\)</span> 回合的位置了，第二项 <span class="math inline">\(\lambda V_{s}^k\)</span> 也就是PSO中的天牛速度乘以权重 <span class="math inline">\(\lambda\)</span>。那么第三项中的 <span class="math inline">\(\xi_{s}^k\)</span> 应该是BAS中的步长乘以方向向量才对。但是，<strong>方向并不是BAS中随机生成的方向</strong>。</p>
-<p>我们看看 <span class="math inline">\(\xi_s^k\)</span> 怎么得到。在文中，给出了式<a href="mixedalgorithm.html#eq:bsoxi">(3.5)</a>。</p>
-<span class="math display" id="eq:bsoxi">\[\begin{equation}
-\xi_s^{k+1} = \delta^kV_s^ksign(f(X_{rs}^k) - f(X_{ls}^k))
-\tag{3.5}
-\end{equation}\]</span>
-<p>这就是我们熟悉的BAS更新的方式，不过，把随机生成的天牛方向，换为了粒子速度 <span class="math inline">\(V_s^k\)</span>。在BSO中，并没有BAS中成方向的操作。有同学可能会问，<strong>既然没有随机方向，那么天牛的左右须坐标怎么来的呢？</strong> 和式<a href="mixedalgorithm.html#eq:bsoxi">(3.5)</a>中使用<strong>速度替代方向</strong>的操作相同，计算左右须坐标时，也是用的速度，来代替方向。即，如式<a href="mixedalgorithm.html#eq:bsolr">(3.6)</a>。</p>
-<span class="math display" id="eq:bsolr">\[\begin{equation}
-\begin{split}
-X_{rs}^k&amp;=X_{s}^k+V_s^k\frac{d}{2} \\
-X_{ls}^k&amp;=X_{s}^k-V_s^k\frac{d}{2}
-\end{split}
-\tag{3.6}
-\end{equation}\]</span>
-<p>这样，就完成了BSO算法的更新过程。里面的速度，和粒子群算法的更新方式相同。</p>
+<div id="examples2" class="section level1">
+<h1><span class="header-section-number">第 7 章</span> BAS案例二:龙门起重机运动控制</h1>
 <blockquote>
-<p>注明，原文中使用的上一回合的左右须坐标， 更新这回合的左右须坐标。但是根据代码来看，是文章存在了脚标的小错误，应该是用天牛坐标，更新须坐标。</p>
+<p>由群友李晓晓同学提供案例。</p>
 </blockquote>
-<p><code>王糖糖</code>同学还给出了一个动态的（BAS）步长更新系数，如式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>:</p>
-<span class="math display" id="eq:basstep">\[\begin{equation}
-\eta = \omega_{\delta_1}(\frac{\omega_{\delta_1}}{\omega_{\delta_0}})^{1/(1+10k/n)}
-\tag{3.7}
+<div id="section-7.1" class="section level2">
+<h2><span class="header-section-number">7.1</span> 问题背景</h2>
+<p>龙门起重机（gantry crane），如图<a href="examples2.html#fig:gc">7.1</a>所示，是水平桥架设置在两条支腿上构成门架形状的一种桥架型起重机。起重小车trolley在桥架上运行，利用绳索（cable）一类的柔性体连接负载（load）。在负载的输送过程中，load的摆动问题一直是影响吊车装运效率提高的一大难题。</p>
+<div class="figure" style="text-align: center"><span id="fig:gc"></span>
+<img src="img/gc.png" alt="龙门起重机示意" width="70%" />
+<p class="caption">
+图 7.1: 龙门起重机示意
+</p>
+</div>
+<p>模型可以简化为图<a href="examples2.html#fig:gc2">7.2</a>。重物通过绳索与小车相连，小车在外力的作用下水平运动，小车质量为M（kg），重物的质量为m（kg），绳索的长度为r（m），<span class="math inline">\(\theta\)</span>为摆角，x表示水平方向上的位移。</p>
+<div class="figure" style="text-align: center"><span id="fig:gc2"></span>
+<img src="img/gc2.png" alt="龙门起重机模型" width="60%" />
+<p class="caption">
+图 7.2: 龙门起重机模型
+</p>
+</div>
+</div>
+<div id="section-7.2" class="section level2">
+<h2><span class="header-section-number">7.2</span> 优化问题抽象</h2>
+<p>优化的变量为<code>bang-coast-bang</code>控制中，<span class="math inline">\(x = [tp_1,tp_2,tf]^T\)</span>，两个给予脉冲加速度激励的时段以及全部的作业时间，以此来使得负载的摆角（优化目标）最小。</p>
+<p>取小车的位置x，摆角<span class="math inline">\(\theta\)</span>作为系统的广义坐标系。小车和负载在t时刻的位置坐标如式<a href="examples2.html#eq:loadposition">(7.1)</a>所示。</p>
+<span class="math display" id="eq:loadposition">\[\begin{equation}
+\begin{cases} 
+x_M(t)&amp;=&amp;x(t)\\ 
+y_M(t)&amp;=&amp;0 \\
+x_m(t)&amp;=&amp;x(t)+rsin\theta(t)\\
+t_m(t)&amp;=&amp;-rco\theta(t)
+\end{cases}
+\tag{7.1}
 \end{equation}\]</span>
-<p>默认参数为<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。即，步长在回合初始，衰减最快，回合临终时，衰减最慢。</p>
+<p>因此，对<span class="math inline">\(t\)</span>求导，得到小车和负载的速度分量如式<a href="examples2.html#eq:speedp">(7.2)</a>所示。</p>
+<span class="math display" id="eq:speedp">\[\begin{equation}
+\begin{cases} 
+\dot{x}_M(t) &amp;=&amp; \dot{x}_t\\
+\dot{y}_M(t) &amp;=&amp; 0\\
+\dot{x}_m(t) &amp;=&amp; \dot{x}(t)+r\dot{\theta}(t)cos\theta(t)\\
+\dot{y}_m(t) &amp;=&amp; r\dot{\theta}(t)sin\theta(t)
+\end{cases}
+\tag{7.2}
+\end{equation}\]</span>
+<p>系统动能如式<a href="examples2.html#eq:kineticenergy">(7.3)</a>：</p>
+<span class="math display" id="eq:kineticenergy">\[\begin{equation}
+\begin{split}
+T  = &amp;\frac{1}{2}MV_M^2(t) + \frac{1}{2}mV_m^2(t) \\
+=&amp;\frac{1}{2}M(\dot{x}_M^2(t)+\dot{y}_M^2(t))+\frac{1}{2}m(\dot{x}_m^2(t)+\dot{y}_m^2(t))\\
+=&amp;\frac{1}{2}M\dot{x}_M^2(t) + \frac{1}{2}m\dot{x}_m^2(t) + \\
+&amp;\frac{1}{2}mr^2\dot{\theta}^2(t) + mr\dot{x}(t)\dot{\theta}(t)cos\theta(t)
+\end{split}
+\tag{7.3}
+\end{equation}\]</span>
+<p>势能如式<a href="examples2.html#eq:potentialenergy">(7.4)</a>：</p>
+<span class="math display" id="eq:potentialenergy">\[\begin{equation}
+P = -mgrcos\theta(t)
+\tag{7.4}
+\end{equation}\]</span>
+<p>通过式<a href="examples2.html#eq:potentialenergy">(7.4)</a>和式<a href="examples2.html#eq:kineticenergy">(7.3)</a>，我们可以得到拉格朗日方程，即<span class="math inline">\(L = T -P\)</span>。根据欧拉-拉格朗日方程(Euler-Lagrangian equation)，龙门起重机的动力学模型如式<a href="examples2.html#eq:EL">(7.5)</a>所示。</p>
+<span class="math display" id="eq:EL">\[\begin{equation}
+\frac{d}{dt}[\frac{\partial{L}}{\partial{\dot{q_k}}}] - \frac{\partial{L}}{\partial{q_k}}=Q_k, \quad k=1,\cdots,n
+\tag{7.5}
+\end{equation}\]</span>
+<p>其中，<span class="math inline">\(n\)</span>表示系统的自由度，<span class="math inline">\(\{q_1,\cdots,q_n\}\)</span>表示广义坐标集合，<span class="math inline">\(\{Q_1,\cdots,Q_n\}\)</span>表示广义的驱动力（对应于各自的广义坐标）。把摆角作为广义坐标，可以得到式<a href="examples2.html#eq:thetaEL1">(7.6)</a>。</p>
+<span class="math display" id="eq:thetaEL1">\[\begin{equation}
+\frac{d}{dt}[\frac{\partial{L}}{\partial{\dot{\theta}}}] - \frac{\partial{L}}{\partial{\theta}}=0
+\tag{7.6}
+\end{equation}\]</span>
+<p>第一项为<span class="math inline">\(mr^2\ddot{\theta}(t)+mr\ddot{x}(t)cos\theta(t)\)</span>，第二项为<span class="math inline">\(-mgrsin\theta(t)\)</span>，代入式<a href="examples2.html#eq:thetaEL1">(7.6)</a>中可以得到<span class="math inline">\(\theta\)</span>的求解方程，即式<a href="examples2.html#eq:thetaEL2">(7.7)</a>。</p>
+<span class="math display" id="eq:thetaEL2">\[\begin{equation}
+\ddot{\theta}(t)=-\frac{\ddot{x}(t)cos\theta(t)+gsin\theta(t)}{r}
+\tag{7.7}
+\end{equation}\]</span>
+<p>通过求解该方程，我们可以得到我们的优化目标。</p>
 </div>
-<div id="section-3.1.3" class="section level3">
-<h3><span class="header-section-number">3.1.3</span> 总结</h3>
-<p>此前，在写BSAS算法说明的时候，我把BSO加入到了待完成列表内。看了双方的英文名，是在是太巧了。BSAS是<code>Beetle Swarm Antennae Search</code>，而BSO是<code>Beetle Swarm Optimization</code>。彼时，我还不知晓PSO是啥含义。现在看来，这样的名称所包含的意义是千差万别的。后来，在复现BSO的过程中（此句为马后炮，毕竟是有了王糖糖同学提供的代码），也深刻地体会到两者的不同，下面我们来做一下罗列。</p>
-<ul>
-<li>区别
-<ul>
-<li>BSAS：是BAS的衍生，移动和搜索的方式也很BAS。一言蔽之，BSAS就像天牛有了k对须而不是一对，在每回合，它必须要沿着这些须的方向都探索一遍。所谓的<code>Swarm</code>，是因为每回合有k只（虚拟的）天牛在探索这k对须的方向。</li>
-<li>BSO：在粒子群算法的大框架下，由速度的更新（PSO）和步长的更新（BAS）共同决定下一步的天牛位置。这其中的<code>Swarm</code>，可以视作是真正独立的群体，它们间共享信息。</li>
-</ul></li>
-<li>联系
-<ul>
-<li>BSO和BSAS保留着BAS的搜寻和移动方式</li>
-<li>BSO和BSAS都是意图通过每回合搜索更多的位置（也可以视为方向），达到更优的效果。</li>
-</ul></li>
-</ul>
+<div id="-1" class="section level2">
+<h2><span class="header-section-number">7.3</span> 优化理论</h2>
+<p>优化理论为二阶BAS算法。李晓晓同学给出的参数是，<span class="math inline">\(w_0 = 0.7\)</span>， <span class="math inline">\(w_1 = 0.2\)</span>。当然，文档中对于不同的目标函数可能有不同的调参结果，大家可以自行调试。</p>
 </div>
-<div id="BSOparms" class="section level3">
-<h3><span class="header-section-number">3.1.4</span> 算法调用说明</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSOoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, 
-         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>, <span class="op">-</span><span class="dv">50</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">n =</span> <span class="dv">300</span>, 
-         <span class="dt">s =</span> <span class="kw">floor</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(lower))), 
-         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
-         <span class="dt">w_vs =</span> <span class="fl">0.4</span>, 
-         <span class="dt">step =</span> <span class="dv">10</span>,
-         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
-         <span class="dt">c =</span> <span class="dv">8</span>, 
-         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>, <span class="fl">5.12</span>), 
-         <span class="dt">trace =</span> T,
-         <span class="dt">seed =</span> <span class="ot">NULL</span>, 
-         <span class="dt">pen =</span> <span class="fl">1e+06</span>)</code></pre></div>
-<p>在本节写函数调用，是因为函数内有部分参数和本节的公式变量名称有出入。上面的代码是函数的默认调用形式，其中<span class="math inline">\(s\)</span>表示设定的天牛或者粒子数目，<span class="math inline">\(w\)</span>也就是式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>中提到的<span class="math inline">\(\omega_{max}\)</span>和<span class="math inline">\(\omega_{min}\)</span>。<code>w_vs</code> 是<span class="math inline">\(\lambda\)</span>，也就是式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>中天牛速度和移动步长之间的权重，直观地理解为<code>weight between velocity and step-size</code>。<code>step</code>和<code>c</code>仍然是表示步长和步长与须距离之比。而<span class="math inline">\(step_w\)</span>为一个向量，表示的是式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>中的<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。</p>
-<p>一个简单的例子如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
-mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-<span class="kw">return</span>(y1<span class="op">+</span>y2)
-}
-result &lt;-
-<span class="st"> </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> mich,
-           <span class="dt">init =</span> <span class="ot">NULL</span>,
-           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),
-           <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
-           <span class="dt">n =</span> <span class="dv">100</span>,
-           <span class="dt">step =</span> <span class="dv">5</span>,
-           <span class="dt">s =</span> <span class="dv">10</span>,<span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">trace =</span> F)
-result<span class="op">$</span>par; result<span class="op">$</span>value</code></pre></div>
-<pre><code>## [1] -4.965998  1.570796</code></pre>
-<pre><code>## [1] -1.967851</code></pre>
+<div id="-1" class="section level2">
+<h2><span class="header-section-number">7.4</span> 优化结果</h2>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:example2parms">表 7.1: </span>实验参数取值
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:left;">
+Description
+</th>
+<th style="text-align:left;">
+Values
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(c\)</span>
+</td>
+<td style="text-align:left;">
+Constant
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\lambda\)</span>
+</td>
+<td style="text-align:left;">
+Step length ratio
+</td>
+<td style="text-align:left;">
+0.95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\gamma\)</span>
+</td>
+<td style="text-align:left;">
+Penalty coefficient
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(10^{50}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(n\)</span>
+</td>
+<td style="text-align:left;">
+Number of iterations
+</td>
+<td style="text-align:left;">
+1000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(r\)</span>
+</td>
+<td style="text-align:left;">
+Height of crane
+</td>
+<td style="text-align:left;">
+20(m)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(h\)</span>
+</td>
+<td style="text-align:left;">
+Load displacement
+</td>
+<td style="text-align:left;">
+40(m)
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:example2result">表 7.2: </span>优化结果对比
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variables
+</th>
+<th style="text-align:right;">
+fmincon
+</th>
+<th style="text-align:right;">
+BAS
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(tp_1\)</span>
+</td>
+<td style="text-align:right;">
+8.9624000
+</td>
+<td style="text-align:right;">
+6.9082000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(tp_2\)</span>
+</td>
+<td style="text-align:right;">
+8.9803000
+</td>
+<td style="text-align:right;">
+6.9741000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(tf\)</span>
+</td>
+<td style="text-align:right;">
+19.8346000
+</td>
+<td style="text-align:right;">
+15.8866000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(f\)</span>
+</td>
+<td style="text-align:right;">
+0.0029586
+</td>
+<td style="text-align:right;">
+0.0001415
+</td>
+</tr>
+</tbody>
+</table>
+<p>从表<a href="examples2.html#tab:example2result">7.2</a>中可以看到，BAS能够让起重机小车在7秒内加速到最大速度，在16秒内就能到达终点并消除摆角。动图<a href="examples2.html#fig:example2fminconbob">7.3</a>至<a href="examples2.html#fig:example2bastrace">7.6</a>分别为采用<code>fmincon</code>和<code>BAS</code>做优化的结果，可以让我们有更为直观的认识。</p>
+<div class="figure" style="text-align: center"><span id="fig:example2fminconbob"></span>
+<img src="img/fminconbob.gif" alt="fmincon摆锤"  />
+<p class="caption">
+图 7.3: fmincon摆锤
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:example2basbob"></span>
+<img src="img/BASbob.gif" alt="BAS摆锤"  />
+<p class="caption">
+图 7.4: BAS摆锤
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:example2fmincontrace"></span>
+<img src="img/fmincontrace.gif" alt="fmincon轨迹"  />
+<p class="caption">
+图 7.5: fmincon轨迹
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:example2bastrace"></span>
+<img src="img/BAStrace.gif" alt="BAS轨迹"  />
+<p class="caption">
+图 7.6: BAS轨迹
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ex2accel"></span>
+<img src="img/ex2_1.png" alt="起重小车加速度曲线" width="70%" />
+<p class="caption">
+图 7.7: 起重小车加速度曲线
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ex2velocity"></span>
+<img src="img/ex2_2.png" alt="起重小车速度曲线" width="70%" />
+<p class="caption">
+图 7.8: 起重小车速度曲线
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ex2position"></span>
+<img src="img/ex2_3.png" alt="起重小车位置曲线" width="70%" />
+<p class="caption">
+图 7.9: 起重小车位置曲线
+</p>
+</div>
 
-</div>
 </div>
 </div>
             </section>
@@ -355,8 +517,8 @@ result<span class="op">$</span>par; result<span class="op">$</span>value</code><
           </div>
         </div>
       </div>
-<a href="algorithm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="rBAS.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matlabr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

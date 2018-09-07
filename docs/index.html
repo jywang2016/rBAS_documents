@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>rBAS使用文档</title>
-  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="description" content="rBAS中文使用说明文档V0.2">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="rBAS使用文档" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta property="og:description" content="rBAS中文使用说明文档V0.2" />
   <meta name="github-repo" content="jywang2016/rBAS" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="rBAS使用文档" />
   
-  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
   
 
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-04">
+<meta name="date" content="2018-09-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -128,6 +129,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
 <li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
+<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
 <li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
@@ -138,9 +143,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
-<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim</a><ul>
+<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim/BASoptim2</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>4.1.1</b> BASoptim参数说明</a></li>
-<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.2</b> BASoptim简单案例</a></li>
+<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BAS2parms"><i class="fa fa-check"></i><b>4.1.2</b> BAS2optim参数说明</a></li>
+<li class="chapter" data-level="4.1.3" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.3</b> BASoptim简单案例</a></li>
+<li class="chapter" data-level="4.1.4" data-path="rBAS.html"><a href="rBAS.html#BAS2examples"><i class="fa fa-check"></i><b>4.1.4</b> BASoptim2简单案例</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>4.2</b> BSASoptim</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>4.2.1</b> BSASoptim参数说明</a></li>
@@ -185,13 +192,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4.8" data-path="examples.html"><a href="examples.html#case8-"><i class="fa fa-check"></i><b>6.4.8</b> Case8 无规定时间的路径生成</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>7</b> Matlab用户</a><ul>
-<li class="chapter" data-level="7.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>7.1</b> 使用R.matlab包</a></li>
-<li class="chapter" data-level="7.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>7.2</b> 中转站：C/C++</a></li>
+<li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
+<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
+<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="7.3" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>8</b> 更新及维护计划</a><ul>
-<li class="chapter" data-level="8.1" data-path="updates.html"><a href="updates.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 待加入的功能</a></li>
-<li class="chapter" data-level="8.2" data-path="updates.html"><a href="updates.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 联系方式</a></li>
+<li class="chapter" data-level="8" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>8</b> Matlab用户</a><ul>
+<li class="chapter" data-level="8.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>8.1</b> 使用R.matlab包</a></li>
+<li class="chapter" data-level="8.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>8.2</b> 中转站：C/C++</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>9</b> 已发表工作</a><ul>
+<li class="chapter" data-level="9.1" data-path="paper.html"><a href="paper.html#section-9.1"><i class="fa fa-check"></i><b>9.1</b> 工具箱/软件</a></li>
+<li class="chapter" data-level="9.2" data-path="paper.html"><a href="paper.html#section-9.2"><i class="fa fa-check"></i><b>9.2</b> 论文</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>10</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="10.1" data-path="updates.html"><a href="updates.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="10.2" data-path="updates.html"><a href="updates.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 联系方式</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
@@ -219,7 +236,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">rBAS使用文档</h1>
 <h4 class="author"><em>王江宇</em></h4>
-<h4 class="date"><em>2018-09-04</em></h4>
+<h4 class="date"><em>2018-09-07</em></h4>
 </div>
 <div id="e5898de8a880" class="section level1 unnumbered">
 <h1>前言</h1>
@@ -227,16 +244,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>手册内容概述</h2>
 <p>本手册是为了大家更好地使用<strong>rBAS</strong> <span class="citation">(Wang, Li, and Jiang <a href="#ref-R-rBAS">2018</a>)</span>包而撰写，内容如下:</p>
 <ul>
-<li><p>第 <a href="install.html#install">1</a> 章介绍了如何安装<code>R</code>语言的环境，来使用<code>rBAS</code>包。不用担心，<code>R</code>的语法很简单，各种功能是按照自身的需要安装各种<code>packages</code>，所以比<code>matlab</code>体积更小，入门时间成本也较低。<strong>哪怕你无意于<code>R</code>的学习，也可以看看本手册的原理篇(第 <a href="algorithm.html#algorithm">2</a> 章)，应用篇(第<a href="examples.html#examples">6</a>章)以及后续的更新计划(第 <a href="updates.html#updates">8</a> 章)，来了解算法的原理，出现了哪些变种，以及有着什么样的工程应用</strong>。</p></li>
+<li><p>第 <a href="install.html#install">1</a> 章介绍了如何安装<code>R</code>语言的环境，来使用<code>rBAS</code>包。不用担心，<code>R</code>的语法很简单，各种功能是按照自身的需要安装各种<code>packages</code>，所以比<code>matlab</code>体积更小，入门时间成本也较低。<strong>哪怕你无意于<code>R</code>的学习，也可以看看本手册的原理篇(第 <a href="algorithm.html#algorithm">2</a> 章)，应用篇(第<a href="examples.html#examples">6</a>章)以及后续的更新计划(第 <a href="updates.html#updates">10</a> 章)，来了解算法的原理，出现了哪些变种，以及有着什么样的工程应用</strong>。</p></li>
 <li><p>第 <a href="algorithm.html#algorithm">2</a> 章介绍了<strong>BAS算法</strong>以及在其基础上出现的各种<strong>改进算法</strong>的<strong>原理</strong>，当然，随着算法的不断改进和发展，这个文档还需要随之不断更新。</p></li>
+<li><p>第 <a href="mixedalgorithm.html#mixedalgorithm">3</a> 章中介绍了BAS与其他算法结合的算法。目前收录的有，王糖糖同学提供的BSO，即BAS和PSO的结合。<code>rBAS</code>包也提供了这些算法的实现与调用。</p></li>
 <li><p>第 <a href="rBAS.html#rBAS">4</a> 章讲述了如何在<code>R</code>中使用<code>rBAS</code>包<strong>调用收录的算法的对应函数</strong>，以及一些简单的<strong>案例</strong>（大部分是<code>BAS</code>相关文献中的算例和<code>benchmark functions</code>）。每一句出现的代码我都会尽我所能去注释，让大家了解每一步的意义，以及<code>R</code>的简单易用。我也希望，自己的语言能尽力通俗，对于其他工具的使用者来说。</p></li>
-<li><p>第 <a href="examples.html#examples">6</a> 章主要介绍的是BAS及变体算法<strong>在各种领域的应用</strong>，当然，少不了对应的案例描述和代码。<strong>可能有些涉及到各位作者的研究，不会做到完全的开源</strong>，但在<strong>李帅</strong>老师的组织下，我相信这会是最完善全面的<code>BAS</code>应用大全。</p></li>
 <li><p>第 <a href="interface.html#interface">5</a> 章介绍了<code>rBAS</code>中的用户界面的调用，以及运行。</p></li>
-<li><p>第 <a href="updates.html#updates">8</a> 章讲述了<code>rBAS</code>包的<strong>开发和使用手册更新的计划</strong>。因为算法总是会不断地推陈出新，所以<code>rBAS</code>包也必须和目前的研究保持一致。如果你有好的想法，可以看此章的内容，然后把自己的建议传达给我们。</p></li>
+<li><p>第 <a href="examples.html#examples">6</a> 章主要介绍的是BAS及变体算法<strong>在多杆机构优化中的应用</strong>，由群友莫小娟同学提供。</p></li>
+<li><p>第 <a href="examples2.html#examples2">7</a> 章主要介绍的是BAS及变体算法<strong>在龙门起重机控制优化中的应用</strong>，由群友李晓晓同学提供。</p></li>
+<li><p>第 <a href="matlabr.html#matlabr">8</a> 章中主要介绍了两种方法供matlab用户来使用rBAS package。当然，未来可能会出现matlab中R的接口，或者是BAS toolbox，到时候此章无用。如果你发现了<strong>更便捷的方法</strong>，来实现两者的通讯，还请<a href="https://github.com/jywang2016/rBAS_documents/issues">提出建议</a>。</p></li>
+<li><p>第 <a href="paper.html#paper">9</a> 章用于收录基于BAS及相关算法的工具箱，软件或者文献等等。</p></li>
+<li><p>第 <a href="updates.html#updates">10</a> 章讲述了<code>rBAS</code>包的<strong>开发和使用手册更新的计划</strong>。因为算法总是会不断地推陈出新，所以<code>rBAS</code>包也必须和目前的研究保持一致。如果你有好的想法，可以看此章的内容，然后把自己的建议传达给我们。</p></li>
 </ul>
 <blockquote>
 <p>好了，冗长的章节介绍完毕。大家可以开始浏览正文了。</p>
 </blockquote>
+<p>由于后续的案例中，会带有大量的动态图片。为了方便大家的浏览，强烈推荐在网页上阅读本手册，<a href="https://jywang2016.github.io/rBAS_documents/" class="uri">https://jywang2016.github.io/rBAS_documents/</a> 。此外，由于个人能力与时间有限，希望大家看到相关的BAS文章或者工作后，可以在 <a href="https://github.com/jywang2016/rBAS_documents/issues" class="uri">https://github.com/jywang2016/rBAS_documents/issues</a> 上<strong>写明文章的信息，应用的领域以及采用的是哪种BAS算法</strong>，以此来帮助我的整理。十分感谢大家的帮助！</p>
 </div>
 <div id="e5a4b9e5b8a6e7a781e8b4a7" class="section level2 unnumbered">
 <h2>夹带私货</h2>

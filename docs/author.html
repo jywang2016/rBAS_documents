@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>rBAS使用文档</title>
-  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="description" content="rBAS中文使用说明文档V0.2">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="rBAS使用文档" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta property="og:description" content="rBAS中文使用说明文档V0.2" />
   <meta name="github-repo" content="jywang2016/rBAS" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="rBAS使用文档" />
   
-  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
   
 
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-04">
+<meta name="date" content="2018-09-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -128,6 +129,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
 <li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
+<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
 <li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
@@ -138,9 +143,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
-<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim</a><ul>
+<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim/BASoptim2</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>4.1.1</b> BASoptim参数说明</a></li>
-<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.2</b> BASoptim简单案例</a></li>
+<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BAS2parms"><i class="fa fa-check"></i><b>4.1.2</b> BAS2optim参数说明</a></li>
+<li class="chapter" data-level="4.1.3" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.3</b> BASoptim简单案例</a></li>
+<li class="chapter" data-level="4.1.4" data-path="rBAS.html"><a href="rBAS.html#BAS2examples"><i class="fa fa-check"></i><b>4.1.4</b> BASoptim2简单案例</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>4.2</b> BSASoptim</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>4.2.1</b> BSASoptim参数说明</a></li>
@@ -185,13 +192,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4.8" data-path="examples.html"><a href="examples.html#case8-"><i class="fa fa-check"></i><b>6.4.8</b> Case8 无规定时间的路径生成</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>7</b> Matlab用户</a><ul>
-<li class="chapter" data-level="7.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>7.1</b> 使用R.matlab包</a></li>
-<li class="chapter" data-level="7.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>7.2</b> 中转站：C/C++</a></li>
+<li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
+<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
+<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="7.3" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>8</b> 更新及维护计划</a><ul>
-<li class="chapter" data-level="8.1" data-path="updates.html"><a href="updates.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 待加入的功能</a></li>
-<li class="chapter" data-level="8.2" data-path="updates.html"><a href="updates.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 联系方式</a></li>
+<li class="chapter" data-level="8" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>8</b> Matlab用户</a><ul>
+<li class="chapter" data-level="8.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>8.1</b> 使用R.matlab包</a></li>
+<li class="chapter" data-level="8.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>8.2</b> 中转站：C/C++</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>9</b> 已发表工作</a><ul>
+<li class="chapter" data-level="9.1" data-path="paper.html"><a href="paper.html#section-9.1"><i class="fa fa-check"></i><b>9.1</b> 工具箱/软件</a></li>
+<li class="chapter" data-level="9.2" data-path="paper.html"><a href="paper.html#section-9.2"><i class="fa fa-check"></i><b>9.2</b> 论文</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>10</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="10.1" data-path="updates.html"><a href="updates.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="10.2" data-path="updates.html"><a href="updates.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 联系方式</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>

@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>rBAS使用文档</title>
-  <meta name="description" content="rBAS中文使用说明版本V0.1">
+  <meta name="description" content="rBAS中文使用说明文档V0.2">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="rBAS使用文档" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="rBAS中文使用说明版本V0.1" />
+  <meta property="og:description" content="rBAS中文使用说明文档V0.2" />
   <meta name="github-repo" content="jywang2016/rBAS" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="rBAS使用文档" />
   
-  <meta name="twitter:description" content="rBAS中文使用说明版本V0.1" />
+  <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
   
 
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-04">
+<meta name="date" content="2018-09-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
@@ -128,6 +129,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
 <li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
+<li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
+<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
 <li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
@@ -138,9 +143,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
-<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim</a><ul>
+<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim/BASoptim2</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>4.1.1</b> BASoptim参数说明</a></li>
-<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.2</b> BASoptim简单案例</a></li>
+<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BAS2parms"><i class="fa fa-check"></i><b>4.1.2</b> BAS2optim参数说明</a></li>
+<li class="chapter" data-level="4.1.3" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.3</b> BASoptim简单案例</a></li>
+<li class="chapter" data-level="4.1.4" data-path="rBAS.html"><a href="rBAS.html#BAS2examples"><i class="fa fa-check"></i><b>4.1.4</b> BASoptim2简单案例</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>4.2</b> BSASoptim</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>4.2.1</b> BSASoptim参数说明</a></li>
@@ -185,13 +192,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4.8" data-path="examples.html"><a href="examples.html#case8-"><i class="fa fa-check"></i><b>6.4.8</b> Case8 无规定时间的路径生成</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>7</b> Matlab用户</a><ul>
-<li class="chapter" data-level="7.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>7.1</b> 使用R.matlab包</a></li>
-<li class="chapter" data-level="7.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>7.2</b> 中转站：C/C++</a></li>
+<li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
+<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
+<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="7.3" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>8</b> 更新及维护计划</a><ul>
-<li class="chapter" data-level="8.1" data-path="updates.html"><a href="updates.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 待加入的功能</a></li>
-<li class="chapter" data-level="8.2" data-path="updates.html"><a href="updates.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 联系方式</a></li>
+<li class="chapter" data-level="8" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>8</b> Matlab用户</a><ul>
+<li class="chapter" data-level="8.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>8.1</b> 使用R.matlab包</a></li>
+<li class="chapter" data-level="8.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>8.2</b> 中转站：C/C++</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>9</b> 已发表工作</a><ul>
+<li class="chapter" data-level="9.1" data-path="paper.html"><a href="paper.html#section-9.1"><i class="fa fa-check"></i><b>9.1</b> 工具箱/软件</a></li>
+<li class="chapter" data-level="9.2" data-path="paper.html"><a href="paper.html#section-9.2"><i class="fa fa-check"></i><b>9.2</b> 论文</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>10</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="10.1" data-path="updates.html"><a href="updates.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="10.2" data-path="updates.html"><a href="updates.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 联系方式</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
@@ -225,7 +242,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>文档网页是由<a href="http://pkgdown.r-lib.org/"><code>pkgdown</code></a>包制作而成，logo由<a href="https://github.com/GuangchuangYu/hexSticker"><code>hexSticker</code></a>包制作。</p>
 </blockquote>
 <div id="basoptim" class="section level2">
-<h2><span class="header-section-number">4.1</span> BASoptim</h2>
+<h2><span class="header-section-number">4.1</span> BASoptim/BASoptim2</h2>
 <p>除了通过访问函数文档网站外，还可以在<code>R</code>中输入下面的命令，来查看文档。</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(BASoptim)</code></pre></div>
 <div id="BASparms" class="section level3">
@@ -240,6 +257,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
          <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>, 
          <span class="dt">n =</span> <span class="dv">200</span>,<span class="dt">steptol =</span> <span class="fl">0.01</span>, 
          <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T )</code></pre></div>
+<blockquote>
+<p>直接带有<code>=</code>号的参数，表明是有默认值的。大家可以不指定，但是上下限需要根据实际问题来人为指定。给出的上下限只是因为第一个调试函数是<code>Michalewicz</code>而已。</p>
+</blockquote>
 <p>由于英文蹩脚，所以大家看起包自带的文档会比较吃力。因此，在此处给出中文说明。</p>
 <ul>
 <li>已知条件：目标函数与约束
@@ -267,11 +287,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 </div>
+<div id="BAS2parms" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> BAS2optim参数说明</h3>
+<p><a href="https://jywang2016.github.io/rBAS/reference/BASoptim2.html"><code>BASoptim2</code>函数</a>(对应<code>二阶BAS</code>算法)调用的格式如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BASoptim2</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
+          <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">c =</span> <span class="dv">2</span>, <span class="dt">l0 =</span> <span class="dv">0</span>, <span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>,
+          <span class="dt">step0 =</span> <span class="fl">5e-05</span>, <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>, <span class="dt">n =</span> <span class="dv">200</span>,
+          <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T, <span class="dt">steptol =</span> step0<span class="op">/</span><span class="dv">2</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,
+          <span class="dt">w0 =</span> <span class="fl">0.7</span>, <span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)</code></pre></div>
+<p>与前面<code>BASoptim</code>函数调用的大部分参数含义相同。不同点如下：</p>
+<ul>
+<li>c; <span class="math inline">\(d = \delta/c\)</span>，<span class="math inline">\(c\)</span> 是步长 <span class="math inline">\(\delta\)</span> 与感知距离 <span class="math inline">\(\d\)</span> 之比。二阶BAS中，不直接指定感知距离。因此，与感知距离相关的参数都被移除。</li>
+<li>step0; 步长的最小分辨率，可参见式<a href="algorithm.html#eq:bas2stepupdate">(2.13)</a>。</li>
+<li>w0;w1;c0分别是式<a href="algorithm.html#eq:bas2vupdate">(2.10)</a>中的权重系数，和<span class="math inline">\(V_{max} = c_0 \delta\)</span>中确定最大速度的系数。</li>
+</ul>
+<blockquote>
+<p>实际调参中，调节w0会给结果带来较大的改变。</p>
+</blockquote>
+</div>
 <div id="BASexamples" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> BASoptim简单案例</h3>
+<h3><span class="header-section-number">4.1.3</span> BASoptim简单案例</h3>
 <p>这里采用<strong>BAS</strong> <span class="citation">(Jiang Xiangyuan <a href="#ref-Jiang2017BAS">2017</a><a href="#ref-Jiang2017BAS">a</a>)</span>一文中给出的测试函数，即<code>Michalewicz function</code> 与 <code>Goldstein-Price function</code>。</p>
 <div id="BASmich" class="section level4">
-<h4><span class="header-section-number">4.1.2.1</span> Michalewicz function</h4>
+<h4><span class="header-section-number">4.1.3.1</span> Michalewicz function</h4>
 <span class="math display">\[
 f(x)=\sum_{i=1}^{d=2}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{20}
 \]</span> 图<a href="rBAS.html#fig:mich">4.1</a>为<code>Michalewicz</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。
@@ -302,7 +340,7 @@ test<span class="op">$</span>par</code></pre></div>
 <p>可以看到，<code>BAS</code>在100个回合内找到了全局的最小值。非<code>R</code>用户可能对上下限的声明有点陌生，<code>c(-6,0)</code>中<code>c()</code>，其实是声明了一个向量，这也是<code>R</code>里面最基本的数据类型，和<code>matlab</code>里面的<code>[-6 0]</code>效果类似。整体看来，代码还是很简洁的。</p>
 </div>
 <div id="BASgold" class="section level4">
-<h4><span class="header-section-number">4.1.2.2</span> Goldstein-Price function</h4>
+<h4><span class="header-section-number">4.1.3.2</span> Goldstein-Price function</h4>
 <span class="math display">\[\begin{equation}
 \begin{split}
 f({x})=&amp; [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
@@ -340,6 +378,59 @@ test<span class="op">$</span>par</code></pre></div>
 <pre><code>## [1] 3.004756</code></pre>
 <p>同样，结果也是给出了全局最优点（或在此附近，继续迭代下去，可能会有更精确更小的值）。</p>
 </div>
+</div>
+<div id="BAS2examples" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> BASoptim2简单案例</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
+  <span class="kw">return</span>(y1<span class="op">+</span>y2)
+}
+fit&lt;-
+<span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> mich,
+            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),
+            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
+            <span class="dt">n =</span> <span class="dv">100</span>,
+            <span class="dt">trace =</span> F,
+            <span class="dt">c =</span> <span class="fl">0.4</span>,<span class="co">#d = 1.2/0.4 = 3</span>
+            <span class="dt">step =</span> <span class="fl">1.2</span>,
+            <span class="dt">seed =</span> <span class="dv">1</span>,
+            <span class="dt">w0 =</span> <span class="fl">0.4</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)
+fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] -4.965421  1.569728</code></pre>
+<pre><code>## [1] -1.967772</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">func1 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)
+}
+fit&lt;-
+<span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> func1,
+            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>,<span class="op">-</span><span class="dv">100</span>),
+            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>),
+            <span class="dt">n =</span> <span class="dv">100</span>,
+            <span class="dt">trace =</span> F,
+            <span class="dt">c =</span> <span class="dv">20</span>,
+            <span class="dt">step =</span> <span class="dv">100</span>,
+            <span class="dt">seed =</span> <span class="dv">1</span>,
+            <span class="dt">w0 =</span> <span class="fl">0.5</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)
+fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] 7.320204e-06 7.091455e-05</code></pre>
+<pre><code>## [1] 5.082459e-09</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">func2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="kw">sum</span>((<span class="kw">abs</span>(x)<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>)
+}
+fit&lt;-
+<span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> func2,
+            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="op">-</span><span class="dv">10</span>),
+            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>),
+            <span class="dt">n =</span> <span class="dv">100</span>,
+            <span class="dt">trace =</span> F,
+            <span class="dt">c =</span> <span class="dv">5</span>,
+            <span class="dt">step =</span> <span class="dv">5</span>,
+            <span class="dt">seed =</span> <span class="dv">1</span>,
+            <span class="dt">w0 =</span> <span class="fl">0.2</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)
+fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] -5 -5</code></pre>
+<pre><code>## [1] 1.871564e-13</code></pre>
 </div>
 </div>
 <div id="bsasoptim" class="section level2">
@@ -388,7 +479,7 @@ test<span class="op">$</span>par</code></pre></div>
 <h3><span class="header-section-number">4.2.3</span> BSASoptim案例</h3>
 <div id="michalewicz-function" class="section level4">
 <h4><span class="header-section-number">4.2.3.1</span> Michalewicz function</h4>
-<p>不做过多的阐述对于此案例，可以参看<a href="rBAS.html#BASmich">4.1.2.1</a>节。</p>
+<p>不做过多的阐述对于此案例，可以参看<a href="rBAS.html#BASmich">4.1.3.1</a>节。</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
 mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
    y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
