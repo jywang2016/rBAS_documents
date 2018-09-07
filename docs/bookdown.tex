@@ -171,7 +171,7 @@
 
 \title{rBAS使用文档}
 \author{王江宇}
-\date{2018-09-04}
+\date{2018-09-07}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -219,13 +219,25 @@
   第 \ref{algorithm}
   章介绍了\textbf{BAS算法}以及在其基础上出现的各种\textbf{改进算法}的\textbf{原理}，当然，随着算法的不断改进和发展，这个文档还需要随之不断更新。
 \item
+  第 \ref{mixedalgorithm}
+  章中介绍了BAS与其他算法结合的算法。目前收录的有，王糖糖同学提供的BSO，即BAS和PSO的结合。\texttt{rBAS}包也提供了这些算法的实现与调用。
+\item
   第 \ref{rBAS}
   章讲述了如何在\texttt{R}中使用\texttt{rBAS}包\textbf{调用收录的算法的对应函数}，以及一些简单的\textbf{案例}（大部分是\texttt{BAS}相关文献中的算例和\texttt{benchmark\ functions}）。每一句出现的代码我都会尽我所能去注释，让大家了解每一步的意义，以及\texttt{R}的简单易用。我也希望，自己的语言能尽力通俗，对于其他工具的使用者来说。
 \item
-  第 \ref{examples}
-  章主要介绍的是BAS及变体算法\textbf{在各种领域的应用}，当然，少不了对应的案例描述和代码。\textbf{可能有些涉及到各位作者的研究，不会做到完全的开源}，但在\textbf{李帅}老师的组织下，我相信这会是最完善全面的\texttt{BAS}应用大全。
-\item
   第 \ref{interface} 章介绍了\texttt{rBAS}中的用户界面的调用，以及运行。
+\item
+  第 \ref{examples}
+  章主要介绍的是BAS及变体算法\textbf{在多杆机构优化中的应用}，由群友莫小娟同学提供。
+\item
+  第 \ref{examples2}
+  章主要介绍的是BAS及变体算法\textbf{在龙门起重机控制优化中的应用}，由群友李晓晓同学提供。
+\item
+  第 \ref{matlabr} 章中主要介绍了两种方法供matlab用户来使用rBAS
+  package。当然，未来可能会出现matlab中R的接口，或者是BAS
+  toolbox，到时候此章无用。如果你发现了\textbf{更便捷的方法}，来实现两者的通讯，还请\href{https://github.com/jywang2016/rBAS_documents/issues}{提出建议}。
+\item
+  第 \ref{paper} 章用于收录基于BAS及相关算法的工具箱，软件或者文献等等。
 \item
   第 \ref{updates}
   章讲述了\texttt{rBAS}包的\textbf{开发和使用手册更新的计划}。因为算法总是会不断地推陈出新，所以\texttt{rBAS}包也必须和目前的研究保持一致。如果你有好的想法，可以看此章的内容，然后把自己的建议传达给我们。
@@ -234,6 +246,11 @@
 \begin{quote}
 好了，冗长的章节介绍完毕。大家可以开始浏览正文了。
 \end{quote}
+
+由于后续的案例中，会带有大量的动态图片。为了方便大家的浏览，强烈推荐在网页上阅读本手册，\url{https://jywang2016.github.io/rBAS_documents/}
+。此外，由于个人能力与时间有限，希望大家看到相关的BAS文章或者工作后，可以在
+\url{https://github.com/jywang2016/rBAS_documents/issues}
+上\textbf{写明文章的信息，应用的领域以及采用的是哪种BAS算法}，以此来帮助我的整理。十分感谢大家的帮助！
 
 \section*{夹带私货}
 
@@ -647,6 +664,68 @@ h_j(\mathbf{x}) = \begin{cases}
 
 此处的不足，还需要考虑步长反馈和群体搜索的问题。不过，既然\texttt{BSAS}把姜博的\texttt{WPT}给窃来了，摇身变为了\texttt{BSAS-WPT}，那就不说上述两个问题了。等他日有闲，再去整合\texttt{李晓晓}同学的二阶\texttt{BAS}。
 
+\section{BAS with momentum(second-order BAS)}\label{BAS2}
+
+带动量的BAS，唔\ldots{}\ldots{}这名字听着有点长。顾名思义，是利用了惯性项（即，前一时刻的状态），来使得算法不陷入局部最优。不得不说，李晓晓同学对算法的改进既保留了BAS本身的简洁，又增大了BAS对局部最优处理的能力。
+
+在打算复现BSO(BAS和PSO的诚意结合)算法之前，我就看过了李晓晓同学提供给我的二阶BAS代码。相比于BSO，进行了大量的细节上的BAS和PSO融合，二阶BAS只对天牛位置更新的等式（即式\eqref{eq:xupdate}）做了大的改动。因此，我觉得这还是更为类似BAS的，大家接受起来应该也更为容易。
+
+\subsection{算法原理}
+
+在\ref{BASflow}节的基础上，改动了一大一小两处地方。大的是，天牛位置更新。小的改动是，步长增加了一个最小分辨率，也就是存在了最小值，不会无限制地缩减。
+
+在位置更新上，参考式\eqref{eq:bas2vupdate}至式\eqref{eq:bas2xupdate}。
+
+\begin{equation}
+\mathbf{v}^{t+1} = w_0\mathbf{v}^t - w_1\overrightarrow{b}(f(\mathbf{x}_l^t)-f(\mathbf{x}_r^t))
+\label{eq:bas2vupdate}
+\end{equation}
+
+\begin{equation}
+\mathbf{v}^{t+1} = \begin{cases} 
+V_{max},&\mathbf{v}^{t+1} > V_{max} \\ 
+\mathbf{v}^{t+1},  &\mathbf{v}^{t+1} \in [V_{max},V_{max}] \\
+-V_{max},&\mathbf{v}^{t+1} <- V_{max}
+\end{cases}
+\label{eq:bas2vbound}
+\end{equation}
+
+\begin{equation}
+\mathbf{x}^{t+1} = \mathbf{x}^t+\mathbf{v}^{t+1}
+\label{eq:bas2xupdate}
+\end{equation}
+
+大的改动；在式\eqref{eq:bas2vupdate}中，\(v\)表示速度，\(w_0\)和\(w_1\)分别为常数，也可以理解为权重。前者是上一时刻速度的权重，后者是由左右须函数强度差（类似于梯度）的权重。式\eqref{eq:bas2vbound}是对速度范围进行的限定。把式\eqref{eq:bas2xupdate}
+和式\eqref{eq:xupdate}
+相比，\textbf{不仅多了速度项，还把原有的步长从式中去掉了}。
+
+那步长在哪里用呢，有两个地方。
+
+\begin{itemize}
+\tightlist
+\item
+  用来更新感知距离，也就是质心到须的距离。\(d = \delta/c\)，\(c\)是两者之比。
+\item
+  用来确定式\eqref{eq:bas2vbound}中最大速度\(V_{max}\)，即\(V_{max} = c_0 \delta\)。原文中的\(c_0\)和\(w_0\)是用的同一符号，但是在后续的测试函数调试中，两者分开似乎效果更好。因此，在\texttt{rBAS}中的\texttt{BASoptim2}中，为了更加灵活而将两者区分开来，把选择权给了大家。
+\end{itemize}
+
+此外，还有一个小改动。步长的更新采用了一个最小分辨率，参考式\eqref{eq:bas2stepupdate}。
+
+\begin{equation}
+\delta^{t+1}=\eta_{\delta}(\delta^{t}-\delta_0) + \delta_0
+\label{eq:bas2stepupdate}
+\end{equation}
+
+如果有必要的话，大家在使用过程中可以设定较小的\(\delta_0\)来规避此项规则。
+
+\subsection{不足与改进}
+
+总的来说，我觉得是大家看完原理，应该就能自己敲出代码的算法。这也反映了该算法的简洁，这和BAS原本的风格应该是一致的。
+
+当然，简洁也意味着可以提升的余地还存在。既然二阶BAS把最精华的惯性项奉上了，我们可以开始对其的改造。此处就不一一罗列。可以参考前面的章节。
+
+就我而言，我觉得BSAS的思路完全可以用在二阶BAS上。这也是由于在某些测试函数上，BSAS更容易地（特指调参简单）达到更优精度给我带来的启发。看来，\texttt{群体}和\texttt{反馈}是一直可以借鉴的思路。
+
 \chapter{混合算法}\label{mixedalgorithm}
 
 在第\ref{algorithm}章中说明过，在基本\texttt{BAS}算法及变体的基础上，做出了大的改动的算法在本章说明。
@@ -853,7 +932,7 @@ X_{ls}^k&=X_{s}^k-V_s^k\frac{d}{2}
 文档网页是由\href{http://pkgdown.r-lib.org/}{\texttt{pkgdown}}包制作而成，logo由\href{https://github.com/GuangchuangYu/hexSticker}{\texttt{hexSticker}}包制作。
 \end{quote}
 
-\section{BASoptim}\label{basoptim}
+\section{BASoptim/BASoptim2}\label{basoptim}
 
 除了通过访问函数文档网站外，还可以在\texttt{R}中输入下面的命令，来查看文档。
 
@@ -880,6 +959,10 @@ X_{ls}^k&=X_{s}^k-V_s^k\frac{d}{2}
          \DataTypeTok{seed =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{trace =}\NormalTok{ T )}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{quote}
+直接带有\texttt{=}号的参数，表明是有默认值的。大家可以不指定，但是上下限需要根据实际问题来人为指定。给出的上下限只是因为第一个调试函数是\texttt{Michalewicz}而已。
+\end{quote}
 
 由于英文蹩脚，所以大家看起包自带的文档会比较吃力。因此，在此处给出中文说明。
 
@@ -936,6 +1019,37 @@ X_{ls}^k&=X_{s}^k-V_s^k\frac{d}{2}
     trace 是否显示寻优过程信息
   \end{itemize}
 \end{itemize}
+
+\subsection{BAS2optim参数说明}\label{BAS2parms}
+
+\href{https://jywang2016.github.io/rBAS/reference/BASoptim2.html}{\texttt{BASoptim2}函数}(对应\texttt{二阶BAS}算法)调用的格式如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{BASoptim2}\NormalTok{(fn, }\DataTypeTok{init =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{6}\NormalTok{, }\DecValTok{0}\NormalTok{), }\DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{),}
+          \DataTypeTok{constr =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{c =} \DecValTok{2}\NormalTok{, }\DataTypeTok{l0 =} \DecValTok{0}\NormalTok{, }\DataTypeTok{l1 =} \DecValTok{0}\NormalTok{, }\DataTypeTok{eta_l =} \FloatTok{0.95}\NormalTok{,}
+          \DataTypeTok{step0 =} \FloatTok{5e-05}\NormalTok{, }\DataTypeTok{step =} \FloatTok{0.8}\NormalTok{, }\DataTypeTok{eta_step =} \FloatTok{0.95}\NormalTok{, }\DataTypeTok{n =} \DecValTok{200}\NormalTok{,}
+          \DataTypeTok{seed =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{trace =}\NormalTok{ T, }\DataTypeTok{steptol =}\NormalTok{ step0}\OperatorTok{/}\DecValTok{2}\NormalTok{, }\DataTypeTok{pen =} \FloatTok{1e+05}\NormalTok{,}
+          \DataTypeTok{w0 =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{w1 =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{c0 =} \FloatTok{0.6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+与前面\texttt{BASoptim}函数调用的大部分参数含义相同。不同点如下：
+
+\begin{itemize}
+\tightlist
+\item
+  c; \(d = \delta/c\)，\(c\) 是步长 \(\delta\) 与感知距离 \(\d\)
+  之比。二阶BAS中，不直接指定感知距离。因此，与感知距离相关的参数都被移除。
+\item
+  step0; 步长的最小分辨率，可参见式\eqref{eq:bas2stepupdate}。
+\item
+  w0;w1;c0分别是式\eqref{eq:bas2vupdate}中的权重系数，和\(V_{max} = c_0 \delta\)中确定最大速度的系数。
+\end{itemize}
+
+\begin{quote}
+实际调参中，调节w0会给结果带来较大的改变。
+\end{quote}
 
 \subsection{BASoptim简单案例}\label{BASexamples}
 
@@ -1069,6 +1183,91 @@ f({x})=& [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
 \end{verbatim}
 
 同样，结果也是给出了全局最优点（或在此附近，继续迭代下去，可能会有更精确更小的值）。
+
+\subsection{BASoptim2简单案例}\label{BAS2examples}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mich <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  y1 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{1}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((x[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+\NormalTok{  y2 <-}\StringTok{ }\OperatorTok{-}\KeywordTok{sin}\NormalTok{(x[}\DecValTok{2}\NormalTok{])}\OperatorTok{*}\NormalTok{(}\KeywordTok{sin}\NormalTok{((}\DecValTok{2}\OperatorTok{*}\NormalTok{x[}\DecValTok{2}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{pi))}\OperatorTok{^}\DecValTok{20}
+  \KeywordTok{return}\NormalTok{(y1}\OperatorTok{+}\NormalTok{y2)}
+\NormalTok{\}}
+\NormalTok{fit<-}
+\StringTok{  }\KeywordTok{BASoptim2}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ mich,}
+            \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{6}\NormalTok{,}\DecValTok{0}\NormalTok{),}
+            \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),}
+            \DataTypeTok{n =} \DecValTok{100}\NormalTok{,}
+            \DataTypeTok{trace =}\NormalTok{ F,}
+            \DataTypeTok{c =} \FloatTok{0.4}\NormalTok{,}\CommentTok{#d = 1.2/0.4 = 3}
+            \DataTypeTok{step =} \FloatTok{1.2}\NormalTok{,}
+            \DataTypeTok{seed =} \DecValTok{1}\NormalTok{,}
+            \DataTypeTok{w0 =} \FloatTok{0.4}\NormalTok{,}\DataTypeTok{w1 =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{c0 =} \FloatTok{0.6}\NormalTok{)}
+\NormalTok{fit}\OperatorTok{$}\NormalTok{par;fit}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -4.965421  1.569728
+\end{verbatim}
+
+\begin{verbatim}
+## [1] -1.967772
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{sum}\NormalTok{(x}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{fit<-}
+\StringTok{  }\KeywordTok{BASoptim2}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ func1,}
+            \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{100}\NormalTok{,}\OperatorTok{-}\DecValTok{100}\NormalTok{),}
+            \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{,}\DecValTok{100}\NormalTok{),}
+            \DataTypeTok{n =} \DecValTok{100}\NormalTok{,}
+            \DataTypeTok{trace =}\NormalTok{ F,}
+            \DataTypeTok{c =} \DecValTok{20}\NormalTok{,}
+            \DataTypeTok{step =} \DecValTok{100}\NormalTok{,}
+            \DataTypeTok{seed =} \DecValTok{1}\NormalTok{,}
+            \DataTypeTok{w0 =} \FloatTok{0.5}\NormalTok{,}\DataTypeTok{w1 =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{c0 =} \FloatTok{0.6}\NormalTok{)}
+\NormalTok{fit}\OperatorTok{$}\NormalTok{par;fit}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7.320204e-06 7.091455e-05
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 5.082459e-09
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{sum}\NormalTok{((}\KeywordTok{abs}\NormalTok{(x)}\OperatorTok{-}\DecValTok{5}\NormalTok{)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{fit<-}
+\StringTok{  }\KeywordTok{BASoptim2}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ func2,}
+            \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,}\OperatorTok{-}\DecValTok{10}\NormalTok{),}
+            \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{10}\NormalTok{),}
+            \DataTypeTok{n =} \DecValTok{100}\NormalTok{,}
+            \DataTypeTok{trace =}\NormalTok{ F,}
+            \DataTypeTok{c =} \DecValTok{5}\NormalTok{,}
+            \DataTypeTok{step =} \DecValTok{5}\NormalTok{,}
+            \DataTypeTok{seed =} \DecValTok{1}\NormalTok{,}
+            \DataTypeTok{w0 =} \FloatTok{0.2}\NormalTok{,}\DataTypeTok{w1 =} \FloatTok{0.2}\NormalTok{, }\DataTypeTok{c0 =} \FloatTok{0.6}\NormalTok{)}
+\NormalTok{fit}\OperatorTok{$}\NormalTok{par;fit}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -5 -5
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 1.871564e-13
+\end{verbatim}
 
 \section{BSASoptim}\label{bsasoptim}
 
@@ -2074,35 +2273,209 @@ r_1,r_2,r_3,r_4\in[0,60]\quad r_p,x_0,y_0\in[-60,60]\quad \theta_0,\theta_1,\cdo
 \caption{各算法优化轨迹}\label{fig:case1png}
 \end{figure}
 
-\begin{table}
+\label{tab:case1table}case1各算法结果对比
 
-\caption{\label{tab:case1table}case1各算法结果对比}
-\centering
-\begin{tabular}[t]{lrrrrr}
-\toprule
-  & MUMSA & GA & DE & GA.DE & BAS\\
-\midrule
-\$r\_1\$ & 31.788264 & 28.771330 & 35.020740 & 13.2516000 & 19.4920810\\
-\$r\_2\$ & 8.204647 & 5.000000 & 6.404196 & 5.9407800 & 6.2644716\\
-\$r\_3\$ & 24.932131 & 35.365480 & 31.607220 & 58.3118000 & 20.1001631\\
-\$r\_4\$ & 31.385926 & 59.136810 & 50.599490 & 53.7207000 & 19.0219161\\
-\$r\_p\$ & 37.108246 & 14.850370 & 46.461261 & 61.3011560 & 39.8538048\\
-\addlinespace
-\$θ\_p\$ & 0.398977 & 1.570796 & 1.106544 & -1.3002600 & 0.3679660\\
-\$θ\_0\$ & 4.015959 & 5.287474 & 0.000000 & 0.1960760 & 4.4245619\\
-\$x\_0\$ & -6.366519 & 29.913290 & 60.000000 & -35.3621000 & -13.0300715\\
-\$y\_0\$ & 56.836760 & 32.602280 & 18.077910 & 36.7704000 & 51.1796666\\
-\$θ\_2\textasciicircum{}1\$ & 1.366547 & 6.283185 & 6.283185 & 1.6601500 & 5.9699819\\
-\addlinespace
-\$θ\_2\textasciicircum{}2\$ & 2.330773 & 0.318205 & 0.264935 & 2.0468400 & 0.4554995\\
-\$θ\_2\textasciicircum{}3\$ & 2.871039 & 0.638520 & 0.500377 & 2.4281100 & 1.0202707\\
-\$θ\_2\textasciicircum{}4\$ & 3.394591 & 0.979950 & 0.735321 & 2.8090100 & 1.5550696\\
-\$θ\_2\textasciicircum{}5\$ & 3.970960 & 1.412732 & 0.996529 & 3.1900900 & 2.1117409\\
-\$θ\_2\textasciicircum{}6\$ & 4.963490 & 2.076254 & 1.333549 & 3.5737900 & 2.8839248\\
-\$Error\$ & 0.002057 & 1.101697 & 0.122738 & 0.0000172 & 0.0000124\\
-\bottomrule
-\end{tabular}
-\end{table}
+MUMSA
+
+GA
+
+DE
+
+GA.DE
+
+BAS
+
+\(r_1\)
+
+31.788264
+
+28.771330
+
+35.020740
+
+13.2516000
+
+19.4920810
+
+\(r_2\)
+
+8.204647
+
+5.000000
+
+6.404196
+
+5.9407800
+
+6.2644716
+
+\(r_3\)
+
+24.932131
+
+35.365480
+
+31.607220
+
+58.3118000
+
+20.1001631
+
+\(r_4\)
+
+31.385926
+
+59.136810
+
+50.599490
+
+53.7207000
+
+19.0219161
+
+\(r_p\)
+
+37.108246
+
+14.850370
+
+46.461261
+
+61.3011560
+
+39.8538048
+
+\(θ_p\)
+
+0.398977
+
+1.570796
+
+1.106544
+
+-1.3002600
+
+0.3679660
+
+\(θ_0\)
+
+4.015959
+
+5.287474
+
+0.000000
+
+0.1960760
+
+4.4245619
+
+\(x_0\)
+
+-6.366519
+
+29.913290
+
+60.000000
+
+-35.3621000
+
+-13.0300715
+
+\(y_0\)
+
+56.836760
+
+32.602280
+
+18.077910
+
+36.7704000
+
+51.1796666
+
+\(θ_2^1\)
+
+1.366547
+
+6.283185
+
+6.283185
+
+1.6601500
+
+5.9699819
+
+\(θ_2^2\)
+
+2.330773
+
+0.318205
+
+0.264935
+
+2.0468400
+
+0.4554995
+
+\(θ_2^3\)
+
+2.871039
+
+0.638520
+
+0.500377
+
+2.4281100
+
+1.0202707
+
+\(θ_2^4\)
+
+3.394591
+
+0.979950
+
+0.735321
+
+2.8090100
+
+1.5550696
+
+\(θ_2^5\)
+
+3.970960
+
+1.412732
+
+0.996529
+
+3.1900900
+
+2.1117409
+
+\(θ_2^6\)
+
+4.963490
+
+2.076254
+
+1.333549
+
+3.5737900
+
+2.8839248
+
+\(Error\)
+
+0.002057
+
+1.101697
+
+0.122738
+
+0.0000172
+
+0.0000124
 
 \subsection{Case2 有规定时间的轨迹生成(with prescribed
 timing)}\label{case2-with-prescribed-timing}
@@ -2142,25 +2515,101 @@ r_1,r_2,r_3,r_4\in[0,5]\quad r_p\in[-5,5]\quad \theta_p\in[0,2\pi]
 \caption{各算法优化轨迹}\label{fig:case2png}
 \end{figure}
 
-\begin{table}
+\label{tab:case2table}case2各算法结果对比
 
-\caption{\label{tab:case2table}case2各算法结果对比}
-\centering
-\begin{tabular}[t]{lrrrrr}
-\toprule
-  & PSO & HPSO & GA & MUMSA & BAS\\
-\midrule
-\$r\_1\$ & 3.0576200 & 3.7877200 & 3.0630424 & 3.7732686 & 3.7135255\\
-\$r\_2\$ & 1.8618400 & 1.9984200 & 1.9959624 & 2.0000040 & 1.9978745\\
-\$r\_3\$ & 3.8459100 & 4.1331300 & 3.3058230 & 4.1169710 & 4.0469527\\
-\$r\_4\$ & 2.9706300 & 2.7451300 & 2.5247060 & 2.7461567 & 2.7192391\\
-\$r\_p\$ & 2.4968270 & 2.3697220 & 2.3721479 & 2.3684374 & 2.3702974\\
-\addlinespace
-\$θ\_p\$ & 0.7243557 & 0.7841479 & 0.8044176 & 0.7831567 & 0.7865371\\
-\$Error\$ & 0.0005860 & 0.0009860 & 0.0000018 & 0.0000018 & 0.0000007\\
-\bottomrule
-\end{tabular}
-\end{table}
+PSO
+
+HPSO
+
+GA
+
+MUMSA
+
+BAS
+
+\(r_1\)
+
+3.0576200
+
+3.7877200
+
+3.0630424
+
+3.7732686
+
+3.7135255
+
+\(r_2\)
+
+1.8618400
+
+1.9984200
+
+1.9959624
+
+2.0000040
+
+1.9978745
+
+\(r_3\)
+
+3.8459100
+
+4.1331300
+
+3.3058230
+
+4.1169710
+
+4.0469527
+
+\(r_4\)
+
+2.9706300
+
+2.7451300
+
+2.5247060
+
+2.7461567
+
+2.7192391
+
+\(r_p\)
+
+2.4968270
+
+2.3697220
+
+2.3721479
+
+2.3684374
+
+2.3702974
+
+\(θ_p\)
+
+0.7243557
+
+0.7841479
+
+0.8044176
+
+0.7831567
+
+0.7865371
+
+\(Error\)
+
+0.0005860
+
+0.0009860
+
+0.0000018
+
+0.0000018
+
+0.0000007
 
 \subsection{Case3 规定时间内路径生成（Path generation with prescribed
 timing）}\label{case3-path-generation-with-prescribed-timing}
@@ -2204,29 +2653,197 @@ r_1,r_2,r_3,r_4\in[0,5]\quad r_p,x_0,y_0\in[-5,5]\quad \theta_0,\theta_2^1,\thet
 \caption{各算法优化轨迹}\label{fig:case3png}
 \end{figure}
 
-\begin{table}
+\label{tab:case3table}case3各算法结果对比
 
-\caption{\label{tab:case3table}case3各算法结果对比}
-\centering
-\begin{tabular}[t]{lrrrrrrr}
-\toprule
-  & PSO & HPSO & GA & MUMSA & GA.DE & MKH & BAS\\
-\midrule
-\$r\_1\$ & 2.926100 & 2.850000 & 3.057878 & 4.453772 & 47.4379000 & 1.0042900 & 1.0541803\\
-\$r\_2\$ & 0.487700 & 0.370000 & 0.237803 & 0.297057 & 0.3247700 & 0.4218000 & 0.4238711\\
-\$r\_3\$ & 2.909900 & 2.904800 & 4.828954 & 3.913095 & 0.4728570 & 0.8782100 & 0.9145640\\
-\$r\_4\$ & 2.150300 & 0.500000 & 2.056465 & 0.849372 & 47.3093000 & 0.5801300 & 0.5988706\\
-\$r\_p\$ & 1.493947 & 1.973700 & 2.003475 & 2.651983 & 0.3412513 & 0.5234000 & 0.5450268\\
-\addlinespace
-\$θ\_p\$ & -0.332546 & 1.027396 & 1.177913 & 2.464734 & -1.2153827 & 0.8147728 & 0.8227469\\
-\$θ\_0\$ & 0.719000 & 0.760000 & 1.002168 & 2.738736 & 3.3202900 & 0.2929400 & 0.2850398\\
-\$x\_0\$ & -0.384600 & 0.940000 & 1.776808 & -1.309243 & 0.5269880 & 0.2688600 & 0.2676998\\
-\$y\_0\$ & -0.675200 & -1.171200 & -0.641991 & 2.806964 & 0.7239300 & 0.1771500 & 0.1544272\\
-\$θ\_2\textasciicircum{}1\$ & 0.215900 & 0.513400 & 0.226186 & 4.853543 & 3.5123300 & 0.8859500 & 1.1764113\\
-\$Error\$ & 0.049200 & 0.011100 & 0.033700 & 0.019600 & 0.0108613 & 0.0091100 & 0.0090289\\
-\bottomrule
-\end{tabular}
-\end{table}
+PSO
+
+HPSO
+
+GA
+
+MUMSA
+
+GA.DE
+
+MKH
+
+BAS
+
+\(r_1\)
+
+2.926100
+
+2.850000
+
+3.057878
+
+4.453772
+
+47.4379000
+
+1.0042900
+
+1.0541803
+
+\(r_2\)
+
+0.487700
+
+0.370000
+
+0.237803
+
+0.297057
+
+0.3247700
+
+0.4218000
+
+0.4238711
+
+\(r_3\)
+
+2.909900
+
+2.904800
+
+4.828954
+
+3.913095
+
+0.4728570
+
+0.8782100
+
+0.9145640
+
+\(r_4\)
+
+2.150300
+
+0.500000
+
+2.056465
+
+0.849372
+
+47.3093000
+
+0.5801300
+
+0.5988706
+
+\(r_p\)
+
+1.493947
+
+1.973700
+
+2.003475
+
+2.651983
+
+0.3412513
+
+0.5234000
+
+0.5450268
+
+\(θ_p\)
+
+-0.332546
+
+1.027396
+
+1.177913
+
+2.464734
+
+-1.2153827
+
+0.8147728
+
+0.8227469
+
+\(θ_0\)
+
+0.719000
+
+0.760000
+
+1.002168
+
+2.738736
+
+3.3202900
+
+0.2929400
+
+0.2850398
+
+\(x_0\)
+
+-0.384600
+
+0.940000
+
+1.776808
+
+-1.309243
+
+0.5269880
+
+0.2688600
+
+0.2676998
+
+\(y_0\)
+
+-0.675200
+
+-1.171200
+
+-0.641991
+
+2.806964
+
+0.7239300
+
+0.1771500
+
+0.1544272
+
+\(θ_2^1\)
+
+0.215900
+
+0.513400
+
+0.226186
+
+4.853543
+
+3.5123300
+
+0.8859500
+
+1.1764113
+
+\(Error\)
+
+0.049200
+
+0.011100
+
+0.033700
+
+0.019600
+
+0.0108613
+
+0.0091100
+
+0.0090289
 
 \subsection{Case4 规定时间路径生成问题}\label{case4-}
 
@@ -2267,28 +2884,137 @@ r_1,r_2,r_3,r_4\in[0,50]\quad r_p,x_0,y_0\in[-50,50]\quad \theta_0,\theta_p\in[0
 \caption{各算法优化轨迹}\label{fig:case4png}
 \end{figure}
 
-\begin{table}
+\label{tab:case4table}case4各算法结果对比
 
-\caption{\label{tab:case4table}case4各算法结果对比}
-\centering
-\begin{tabular}[t]{lrrrrr}
-\toprule
-  & MUMSA & GA & PSO & GA.DE & BAS\\
-\midrule
-\$r\_1\$ & 50.0000000 & 50.0000000 & 50.0000000 & 50.000000 & 47.2345017\\
-\$r\_2\$ & 5.0000000 & 5.0000000 & 5.0000000 & 5.000000 & 8.8473992\\
-\$r\_3\$ & 7.0310470 & 6.9700900 & 7.0310200 & 5.905343 & 25.0474709\\
-\$r\_4\$ & 48.1341830 & 48.1993000 & 48.1342000 & 50.000000 & 50.0000000\\
-\$r\_p\$ & 21.3533558 & 21.2191204 & 21.3532819 & 18.819312 & 50.0000000\\
-\addlinespace
-\$θ\_p\$ & 0.6517294 & 0.6380060 & 0.6517238 & 0.000000 & 5.7107187\\
-\$θ\_0\$ & 0.0428247 & 0.0508453 & 0.0428286 & 0.463633 & 0.8225945\\
-\$x\_0\$ & 12.1974940 & 12.2377000 & 12.1975000 & 14.373772 & 16.5531171\\
-\$y\_0\$ & -15.9982030 & -15.8332000 & -15.9981000 & -12.444295 & -48.1473786\\
-\$Error\$ & 2.5803500 & 2.5828600 & 2.5803600 & 2.349649 & 0.7863680\\
-\bottomrule
-\end{tabular}
-\end{table}
+MUMSA
+
+GA
+
+PSO
+
+GA.DE
+
+BAS
+
+\(r_1\)
+
+50.0000000
+
+50.0000000
+
+50.0000000
+
+50.000000
+
+47.2345017
+
+\(r_2\)
+
+5.0000000
+
+5.0000000
+
+5.0000000
+
+5.000000
+
+8.8473992
+
+\(r_3\)
+
+7.0310470
+
+6.9700900
+
+7.0310200
+
+5.905343
+
+25.0474709
+
+\(r_4\)
+
+48.1341830
+
+48.1993000
+
+48.1342000
+
+50.000000
+
+50.0000000
+
+\(r_p\)
+
+21.3533558
+
+21.2191204
+
+21.3532819
+
+18.819312
+
+50.0000000
+
+\(θ_p\)
+
+0.6517294
+
+0.6380060
+
+0.6517238
+
+0.000000
+
+5.7107187
+
+\(θ_0\)
+
+0.0428247
+
+0.0508453
+
+0.0428286
+
+0.463633
+
+0.8225945
+
+\(x_0\)
+
+12.1974940
+
+12.2377000
+
+12.1975000
+
+14.373772
+
+16.5531171
+
+\(y_0\)
+
+-15.9982030
+
+-15.8332000
+
+-15.9981000
+
+-12.444295
+
+-48.1473786
+
+\(Error\)
+
+2.5803500
+
+2.5828600
+
+2.5803600
+
+2.349649
+
+0.7863680
 
 \subsection{Case5 规定时间内路径生成问题}\label{case5-}
 
@@ -2329,40 +3055,299 @@ r_1,r_2,r_3,r_4\in[0,80]\quad r_p,x_0,y_0\in[-80,80]\quad \theta_0,\theta_2^1,\c
 \caption{各算法优化轨迹}\label{fig:case5png}
 \end{figure}
 
-\begin{table}
+\label{tab:case5table}case5各算法结果对比
 
-\caption{\label{tab:case5table}case5各算法结果对比}
-\centering
-\begin{tabular}[t]{lrrrrrr}
-\toprule
-  & MUMSA & GA & PSO & DE & GA.DE & BAS\\
-\midrule
-\$r\_1\$ & 79.5160680 & 79.981513 & 52.535162 & 54.360893 & 80.0000000 & 71.8681225\\
-\$r\_2\$ & 9.7239730 & 9.109993 & 8.687886 & 8.683351 & 8.4203200 & 9.2618623\\
-\$r\_3\$ & 45.8425240 & 72.936511 & 36.155078 & 34.318634 & 51.3426000 & 44.4542963\\
-\$r\_4\$ & 51.4384800 & 80.000000 & 80.000000 & 79.996171 & 42.4532000 & 43.0533508\\
-\$r\_p\$ & 8.7289390 & 0.000000 & 1.481055 & 1.465250 & 10.6530404 & 8.7820722\\
-\addlinespace
-\$θ\_p\$ & -0.3452264 & 0.000000 & 1.570796 & 1.570669 & 2.6465448 & 1.6362575\\
-\$θ\_0\$ & 5.5969445 & 0.026149 & 1.403504 & 2.129650 & 4.2817700 & 1.6011655\\
-\$x\_0\$ & 2.0211090 & 10.155966 & 11.002124 & 10.954397 & 5.5337200 & 16.7540360\\
-\$y\_0\$ & 13.2165878 & 10.000000 & 11.095585 & 11.074534 & 0.4771830 & 15.2986682\\
-\$θ\_2\textasciicircum{}1\$ & 0.6376873 & 6.283185 & 6.282619 & 6.283185 & 2.0935000 & 0.1258416\\
-\addlinespace
-\$θ\_2\textasciicircum{}2\$ & 1.3255329 & 0.600745 & 0.615302 & 0.616731 & 2.8129100 & 0.8167208\\
-\$θ\_2\textasciicircum{}3\$ & 2.0080339 & 1.372812 & 1.305421 & 1.310254 & 3.5160500 & 1.5351326\\
-\$θ\_2\textasciicircum{}4\$ & 2.6955659 & 2.210575 & 2.188053 & 2.193570 & 4.2063800 & 2.1811489\\
-\$θ\_2\textasciicircum{}5\$ & 3.3845794 & 2.862639 & 2.913049 & 2.917170 & 4.8905100 & 2.8753839\\
-\$θ\_2\textasciicircum{}6\$ & 4.0829376 & 3.420547 & 3.499313 & 3.490746 & 5.5739800 & 3.5728072\\
-\addlinespace
-\$θ\_2\textasciicircum{}7\$ & 4.7984548 & 4.072611 & 4.125586 & 4.132017 & 6.2645800 & 4.2854058\\
-\$θ\_2\textasciicircum{}8\$ & 5.5117056 & 4.910373 & 4.919977 & 4.922075 & 0.6761980 & 5.0016208\\
-\$θ\_2\textasciicircum{}9\$ & 6.2127919 & 5.682440 & 5.685021 & 5.695372 & 1.3830700 & 5.7133417\\
-\$θ\_2\textasciicircum{}\{10\}\$ & 0.6371866 & 6.283185 & 6.282323 & 6.282970 & 2.0934800 & 0.1258290\\
-\$Error\$ & 0.0047000 & 2.281273 & 1.971004 & 1.952326 & 0.0006022 & 0.0004252\\
-\bottomrule
-\end{tabular}
-\end{table}
+MUMSA
+
+GA
+
+PSO
+
+DE
+
+GA.DE
+
+BAS
+
+\(r_1\)
+
+79.5160680
+
+79.981513
+
+52.535162
+
+54.360893
+
+80.0000000
+
+71.8681225
+
+\(r_2\)
+
+9.7239730
+
+9.109993
+
+8.687886
+
+8.683351
+
+8.4203200
+
+9.2618623
+
+\(r_3\)
+
+45.8425240
+
+72.936511
+
+36.155078
+
+34.318634
+
+51.3426000
+
+44.4542963
+
+\(r_4\)
+
+51.4384800
+
+80.000000
+
+80.000000
+
+79.996171
+
+42.4532000
+
+43.0533508
+
+\(r_p\)
+
+8.7289390
+
+0.000000
+
+1.481055
+
+1.465250
+
+10.6530404
+
+8.7820722
+
+\(θ_p\)
+
+-0.3452264
+
+0.000000
+
+1.570796
+
+1.570669
+
+2.6465448
+
+1.6362575
+
+\(θ_0\)
+
+5.5969445
+
+0.026149
+
+1.403504
+
+2.129650
+
+4.2817700
+
+1.6011655
+
+\(x_0\)
+
+2.0211090
+
+10.155966
+
+11.002124
+
+10.954397
+
+5.5337200
+
+16.7540360
+
+\(y_0\)
+
+13.2165878
+
+10.000000
+
+11.095585
+
+11.074534
+
+0.4771830
+
+15.2986682
+
+\(θ_2^1\)
+
+0.6376873
+
+6.283185
+
+6.282619
+
+6.283185
+
+2.0935000
+
+0.1258416
+
+\(θ_2^2\)
+
+1.3255329
+
+0.600745
+
+0.615302
+
+0.616731
+
+2.8129100
+
+0.8167208
+
+\(θ_2^3\)
+
+2.0080339
+
+1.372812
+
+1.305421
+
+1.310254
+
+3.5160500
+
+1.5351326
+
+\(θ_2^4\)
+
+2.6955659
+
+2.210575
+
+2.188053
+
+2.193570
+
+4.2063800
+
+2.1811489
+
+\(θ_2^5\)
+
+3.3845794
+
+2.862639
+
+2.913049
+
+2.917170
+
+4.8905100
+
+2.8753839
+
+\(θ_2^6\)
+
+4.0829376
+
+3.420547
+
+3.499313
+
+3.490746
+
+5.5739800
+
+3.5728072
+
+\(θ_2^7\)
+
+4.7984548
+
+4.072611
+
+4.125586
+
+4.132017
+
+6.2645800
+
+4.2854058
+
+\(θ_2^8\)
+
+5.5117056
+
+4.910373
+
+4.919977
+
+4.922075
+
+0.6761980
+
+5.0016208
+
+\(θ_2^9\)
+
+6.2127919
+
+5.682440
+
+5.685021
+
+5.695372
+
+1.3830700
+
+5.7133417
+
+\(θ_2^{10}\)
+
+0.6371866
+
+6.283185
+
+6.282323
+
+6.282970
+
+2.0934800
+
+0.1258290
+
+\(Error\)
+
+0.0047000
+
+2.281273
+
+1.971004
+
+1.952326
+
+0.0006022
+
+0.0004252
 
 \subsection{Case6 六杆机构路径生成}\label{case6-}
 
@@ -2434,35 +3419,209 @@ X = [r_1,r_2,r_3,r_4,r_5,r_6,r_p,\theta_p,r_1',\theta_0,\theta_0',x_0,y_0,\theta
 \caption{各算法优化角度}\label{fig:case6png2}
 \end{figure}
 
-\begin{table}
+\label{tab:case6table}case6各算法结果对比
 
-\caption{\label{tab:case6table}case6各算法结果对比}
-\centering
-\begin{tabular}[t]{llllll}
-\toprule
-  & DE.A & DE.B & DE.C & MUMSA & BAS\\
-\midrule
-\$r\_1\$ & 1.8145 & 1.8065 & 2.0926 & 1.713529 & 1.838058488\\
-\$r\_2\$ & 0.9911 & 0.9826 & 1.1464 & 0.92602 & 1.006097698\\
-\$r\_3\$ & 1.9995 & 2.0177 & 1.989 & 1.991373 & 1.997800646\\
-\$r\_4\$ & 2.0315 & 2.0009 & 1.9727 & 1.848672 & 2.008472163\\
-\$r\_5\$ & 4.3674 & 5.7769 & 6.6633 & 5.35498 & 6.106586728\\
-\addlinespace
-\$r\_6\$ & 2.4924 & 2.5296 & 2.5517 & 2.54979 & 2.551492193\\
-\$r\_p\$ & 2.8174 & 2.8711 & 2.7178 & 2.975936132 & 2.815041279\\
-\$θ\_p\$ & 0.7776 & 0.783712 & 0.845246 & 0.831651258 & 0.78386985\\
-\$θ\_0\$ & 6.269879 & 0.011582 & 6.242260827 & 0.067677 & 6.277427755\\
-\$r\_1'\$ & 4.4158 & 5.2817 & 6.2907 & 4.87374 & 5.63828226\\
-\addlinespace
-\$θ\_0'\$ & 0.235595 & 0.0170309 & 6.18118303 & 0.0967027 & 6.257863894\\
-\$x\_0\$ & 0.0115 & 0.0415 & -0.2729 & 0.175257 & -0.013849346\\
-\$y\_0\$ & 0.0157 & -0.0377 & 0.0931 & -0.1187032 & 0.011591976\\
-\$θ\_2\textasciicircum{}1\$ & 0.00052 & 0.003648 & -0.04062 & 6.222361 & 6.281768246\\
-\$Evaluations\$ & 53310 & 93405 & 93405 & 93405 & 50000\\
-\$Error\$ & 0.000250876 & 0.005653158 & 0.03537533 & 0.0014 & 0.000195212659\\
-\bottomrule
-\end{tabular}
-\end{table}
+DE.A
+
+DE.B
+
+DE.C
+
+MUMSA
+
+BAS
+
+\(r_1\)
+
+1.8145
+
+1.8065
+
+2.0926
+
+1.713529
+
+1.838058488
+
+\(r_2\)
+
+0.9911
+
+0.9826
+
+1.1464
+
+0.92602
+
+1.006097698
+
+\(r_3\)
+
+1.9995
+
+2.0177
+
+1.989
+
+1.991373
+
+1.997800646
+
+\(r_4\)
+
+2.0315
+
+2.0009
+
+1.9727
+
+1.848672
+
+2.008472163
+
+\(r_5\)
+
+4.3674
+
+5.7769
+
+6.6633
+
+5.35498
+
+6.106586728
+
+\(r_6\)
+
+2.4924
+
+2.5296
+
+2.5517
+
+2.54979
+
+2.551492193
+
+\(r_p\)
+
+2.8174
+
+2.8711
+
+2.7178
+
+2.975936132
+
+2.815041279
+
+\(θ_p\)
+
+0.7776
+
+0.783712
+
+0.845246
+
+0.831651258
+
+0.78386985
+
+\(θ_0\)
+
+6.269879
+
+0.011582
+
+6.242260827
+
+0.067677
+
+6.277427755
+
+\(r_1'\)
+
+4.4158
+
+5.2817
+
+6.2907
+
+4.87374
+
+5.63828226
+
+\(θ_0'\)
+
+0.235595
+
+0.0170309
+
+6.18118303
+
+0.0967027
+
+6.257863894
+
+\(x_0\)
+
+0.0115
+
+0.0415
+
+-0.2729
+
+0.175257
+
+-0.013849346
+
+\(y_0\)
+
+0.0157
+
+-0.0377
+
+0.0931
+
+-0.1187032
+
+0.011591976
+
+\(θ_2^1\)
+
+0.00052
+
+0.003648
+
+-0.04062
+
+6.222361
+
+6.281768246
+
+\(Evaluations\)
+
+53310
+
+93405
+
+93405
+
+93405
+
+50000
+
+\(Error\)
+
+0.000250876
+
+0.005653158
+
+0.03537533
+
+0.0014
+
+0.000195212659
 
 \subsection{Case7 无规定时间的路径生成}\label{case7-}
 
@@ -2504,29 +3663,125 @@ X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^{1
 \caption{各算法优化轨迹}\label{fig:case7png}
 \end{figure}
 
-\begin{table}
+\label{tab:case7table}case7各算法结果对比
 
-\caption{\label{tab:case7table}case7各算法结果对比}
-\centering
-\begin{tabular}[t]{lrrrr}
-\toprule
-  & PSO & HPSO & MKH & BAS\\
-\midrule
-\$r\_1\$ & 4.550300 & 4.535900 & 2.8764500 & 2.8162769\\
-\$r\_2\$ & 1.101300 & 1.113300 & 1.1464400 & 1.1382629\\
-\$r\_3\$ & 3.955800 & 14.738100 & 4.4077300 & 4.0509922\\
-\$r\_4\$ & 3.933000 & 16.801700 & 4.7571300 & 4.1957758\\
-\$r\_p\$ & 3.941572 & 3.941866 & 2.6665746 & 2.6682801\\
-\addlinespace
-\$θ\_p\$ & -0.539171 & -1.521104 & -1.1363513 & 5.1910788\\
-\$θ\_0\$ & 0.000000 & 0.000000 & 0.1650200 & 0.2070603\\
-\$x\_0\$ & 0.000000 & 0.000000 & 1.1426500 & 1.1226995\\
-\$y\_0\$ & 0.000000 & 0.000000 & 0.4823700 & 0.5246662\\
-\$θ\_2\textasciicircum{}1\$ & -0.201400 & -0.181600 & -0.3139900 & 6.1191060\\
-\$Error\$ & 0.171600 & 0.096400 & 0.0001597 & 0.0000994\\
-\bottomrule
-\end{tabular}
-\end{table}
+PSO
+
+HPSO
+
+MKH
+
+BAS
+
+\(r_1\)
+
+4.550300
+
+4.535900
+
+2.8764500
+
+2.8162769
+
+\(r_2\)
+
+1.101300
+
+1.113300
+
+1.1464400
+
+1.1382629
+
+\(r_3\)
+
+3.955800
+
+14.738100
+
+4.4077300
+
+4.0509922
+
+\(r_4\)
+
+3.933000
+
+16.801700
+
+4.7571300
+
+4.1957758
+
+\(r_p\)
+
+3.941572
+
+3.941866
+
+2.6665746
+
+2.6682801
+
+\(θ_p\)
+
+-0.539171
+
+-1.521104
+
+-1.1363513
+
+5.1910788
+
+\(θ_0\)
+
+0.000000
+
+0.000000
+
+0.1650200
+
+0.2070603
+
+\(x_0\)
+
+0.000000
+
+0.000000
+
+1.1426500
+
+1.1226995
+
+\(y_0\)
+
+0.000000
+
+0.000000
+
+0.4823700
+
+0.5246662
+
+\(θ_2^1\)
+
+-0.201400
+
+-0.181600
+
+-0.3139900
+
+6.1191060
+
+\(Error\)
+
+0.171600
+
+0.096400
+
+0.0001597
+
+0.0000994
 
 \subsection{Case8 无规定时间的路径生成}\label{case8-}
 
@@ -2570,29 +3825,308 @@ r_1,r_2,r_3,r_4\in[0,5]\quad r_p,x_0,y_0\in[-5,5] \quad \theta_0,\theta_2^1,\cdo
 \caption{各算法优化轨迹}\label{fig:case8png}
 \end{figure}
 
+\label{tab:case8table}case8各算法结果对比
+
+MKH
+
+GA.FL
+
+Ant.Gradient
+
+BAS
+
+\(r_1\)
+
+9.99432
+
+9
+
+13.08
+
+9.6132193
+
+\(r_2\)
+
+1.93027
+
+3.01
+
+1.89
+
+1.9459840
+
+\(r_3\)
+
+4.57242
+
+8.8
+
+8.41
+
+4.9080817
+
+\(r_4\)
+
+7.36674
+
+8.8
+
+6.75
+
+6.6768279
+
+\(r_p\)
+
+8.04254
+
+11.0995
+
+14.45
+
+8.6409226
+
+\(θ_p\)
+
+0.187430
+
+-0.681
+
+0.195
+
+0.1694076
+
+\(θ_0\)
+
+-0.61763
+
+0.489
+
+-0.3815
+
+5.7260733
+
+\(x_0\)
+
+-2.31301
+
+-2.4
+
+-8.77
+
+-2.9214626
+
+\(y_0\)
+
+2.86189
+
+-4
+
+1.20
+
+2.7190256
+
+\(θ_2^1\)
+
+\begin{itemize}
+\item
+  \begin{itemize}
+  \item
+    \begin{itemize}
+    \item
+      0.4529787
+
+      \(Error\)
+
+      0.03916
+
+      0.9022
+
+      0.5504
+
+      0.0397777
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\chapter{BAS案例二:龙门起重机运动控制}\label{examples2}
+
+\begin{quote}
+由群友李晓晓同学提供案例。
+\end{quote}
+
+\section{问题背景}
+
+龙门起重机（gantry
+crane），如图\ref{fig:gc}所示，是水平桥架设置在两条支腿上构成门架形状的一种桥架型起重机。起重小车trolley在桥架上运行，利用绳索（cable）一类的柔性体连接负载（load）。在负载的输送过程中，load的摆动问题一直是影响吊车装运效率提高的一大难题。
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{img/gc} 
+
+}
+
+\caption{龙门起重机示意}\label{fig:gc}
+\end{figure}
+
+模型可以简化为图\ref{fig:gc2}。重物通过绳索与小车相连，小车在外力的作用下水平运动，小车质量为M（kg），重物的质量为m（kg），绳索的长度为r（m），\(\theta\)为摆角，x表示水平方向上的位移。
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{img/gc2} 
+
+}
+
+\caption{龙门起重机模型}\label{fig:gc2}
+\end{figure}
+
+\section{优化问题抽象}
+
+优化的变量为\texttt{bang-coast-bang}控制中，\(x = [tp_1,tp_2,tf]^T\)，两个给予脉冲加速度激励的时段以及全部的作业时间，以此来使得负载的摆角（优化目标）最小。
+
+取小车的位置x，摆角\(\theta\)作为系统的广义坐标系。小车和负载在t时刻的位置坐标如式\eqref{eq:loadposition}所示。
+
+\begin{equation}
+\begin{cases} 
+x_M(t)&=\quad x(t)\\ 
+y_M(t)&=\quad 0 \\
+x_m(t)&=\quad x(t)+rsin\theta(t)\\
+t_m(t)&=\quad -rco\theta(t)
+\end{cases}
+\label{eq:loadposition}
+\end{equation}
+
+因此，对\(t\)求导，得到小车和负载的速度分量如式\eqref{eq:speedp}所示。
+
+\begin{equation}
+\begin{cases} 
+\dot{x}_M(t) &=\quad \dot{x}_t\\
+\dot{y}_M(t) &=\quad 0\\
+\dot{x}_m(t) &=\quad \dot{x}(t)+r\dot{\theta}(t)cos\theta(t)\\
+\dot{y}_m(t) &=\quad r\dot{\theta}(t)sin\theta(t)
+\end{cases}
+\label{eq:speedp}
+\end{equation}
+
+系统动能如式\eqref{eq:kineticenergy}：
+
+\begin{equation}
+\begin{split}
+T  = &\frac{1}{2}MV_M^2(t) + \frac{1}{2}mV_m^2(t) \\
+=&\frac{1}{2}M(\dot{x}_M^2(t)+\dot{y}_M^2(t))+\frac{1}{2}m(\dot{x}_m^2(t)+\dot{y}_m^2(t))\\
+=&\frac{1}{2}M\dot{x}_M^2(t) + \frac{1}{2}m\dot{x}_m^2(t) + \\
+&\frac{1}{2}mr^2\dot{\theta}^2(t) + mr\dot{x}(t)\dot{\theta}(t)cos\theta(t)
+\end{split}
+\label{eq:kineticenergy}
+\end{equation}
+
+势能如式\eqref{eq:potentialenergy}：
+
+\begin{equation}
+P = -mgrcos\theta(t)
+\label{eq:potentialenergy}
+\end{equation}
+
+通过式\eqref{eq:potentialenergy}和式\eqref{eq:kineticenergy}，我们可以得到拉格朗日方程，即\(L = T -P\)。根据欧拉-拉格朗日方程(Euler-Lagrangian
+equation)，龙门起重机的动力学模型如式\eqref{eq:EL}所示。
+
+\begin{equation}
+\frac{d}{dt}[\frac{\partial{L}}{\partial{\dot{q_k}}}] - \frac{\partial{L}}{\partial{q_k}}=Q_k, \quad k=1,\cdots,n
+\label{eq:EL}
+\end{equation}
+
+其中，\(n\)表示系统的自由度，\(\{q_1,\cdots,q_n\}\)表示广义坐标集合，\(\{Q_1,\cdots,Q_n\}\)表示广义的驱动力（对应于各自的广义坐标）。把摆角作为广义坐标，可以得到式\eqref{eq:thetaEL1}。
+
+\begin{equation}
+\frac{d}{dt}[\frac{\partial{L}}{\partial{\dot{\theta}}}] - \frac{\partial{L}}{\partial{\theta}}=0
+\label{eq:thetaEL1}
+\end{equation}
+
+第一项为\(mr^2\ddot{\theta}(t)+mr\ddot{x}(t)cos\theta(t)\)，第二项为\(-mgrsin\theta(t)\)，代入式\eqref{eq:thetaEL1}中可以得到\(\theta\)的求解方程，即式\eqref{eq:thetaEL2}。
+
+\begin{equation}
+\ddot{\theta}(t)=-\frac{\ddot{x}(t)cos\theta(t)+gsin\theta(t)}{r}
+\label{eq:thetaEL2}
+\end{equation}
+
+通过求解该方程，我们可以得到我们的优化目标。
+
+\section{优化理论}\label{-1}
+
+优化理论为二阶BAS算法。李晓晓同学给出的参数是，\(w_0 = 0.7\)，
+\(w_1 = 0.2\)。当然，文档中对于不同的目标函数可能有不同的调参结果，大家可以自行调试。
+
+\section{优化结果}\label{-1}
+
 \begin{table}
 
-\caption{\label{tab:case8table}case8各算法结果对比}
+\caption{\label{tab:example2parms}实验参数取值}
 \centering
-\begin{tabular}[t]{llllr}
+\begin{tabular}[t]{lll}
 \toprule
-  & MKH & GA.FL & Ant.Gradient & BAS\\
+Parameter & Description & Values\\
 \midrule
-\$r\_1\$ & 9.99432 & 9 & 13.08 & 9.6132193\\
-\$r\_2\$ & 1.93027 & 3.01 & 1.89 & 1.9459840\\
-\$r\_3\$ & 4.57242 & 8.8 & 8.41 & 4.9080817\\
-\$r\_4\$ & 7.36674 & 8.8 & 6.75 & 6.6768279\\
-\$r\_p\$ & 8.04254 & 11.0995 & 14.45 & 8.6409226\\
-\addlinespace
-\$θ\_p\$ & 0.187430 & -0.681 & 0.195 & 0.1694076\\
-\$θ\_0\$ & -0.61763 & 0.489 & -0.3815 & 5.7260733\\
-\$x\_0\$ & -2.31301 & -2.4 & -8.77 & -2.9214626\\
-\$y\_0\$ & 2.86189 & -4 & 1.20 & 2.7190256\\
-\$θ\_2\textasciicircum{}1\$ & * & * & * & 0.4529787\\
-\$Error\$ & 0.03916 & 0.9022 & 0.5504 & 0.0397777\\
+\$c\$ & Constant & 5\\
+\$\textbackslash{}lambda\$ & Step length ratio & 0.95\\
+\$\textbackslash{}gamma\$ & Penalty coefficient & \$10\textasciicircum{}\{50\}\$\\
+\$n\$ & Number of iterations & 1000\\
+\$r\$ & Height of crane & 20(m)\\
+\$h\$ & Load displacement & 40(m)\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{table}
+
+\caption{\label{tab:example2result}优化结果对比}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+Variables & fmincon & BAS\\
+\midrule
+\$tp\_1\$ & 8.9624000 & 6.9082000\\
+\$tp\_2\$ & 8.9803000 & 6.9741000\\
+\$tf\$ & 19.8346000 & 15.8866000\\
+\$f\$ & 0.0029586 & 0.0001415\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+从表\ref{tab:example2result}中可以看到，BAS能够让起重机小车在7秒内加速到最大速度，在16秒内就能到达终点并消除摆角。动图\ref{fig:example2fminconbob}至\ref{fig:example2bastrace}分别为采用\texttt{fmincon}和\texttt{BAS}做优化的结果，可以让我们有更为直观的认识。
+
+\url{img/fminconbob.gif}
+
+\url{img/BASbob.gif}
+
+\url{img/fmincontrace.gif}
+
+\url{img/BAStrace.gif}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{img/ex2_1} 
+
+}
+
+\caption{起重小车加速度曲线}\label{fig:ex2accel}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{img/ex2_2} 
+
+}
+
+\caption{起重小车速度曲线}\label{fig:ex2velocity}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{img/ex2_3} 
+
+}
+
+\caption{起重小车位置曲线}\label{fig:ex2position}
+\end{figure}
 
 \chapter{Matlab用户}\label{matlabr}
 
@@ -2762,7 +4296,7 @@ R代码使用\texttt{BSO}解这个优化问题是这样的效果。
 
 \begin{verbatim}
 ##    user  system elapsed 
-##    0.07    0.00    0.08
+##    0.08    0.00    0.08
 \end{verbatim}
 
 \begin{Shaded}
@@ -2989,7 +4523,7 @@ double test(NumericVector x) {
 
 \begin{verbatim}
 ##    user  system elapsed 
-##    0.09    0.00    0.09
+##    0.09    0.00    0.10
 \end{verbatim}
 
 \begin{Shaded}
@@ -3149,7 +4683,7 @@ NumericVector PVcon(NumericVector x) {
 
 \begin{verbatim}
 ##    user  system elapsed 
-##     1.5     0.0     1.5
+##    1.52    0.00    1.53
 \end{verbatim}
 
 \begin{Shaded}
@@ -3203,7 +4737,7 @@ NumericVector PVcon(NumericVector x) {
 
 \begin{verbatim}
 ##    user  system elapsed 
-##    0.32    0.00    0.31
+##    0.33    0.00    0.33
 \end{verbatim}
 
 \begin{Shaded}
@@ -3226,6 +4760,31 @@ NumericVector PVcon(NumericVector x) {
 ## [1] 6305.57
 \end{verbatim}
 
+\chapter{已发表工作}\label{paper}
+
+\section{工具箱/软件}
+
+\begin{itemize}
+\item
+  \href{https://github.com/jywang2016/rBAS}{rBAS} ; R语言环境下的包
+  。收录有BAS/BSAS/BAS-WPT/Second-Order-BAS/BSO算法，还会持续更新。此外，有用户界面可供调用。
+\item
+  \href{https://github.com/whhxp/Platypus/tree/master/platypus}{platpus};
+  python环境下的包。目前仅收录有BAS以及三个测试函数，后续会持续更新。由吴会欢同学提供，具体的使用说明下次手册更新会进行介绍。
+\end{itemize}
+
+\section{论文}
+
+\begin{itemize}
+\tightlist
+\item
+  待整理\ldots{}
+\end{itemize}
+
+此外，由于个人能力与时间有限，希望大家看到相关的BAS文章或者软件后，可以在
+\url{https://github.com/jywang2016/rBAS_documents/issues}
+上\textbf{写明文章(软件)的信息，应用的领域（如果有具体的应用案例的话）以及采用的是哪种BAS算法}，以此来帮助我的整理。十分感谢大家的帮助！
+
 \chapter{更新及维护计划}\label{updates}
 
 \section{待加入的功能}
@@ -3241,7 +4800,7 @@ NumericVector PVcon(NumericVector x) {
 \item
   加入\texttt{binary\ BAS} (阮月)
 \item
-  加入二阶 \texttt{BAS} (李晓晓)
+  \sout{加入二阶 \texttt{BAS}} (李晓晓)
 \item
   \sout{add \texttt{BSO(Beetle\ Swarm\ Optimizaiton)}} (王甜甜)
 \item
@@ -3259,6 +4818,8 @@ NumericVector PVcon(NumericVector x) {
   \tightlist
   \item
     \sout{多杆件机构优化}(莫小娟)
+  \item
+    \sout{龙门起重机摆角优化}(李晓晓)
   \item
     建筑系统阻容模型辨识
   \item
