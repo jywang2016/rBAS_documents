@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-07">
+<meta name="date" content="2018-09-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -141,6 +141,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.3"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
 <li class="chapter" data-level="3.1.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#BSOparms"><i class="fa fa-check"></i><b>3.1.4</b> 算法调用说明</a></li>
 </ul></li>
+<li class="chapter" data-level="3.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bBASa"><i class="fa fa-check"></i><b>3.2</b> bBAS</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.2.1"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
 <li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim/BASoptim2</a><ul>
@@ -161,6 +165,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4" data-path="rBAS.html"><a href="rBAS.html#bsooptim"><i class="fa fa-check"></i><b>4.4</b> BSOoptim</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="rBAS.html"><a href="rBAS.html#BSOfuncparms"><i class="fa fa-check"></i><b>4.4.1</b> BSO参数说明</a></li>
 <li class="chapter" data-level="4.4.2" data-path="rBAS.html"><a href="rBAS.html#bsoexample"><i class="fa fa-check"></i><b>4.4.2</b> BSO案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="rBAS.html"><a href="rBAS.html#bBASr"><i class="fa fa-check"></i><b>4.5</b> bBAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="rBAS.html"><a href="rBAS.html#bBASfuncparms"><i class="fa fa-check"></i><b>4.5.1</b> bBAS参数说明</a></li>
+<li class="chapter" data-level="4.5.2" data-path="rBAS.html"><a href="rBAS.html#bBASexamples"><i class="fa fa-check"></i><b>4.5.2</b> bBAS案例</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>5</b> 用户界面</a><ul>
@@ -195,8 +203,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
 <li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
 <li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
-<li class="chapter" data-level="7.3" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
-<li class="chapter" data-level="7.4" data-path="examples2.html"><a href="examples2.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
+<li class="chapter" data-level="7.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>8</b> Python接口</a><ul>
 <li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
@@ -350,6 +358,67 @@ result &lt;-
 result<span class="op">$</span>par; result<span class="op">$</span>value</code></pre></div>
 <pre><code>## [1] -4.965998  1.570796</code></pre>
 <pre><code>## [1] -1.967851</code></pre>
+</div>
+</div>
+<div id="bBASa" class="section level2">
+<h2><span class="header-section-number">3.2</span> bBAS</h2>
+<p><code>bBAS</code>算法由<code>阮月</code>同学提出，主要针对于0-1规划问题。当然，对于实数空间上的其他优化问题也可以使用，但是会牺牲一部分的精度（后面会谈到分辨率问题）。</p>
+<div id="section-3.2.1" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> 算法流程</h3>
+<p>step1: 根据计算（或者初始随机生成）的天牛坐标，计算天牛质心和两触须的目标函数值，取最小的作为下一回合的位置。其中，搜索距离 <span class="math inline">\(d\)</span> 的更新方式与BAS算法相同。可参考式<a href="algorithm.html#eq:xlxr">(2.2)</a> 与式<a href="algorithm.html#eq:dupdate">(2.4)</a>。然后得到了当前最佳的天牛位置 <span class="math inline">\(x_{best}\)</span>。</p>
+<p>step2: 两个速度向量的计算（或者初始随机生成）；如式<a href="mixedalgorithm.html#eq:twov">(3.8)</a>所示，<span class="math inline">\(\overrightarrow{V_i^0}\)</span> 表示天牛状态（在对应的二进制位上）由1转0的速度（或者称之为可能性，概率），<span class="math inline">\(\overrightarrow{V_i^1}\)</span> 表示天牛由0转1的速度。</p>
+<span class="math display" id="eq:twov">\[\begin{equation}
+V_i^c = \begin{cases} 
+\overrightarrow{V_i^0}, &amp; if\quad x_i = 1 \\ 
+\overrightarrow{V_i^1}, &amp; if\quad x_i = 0
+\end{cases}
+\tag{3.8}
+\end{equation}\]</span>
+<p>那么这两个速度分量该如何计算呢？ 假设按照<strong>step1</strong>得到的最优位置（二进制位表示）向量长度为 <span class="math inline">\(m+n\)</span> ，有 <span class="math inline">\(m\)</span> 个元素为1， <span class="math inline">\(n\)</span> 个元素为0。那么，在 <span class="math inline">\(x_{best}=1\)</span> 的这 <span class="math inline">\(m\)</span> 个元素上，速度分量的更新方式如式<a href="mixedalgorithm.html#eq:xbest1">(3.9)</a>。</p>
+<span class="math display" id="eq:xbest1">\[\begin{equation}
+\begin{split}
+\text{if}\quad &amp; x_{best}^i = 1\quad \text{then}\\
+&amp;V_i^1 = wV_i^1+cr\\
+&amp;V_i^0 = wV_i^0-cr
+\end{split}
+\tag{3.9}
+\end{equation}\]</span>
+<p>在 <span class="math inline">\(x_{best}=0\)</span> 的这 <span class="math inline">\(n\)</span> 个元素上，速度分量的更新方式如式<a href="mixedalgorithm.html#eq:xbest0">(3.10)</a>所示。</p>
+<span class="math display" id="eq:xbest0">\[\begin{equation}
+\begin{split}
+\text{if}\quad &amp; x_{best}^i = 0\quad \text{then}\\
+&amp;V_i^1 = wV_i^1-cr\\
+&amp;V_i^0 = wV_i^0+cr
+\end{split}
+\tag{3.10}
+\end{equation}\]</span>
+<p>其中， <span class="math inline">\(w\)</span> 是惯性项，为前一时刻速度分量的影响权重， <span class="math inline">\(c\)</span> 为一个固定的常数， <span class="math inline">\(r\)</span> 为 <span class="math inline">\((0,1)\)</span> 区间的随机数。</p>
+<p>step3: 有了速度分量后，如何更新 <span class="math inline">\(x_{best}\)</span> 呢？ 和实数空间上的优化问题不同，如果直接把速度与对应的位置向量相加，这势必不符合会使得原有的位置向量脱离0-1的范畴。实际上，更新方式如式<a href="mixedalgorithm.html#eq:xupdatebBAS">(3.11)</a>所示。</p>
+<span class="math display" id="eq:xupdatebBAS">\[\begin{equation}
+x_i(t+1)=\begin{cases}
+&amp;\overline{x_i}(t) &amp; if\quad rand() \leq S(V_i)\\
+&amp;x_i(t) &amp; if\quad rand() &gt; S(V_i)
+\end{cases}
+\tag{3.11}
+\end{equation}\]</span>
+<p>当生成的服从均匀分布 <span class="math inline">\(U(0,1)\)</span> 的随机数向量（长度与速度相同），某些元素小于等于状态转换概率 <span class="math inline">\(S(V_i)\)</span> 时，那么下一时刻的位置等于在这些元素对应位置上的位置<strong>取非</strong>。反之，保持不变。例如，位置向量 <span class="math inline">\(x_t = (1,1,1,0,0,1,0)\)</span> ，如果其 2,3,5元素上满足随机数小于等于转换概率条件，那么下一时刻的位置为 <span class="math inline">\(x_{t+1}=(1,0,0,0,1,1,0)\)</span> 。</p>
+<p>速度参与更新的方式，表现在计算状态转换概率 <span class="math inline">\(S(V_i)\)</span> 上，类似于<code>Sigmoid</code>函数，该概率计算方式如式<a href="mixedalgorithm.html#eq:sbBAS">(3.12)</a>所示。</p>
+<span class="math display" id="eq:sbBAS">\[\begin{equation}
+S(V_i) = \frac{1}{1+e^{-V_i}}
+\tag{3.12}
+\end{equation}\]</span>
+</div>
+<div id="-1" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> 总结</h3>
+<p><code>bBAS</code>算法与原始的BAS算法差异很大，具体表现在，已经不使用左右须作为类似梯度的指导下一步移动的方向的指标了，而是比较三者的大小，择优者作为最佳位置。</p>
+<p>此外，不管是0-1问题，还是实数空间的问题，都会（通过扩大维度）转换为0-1问题来求解。因此，算法本身没有<strong>步长</strong>，<strong>速度</strong>也仅仅是用于求取0-1之间相互转换的概率。</p>
+<p>最后，由于实数空间的优化问题会被乘以一个分辨率向量后，转为二进制向量。比如，区间<strong>(-2.048,2.048)</strong>内的优化问题，会被转换为<strong>(0,4096)</strong>的空间，然后再把正整数进行二进制的转换。这样会导致，bBAS算法的搜索空间粒度较大（粗糙）。</p>
+<blockquote>
+<p>“(对实数空间的优化问题)bbas的效果是比bpso好点，但是肯定没有实数空间的算法好”</p>
+<p>— 阮月</p>
+</blockquote>
+<p>因此，如果优化参数不包含整型变量，或者简单地可以转为非整型变量（如压力容器例子约束的构造，见<a href="rBAS.html#BSASpv">4.2.3.2</a>节），则优先考虑其他的算法。</p>
+<p>更细致与形象地讨论分辨率问题，在<a href="rBAS.html#bBASfuncparms">4.5.1</a>节。</p>
 
 </div>
 </div>
@@ -393,7 +462,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown.pdf", "bookdown.epub"],
+"download": {},
 "toc": {
 "collapse": "none"
 }
