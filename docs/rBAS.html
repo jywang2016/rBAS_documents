@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-19">
+<meta name="date" content="2018-10-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,41 +51,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css\style.css" type="text/css" />
@@ -127,7 +155,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
 <li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
-<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
@@ -217,6 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>10</b> 已发表工作</a><ul>
 <li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
 <li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
+<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
 <li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
@@ -248,7 +277,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="rBAS" class="section level1">
 <h1><span class="header-section-number">第 4 章</span> 函数使用</h1>
 <p>首先,加载<code>rBAS</code>包，然后在<a href="rBAS.html#basoptim">4.1</a>节到<a href="rBAS.html#bsaswpt">4.3</a>节中，我们详细讲述每个参数的含义。如果可能的话，我会加上调参时的经验（可能只对我的问题有用）。 <img src="img/rBASlogo.png" align="right" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(rBAS)</a></code></pre></div>
 <p>打开<a href="https://jywang2016.github.io/rBAS/">网址</a>，可以看到托管在<code>github</code>上的<code>rBAS</code>文档。大家可以通过<code>Reference</code>来访问里面所有函数的帮助文档，通过<code>Changelog</code>来看每次包的更新及<code>bugs</code>修复记录。</p>
 <blockquote>
 <p>文档网页是由<a href="http://pkgdown.r-lib.org/"><code>pkgdown</code></a>包制作而成，logo由<a href="https://github.com/GuangchuangYu/hexSticker"><code>hexSticker</code></a>包制作。</p>
@@ -256,19 +285,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="basoptim" class="section level2">
 <h2><span class="header-section-number">4.1</span> BASoptim/BASoptim2</h2>
 <p>除了通过访问函数文档网站外，还可以在<code>R</code>中输入下面的命令，来查看文档。</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(BASoptim)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">help</span>(BASoptim)</a></code></pre></div>
 <div id="BASparms" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> BASoptim参数说明</h3>
 <p><a href="https://jywang2016.github.io/rBAS/reference/BASoptim.html"><code>BASoptim</code>函数</a>(对应<code>BAS</code>算法)调用的格式如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BASoptim</span>(fn, 
-         <span class="dt">init =</span> <span class="ot">NULL</span>, 
-         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
-         <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,
-         <span class="dt">d0 =</span> <span class="fl">0.001</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.95</span>, 
-         <span class="dt">l0 =</span> <span class="dv">0</span>,<span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>, 
-         <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>, 
-         <span class="dt">n =</span> <span class="dv">200</span>,<span class="dt">steptol =</span> <span class="fl">0.01</span>, 
-         <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T )</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">BASoptim</span>(fn, </a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">         <span class="dt">init =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">         <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">         <span class="dt">d0 =</span> <span class="fl">0.001</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.95</span>, </a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">         <span class="dt">l0 =</span> <span class="dv">0</span>,<span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>, </a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">         <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>, </a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">         <span class="dt">n =</span> <span class="dv">200</span>,<span class="dt">steptol =</span> <span class="fl">0.01</span>, </a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">         <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T )</a></code></pre></div>
 <blockquote>
 <p>直接带有<code>=</code>号的参数，表明是有默认值的。大家可以不指定，但是上下限需要根据实际问题来人为指定。给出的上下限只是因为第一个调试函数是<code>Michalewicz</code>而已。</p>
 </blockquote>
@@ -302,11 +331,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="BAS2parms" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> BAS2optim参数说明</h3>
 <p><a href="https://jywang2016.github.io/rBAS/reference/BASoptim2.html"><code>BASoptim2</code>函数</a>(对应<code>二阶BAS</code>算法)调用的格式如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BASoptim2</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
-          <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">c =</span> <span class="dv">2</span>, <span class="dt">l0 =</span> <span class="dv">0</span>, <span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>,
-          <span class="dt">step0 =</span> <span class="fl">5e-05</span>, <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>, <span class="dt">n =</span> <span class="dv">200</span>,
-          <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T, <span class="dt">steptol =</span> step0<span class="op">/</span><span class="dv">2</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,
-          <span class="dt">w0 =</span> <span class="fl">0.7</span>, <span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">BASoptim2</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">          <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">c =</span> <span class="dv">2</span>, <span class="dt">l0 =</span> <span class="dv">0</span>, <span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">          <span class="dt">step0 =</span> <span class="fl">5e-05</span>, <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>, <span class="dt">n =</span> <span class="dv">200</span>,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">          <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T, <span class="dt">steptol =</span> step0<span class="op">/</span><span class="dv">2</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">          <span class="dt">w0 =</span> <span class="fl">0.7</span>, <span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)</a></code></pre></div>
 <p>与前面<code>BASoptim</code>函数调用的大部分参数含义相同。不同点如下：</p>
 <ul>
 <li>c; <span class="math inline">\(d = \delta/c\)</span>，<span class="math inline">\(c\)</span> 是步长 <span class="math inline">\(\delta\)</span> 与感知距离 <span class="math inline">\(\d\)</span> 之比。二阶BAS中，不直接指定感知距离。因此，与感知距离相关的参数都被移除。</li>
@@ -324,7 +353,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4><span class="header-section-number">4.1.3.1</span> Michalewicz function</h4>
 <span class="math display">\[
 f(x)=\sum_{i=1}^{d=2}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{20}
-\]</span> 图<a href="rBAS.html#fig:mich">4.1</a>为<code>Michalewicz</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。
+\]</span>
+图<a href="rBAS.html#fig:mich">4.1</a>为<code>Michalewicz</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。
 <div class="figure" style="text-align: center"><span id="fig:mich"></span>
 <img src="img/Mich.png" alt=" Michalewicz函数示意" width="80%" />
 <p class="caption">
@@ -332,34 +362,34 @@ f(x)=\sum_{i=1}^{d=2}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{20}
 </p>
 </div>
 <p>我们先在<code>R</code>的脚本中构建出函数：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># &lt;- 可以视作 = 即用等于号在此处也是可以的 </span>
-mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-  <span class="kw">return</span>(y1<span class="op">+</span>y2)
-}</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># &lt;- 可以视作 = 即用等于号在此处也是可以的 </span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="kw">return</span>(y1<span class="op">+</span>y2)</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">}</a></code></pre></div>
 <p>然后利用<code>rBAS</code>包中的<code>BASoptim</code>函数求解：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 把BASoptim的寻优结果赋值给test</span>
-test&lt;-
-<span class="st">  </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> mich,
-           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
-           <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
-
-test<span class="op">$</span>par</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># 把BASoptim的寻优结果赋值给test</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">test&lt;-</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> mich,</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">           <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">test<span class="op">$</span>par</a></code></pre></div>
 <pre><code>## [1] -4.964687  1.575415</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">test<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -1.966817</code></pre>
 <p>可以看到，<code>BAS</code>在100个回合内找到了全局的最小值。非<code>R</code>用户可能对上下限的声明有点陌生，<code>c(-6,0)</code>中<code>c()</code>，其实是声明了一个向量，这也是<code>R</code>里面最基本的数据类型，和<code>matlab</code>里面的<code>[-6 0]</code>效果类似。整体看来，代码还是很简洁的。</p>
 </div>
 <div id="BASgold" class="section level4">
 <h4><span class="header-section-number">4.1.3.2</span> Goldstein-Price function</h4>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
 \begin{split}
 f({x})=&amp; [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
 &amp; +6x_1x_2+3x_2^2)][30+(2x_1-3X_2)^2(18-32x_1\notag  \\
 &amp; +12x_1^2+48x_2-36x_1x_2+27x_2^2)]\notag
 \end{split}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 图<a href="rBAS.html#fig:gold">4.2</a>为<code>Goldstein-Price</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。图<a href="rBAS.html#fig:mich">4.1</a>与<a href="rBAS.html#fig:gold">4.2</a>均使用<a href="https://plot.ly/r/"><code>plotly</code></a>绘制。
 <div class="figure" style="text-align: center"><span id="fig:gold"></span>
 <img src="img/Gold.png" alt=" Michalewicz函数示意" width="80%" />
@@ -368,79 +398,79 @@ f({x})=&amp; [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
 </p>
 </div>
 <p>函数构造：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gold &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]
-  x2 &lt;-<span class="st"> </span>x[<span class="dv">2</span>]
-  y1 &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(x1 <span class="op">+</span><span class="st"> </span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>
-<span class="st">    </span>(<span class="dv">19</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span><span class="op">*</span>x1<span class="op">+</span><span class="dv">3</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span><span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">6</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>)
-  y2 &lt;-<span class="st"> </span><span class="dv">30</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>x1 <span class="op">-</span><span class="dv">3</span><span class="op">*</span>x2)<span class="op">^</span><span class="dv">2</span><span class="op">*</span>
-<span class="st">    </span>(<span class="dv">18</span> <span class="op">-</span><span class="st"> </span><span class="dv">32</span><span class="op">*</span>x1 <span class="op">+</span><span class="st"> </span><span class="dv">12</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="dv">48</span><span class="op">*</span>x2<span class="op">-</span><span class="dv">36</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">27</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>)
-  <span class="kw">return</span>(y1<span class="op">*</span>y2)
-}</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">gold &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">  x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">  x2 &lt;-<span class="st"> </span>x[<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">  y1 &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(x1 <span class="op">+</span><span class="st"> </span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span><span class="op">*</span></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5"><span class="st">    </span>(<span class="dv">19</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span><span class="op">*</span>x1<span class="op">+</span><span class="dv">3</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span><span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">6</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">  y2 &lt;-<span class="st"> </span><span class="dv">30</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>x1 <span class="dv">-3</span><span class="op">*</span>x2)<span class="op">^</span><span class="dv">2</span><span class="op">*</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="st">    </span>(<span class="dv">18</span> <span class="op">-</span><span class="st"> </span><span class="dv">32</span><span class="op">*</span>x1 <span class="op">+</span><span class="st"> </span><span class="dv">12</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">+</span><span class="dv">48</span><span class="op">*</span>x2<span class="dv">-36</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="dv">27</span><span class="op">*</span>x2<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">  <span class="kw">return</span>(y1<span class="op">*</span>y2)</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">}</a></code></pre></div>
 <p>其中，<code>x[1]</code>表示向量<code>x</code>的第一个元素。举例，<code>x = c(1,2)</code>，那么<code>x[1]</code>等于1，<code>x[2]</code>等于2。索引从1开始，并不是从0开始（<code>python</code>和<code>C++</code>用户可能需要在此处注意）。</p>
 <p>优化代码：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test&lt;-
-<span class="st">  </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> gold,
-           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),
-           <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> F)
-
-test<span class="op">$</span>par</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">test&lt;-</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">  </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> gold,</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">2</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">           <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> F)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">test<span class="op">$</span>par</a></code></pre></div>
 <pre><code>## [1]  0.001870855 -0.996496153</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">test<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] 3.004756</code></pre>
 <p>同样，结果也是给出了全局最优点（或在此附近，继续迭代下去，可能会有更精确更小的值）。</p>
 </div>
 </div>
 <div id="BAS2examples" class="section level3">
 <h3><span class="header-section-number">4.1.4</span> BASoptim2简单案例</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-  <span class="kw">return</span>(y1<span class="op">+</span>y2)
-}
-fit&lt;-
-<span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> mich,
-            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),
-            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
-            <span class="dt">n =</span> <span class="dv">100</span>,
-            <span class="dt">trace =</span> F,
-            <span class="dt">c =</span> <span class="fl">0.4</span>,<span class="co">#d = 1.2/0.4 = 3</span>
-            <span class="dt">step =</span> <span class="fl">1.2</span>,
-            <span class="dt">seed =</span> <span class="dv">1</span>,
-            <span class="dt">w0 =</span> <span class="fl">0.4</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)
-fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">  <span class="kw">return</span>(y1<span class="op">+</span>y2)</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">fit&lt;-</a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> mich,</a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb21-9" data-line-number="9">            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">            <span class="dt">n =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb21-11" data-line-number="11">            <span class="dt">trace =</span> F,</a>
+<a class="sourceLine" id="cb21-12" data-line-number="12">            <span class="dt">c =</span> <span class="fl">0.4</span>,<span class="co">#d = 1.2/0.4 = 3</span></a>
+<a class="sourceLine" id="cb21-13" data-line-number="13">            <span class="dt">step =</span> <span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb21-14" data-line-number="14">            <span class="dt">seed =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb21-15" data-line-number="15">            <span class="dt">w0 =</span> <span class="fl">0.4</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)</a>
+<a class="sourceLine" id="cb21-16" data-line-number="16">fit<span class="op">$</span>par;fit<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -4.965421  1.569728</code></pre>
 <pre><code>## [1] -1.967772</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">func1 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)
-}
-fit&lt;-
-<span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> func1,
-            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>,<span class="op">-</span><span class="dv">100</span>),
-            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>),
-            <span class="dt">n =</span> <span class="dv">100</span>,
-            <span class="dt">trace =</span> F,
-            <span class="dt">c =</span> <span class="dv">20</span>,
-            <span class="dt">step =</span> <span class="dv">100</span>,
-            <span class="dt">seed =</span> <span class="dv">1</span>,
-            <span class="dt">w0 =</span> <span class="fl">0.5</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)
-fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">func1 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">fit&lt;-</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> func1,</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">100</span>,<span class="op">-</span><span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">            <span class="dt">n =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb24-9" data-line-number="9">            <span class="dt">trace =</span> F,</a>
+<a class="sourceLine" id="cb24-10" data-line-number="10">            <span class="dt">c =</span> <span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb24-11" data-line-number="11">            <span class="dt">step =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">            <span class="dt">seed =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb24-13" data-line-number="13">            <span class="dt">w0 =</span> <span class="fl">0.5</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)</a>
+<a class="sourceLine" id="cb24-14" data-line-number="14">fit<span class="op">$</span>par;fit<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] 7.320204e-06 7.091455e-05</code></pre>
 <pre><code>## [1] 5.082459e-09</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">func2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  <span class="kw">sum</span>((<span class="kw">abs</span>(x)<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>)
-}
-fit&lt;-
-<span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> func2,
-            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="op">-</span><span class="dv">10</span>),
-            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>),
-            <span class="dt">n =</span> <span class="dv">100</span>,
-            <span class="dt">trace =</span> F,
-            <span class="dt">c =</span> <span class="dv">5</span>,
-            <span class="dt">step =</span> <span class="dv">5</span>,
-            <span class="dt">seed =</span> <span class="dv">1</span>,
-            <span class="dt">w0 =</span> <span class="fl">0.2</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)
-fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">func2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">  <span class="kw">sum</span>((<span class="kw">abs</span>(x)<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb27-4" data-line-number="4">fit&lt;-</a>
+<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="st">  </span><span class="kw">BASoptim2</span>(<span class="dt">fn =</span> func2,</a>
+<a class="sourceLine" id="cb27-6" data-line-number="6">            <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>,<span class="op">-</span><span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb27-7" data-line-number="7">            <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb27-8" data-line-number="8">            <span class="dt">n =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb27-9" data-line-number="9">            <span class="dt">trace =</span> F,</a>
+<a class="sourceLine" id="cb27-10" data-line-number="10">            <span class="dt">c =</span> <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb27-11" data-line-number="11">            <span class="dt">step =</span> <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb27-12" data-line-number="12">            <span class="dt">seed =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb27-13" data-line-number="13">            <span class="dt">w0 =</span> <span class="fl">0.2</span>,<span class="dt">w1 =</span> <span class="fl">0.2</span>, <span class="dt">c0 =</span> <span class="fl">0.6</span>)</a>
+<a class="sourceLine" id="cb27-14" data-line-number="14">fit<span class="op">$</span>par;fit<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -5 -5</code></pre>
 <pre><code>## [1] 1.871564e-13</code></pre>
 </div>
@@ -448,15 +478,15 @@ fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></
 <div id="bsasoptim" class="section level2">
 <h2><span class="header-section-number">4.2</span> BSASoptim</h2>
 <p><a href="https://jywang2016.github.io/rBAS/reference/BSASoptim.html"><code>BSASoptim</code>函数</a>(对应<code>BSAS</code>算法)，在<code>BAS</code>的基础上，加入了步长反馈和群体策略。调用的格式如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSASoptim</span>(fn, 
-          <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, 
-          <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
-          <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,
-          <span class="dt">d0 =</span> <span class="fl">0.001</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.95</span>,
-          <span class="dt">l0 =</span> <span class="dv">0</span>, <span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>, 
-          <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>,<span class="dt">steptol =</span> <span class="fl">0.01</span>,
-          <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T,  
-          <span class="dt">p_min =</span> <span class="fl">0.2</span>,<span class="dt">p_step =</span> <span class="fl">0.2</span>, <span class="dt">n_flag =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">BSASoptim</span>(fn, </a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">          <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">          <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">          <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>,</a>
+<a class="sourceLine" id="cb30-5" data-line-number="5">          <span class="dt">d0 =</span> <span class="fl">0.001</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.95</span>,</a>
+<a class="sourceLine" id="cb30-6" data-line-number="6">          <span class="dt">l0 =</span> <span class="dv">0</span>, <span class="dt">l1 =</span> <span class="dv">0</span>, <span class="dt">eta_l =</span> <span class="fl">0.95</span>, </a>
+<a class="sourceLine" id="cb30-7" data-line-number="7">          <span class="dt">step =</span> <span class="fl">0.8</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>,<span class="dt">steptol =</span> <span class="fl">0.01</span>,</a>
+<a class="sourceLine" id="cb30-8" data-line-number="8">          <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T,  </a>
+<a class="sourceLine" id="cb30-9" data-line-number="9">          <span class="dt">p_min =</span> <span class="fl">0.2</span>,<span class="dt">p_step =</span> <span class="fl">0.2</span>, <span class="dt">n_flag =</span> <span class="dv">2</span>)</a></code></pre></div>
 <div id="BSASparms" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> BSASoptim参数说明</h3>
 <p>与<code>BAS</code>相比，<code>BSAS</code>在下面几处不同参数：</p>
@@ -492,25 +522,26 @@ fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></
 <div id="michalewicz-function" class="section level4">
 <h4><span class="header-section-number">4.2.3.1</span> Michalewicz function</h4>
 <p>不做过多的阐述对于此案例，可以参看<a href="rBAS.html#BASmich">4.1.3.1</a>节。</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
-mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-   y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-   y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-   <span class="kw">return</span>(y1<span class="op">+</span>y2)
-}
-result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> mich,
-                    <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
-                    <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">k=</span><span class="dv">5</span>,<span class="dt">step =</span> <span class="fl">0.6</span>,
-                    <span class="dt">trace =</span> <span class="ot">FALSE</span>)
-result<span class="op">$</span>par</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">library</span>(rBAS)</a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb31-3" data-line-number="3">   y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">   y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">   <span class="kw">return</span>(y1<span class="op">+</span>y2)</a>
+<a class="sourceLine" id="cb31-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb31-7" data-line-number="7">result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> mich,</a>
+<a class="sourceLine" id="cb31-8" data-line-number="8">                    <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb31-9" data-line-number="9">                    <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">k=</span><span class="dv">5</span>,<span class="dt">step =</span> <span class="fl">0.6</span>,</a>
+<a class="sourceLine" id="cb31-10" data-line-number="10">                    <span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb31-11" data-line-number="11">result<span class="op">$</span>par</a></code></pre></div>
 <pre><code>## [1] -4.970202  1.578791</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">result<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -1.963534</code></pre>
 </div>
 <div id="BSASpv" class="section level4">
 <h4><span class="header-section-number">4.2.3.2</span> Pressure Vessel function</h4>
-<p>使用<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span> 论文中压力容器优化函数来测试<code>BSASoptim</code>处理约束的能力。问题背景如下：</p>
-<span class="math display" id="eq:PV">\[\begin{align}
+<p>使用<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span>
+论文中压力容器优化函数来测试<code>BSASoptim</code>处理约束的能力。问题背景如下：</p>
+<p><span class="math display" id="eq:PV">\[\begin{align}
 \text{minimize} f(\mathbf{x}) = &amp;0.6224x_1x_3x_4+1.7781x_2x^2_3 \notag\\
 &amp;+3.1661x^2_1x_4 + 19.84x^2_1x_3 \notag \\
 s.t. ~~ g_1(\mathbf{x}) = &amp; -x1 + 0.0193x_3 \leq 0 \notag \\
@@ -522,55 +553,55 @@ x_2 \in&amp; \{1,2,3,\cdots,99\}\times0.0625 \notag \\
 x_3 \in&amp; [10,200] \notag \\
 x_4 \in&amp; [10,200] \notag \\
 \tag{4.1}
-\end{align}\]</span>
+\end{align}\]</span></p>
 <p>构造一个列表，也就是<code>list()</code>。其中包含有2个函数，一个是我们的目标函数<code>obj</code>，一个是我们的不等式约束函数<code>con</code>。为了方便起见，我并没有写每一个函数的返回值，那么，<code>R</code>会自动返回计算的最后一个对象。比如，在<code>obj</code>函数中，是<code>result</code>变量（标量）被返回。而在<code>con</code>函数中，是由<code>c()</code>声明的向量被返回。</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pressure_Vessel &lt;-<span class="st"> </span><span class="kw">list</span>(
-  <span class="dt">obj =</span> <span class="cf">function</span>(x){
-    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span>
-    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span>
-    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
-    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
-    result &lt;-<span class="st"> </span><span class="fl">0.6224</span><span class="op">*</span>x1<span class="op">*</span>x3<span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">1.7781</span><span class="op">*</span>x2<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span>
-<span class="st">      </span><span class="fl">3.1611</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">19.84</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3
-  },
-  <span class="dt">con =</span> <span class="cf">function</span>(x){
-    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span>
-    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span>
-    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
-    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
-    <span class="kw">c</span>(<span class="co">#把所有的不等式约束，全部写为小于等于0的形式</span>
-      <span class="fl">0.0193</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x1,
-      <span class="fl">0.00954</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x2,
-      <span class="fl">750.0</span><span class="op">*</span><span class="fl">1728.0</span> <span class="op">-</span><span class="st"> </span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">3</span>
-    )
-  }
-)</code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">pressure_Vessel &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">  <span class="dt">obj =</span> <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3">    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb35-7" data-line-number="7">    result &lt;-<span class="st"> </span><span class="fl">0.6224</span><span class="op">*</span>x1<span class="op">*</span>x3<span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-8" data-line-number="8"><span class="st">      </span><span class="fl">1.7781</span><span class="op">*</span>x2<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-9" data-line-number="9"><span class="st">      </span><span class="fl">3.1611</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-10" data-line-number="10"><span class="st">      </span><span class="fl">19.84</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3</a>
+<a class="sourceLine" id="cb35-11" data-line-number="11">  },</a>
+<a class="sourceLine" id="cb35-12" data-line-number="12">  <span class="dt">con =</span> <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb35-13" data-line-number="13">    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb35-14" data-line-number="14">    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb35-15" data-line-number="15">    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb35-16" data-line-number="16">    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb35-17" data-line-number="17">    <span class="kw">c</span>(<span class="co">#把所有的不等式约束，全部写为小于等于0的形式</span></a>
+<a class="sourceLine" id="cb35-18" data-line-number="18">      <span class="fl">0.0193</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x1,</a>
+<a class="sourceLine" id="cb35-19" data-line-number="19">      <span class="fl">0.00954</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x2,</a>
+<a class="sourceLine" id="cb35-20" data-line-number="20">      <span class="fl">750.0</span><span class="op">*</span><span class="fl">1728.0</span> <span class="op">-</span><span class="st"> </span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb35-21" data-line-number="21">    )</a>
+<a class="sourceLine" id="cb35-22" data-line-number="22">  }</a>
+<a class="sourceLine" id="cb35-23" data-line-number="23">)</a></code></pre></div>
 <p>使用<code>BSASoptim</code>函数进行优化。需要注意的是,<code>pressure_Vessel</code>是一个列表，对于其中包含的元素，使用<code>$</code>符号进行访问。也可以使用<code>[[</code>符号，即 <code>pressure_Vessel$obj</code> 等价于 <code>pressure_Vessel[[1]]</code>。</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,
-                    <span class="dt">k =</span> <span class="dv">5</span>,
-                    <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),
-                    <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),
-                    <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,
-                    <span class="dt">n =</span> <span class="dv">200</span>,
-                    <span class="dt">step =</span> <span class="dv">100</span>,
-                    <span class="dt">d1 =</span> <span class="dv">5</span>,
-                    <span class="dt">pen =</span> <span class="fl">1e6</span>,
-                    <span class="dt">steptol =</span> <span class="fl">1e-6</span>,
-                    <span class="dt">n_flag =</span> <span class="dv">2</span>,
-                    <span class="dt">seed =</span> <span class="dv">2</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
-
-result<span class="op">$</span>par</code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">                    <span class="dt">k =</span> <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">                    <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">                    <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5">                    <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,</a>
+<a class="sourceLine" id="cb36-6" data-line-number="6">                    <span class="dt">n =</span> <span class="dv">200</span>,</a>
+<a class="sourceLine" id="cb36-7" data-line-number="7">                    <span class="dt">step =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb36-8" data-line-number="8">                    <span class="dt">d1 =</span> <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb36-9" data-line-number="9">                    <span class="dt">pen =</span> <span class="fl">1e6</span>,</a>
+<a class="sourceLine" id="cb36-10" data-line-number="10">                    <span class="dt">steptol =</span> <span class="fl">1e-6</span>,</a>
+<a class="sourceLine" id="cb36-11" data-line-number="11">                    <span class="dt">n_flag =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb36-12" data-line-number="12">                    <span class="dt">seed =</span> <span class="dv">2</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb36-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb36-14" data-line-number="14">result<span class="op">$</span>par</a></code></pre></div>
 <pre><code>## [1]  14.92195   7.87620  43.51377 159.87104</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">result<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] 6309.406</code></pre>
 <p>可以看到结果与论文<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span>中<code>TABLE 1</code>给出的优化值还是有一定的差距。不过，这也让我意识到了，对于<strong>复杂的优化问题，调试其中的参数是个困难的活</strong>。歧路亡羊呀！</p>
 <p>好在，改进后的<code>BSAS-WPT</code>能够比较好地得到不逊于<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span>中的结果（在<a href="rBAS.html#bsaswptexample">4.3.2</a>节可以看到）。更多更优地结果，等待你去调参，如果你还有勇气的话。</p>
 </div>
 <div id="BSAShim" class="section level4">
 <h4><span class="header-section-number">4.2.3.3</span> Himmelblau function</h4>
-<span class="math display" id="eq:him">\[\begin{align}
+<p><span class="math display" id="eq:him">\[\begin{align}
 \text{minimize} f(\mathbf{x}) =&amp; 5.3578547x^2_3 +0.8356891x_1x_5\notag \\
 &amp;+ 37.29329x_1 - 40792.141 \notag\\
 s.t. ~~g_1(\mathbf{x}) =&amp; 85.334407 + 0.0056858x_2x_5\notag\\
@@ -588,56 +619,56 @@ x_3\in&amp;[27,45] \notag\\
 x_4\in&amp;[27,45] \notag\\
 x_5\in&amp;[27,45] \notag\\
 \tag{4.2}
-\end{align}\]</span>
+\end{align}\]</span></p>
 <p>构造优化目标函数和约束：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">himmelblau &lt;-<span class="st"> </span><span class="kw">list</span>(
-  <span class="dt">obj =</span> <span class="cf">function</span>(x){
-    x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]
-    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
-    x5 &lt;-<span class="st"> </span>x[<span class="dv">5</span>]
-    result &lt;-<span class="st"> </span><span class="fl">5.3578547</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">0.8356891</span><span class="op">*</span>x1<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">37.29329</span><span class="op">*</span>x[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">40792.141</span>
-  },
-  <span class="dt">con =</span> <span class="cf">function</span>(x){
-    x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]
-    x2 &lt;-<span class="st"> </span>x[<span class="dv">2</span>]
-    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
-    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
-    x5 &lt;-<span class="st"> </span>x[<span class="dv">5</span>]
-    g1 &lt;-<span class="st"> </span><span class="fl">85.334407</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0056858</span><span class="op">*</span>x2<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">0.00026</span><span class="op">*</span>x1<span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="fl">0.0022053</span><span class="op">*</span>x3<span class="op">*</span>x5
-    g2 &lt;-<span class="st"> </span><span class="fl">80.51249</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0071317</span><span class="op">*</span>x2<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">0.0029955</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="fl">0.0021813</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span>
-    g3 &lt;-<span class="st"> </span><span class="fl">9.300961</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0047026</span><span class="op">*</span>x3<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="fl">0.0012547</span><span class="op">*</span>x1<span class="op">*</span>x3 <span class="op">+</span><span class="st"> </span><span class="fl">0.0019085</span><span class="op">*</span>x3<span class="op">*</span>x4
-    <span class="kw">c</span>(
-      <span class="op">-</span>g1,
-      g1<span class="op">-</span><span class="dv">92</span>,
-      <span class="dv">90</span><span class="op">-</span>g2,
-      g2 <span class="op">-</span><span class="st"> </span><span class="dv">110</span>,
-      <span class="dv">20</span> <span class="op">-</span><span class="st"> </span>g3,
-      g3 <span class="op">-</span><span class="st"> </span><span class="dv">25</span>
-    )
-  }
-)</code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">himmelblau &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">  <span class="dt">obj =</span> <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">    x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb40-4" data-line-number="4">    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb40-5" data-line-number="5">    x5 &lt;-<span class="st"> </span>x[<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb40-6" data-line-number="6">    result &lt;-<span class="st"> </span><span class="fl">5.3578547</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="st">      </span><span class="fl">0.8356891</span><span class="op">*</span>x1<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-8" data-line-number="8"><span class="st">      </span><span class="fl">37.29329</span><span class="op">*</span>x[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-9" data-line-number="9"><span class="st">      </span><span class="fl">40792.141</span></a>
+<a class="sourceLine" id="cb40-10" data-line-number="10">  },</a>
+<a class="sourceLine" id="cb40-11" data-line-number="11">  <span class="dt">con =</span> <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb40-12" data-line-number="12">    x1 &lt;-<span class="st"> </span>x[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb40-13" data-line-number="13">    x2 &lt;-<span class="st"> </span>x[<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb40-14" data-line-number="14">    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb40-15" data-line-number="15">    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb40-16" data-line-number="16">    x5 &lt;-<span class="st"> </span>x[<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb40-17" data-line-number="17">    g1 &lt;-<span class="st"> </span><span class="fl">85.334407</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0056858</span><span class="op">*</span>x2<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-18" data-line-number="18"><span class="st">      </span><span class="fl">0.00026</span><span class="op">*</span>x1<span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="fl">0.0022053</span><span class="op">*</span>x3<span class="op">*</span>x5</a>
+<a class="sourceLine" id="cb40-19" data-line-number="19">    g2 &lt;-<span class="st"> </span><span class="fl">80.51249</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0071317</span><span class="op">*</span>x2<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-20" data-line-number="20"><span class="st">      </span><span class="fl">0.0029955</span><span class="op">*</span>x1<span class="op">*</span>x2 <span class="op">+</span><span class="st"> </span><span class="fl">0.0021813</span><span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb40-21" data-line-number="21">    g3 &lt;-<span class="st"> </span><span class="fl">9.300961</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.0047026</span><span class="op">*</span>x3<span class="op">*</span>x5 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-22" data-line-number="22"><span class="st">      </span><span class="fl">0.0012547</span><span class="op">*</span>x1<span class="op">*</span>x3 <span class="op">+</span><span class="st"> </span><span class="fl">0.0019085</span><span class="op">*</span>x3<span class="op">*</span>x4</a>
+<a class="sourceLine" id="cb40-23" data-line-number="23">    <span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb40-24" data-line-number="24">      <span class="op">-</span>g1,</a>
+<a class="sourceLine" id="cb40-25" data-line-number="25">      g1<span class="dv">-92</span>,</a>
+<a class="sourceLine" id="cb40-26" data-line-number="26">      <span class="dv">90</span><span class="op">-</span>g2,</a>
+<a class="sourceLine" id="cb40-27" data-line-number="27">      g2 <span class="op">-</span><span class="st"> </span><span class="dv">110</span>,</a>
+<a class="sourceLine" id="cb40-28" data-line-number="28">      <span class="dv">20</span> <span class="op">-</span><span class="st"> </span>g3,</a>
+<a class="sourceLine" id="cb40-29" data-line-number="29">      g3 <span class="op">-</span><span class="st"> </span><span class="dv">25</span></a>
+<a class="sourceLine" id="cb40-30" data-line-number="30">    )</a>
+<a class="sourceLine" id="cb40-31" data-line-number="31">  }</a>
+<a class="sourceLine" id="cb40-32" data-line-number="32">)</a></code></pre></div>
 <p>使用<code>BSASoptim</code>函数进行优化：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> himmelblau<span class="op">$</span>obj,
-                    <span class="dt">k =</span> <span class="dv">5</span>,
-                    <span class="dt">lower =</span><span class="kw">c</span>(<span class="dv">78</span>,<span class="dv">33</span>,<span class="dv">27</span>,<span class="dv">27</span>,<span class="dv">27</span>),
-                    <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">102</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>),
-                    <span class="dt">constr =</span> himmelblau<span class="op">$</span>con,
-                    <span class="dt">n =</span> <span class="dv">200</span>,
-                    <span class="dt">step =</span> <span class="dv">100</span>,
-                    <span class="dt">d1 =</span> <span class="dv">10</span>,
-                    <span class="dt">pen =</span> <span class="fl">1e6</span>,
-                    <span class="dt">steptol =</span> <span class="fl">1e-6</span>,
-                    <span class="dt">n_flag =</span> <span class="dv">2</span>,
-                    <span class="dt">seed =</span> <span class="dv">11</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
-result<span class="op">$</span>par </code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> himmelblau<span class="op">$</span>obj,</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">                    <span class="dt">k =</span> <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">                    <span class="dt">lower =</span><span class="kw">c</span>(<span class="dv">78</span>,<span class="dv">33</span>,<span class="dv">27</span>,<span class="dv">27</span>,<span class="dv">27</span>),</a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">                    <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">102</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>),</a>
+<a class="sourceLine" id="cb41-5" data-line-number="5">                    <span class="dt">constr =</span> himmelblau<span class="op">$</span>con,</a>
+<a class="sourceLine" id="cb41-6" data-line-number="6">                    <span class="dt">n =</span> <span class="dv">200</span>,</a>
+<a class="sourceLine" id="cb41-7" data-line-number="7">                    <span class="dt">step =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb41-8" data-line-number="8">                    <span class="dt">d1 =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb41-9" data-line-number="9">                    <span class="dt">pen =</span> <span class="fl">1e6</span>,</a>
+<a class="sourceLine" id="cb41-10" data-line-number="10">                    <span class="dt">steptol =</span> <span class="fl">1e-6</span>,</a>
+<a class="sourceLine" id="cb41-11" data-line-number="11">                    <span class="dt">n_flag =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb41-12" data-line-number="12">                    <span class="dt">seed =</span> <span class="dv">11</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb41-13" data-line-number="13">result<span class="op">$</span>par </a></code></pre></div>
 <pre><code>## [1] 78.01565 33.00000 27.07409 45.00000 44.95878</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">result<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -31024.17</code></pre>
 <p>这个结果，比<strong>BAS-WPT</strong><span class="citation">(Jiang Xiangyuan <a href="#ref-Jiangwpt">2017</a><a href="#ref-Jiangwpt">b</a>)</span>中<code>TABLE 2</code>记载的结果都要好。但只要你愿意调差，嘿嘿，总有更好的。</p>
 </div>
@@ -647,14 +678,14 @@ result<span class="op">$</span>par </code></pre></div>
 <h2><span class="header-section-number">4.3</span> BSAS-WPT</h2>
 <p>在进行<code>BSAS-WPT</code>参数讲解的这一部分前，我想问个问题。在式<a href="rBAS.html#eq:PV">(4.1)</a>和式<a href="rBAS.html#eq:him">(4.2)</a>中，我们可以看到，有些<span class="math inline">\(x_i\)</span>的约束范围较小，有的较大。比如，压力容器中，<span class="math inline">\(x_1\)</span>和<span class="math inline">\(x_2\)</span>就偏小，只是经过提取出0.0625，勉强能达到<span class="math inline">\(x_3\)</span>和<span class="math inline">\(x_4\)</span>的一半。那么，如果某些优化问题，其参数约束范围之间，相差了量级，该<strong>如何选择步长</strong>呢？这就是<code>WPT</code>的便捷之处了。</p>
 <p><a href="https://jywang2016.github.io/rBAS/reference/BSAS_WPT.html"><code>BSAS-WPT</code>函数</a>(对应<code>BSAS-WPT</code>算法)调用的格式如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSAS_WPT</span>(fn, 
-         <span class="dt">init =</span> <span class="ot">NULL</span>, 
-         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
-         <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>, 
-         <span class="dt">c2 =</span> <span class="dv">5</span>, 
-         <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>,<span class="dt">steptol =</span> <span class="fl">0.001</span>, 
-         <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T, 
-         <span class="dt">p_min =</span> <span class="fl">0.2</span>,<span class="dt">p_step =</span> <span class="fl">0.2</span>, <span class="dt">n_flag =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">BSAS_WPT</span>(fn, </a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">         <span class="dt">init =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb45-3" data-line-number="3">         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb45-4" data-line-number="4">         <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, <span class="dt">pen =</span> <span class="fl">1e+05</span>, </a>
+<a class="sourceLine" id="cb45-5" data-line-number="5">         <span class="dt">c2 =</span> <span class="dv">5</span>, </a>
+<a class="sourceLine" id="cb45-6" data-line-number="6">         <span class="dt">step =</span> <span class="dv">1</span>, <span class="dt">eta_step =</span> <span class="fl">0.95</span>,<span class="dt">steptol =</span> <span class="fl">0.001</span>, </a>
+<a class="sourceLine" id="cb45-7" data-line-number="7">         <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> T, </a>
+<a class="sourceLine" id="cb45-8" data-line-number="8">         <span class="dt">p_min =</span> <span class="fl">0.2</span>,<span class="dt">p_step =</span> <span class="fl">0.2</span>, <span class="dt">n_flag =</span> <span class="dv">2</span>)</a></code></pre></div>
 <div id="bsaswptparms" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> BSAS-WPT 参数说明</h3>
 <p>与<code>BSAS</code>相比，除去我人为略去的抖动部分，减少了搜索距离<code>d</code>相关的参数，这些用<code>c2</code>来替代。而初始步长<code>step</code>，我们可以设定为一个在1附近的数。由于算法先标准化了参数，然后根据式<a href="algorithm.html#eq:xupdate">(2.3)</a>在计算位置后，再根据上下限进行反标准化，而后导入目标函数。所以，你可以认为，<code>BSAS</code>中，把step变成一个<span class="math inline">\(n\)</span>维的向量，假设<span class="math inline">\(n\)</span>是参数个数，每个步长元素都根据参数的约束范围大小来设定，那么算法就会变成<code>BSAS-WPT</code>。</p>
@@ -665,34 +696,34 @@ result<span class="op">$</span>par </code></pre></div>
 <p>我们使用和<code>BSASoptim</code>函数相同的例子来对比效果。但是，这些效果都是不固定的，即给定不同的参数，结果也会不同，所以不能根据一次结果评价算法的优劣。</p>
 <div id="bsaswptPV" class="section level4">
 <h4><span class="header-section-number">4.3.2.1</span> Pressure Vessel function</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSAS_WPT</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,
-                   <span class="dt">k =</span> <span class="dv">8</span>,
-                   <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),
-                   <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),
-                   <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,
-                   <span class="dt">c2 =</span> <span class="dv">10</span>, <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">step =</span> <span class="dv">2</span>,
-                   <span class="dt">seed =</span> <span class="dv">1</span>,
-                   <span class="dt">n_flag =</span> <span class="dv">3</span>,
-                   <span class="dt">trace =</span> <span class="ot">FALSE</span>,
-                   <span class="dt">steptol =</span> <span class="fl">1e-6</span>)
-result<span class="op">$</span>par</code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">BSAS_WPT</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,</a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">                   <span class="dt">k =</span> <span class="dv">8</span>,</a>
+<a class="sourceLine" id="cb46-3" data-line-number="3">                   <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb46-4" data-line-number="4">                   <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),</a>
+<a class="sourceLine" id="cb46-5" data-line-number="5">                   <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,</a>
+<a class="sourceLine" id="cb46-6" data-line-number="6">                   <span class="dt">c2 =</span> <span class="dv">10</span>, <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">step =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb46-7" data-line-number="7">                   <span class="dt">seed =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb46-8" data-line-number="8">                   <span class="dt">n_flag =</span> <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb46-9" data-line-number="9">                   <span class="dt">trace =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb46-10" data-line-number="10">                   <span class="dt">steptol =</span> <span class="fl">1e-6</span>)</a>
+<a class="sourceLine" id="cb46-11" data-line-number="11">result<span class="op">$</span>par</a></code></pre></div>
 <pre><code>## [1]  13.882270   7.434164  42.094999 176.932890</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">result<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] 6065.478</code></pre>
 </div>
 <div id="bsaswpthim" class="section level4">
 <h4><span class="header-section-number">4.3.2.2</span> Himmelblau function</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw">BSAS_WPT</span>(<span class="dt">fn =</span> himmelblau<span class="op">$</span>obj,
-                   <span class="dt">k =</span> <span class="dv">10</span>,
-                   <span class="dt">lower =</span><span class="kw">c</span>(<span class="dv">78</span>,<span class="dv">33</span>,<span class="dv">27</span>,<span class="dv">27</span>,<span class="dv">27</span>),
-                   <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">102</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>),
-                   <span class="dt">constr =</span> himmelblau<span class="op">$</span>con,
-                   <span class="dt">c2 =</span> <span class="dv">5</span>, <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">step =</span> <span class="fl">1.6</span>,
-                   <span class="dt">pen =</span> <span class="fl">1e5</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>,<span class="dt">seed =</span> <span class="dv">11</span>)</code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw">BSAS_WPT</span>(<span class="dt">fn =</span> himmelblau<span class="op">$</span>obj,</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2">                   <span class="dt">k =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">                   <span class="dt">lower =</span><span class="kw">c</span>(<span class="dv">78</span>,<span class="dv">33</span>,<span class="dv">27</span>,<span class="dv">27</span>,<span class="dv">27</span>),</a>
+<a class="sourceLine" id="cb50-4" data-line-number="4">                   <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">102</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>,<span class="dv">45</span>),</a>
+<a class="sourceLine" id="cb50-5" data-line-number="5">                   <span class="dt">constr =</span> himmelblau<span class="op">$</span>con,</a>
+<a class="sourceLine" id="cb50-6" data-line-number="6">                   <span class="dt">c2 =</span> <span class="dv">5</span>, <span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">step =</span> <span class="fl">1.6</span>,</a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">                   <span class="dt">pen =</span> <span class="fl">1e5</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>,<span class="dt">seed =</span> <span class="dv">11</span>)</a></code></pre></div>
 <pre><code>## ----step &lt; steptol---------stop the iteration------</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>par </code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">result<span class="op">$</span>par </a></code></pre></div>
 <pre><code>## [1] 78.00000 33.00000 27.07176 45.00000 44.96713</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value </code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">result<span class="op">$</span>value </a></code></pre></div>
 <pre><code>## [1] -31025.47</code></pre>
 <p><code>BSAS-WPT</code>没有做过多的参数调节，即可获得更畅快地优化体验。举例，在对<code>Himmelblau</code>函数进行优化时，我仅仅设定了随机种子<code>seed</code>，然后把<code>step</code>从1调到了2，看了看效果的变化。发现都不错，最后每隔0.1选取<code>step</code>，试探最好的效果在哪里，于是就成了上面的例子。 如果把这一套，放在<code>BSASoptim</code>函数上，对于复杂的优化问题，就<strong>成了一种折磨</strong>。</p>
 </div>
@@ -703,18 +734,18 @@ result<span class="op">$</span>par</code></pre></div>
 <div id="BSOfuncparms" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> BSO参数说明</h3>
 <p>由于BSO参数与原理中的公式较为复杂。因此，在讲述其原理时，对函数的参数也进行了说明。故大家可以参考<a href="mixedalgorithm.html#BSOparms">3.1.4</a>节。此处，仅仅复制该节内容。</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSOoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, 
-         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>, <span class="op">-</span><span class="dv">50</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">n =</span> <span class="dv">300</span>, 
-         <span class="dt">s =</span> <span class="kw">floor</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(lower))), 
-         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
-         <span class="dt">w_vs =</span> <span class="fl">0.4</span>, 
-         <span class="dt">step =</span> <span class="dv">10</span>,
-         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
-         <span class="dt">c =</span> <span class="dv">8</span>, 
-         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>, <span class="fl">5.12</span>), 
-         <span class="dt">trace =</span> T,
-         <span class="dt">seed =</span> <span class="ot">NULL</span>, 
-         <span class="dt">pen =</span> <span class="fl">1e+06</span>)</code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">BSOoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb56-2" data-line-number="2">         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>, <span class="dv">-50</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">n =</span> <span class="dv">300</span>, </a>
+<a class="sourceLine" id="cb56-3" data-line-number="3">         <span class="dt">s =</span> <span class="kw">floor</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(lower))), </a>
+<a class="sourceLine" id="cb56-4" data-line-number="4">         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), </a>
+<a class="sourceLine" id="cb56-5" data-line-number="5">         <span class="dt">w_vs =</span> <span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb56-6" data-line-number="6">         <span class="dt">step =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb56-7" data-line-number="7">         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), </a>
+<a class="sourceLine" id="cb56-8" data-line-number="8">         <span class="dt">c =</span> <span class="dv">8</span>, </a>
+<a class="sourceLine" id="cb56-9" data-line-number="9">         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>, <span class="fl">5.12</span>), </a>
+<a class="sourceLine" id="cb56-10" data-line-number="10">         <span class="dt">trace =</span> T,</a>
+<a class="sourceLine" id="cb56-11" data-line-number="11">         <span class="dt">seed =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb56-12" data-line-number="12">         <span class="dt">pen =</span> <span class="fl">1e+06</span>)</a></code></pre></div>
 <p>上面的代码是函数的默认调用形式，其中<span class="math inline">\(s\)</span>表示设定的天牛或者粒子数目，<span class="math inline">\(w\)</span>也就是式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>中提到的<span class="math inline">\(\omega_{max}\)</span>和<span class="math inline">\(\omega_{min}\)</span>。<code>w_vs</code> 是<span class="math inline">\(\lambda\)</span>，也就是式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>中天牛速度和移动步长之间的权重，直观地理解为<code>weight between velocity and step-size</code>。<code>step</code>和<code>c</code>仍然是表示步长和步长与须距离之比。而<span class="math inline">\(step_w\)</span>为一个向量，表示的是式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>中的<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。</p>
 </div>
 <div id="bsoexample" class="section level3">
@@ -722,64 +753,64 @@ result<span class="op">$</span>par</code></pre></div>
 <div id="michalewicz-function-1" class="section level4">
 <h4><span class="header-section-number">4.4.2.1</span> Michalewicz function</h4>
 <p>一个简单的例子（<code>Michalewicz function</code>）如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
-mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-<span class="kw">return</span>(y1<span class="op">+</span>y2)
-}
-result &lt;-
-<span class="st"> </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> mich,
-           <span class="dt">init =</span> <span class="ot">NULL</span>,
-           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),
-           <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
-           <span class="dt">n =</span> <span class="dv">100</span>,
-           <span class="dt">step =</span> <span class="dv">5</span>,
-           <span class="dt">s =</span> <span class="dv">10</span>,<span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">trace =</span> F)
-result<span class="op">$</span>par; result<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="kw">library</span>(rBAS)</a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb57-3" data-line-number="3">y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"><span class="kw">return</span>(y1<span class="op">+</span>y2)</a>
+<a class="sourceLine" id="cb57-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb57-7" data-line-number="7">result &lt;-</a>
+<a class="sourceLine" id="cb57-8" data-line-number="8"><span class="st"> </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> mich,</a>
+<a class="sourceLine" id="cb57-9" data-line-number="9">           <span class="dt">init =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb57-10" data-line-number="10">           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb57-11" data-line-number="11">           <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb57-12" data-line-number="12">           <span class="dt">n =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb57-13" data-line-number="13">           <span class="dt">step =</span> <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb57-14" data-line-number="14">           <span class="dt">s =</span> <span class="dv">10</span>,<span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">trace =</span> F)</a>
+<a class="sourceLine" id="cb57-15" data-line-number="15">result<span class="op">$</span>par; result<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -4.965998  1.570796</code></pre>
 <pre><code>## [1] -1.967851</code></pre>
 </div>
 <div id="pressure-vessel-function" class="section level4">
 <h4><span class="header-section-number">4.4.2.2</span> Pressure Vessel function</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pressure_Vessel &lt;-<span class="st"> </span><span class="kw">list</span>(
-<span class="dt">obj =</span> <span class="cf">function</span>(x){
-  x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span>
-  x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span>
-  x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
-  x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
-  result &lt;-<span class="st"> </span><span class="fl">0.6224</span><span class="op">*</span>x1<span class="op">*</span>x3<span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span><span class="fl">1.7781</span><span class="op">*</span>x2<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="fl">3.1611</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span><span class="fl">19.84</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3
-},
-<span class="dt">con =</span> <span class="cf">function</span>(x){
-  x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span>
-  x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span>
-  x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]
-  x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]
-  <span class="kw">c</span>(
-    <span class="fl">0.0193</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x1,<span class="co">#&lt;=0</span>
-    <span class="fl">0.00954</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x2,
-    <span class="fl">750.0</span><span class="op">*</span><span class="fl">1728.0</span> <span class="op">-</span><span class="st"> </span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">3</span>
-  )
-}
-)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result&lt;-
-<span class="kw">BSOoptim</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,
-         <span class="dt">init =</span> <span class="ot">NULL</span>,
-         <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,
-         <span class="dt">lower =</span> <span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),
-         <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),
-         <span class="dt">n =</span> <span class="dv">1000</span>,
-         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
-         <span class="dt">w_vs =</span> <span class="fl">0.9</span>,
-         <span class="dt">step =</span> <span class="dv">100</span>,
-         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
-         <span class="dt">c =</span> <span class="dv">35</span>,
-         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),
-         <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>,
-         <span class="dt">pen =</span> <span class="fl">1e6</span>)
- result<span class="op">$</span>par</code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">pressure_Vessel &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="dt">obj =</span> <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb60-3" data-line-number="3">  x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb60-4" data-line-number="4">  x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb60-5" data-line-number="5">  x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb60-6" data-line-number="6">  x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb60-7" data-line-number="7">  result &lt;-<span class="st"> </span><span class="fl">0.6224</span><span class="op">*</span>x1<span class="op">*</span>x3<span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span><span class="fl">1.7781</span><span class="op">*</span>x2<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="fl">+3.1611</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span><span class="fl">19.84</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3</a>
+<a class="sourceLine" id="cb60-8" data-line-number="8">},</a>
+<a class="sourceLine" id="cb60-9" data-line-number="9"><span class="dt">con =</span> <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb60-10" data-line-number="10">  x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb60-11" data-line-number="11">  x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
+<a class="sourceLine" id="cb60-12" data-line-number="12">  x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb60-13" data-line-number="13">  x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb60-14" data-line-number="14">  <span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb60-15" data-line-number="15">    <span class="fl">0.0193</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x1,<span class="co">#&lt;=0</span></a>
+<a class="sourceLine" id="cb60-16" data-line-number="16">    <span class="fl">0.00954</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x2,</a>
+<a class="sourceLine" id="cb60-17" data-line-number="17">    <span class="fl">750.0</span><span class="op">*</span><span class="fl">1728.0</span> <span class="op">-</span><span class="st"> </span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb60-18" data-line-number="18">  )</a>
+<a class="sourceLine" id="cb60-19" data-line-number="19">}</a>
+<a class="sourceLine" id="cb60-20" data-line-number="20">)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">result&lt;-</a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> pressure_Vessel<span class="op">$</span>obj,</a>
+<a class="sourceLine" id="cb61-3" data-line-number="3">         <span class="dt">init =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb61-4" data-line-number="4">         <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con,</a>
+<a class="sourceLine" id="cb61-5" data-line-number="5">         <span class="dt">lower =</span> <span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb61-6" data-line-number="6">         <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),</a>
+<a class="sourceLine" id="cb61-7" data-line-number="7">         <span class="dt">n =</span> <span class="dv">1000</span>,</a>
+<a class="sourceLine" id="cb61-8" data-line-number="8">         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
+<a class="sourceLine" id="cb61-9" data-line-number="9">         <span class="dt">w_vs =</span> <span class="fl">0.9</span>,</a>
+<a class="sourceLine" id="cb61-10" data-line-number="10">         <span class="dt">step =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb61-11" data-line-number="11">         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
+<a class="sourceLine" id="cb61-12" data-line-number="12">         <span class="dt">c =</span> <span class="dv">35</span>,</a>
+<a class="sourceLine" id="cb61-13" data-line-number="13">         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),</a>
+<a class="sourceLine" id="cb61-14" data-line-number="14">         <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb61-15" data-line-number="15">         <span class="dt">pen =</span> <span class="fl">1e6</span>)</a>
+<a class="sourceLine" id="cb61-16" data-line-number="16"> result<span class="op">$</span>par</a></code></pre></div>
 <pre><code>## [1]  13.955250   7.550179  42.098446 176.636596</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> result<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"> result<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] 6059.131</code></pre>
 <p>得到的结果十分好（甚至比论文<span class="citation">(Wang Tiantian <a href="#ref-Wang2018BSO">2018</a>)</span>还要高出那么一点点）。但是，这是调参调出来的结果。</p>
 <p>总的来说，我自己的经验是：</p>
@@ -811,12 +842,12 @@ result<span class="op">$</span>par; result<span class="op">$</span>value</code><
 <div id="bBASfuncparms" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> bBAS参数说明</h3>
 <p>bBAS算法原理参看 <a href="mixedalgorithm.html#bBASa">3.2</a> 节。 对应的<code>bBASoptim</code>函数，与其他算法相比，需要调节的参数较少。调用形式如下。</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bBASoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, 
-          <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),
-          <span class="dt">d0 =</span> <span class="fl">1e-30</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.99</span>, 
-          <span class="dt">w =</span> <span class="fl">0.2</span>, <span class="dt">c =</span> <span class="fl">0.5</span>, <span class="dt">vmax =</span> <span class="dv">4</span>,
-          <span class="dt">n =</span> <span class="dv">800</span>,
-          <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> <span class="dv">20</span>, <span class="dt">resolution =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">length</span>(lower)))</code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">bBASoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">          <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>, <span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">          <span class="dt">d0 =</span> <span class="fl">1e-30</span>, <span class="dt">d1 =</span> <span class="dv">3</span>, <span class="dt">eta_d =</span> <span class="fl">0.99</span>, </a>
+<a class="sourceLine" id="cb65-4" data-line-number="4">          <span class="dt">w =</span> <span class="fl">0.2</span>, <span class="dt">c =</span> <span class="fl">0.5</span>, <span class="dt">vmax =</span> <span class="dv">4</span>,</a>
+<a class="sourceLine" id="cb65-5" data-line-number="5">          <span class="dt">n =</span> <span class="dv">800</span>,</a>
+<a class="sourceLine" id="cb65-6" data-line-number="6">          <span class="dt">seed =</span> <span class="ot">NULL</span>, <span class="dt">trace =</span> <span class="dv">20</span>, <span class="dt">resolution =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="kw">length</span>(lower)))</a></code></pre></div>
 <p><span class="math inline">\(w\)</span> 与 <span class="math inline">\(c\)</span> 分别为式<a href="mixedalgorithm.html#eq:xbest1">(3.9)</a>与式<a href="mixedalgorithm.html#eq:xbest0">(3.10)</a>中的惯性项与常系数。 <span class="math inline">\(vmax\)</span> 则用于控制速度的边界。</p>
 <p><code>trace</code>参数表示，每隔多少次循环，打印一次结果。</p>
 <p><code>resolution</code> 则是我们在处理实数空间优化问题时候所给的分辨率。这么说有点绕口，举例说明。如果<code>Michalewicz function</code>使我们的优化目标，上下限分别是 <code>(-6,0)</code>和<code>(-1,2)</code>。</p>
@@ -835,7 +866,8 @@ result<span class="op">$</span>par; result<span class="op">$</span>value</code><
 x_1 &amp;= \frac{x_{1,binary}-0}{(2^3-1)-0} * (-1-(-6))\\
 x_0 &amp;= \frac{x_{0,binary}-0}{(2^2-1)-0} * (2-(0))\\
 \end{aligned}
-\]</span> 这样，就不用担心在取值的过程中，溢出上下限了。</p>
+\]</span>
+这样，就不用担心在取值的过程中，溢出上下限了。</p>
 <p>接下来，问题又来了，这样的表示方法，能够搜索到的值寥寥无几。我们可以穷举出来， <span class="math inline">\(x1\in\frac{5}{2^3-1}*k\quad k=0,1,\cdots,7\)</span> ，共8种取值，而 <span class="math inline">\(x_2\)</span> 共4种取值。所以，<strong>如果搜索空间只有32种可能</strong>，这肯定是不合理的，我们需要更细的粒度来让算法更为细致地搜索参数空间。这就是分辨率参数的由来。</p>
 <p>还是上面的问题，<strong>取值范围有限是由于二进制位数小引起</strong>的，<strong>二进制位数小是由于十进制的上下限差距小引起</strong>的。换言之，我们可以考虑放大参数的上下限。 比如，我们使用100的分辨率（倍数），那么 <span class="math inline">\(x_1\in[-600,-10] = [0,590] = [0000000000,1001001110]\)</span> ,现在，二进制位数变为了<strong>10位</strong>，当然，还会稍作扩大，使得 <span class="math inline">\(x_1\)</span> 新的上限为<code>1111111111</code>。而 <span class="math inline">\(x2\)</span> 的取值为 <span class="math inline">\(x_2\in[0,200]=[00000000,11001000]\)</span> , 二进制位变为了<strong>8位</strong>。同样，按照下面的方式转为原始空间的取值。</p>
 <p><span class="math display">\[
@@ -850,18 +882,18 @@ x_0 &amp;= \frac{x_{0,binary}-0}{(2^{8}-1)-0} * (2-(0))\\
 <div id="bBASexamples" class="section level3">
 <h3><span class="header-section-number">4.5.2</span> bBAS案例</h3>
 <p>对于上面提及的<code>Michalewicz function</code> 优化问题，代码如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
-mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-  <span class="kw">return</span>(y1<span class="op">+</span>y2)
-}
-fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class="dt">fn =</span> mich,
-                 <span class="dt">init =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">1</span>),
-                 <span class="dt">resolution =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>), <span class="co">#分辨率的设置</span>
-                 <span class="dt">trace =</span> <span class="dv">20</span>, <span class="co">#每隔20个循环，打印一次信息</span>
-                 <span class="dt">c =</span> <span class="fl">0.6</span>,
-                 <span class="dt">seed =</span> <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">library</span>(rBAS)</a>
+<a class="sourceLine" id="cb66-2" data-line-number="2">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb66-3" data-line-number="3">  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb66-4" data-line-number="4">  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb66-5" data-line-number="5">  <span class="kw">return</span>(y1<span class="op">+</span>y2)</a>
+<a class="sourceLine" id="cb66-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb66-7" data-line-number="7">fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class="dt">fn =</span> mich,</a>
+<a class="sourceLine" id="cb66-8" data-line-number="8">                 <span class="dt">init =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb66-9" data-line-number="9">                 <span class="dt">resolution =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">100</span>), <span class="co">#分辨率的设置</span></a>
+<a class="sourceLine" id="cb66-10" data-line-number="10">                 <span class="dt">trace =</span> <span class="dv">20</span>, <span class="co">#每隔20个循环，打印一次信息</span></a>
+<a class="sourceLine" id="cb66-11" data-line-number="11">                 <span class="dt">c =</span> <span class="fl">0.6</span>,</a>
+<a class="sourceLine" id="cb66-12" data-line-number="12">                 <span class="dt">seed =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## Iters 0 xbest = [ -3 1 ], fbest = -2.55738e-05 
 ## Iters 20 xbest = [ -3.651663 1.607843 ], fbest = -0.9949117 
 ## Iters 40 xbest = [ -4.581213 1.568627 ], fbest = -0.9998098 
@@ -903,7 +935,7 @@ fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class=
 ## Iters 760 xbest = [ -4.972603 1.568627 ], fbest = -1.963422 
 ## Iters 780 xbest = [ -4.972603 1.568627 ], fbest = -1.963422 
 ## Iters 800 xbest = [ -4.972603 1.568627 ], fbest = -1.963422</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">fit<span class="op">$</span>par;fit<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -4.972603  1.568627</code></pre>
 <pre><code>## [1] -1.963422</code></pre>
 <p>此处还有阮月同学提供的库存(批次)问题(lot-sizing)案例。</p>
@@ -918,40 +950,40 @@ s.t. ~~ &amp;I_0 = 0 \notag \\
 \end{align}
 \]</span></p>
 <p>该案例具体的参数解释会在之后案例章节描述。此处简单给出例子。</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lot_size2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  R =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">60</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">80</span>)
-  A =<span class="st"> </span><span class="dv">100</span>
-  c =<span class="st"> </span><span class="dv">1</span>
-  x1 =<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>x
-
-  I =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>)
-
-  <span class="cf">for</span>(m <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>){
-    t =<span class="st"> </span><span class="dv">0</span>
-    <span class="cf">for</span> (p <span class="cf">in</span> (m<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="dv">5</span>){
-      <span class="cf">if</span>(x1[p] <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){
-        t =<span class="st"> </span>t <span class="op">+</span><span class="st"> </span>R[p]
-      }
-      <span class="cf">else</span>{<span class="cf">break</span>}
-    }
-    I[m] =<span class="st"> </span>t
-  }
-  <span class="cf">if</span>(x[<span class="dv">1</span>]<span class="op">!=</span><span class="dv">1</span>){
-    pen =<span class="st"> </span><span class="fl">1e5</span>
-  }<span class="cf">else</span>{
-    pen =<span class="st"> </span><span class="dv">0</span>
-  }
-  cost =<span class="st"> </span><span class="kw">sum</span>(A<span class="op">*</span>x) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(c<span class="op">*</span>I) <span class="op">+</span><span class="st"> </span>pen
-
-  <span class="kw">return</span>(cost)
-}
-fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class="dt">fn =</span> lot_size2,
-                 <span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>),
-                 <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>),
-                 <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>),
-                 <span class="dt">resolution =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>),
-                 <span class="dt">n =</span> <span class="dv">200</span>,
-                 <span class="dt">trace =</span> <span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">lot_size2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb71-2" data-line-number="2">  R =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">60</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb71-3" data-line-number="3">  A =<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb71-4" data-line-number="4">  c =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb71-5" data-line-number="5">  x1 =<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span>x</a>
+<a class="sourceLine" id="cb71-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb71-7" data-line-number="7">  I =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb71-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb71-9" data-line-number="9">  <span class="cf">for</span>(m <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>){</a>
+<a class="sourceLine" id="cb71-10" data-line-number="10">    t =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb71-11" data-line-number="11">    <span class="cf">for</span> (p <span class="cf">in</span> (m<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb71-12" data-line-number="12">      <span class="cf">if</span>(x1[p] <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb71-13" data-line-number="13">        t =<span class="st"> </span>t <span class="op">+</span><span class="st"> </span>R[p]</a>
+<a class="sourceLine" id="cb71-14" data-line-number="14">      }</a>
+<a class="sourceLine" id="cb71-15" data-line-number="15">      <span class="cf">else</span>{<span class="cf">break</span>}</a>
+<a class="sourceLine" id="cb71-16" data-line-number="16">    }</a>
+<a class="sourceLine" id="cb71-17" data-line-number="17">    I[m] =<span class="st"> </span>t</a>
+<a class="sourceLine" id="cb71-18" data-line-number="18">  }</a>
+<a class="sourceLine" id="cb71-19" data-line-number="19">  <span class="cf">if</span>(x[<span class="dv">1</span>]<span class="op">!=</span><span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb71-20" data-line-number="20">    pen =<span class="st"> </span><span class="fl">1e5</span></a>
+<a class="sourceLine" id="cb71-21" data-line-number="21">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb71-22" data-line-number="22">    pen =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb71-23" data-line-number="23">  }</a>
+<a class="sourceLine" id="cb71-24" data-line-number="24">  cost =<span class="st"> </span><span class="kw">sum</span>(A<span class="op">*</span>x) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(c<span class="op">*</span>I) <span class="op">+</span><span class="st"> </span>pen</a>
+<a class="sourceLine" id="cb71-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb71-26" data-line-number="26">  <span class="kw">return</span>(cost)</a>
+<a class="sourceLine" id="cb71-27" data-line-number="27">}</a>
+<a class="sourceLine" id="cb71-28" data-line-number="28">fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class="dt">fn =</span> lot_size2,</a>
+<a class="sourceLine" id="cb71-29" data-line-number="29">                 <span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb71-30" data-line-number="30">                 <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb71-31" data-line-number="31">                 <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb71-32" data-line-number="32">                 <span class="dt">resolution =</span> <span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb71-33" data-line-number="33">                 <span class="dt">n =</span> <span class="dv">200</span>,</a>
+<a class="sourceLine" id="cb71-34" data-line-number="34">                 <span class="dt">trace =</span> <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## Iters 0 xbest = [ 1 1 1 1 1 ], fbest = 500 
 ## Iters 10 xbest = [ 1 0 0 1 1 ], fbest = 440 
 ## Iters 20 xbest = [ 1 0 0 1 0 ], fbest = 420 
@@ -973,7 +1005,7 @@ fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class=
 ## Iters 180 xbest = [ 1 0 1 0 1 ], fbest = 410 
 ## Iters 190 xbest = [ 1 0 1 0 1 ], fbest = 410 
 ## Iters 200 xbest = [ 1 0 1 0 1 ], fbest = 410</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit<span class="op">$</span>par;fit<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">fit<span class="op">$</span>par;fit<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] 1 0 1 0 1</code></pre>
 <pre><code>## [1] 410</code></pre>
 <p>得到的结果能使得库存与订单总的费用最小。</p>
@@ -1259,7 +1291,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

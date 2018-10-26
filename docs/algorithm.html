@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-19">
+<meta name="date" content="2018-10-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,41 +51,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css\style.css" type="text/css" />
@@ -127,7 +155,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
 <li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
-<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
@@ -217,6 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>10</b> 已发表工作</a><ul>
 <li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
 <li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
+<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
 <li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
@@ -254,40 +283,40 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="BASflow" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> 算法流程</h3>
 <p>1.随机生成方向向量，标准化</p>
-<span class="math display" id="eq:dir">\[\begin{equation}
+<p><span class="math display" id="eq:dir">\[\begin{equation}
 \overrightarrow{\mathbf{b}}=\frac{\text{rnd}(n,1)}{\|\text{rnd}(n,1)\|}
 \tag{2.1}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>其中，<span class="math inline">\(n\)</span>是待优化参数的维度。</p>
 <p>2.计算左右须的坐标</p>
-<span class="math display" id="eq:xlxr">\[\begin{equation}
+<p><span class="math display" id="eq:xlxr">\[\begin{equation}
 \begin{split}
 \mathbf{x}_r&amp;=\mathbf{x}^t+d^t\overrightarrow{\mathbf{b}} \\
 \mathbf{x}_l&amp;=\mathbf{x}^t-d^t\overrightarrow{\mathbf{b}}
 \end{split}
 \tag{2.2}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>其中，<span class="math inline">\(\mathbf{x}^t\)</span>为<span class="math inline">\(t\)</span>时刻天牛的位置，<span class="math inline">\(d^t\)</span>则是<span class="math inline">\(t\)</span>时刻，质心到须的距离。</p>
 <p>3.根据两须对应函数值，决定天牛下一时刻移动位置</p>
-<span class="math display" id="eq:xupdate">\[\begin{equation}
+<p><span class="math display" id="eq:xupdate">\[\begin{equation}
 \mathbf{x}^t=\mathbf{x}^{t-1}+\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
 \tag{2.3}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>其中，<span class="math inline">\(\delta^t\)</span>为t时刻的步长,<span class="math inline">\(f\)</span>为待优化目标函数。</p>
 <p>4.步长与搜索距离更新</p>
-<span class="math display" id="eq:deltaupdate" id="eq:dupdate">\[\begin{align}
+<p><span class="math display" id="eq:deltaupdate" id="eq:dupdate">\[\begin{align}
 d^t&amp;= \eta_d d^{t-1}+d_0 \tag{2.4}\\
 \delta^t&amp;=\eta_{\delta} \delta^{t-1} \tag{2.5}
-\end{align}\]</span>
+\end{align}\]</span></p>
 <p>其中，<span class="math inline">\(d_0\)</span>是人为设定的距离的常数，<span class="math inline">\(\eta_d\)</span>与<span class="math inline">\(\eta_\delta\)</span>分别是搜索距离和步长的更新衰减系数。</p>
-为了避免参数过多，姜向远博士在<code>BAS-WPT</code>算法中是按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来更新搜索距离和步长的。其中，<span class="math inline">\(c_2\)</span>是人为设定的常数。
+<p>为了避免参数过多，姜向远博士在<code>BAS-WPT</code>算法中是按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来更新搜索距离和步长的。其中，<span class="math inline">\(c_2\)</span>是人为设定的常数。
 <span class="math display" id="eq:WPTupdate">\[\begin{equation}
 \begin{split}
 \delta^t&amp;=\eta_{\delta} \delta^{t-1}\\
 d^t &amp;= \frac{\delta^t}{c_2}\\
 \end{split}
 \tag{2.6} 
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 </div>
 <div id="BASimprove" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> 不足与改进</h3>
@@ -360,7 +389,8 @@ d^t &amp;= \frac{\delta^t}{c_2}\\
 </div>
 <div id="bas-wpt" class="section level2">
 <h2><span class="header-section-number">2.3</span> BAS-WPT</h2>
-<p>相比于<a href="algorithm.html#BASflow">2.1.1</a>节中描绘的<code>BAS</code>， <a href="https://arxiv.org/abs/1711.02395">Beetle Antennae Search without Parameter Tuning (BAS-WPT) for Multi-objective Optimization</a>一文给出了改进后的<code>BAS</code>是如何处理<strong>步长调节</strong>和<strong>约束问题抽象</strong>的。</p>
+<p>相比于<a href="algorithm.html#BASflow">2.1.1</a>节中描绘的<code>BAS</code>，
+<a href="https://arxiv.org/abs/1711.02395">Beetle Antennae Search without Parameter Tuning (BAS-WPT) for Multi-objective Optimization</a>一文给出了改进后的<code>BAS</code>是如何处理<strong>步长调节</strong>和<strong>约束问题抽象</strong>的。</p>
 <div id="BASWPTflow" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> 与BAS不同之处</h3>
 <p><code>BAS-WPT</code>的小尾巴<code>without parameter tunning</code>已经说明了两者之间的区别，即<code>BAS-WPT</code>是不需要进行参数调节的。当然，按照我现在的理解，是<code>BAS-WPT</code>一方面简化了<strong>每回合搜索距离</strong>(质心到须的距离)的<strong>更新</strong>，不需要再<strong>额外设定与调节</strong>诸如<span class="math inline">\(d_0\)</span>，<span class="math inline">\(\eta_d\)</span>等参数，用户只需要按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来设置<span class="math inline">\(c_2\)</span>便可；另一方面，参数标准化，让<strong>存在量级差异</strong>的参数之间不必再像<code>BAS</code>一样，共享一个你不知道该怎么设定的步长<span class="math inline">\(\delta^t\)</span>（步长过大，小的参数可能经常处于在边界的状态；步长过小，大的参数可能搜索范围达不到）。</p>
@@ -376,33 +406,33 @@ d^t &amp;= \frac{\delta^t}{c_2}\\
 <p>此外，<code>BAS-WPT</code>还为<code>BAS</code>引入了约束问题处理的手段。不过，这和我做模型预测控制时候看到的抽象方式是相同的。我觉得<code>BAS</code>的用户们应该都早已了解，此处就照本宣科。</p>
 <div id="section-2.3.2.1" class="section level4">
 <h4><span class="header-section-number">2.3.2.1</span> 约束问题一般形式</h4>
-<span class="math display" id="eq:ConProb">\[\begin{equation}
+<p><span class="math display" id="eq:ConProb">\[\begin{equation}
 \begin{split}
 &amp; \frac{\text{Minimize}}{\text{Maximize}} f(\mathbf{x}) \\
 s.t.  &amp; g_j(\mathbf{x})\leq 0, j=1, \cdots, K \\
 &amp; x^\text{max}_i \leq x_i \leq x^\text{min}_i, i=1, \cdots N
 \end{split}
 \tag{2.7}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p><span class="math inline">\(g_j(\mathbf{x})\leq 0\)</span> 和 <span class="math inline">\(x^\text{max}_i \leq x_i \leq x^\text{min}_i\)</span> 表示了参数本身的范围和更为精细具体的不等式约束控制。在<code>rBAS</code>包中，我们会有很<strong>直观和简便</strong>的方式，来设置这些约束。</p>
 </div>
 <div id="section-2.3.2.2" class="section level4">
 <h4><span class="header-section-number">2.3.2.2</span> 惩罚函数</h4>
-<span class="math display" id="eq:penalty">\[\begin{equation}
+<p><span class="math display" id="eq:penalty">\[\begin{equation}
 F(\mathbf{x})=f(\mathbf{x})+\lambda\sum_{j=1}^{K}h_j(\mathbf{x})g_j(\mathbf{x})
 \tag{2.8}
-\end{equation}\]</span>
-<span class="math display" id="eq:violation">\[\begin{equation}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:violation">\[\begin{equation}
 h_j(\mathbf{x}) = \begin{cases} 
 1, &amp; g_j(\mathbf{x})&gt;0 \\ 
 0, &amp; g_j(\mathbf{x})\leq0
 \end{cases}
 \tag{2.9}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>其中，式<a href="algorithm.html#eq:penalty">(2.8)</a>中的<span class="math inline">\(\lambda\)</span>表示约束违背的惩罚因子，选取尽量大的正数。而后的<span class="math inline">\(h_j(\mathbf{x})\)</span>为<code>Heaviside</code>函数，即不等式约束满足时，该函数为0，反之为1。</p>
 </div>
 </div>
-<div id="BSASimprove" class="section level3">
+<div id="BSASimprove2" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> 不足与改进</h3>
 <ul>
 <li>约束处理能力不足
@@ -422,22 +452,22 @@ h_j(\mathbf{x}) = \begin{cases}
 <h3><span class="header-section-number">2.4.1</span> 算法原理</h3>
 <p>在<a href="algorithm.html#BASflow">2.1.1</a>节的基础上，改动了一大一小两处地方。大的是，天牛位置更新。小的改动是，步长增加了一个最小分辨率，也就是存在了最小值，不会无限制地缩减。</p>
 <p>在位置更新上，参考式<a href="algorithm.html#eq:bas2vupdate">(2.10)</a>至式<a href="algorithm.html#eq:bas2xupdate">(2.12)</a>。</p>
-<span class="math display" id="eq:bas2vupdate">\[\begin{equation}
+<p><span class="math display" id="eq:bas2vupdate">\[\begin{equation}
 \mathbf{v}^{t+1} = w_0\mathbf{v}^t - w_1\overrightarrow{b}(f(\mathbf{x}_l^t)-f(\mathbf{x}_r^t))
 \tag{2.10}
-\end{equation}\]</span>
-<span class="math display" id="eq:bas2vbound">\[\begin{equation}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:bas2vbound">\[\begin{equation}
 \mathbf{v}^{t+1} = \begin{cases} 
 V_{max},&amp;\mathbf{v}^{t+1} &gt; V_{max} \\ 
 \mathbf{v}^{t+1},  &amp;\mathbf{v}^{t+1} \in [V_{max},V_{max}] \\
 -V_{max},&amp;\mathbf{v}^{t+1} &lt;- V_{max}
 \end{cases}
 \tag{2.11}
-\end{equation}\]</span>
-<span class="math display" id="eq:bas2xupdate">\[\begin{equation}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:bas2xupdate">\[\begin{equation}
 \mathbf{x}^{t+1} = \mathbf{x}^t+\mathbf{v}^{t+1}
 \tag{2.12}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>大的改动；在式<a href="algorithm.html#eq:bas2vupdate">(2.10)</a>中，<span class="math inline">\(v\)</span>表示速度，<span class="math inline">\(w_0\)</span>和<span class="math inline">\(w_1\)</span>分别为常数，也可以理解为权重。前者是上一时刻速度的权重，后者是由左右须函数强度差（类似于梯度）的权重。式<a href="algorithm.html#eq:bas2vbound">(2.11)</a>是对速度范围进行的限定。把式<a href="algorithm.html#eq:bas2xupdate">(2.12)</a> 和式<a href="algorithm.html#eq:xupdate">(2.3)</a> 相比，<strong>不仅多了速度项，还把原有的步长从式中去掉了</strong>。</p>
 <p>那步长在哪里用呢，有两个地方。</p>
 <ul>
@@ -445,10 +475,10 @@ V_{max},&amp;\mathbf{v}^{t+1} &gt; V_{max} \\
 <li>用来确定式<a href="algorithm.html#eq:bas2vbound">(2.11)</a>中最大速度<span class="math inline">\(V_{max}\)</span>，即<span class="math inline">\(V_{max} = c_0 \delta\)</span>。原文中的<span class="math inline">\(c_0\)</span>和<span class="math inline">\(w_0\)</span>是用的同一符号，但是在后续的测试函数调试中，两者分开似乎效果更好。因此，在<code>rBAS</code>中的<code>BASoptim2</code>中，为了更加灵活而将两者区分开来，把选择权给了大家。</li>
 </ul>
 <p>此外，还有一个小改动。步长的更新采用了一个最小分辨率，参考式<a href="algorithm.html#eq:bas2stepupdate">(2.13)</a>。</p>
-<span class="math display" id="eq:bas2stepupdate">\[\begin{equation}
+<p><span class="math display" id="eq:bas2stepupdate">\[\begin{equation}
 \delta^{t+1}=\eta_{\delta}(\delta^{t}-\delta_0) + \delta_0
 \tag{2.13}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>如果有必要的话，大家在使用过程中可以设定较小的<span class="math inline">\(\delta_0\)</span>来规避此项规则。</p>
 </div>
 <div id="section-2.4.2" class="section level3">
@@ -512,7 +542,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

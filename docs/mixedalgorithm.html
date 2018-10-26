@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-19">
+<meta name="date" content="2018-10-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,41 +51,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css\style.css" type="text/css" />
@@ -127,7 +155,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
 <li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
-<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
@@ -217,6 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>10</b> 已发表工作</a><ul>
 <li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
 <li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
+<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
 <li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
@@ -256,22 +285,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">3.1.1</span> 粒子群算法流程</h3>
 <p>我们先说一下标准的粒子群算法的几个核心更新关系。</p>
 <p>粒子在第 <span class="math inline">\(k+1\)</span> 回合中，其速度与第 <span class="math inline">\(k\)</span> 回合的速度关系如式<a href="mixedalgorithm.html#eq:psov">(3.1)</a>:</p>
-<span class="math display" id="eq:psov">\[\begin{equation}
+<p><span class="math display" id="eq:psov">\[\begin{equation}
 v_{i,k+1} = \omega v_{i,k} + c_1*rand_1*(pbest_i-x_{i,k})+c_2*rand_2*(gbest_k-x_{i,k})
 \tag{3.1}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>那么第 <span class="math inline">\(k+1\)</span> 回合中粒子位置如式<a href="mixedalgorithm.html#eq:psox">(3.2)</a>更新。</p>
-<span class="math display" id="eq:psox">\[\begin{equation}
+<p><span class="math display" id="eq:psox">\[\begin{equation}
 x_{i,k} = x_{i,k} + v_{i,k}
 \tag{3.2}
-\end{equation}\]</span>
-<p>其中，<span class="math inline">\(i=1,2,\cdots,S\)</span>，<span class="math inline">\(S\)</span> 为设定的粒子数目。而<span class="math inline">\(k=1,2,\cdots,n\)</span>，<span class="math inline">\(n\)</span> 为设定的最大循环数。<span class="math inline">\(\omega\)</span> 表示粒子速度的惯性，也就是本回合速度对下回合速度更新的影响。 <span class="math inline">\(c1,c2\)</span>则是学习因子，<span class="math inline">\(pbest_i-x_{i,k}\)</span> 表示粒子<span class="math inline">\(i\)</span> 当前的位置和其历史最优的位置的差距，而 <span class="math inline">\(gbest_k-x_{i,k}\)</span>则表示，粒子<span class="math inline">\(i\)</span> 当前的位置和历史全局最优的粒子的位置（所有粒子在历史时间跨度中最好的位置）的差距。</p>
+\end{equation}\]</span></p>
+<p>其中，<span class="math inline">\(i=1,2,\cdots,S\)</span>，<span class="math inline">\(S\)</span> 为设定的粒子数目。而<span class="math inline">\(k=1,2,\cdots,n\)</span>，<span class="math inline">\(n\)</span> 为设定的最大循环数。<span class="math inline">\(\omega\)</span> 表示粒子速度的惯性，也就是本回合速度对下回合速度更新的影响。
+<span class="math inline">\(c1,c2\)</span>则是学习因子，<span class="math inline">\(pbest_i-x_{i,k}\)</span> 表示粒子<span class="math inline">\(i\)</span> 当前的位置和其历史最优的位置的差距，而 <span class="math inline">\(gbest_k-x_{i,k}\)</span>则表示，粒子<span class="math inline">\(i\)</span> 当前的位置和历史全局最优的粒子的位置（所有粒子在历史时间跨度中最好的位置）的差距。</p>
 <p>那么，这样更新了粒子的位置之后，自然要计算这一回合的适应度，也就是目标函数的值。如果<strong>存在适应度比自身历史或全局历史更优</strong>，那么就相应地更新<span class="math inline">\(pbest\)</span>和<span class="math inline">\(gbest\)</span>。然后，就重复上述过程，直到设定的终止条件满足。</p>
 <p><span class="math inline">\(\omega\)</span>动态变化，能取得好的效果，一般，它如式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>所示变化。</p>
-<span class="math display" id="eq:psoomega">\[\begin{equation}
+<p><span class="math display" id="eq:psoomega">\[\begin{equation}
 \omega = \omega_{max} - (\omega_{max}-\omega_{min})\frac{k}{n}
 \tag{3.3}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>当然，如果 <span class="math inline">\(k\)</span> 取0，也就是初始回合，那么<span class="math inline">\(\omega = \omega_{max}\)</span>。如果 <span class="math inline">\(k\)</span> 取<span class="math inline">\(n\)</span> （也就是最终的回合）,那么<span class="math inline">\(\omega = \omega_{min}\)</span>。所以，这也是个权重线性递减的过程。</p>
 </div>
 <div id="bas" class="section level3">
@@ -280,33 +310,33 @@ x_{i,k} = x_{i,k} + v_{i,k}
 <p>作为门外汉，我可能会想，那就多放置几只天牛，让它们像粒子一样，信息共享，但是本身的更新寻优还按照BAS的来（后面会讲，这类似于BSAS，但不是BSO）。</p>
 <p>不过呢，BSO给了一种很丰满和交错的方式，让BAS和PSO不是那么的泾渭分明。</p>
 <p>首先，位置更新时，按照PSO和BAS的方式各自更新后加权得到新的位置。也就是，利用了BAS的触须方向和步长，同时也利用了粒子（在BSO中就是天牛）的速度。如式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>:</p>
-<span class="math display" id="eq:bsox">\[\begin{equation}
+<p><span class="math display" id="eq:bsox">\[\begin{equation}
 X_{s}^{k+1} = X_{s}^{k} + \lambda V_{s}^k + (1 - \lambda)\xi_{s}^k
 \tag{3.4}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>第一项 <span class="math inline">\(X_{s}^{k}\)</span> 自然是表明粒子 <span class="math inline">\(s\)</span> 在 <span class="math inline">\(k\)</span> 回合的位置了，第二项 <span class="math inline">\(\lambda V_{s}^k\)</span> 也就是PSO中的天牛速度乘以权重 <span class="math inline">\(\lambda\)</span>。那么第三项中的 <span class="math inline">\(\xi_{s}^k\)</span> 应该是BAS中的步长乘以方向向量才对。但是，<strong>方向并不是BAS中随机生成的方向</strong>。</p>
 <p>我们看看 <span class="math inline">\(\xi_s^k\)</span> 怎么得到。在文中，给出了式<a href="mixedalgorithm.html#eq:bsoxi">(3.5)</a>。</p>
-<span class="math display" id="eq:bsoxi">\[\begin{equation}
+<p><span class="math display" id="eq:bsoxi">\[\begin{equation}
 \xi_s^{k+1} = \delta^kV_s^ksign(f(X_{rs}^k) - f(X_{ls}^k))
 \tag{3.5}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>这就是我们熟悉的BAS更新的方式，不过，把随机生成的天牛方向，换为了粒子速度 <span class="math inline">\(V_s^k\)</span>。在BSO中，并没有BAS中成方向的操作。有同学可能会问，<strong>既然没有随机方向，那么天牛的左右须坐标怎么来的呢？</strong> 和式<a href="mixedalgorithm.html#eq:bsoxi">(3.5)</a>中使用<strong>速度替代方向</strong>的操作相同，计算左右须坐标时，也是用的速度，来代替方向。即，如式<a href="mixedalgorithm.html#eq:bsolr">(3.6)</a>。</p>
-<span class="math display" id="eq:bsolr">\[\begin{equation}
+<p><span class="math display" id="eq:bsolr">\[\begin{equation}
 \begin{split}
 X_{rs}^k&amp;=X_{s}^k+V_s^k\frac{d}{2} \\
 X_{ls}^k&amp;=X_{s}^k-V_s^k\frac{d}{2}
 \end{split}
 \tag{3.6}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>这样，就完成了BSO算法的更新过程。里面的速度，和粒子群算法的更新方式相同。</p>
 <blockquote>
 <p>注明，原文中使用的上一回合的左右须坐标， 更新这回合的左右须坐标。但是根据代码来看，是文章存在了脚标的小错误，应该是用天牛坐标，更新须坐标。</p>
 </blockquote>
 <p><code>王糖糖</code>同学还给出了一个动态的（BAS）步长更新系数，如式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>:</p>
-<span class="math display" id="eq:basstep">\[\begin{equation}
+<p><span class="math display" id="eq:basstep">\[\begin{equation}
 \eta = \omega_{\delta_1}(\frac{\omega_{\delta_1}}{\omega_{\delta_0}})^{1/(1+10k/n)}
 \tag{3.7}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>默认参数为<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。即，步长在回合初始，衰减最快，回合临终时，衰减最慢。</p>
 </div>
 <div id="section-3.1.3" class="section level3">
@@ -327,35 +357,35 @@ X_{ls}^k&amp;=X_{s}^k-V_s^k\frac{d}{2}
 </div>
 <div id="BSOparms" class="section level3">
 <h3><span class="header-section-number">3.1.4</span> 算法调用说明</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">BSOoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, 
-         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>, <span class="op">-</span><span class="dv">50</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">n =</span> <span class="dv">300</span>, 
-         <span class="dt">s =</span> <span class="kw">floor</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(lower))), 
-         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
-         <span class="dt">w_vs =</span> <span class="fl">0.4</span>, 
-         <span class="dt">step =</span> <span class="dv">10</span>,
-         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), 
-         <span class="dt">c =</span> <span class="dv">8</span>, 
-         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>, <span class="fl">5.12</span>), 
-         <span class="dt">trace =</span> T,
-         <span class="dt">seed =</span> <span class="ot">NULL</span>, 
-         <span class="dt">pen =</span> <span class="fl">1e+06</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">BSOoptim</span>(fn, <span class="dt">init =</span> <span class="ot">NULL</span>, <span class="dt">constr =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">         <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>, <span class="dv">-50</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="dt">n =</span> <span class="dv">300</span>, </a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">         <span class="dt">s =</span> <span class="kw">floor</span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(lower))), </a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), </a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">         <span class="dt">w_vs =</span> <span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">         <span class="dt">step =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">0.4</span>), </a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">         <span class="dt">c =</span> <span class="dv">8</span>, </a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>, <span class="fl">5.12</span>), </a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">         <span class="dt">trace =</span> T,</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">         <span class="dt">seed =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">         <span class="dt">pen =</span> <span class="fl">1e+06</span>)</a></code></pre></div>
 <p>在本节写函数调用，是因为函数内有部分参数和本节的公式变量名称有出入。上面的代码是函数的默认调用形式，其中<span class="math inline">\(s\)</span>表示设定的天牛或者粒子数目，<span class="math inline">\(w\)</span>也就是式<a href="mixedalgorithm.html#eq:psoomega">(3.3)</a>中提到的<span class="math inline">\(\omega_{max}\)</span>和<span class="math inline">\(\omega_{min}\)</span>。<code>w_vs</code> 是<span class="math inline">\(\lambda\)</span>，也就是式<a href="mixedalgorithm.html#eq:bsox">(3.4)</a>中天牛速度和移动步长之间的权重，直观地理解为<code>weight between velocity and step-size</code>。<code>step</code>和<code>c</code>仍然是表示步长和步长与须距离之比。而<span class="math inline">\(step_w\)</span>为一个向量，表示的是式<a href="mixedalgorithm.html#eq:basstep">(3.7)</a>中的<span class="math inline">\(\omega_{\delta_1} = 0.4\)</span>， <span class="math inline">\(\omega_{\delta_0} = 0.9\)</span>。</p>
 <p>一个简单的例子如下：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
-mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span>
-<span class="kw">return</span>(y1<span class="op">+</span>y2)
-}
-result &lt;-
-<span class="st"> </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> mich,
-           <span class="dt">init =</span> <span class="ot">NULL</span>,
-           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),
-           <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
-           <span class="dt">n =</span> <span class="dv">100</span>,
-           <span class="dt">step =</span> <span class="dv">5</span>,
-           <span class="dt">s =</span> <span class="dv">10</span>,<span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">trace =</span> F)
-result<span class="op">$</span>par; result<span class="op">$</span>value</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(rBAS)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw">return</span>(y1<span class="op">+</span>y2)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">result &lt;-</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st"> </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> mich,</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">           <span class="dt">init =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">           <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">           <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">           <span class="dt">n =</span> <span class="dv">100</span>,</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">           <span class="dt">step =</span> <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">           <span class="dt">s =</span> <span class="dv">10</span>,<span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">trace =</span> F)</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">result<span class="op">$</span>par; result<span class="op">$</span>value</a></code></pre></div>
 <pre><code>## [1] -4.965998  1.570796</code></pre>
 <pre><code>## [1] -1.967851</code></pre>
 </div>
@@ -367,46 +397,46 @@ result<span class="op">$</span>par; result<span class="op">$</span>value</code><
 <h3><span class="header-section-number">3.2.1</span> 算法流程</h3>
 <p>step1: 根据计算（或者初始随机生成）的天牛坐标，计算天牛质心和两触须的目标函数值，取最小的作为下一回合的位置。其中，搜索距离 <span class="math inline">\(d\)</span> 的更新方式与BAS算法相同。可参考式<a href="algorithm.html#eq:xlxr">(2.2)</a> 与式<a href="algorithm.html#eq:dupdate">(2.4)</a>。然后得到了当前最佳的天牛位置 <span class="math inline">\(x_{best}\)</span>。</p>
 <p>step2: 两个速度向量的计算（或者初始随机生成）；如式<a href="mixedalgorithm.html#eq:twov">(3.8)</a>所示，<span class="math inline">\(\overrightarrow{V_i^0}\)</span> 表示天牛状态（在对应的二进制位上）由1转0的速度（或者称之为可能性，概率），<span class="math inline">\(\overrightarrow{V_i^1}\)</span> 表示天牛由0转1的速度。</p>
-<span class="math display" id="eq:twov">\[\begin{equation}
+<p><span class="math display" id="eq:twov">\[\begin{equation}
 V_i^c = \begin{cases} 
 \overrightarrow{V_i^0}, &amp; if\quad x_i = 1 \\ 
 \overrightarrow{V_i^1}, &amp; if\quad x_i = 0
 \end{cases}
 \tag{3.8}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>那么这两个速度分量该如何计算呢？ 假设按照<strong>step1</strong>得到的最优位置（二进制位表示）向量长度为 <span class="math inline">\(m+n\)</span> ，有 <span class="math inline">\(m\)</span> 个元素为1， <span class="math inline">\(n\)</span> 个元素为0。那么，在 <span class="math inline">\(x_{best}=1\)</span> 的这 <span class="math inline">\(m\)</span> 个元素上，速度分量的更新方式如式<a href="mixedalgorithm.html#eq:xbest1">(3.9)</a>。</p>
-<span class="math display" id="eq:xbest1">\[\begin{equation}
+<p><span class="math display" id="eq:xbest1">\[\begin{equation}
 \begin{split}
 \text{if}\quad &amp; x_{best}^i = 1\quad \text{then}\\
 &amp;V_i^1 = wV_i^1+cr\\
 &amp;V_i^0 = wV_i^0-cr
 \end{split}
 \tag{3.9}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>在 <span class="math inline">\(x_{best}=0\)</span> 的这 <span class="math inline">\(n\)</span> 个元素上，速度分量的更新方式如式<a href="mixedalgorithm.html#eq:xbest0">(3.10)</a>所示。</p>
-<span class="math display" id="eq:xbest0">\[\begin{equation}
+<p><span class="math display" id="eq:xbest0">\[\begin{equation}
 \begin{split}
 \text{if}\quad &amp; x_{best}^i = 0\quad \text{then}\\
 &amp;V_i^1 = wV_i^1-cr\\
 &amp;V_i^0 = wV_i^0+cr
 \end{split}
 \tag{3.10}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>其中， <span class="math inline">\(w\)</span> 是惯性项，为前一时刻速度分量的影响权重， <span class="math inline">\(c\)</span> 为一个固定的常数， <span class="math inline">\(r\)</span> 为 <span class="math inline">\((0,1)\)</span> 区间的随机数。</p>
 <p>step3: 有了速度分量后，如何更新 <span class="math inline">\(x_{best}\)</span> 呢？ 和实数空间上的优化问题不同，如果直接把速度与对应的位置向量相加，这势必不符合会使得原有的位置向量脱离0-1的范畴。实际上，更新方式如式<a href="mixedalgorithm.html#eq:xupdatebBAS">(3.11)</a>所示。</p>
-<span class="math display" id="eq:xupdatebBAS">\[\begin{equation}
+<p><span class="math display" id="eq:xupdatebBAS">\[\begin{equation}
 x_i(t+1)=\begin{cases}
 &amp;\overline{x_i}(t) &amp; if\quad rand() \leq S(V_i)\\
 &amp;x_i(t) &amp; if\quad rand() &gt; S(V_i)
 \end{cases}
 \tag{3.11}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>当生成的服从均匀分布 <span class="math inline">\(U(0,1)\)</span> 的随机数向量（长度与速度相同），某些元素小于等于状态转换概率 <span class="math inline">\(S(V_i)\)</span> 时，那么下一时刻的位置等于在这些元素对应位置上的位置<strong>取非</strong>。反之，保持不变。例如，位置向量 <span class="math inline">\(x_t = (1,1,1,0,0,1,0)\)</span> ，如果其 2,3,5元素上满足随机数小于等于转换概率条件，那么下一时刻的位置为 <span class="math inline">\(x_{t+1}=(1,0,0,0,1,1,0)\)</span> 。</p>
 <p>速度参与更新的方式，表现在计算状态转换概率 <span class="math inline">\(S(V_i)\)</span> 上，类似于<code>Sigmoid</code>函数，该概率计算方式如式<a href="mixedalgorithm.html#eq:sbBAS">(3.12)</a>所示。</p>
-<span class="math display" id="eq:sbBAS">\[\begin{equation}
+<p><span class="math display" id="eq:sbBAS">\[\begin{equation}
 S(V_i) = \frac{1}{1+e^{-V_i}}
 \tag{3.12}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 </div>
 <div id="-1" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> 总结</h3>
@@ -475,7 +505,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

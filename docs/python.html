@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-09-19">
+<meta name="date" content="2018-10-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,41 +51,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css\style.css" type="text/css" />
@@ -127,7 +155,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
 <li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
-<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
@@ -217,6 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>10</b> 已发表工作</a><ul>
 <li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
 <li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
+<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
 <li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
@@ -254,19 +283,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="section-8.1" class="section level2">
 <h2><span class="header-section-number">8.1</span> 安装方式</h2>
 <p>在线安装</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>whhxp<span class="op">/</span>Platypus.git</code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb82-1" data-line-number="1">pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>whhxp<span class="op">/</span>Platypus.git</a></code></pre></div>
 <p>还可以本地安装。</p>
 <p>利用git 将项目克隆到本地，然后目录改为文件目录后，进行安装。</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">git clone https:<span class="op">//</span>github.com<span class="op">/</span>whhxp<span class="op">/</span>Platypus.git
-cd Platypus
-python setup.py install</code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb83-1" data-line-number="1">git clone https:<span class="op">//</span>github.com<span class="op">/</span>whhxp<span class="op">/</span>Platypus.git</a>
+<a class="sourceLine" id="cb83-2" data-line-number="2">cd Platypus</a>
+<a class="sourceLine" id="cb83-3" data-line-number="3">python setup.py install</a></code></pre></div>
 </div>
 <div id="section-8.2" class="section level2">
 <h2><span class="header-section-number">8.2</span> 使用</h2>
 <p>Platypus是一个多目标优化库。这里我们将通过一个例子来简单介绍如何在Platypus中使用BAS。首先我们需要导入需要使用的函数</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> platypus <span class="im">import</span> Problem, Real
-<span class="im">from</span> platypus.algorithms.bas <span class="im">import</span> BAS
-<span class="im">from</span> math <span class="im">import</span> sin, pi, cos, exp, sqrt</code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="im">from</span> platypus <span class="im">import</span> Problem, Real</a>
+<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="im">from</span> platypus.algorithms.bas <span class="im">import</span> BAS</a>
+<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="im">from</span> math <span class="im">import</span> sin, pi, cos, exp, sqrt</a></code></pre></div>
 <p>下一步，我们需要创建问题，这里我找了三个问题作为例子。</p>
 <p>第一个问题是Goldstein and Price problem。</p>
 <div class="figure" style="text-align: center"><span id="fig:python1"></span>
@@ -275,31 +304,31 @@ python setup.py install</code></pre></div>
 图 8.1: Goldstein-Price problem
 </p>
 </div>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
 \begin{split}
 f({x})=&amp; [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
 &amp; +6x_1x_2+3x_2^2)][30+(2x_1-3X_2)^2(18-32x_1\notag  \\
 &amp; +12x_1^2+48x_2-36x_1x_2+27x_2^2)]\notag
 \end{split}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>这个函数通常在正方形区间 <span class="math inline">\(x_i \in[-2,2]\)</span>中进行评估，其中<span class="math inline">\(i = 1,2\)</span>. 全局最小值在<span class="math inline">\(x^*=(0,-1)\)</span>处，为<span class="math inline">\(f(x^*)=3\)</span>。</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> gold(Problem):
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
-        <span class="bu">super</span>(gold, <span class="va">self</span>).<span class="fu">__init__</span>(nvars<span class="op">=</span><span class="dv">2</span>, nobjs<span class="op">=</span><span class="dv">1</span>)
-        <span class="va">self</span>.types[:] <span class="op">=</span> [Real(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>), Real(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>)]
-
-    <span class="kw">def</span> evaluate(<span class="va">self</span>, solution):
-        <span class="bu">vars</span> <span class="op">=</span> solution.variables[:]
-        x1 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">0</span>]
-        x2 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">1</span>]
-        fact1a <span class="op">=</span> (x1 <span class="op">+</span> x2 <span class="op">+</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">2</span>
-        fact1b <span class="op">=</span> <span class="dv">19</span> <span class="op">-</span> <span class="dv">14</span> <span class="op">*</span> x1 <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> x1 <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">14</span> <span class="op">*</span> x2 <span class="op">+</span> <span class="dv">6</span> <span class="op">*</span> x1 <span class="op">*</span> x2 <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> x2 <span class="op">**</span> <span class="dv">2</span>
-        fact1 <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> fact1a <span class="op">*</span> fact1b
-
-        fact2a <span class="op">=</span> (<span class="dv">2</span> <span class="op">*</span> x1 <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> x2) <span class="op">**</span> <span class="dv">2</span>
-        fact2b <span class="op">=</span> <span class="dv">18</span> <span class="op">-</span> <span class="dv">32</span> <span class="op">*</span> x1 <span class="op">+</span> <span class="dv">12</span> <span class="op">*</span> x1 <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">48</span> <span class="op">*</span> x2 <span class="op">-</span> <span class="dv">36</span> <span class="op">*</span> x1 <span class="op">*</span> x2 <span class="op">+</span> <span class="dv">27</span> <span class="op">*</span> x2 <span class="op">**</span> <span class="dv">2</span>
-        fact2 <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> fact2a <span class="op">*</span> fact2b
-        solution.objectives[:] <span class="op">=</span> [fact1 <span class="op">*</span> fact2]</code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">class</span> gold(Problem):</a>
+<a class="sourceLine" id="cb85-2" data-line-number="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb85-3" data-line-number="3">        <span class="bu">super</span>(gold, <span class="va">self</span>).<span class="fu">__init__</span>(nvars<span class="op">=</span><span class="dv">2</span>, nobjs<span class="op">=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb85-4" data-line-number="4">        <span class="va">self</span>.types[:] <span class="op">=</span> [Real(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>), Real(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>)]</a>
+<a class="sourceLine" id="cb85-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb85-6" data-line-number="6">    <span class="kw">def</span> evaluate(<span class="va">self</span>, solution):</a>
+<a class="sourceLine" id="cb85-7" data-line-number="7">        <span class="bu">vars</span> <span class="op">=</span> solution.variables[:]</a>
+<a class="sourceLine" id="cb85-8" data-line-number="8">        x1 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb85-9" data-line-number="9">        x2 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb85-10" data-line-number="10">        fact1a <span class="op">=</span> (x1 <span class="op">+</span> x2 <span class="op">+</span> <span class="dv">1</span>) <span class="op">**</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb85-11" data-line-number="11">        fact1b <span class="op">=</span> <span class="dv">19</span> <span class="op">-</span> <span class="dv">14</span> <span class="op">*</span> x1 <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> x1 <span class="op">**</span> <span class="dv">2</span> <span class="op">-</span> <span class="dv">14</span> <span class="op">*</span> x2 <span class="op">+</span> <span class="dv">6</span> <span class="op">*</span> x1 <span class="op">*</span> x2 <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> x2 <span class="op">**</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb85-12" data-line-number="12">        fact1 <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> fact1a <span class="op">*</span> fact1b</a>
+<a class="sourceLine" id="cb85-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb85-14" data-line-number="14">        fact2a <span class="op">=</span> (<span class="dv">2</span> <span class="op">*</span> x1 <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> x2) <span class="op">**</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb85-15" data-line-number="15">        fact2b <span class="op">=</span> <span class="dv">18</span> <span class="op">-</span> <span class="dv">32</span> <span class="op">*</span> x1 <span class="op">+</span> <span class="dv">12</span> <span class="op">*</span> x1 <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">48</span> <span class="op">*</span> x2 <span class="op">-</span> <span class="dv">36</span> <span class="op">*</span> x1 <span class="op">*</span> x2 <span class="op">+</span> <span class="dv">27</span> <span class="op">*</span> x2 <span class="op">**</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb85-16" data-line-number="16">        fact2 <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> fact2a <span class="op">*</span> fact2b</a>
+<a class="sourceLine" id="cb85-17" data-line-number="17">        solution.objectives[:] <span class="op">=</span> [fact1 <span class="op">*</span> fact2]</a></code></pre></div>
 <p>第一个问题是MICHALEWICZ FUNCTION。</p>
 <div class="figure" style="text-align: center"><span id="fig:python2"></span>
 <img src="img/python2.png" alt="MICHALEWICZ FUNCTION" width="70%" />
@@ -309,19 +338,20 @@ f({x})=&amp; [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
 </div>
 <p><span class="math display">\[
 f(x)=-\sum_{i=1}^{d}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{2m}
-\]</span> Michalewicz function 有<span class="math inline">\(d!\)</span>个局部极值，通常在<span class="math inline">\(x_i\in[0,\pi],i=1,\cdots,d\)</span>内进行评价。</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> mich(Problem):
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
-        <span class="bu">super</span>(mich, <span class="va">self</span>).<span class="fu">__init__</span>(nvars<span class="op">=</span><span class="dv">2</span>, nobjs<span class="op">=</span><span class="dv">1</span>)
-        <span class="va">self</span>.types[:] <span class="op">=</span> [Real(<span class="op">-</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">1</span>), Real(<span class="dv">0</span>, <span class="dv">2</span>)]
-
-    <span class="kw">def</span> evaluate(<span class="va">self</span>, solution):
-        <span class="bu">vars</span> <span class="op">=</span> solution.variables[:]
-        x1 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">0</span>]
-        x2 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">1</span>]
-        y1 <span class="op">=</span> <span class="op">-</span>sin(x1) <span class="op">*</span> ((sin((x1 <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> pi)) <span class="op">**</span> <span class="dv">20</span>)
-        y2 <span class="op">=</span> <span class="op">-</span>sin(x2) <span class="op">*</span> ((sin((<span class="dv">2</span> <span class="op">*</span> x2 <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> pi)) <span class="op">**</span> <span class="dv">20</span>)
-        solution.objectives[:] <span class="op">=</span> [y1 <span class="op">+</span> y2]</code></pre></div>
+\]</span>
+Michalewicz function 有<span class="math inline">\(d!\)</span>个局部极值，通常在<span class="math inline">\(x_i\in[0,\pi],i=1,\cdots,d\)</span>内进行评价。</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">class</span> mich(Problem):</a>
+<a class="sourceLine" id="cb86-2" data-line-number="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb86-3" data-line-number="3">        <span class="bu">super</span>(mich, <span class="va">self</span>).<span class="fu">__init__</span>(nvars<span class="op">=</span><span class="dv">2</span>, nobjs<span class="op">=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb86-4" data-line-number="4">        <span class="va">self</span>.types[:] <span class="op">=</span> [Real(<span class="op">-</span><span class="dv">6</span>, <span class="dv">-1</span>), Real(<span class="dv">0</span>, <span class="dv">2</span>)]</a>
+<a class="sourceLine" id="cb86-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb86-6" data-line-number="6">    <span class="kw">def</span> evaluate(<span class="va">self</span>, solution):</a>
+<a class="sourceLine" id="cb86-7" data-line-number="7">        <span class="bu">vars</span> <span class="op">=</span> solution.variables[:]</a>
+<a class="sourceLine" id="cb86-8" data-line-number="8">        x1 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb86-9" data-line-number="9">        x2 <span class="op">=</span> <span class="bu">vars</span>[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb86-10" data-line-number="10">        y1 <span class="op">=</span> <span class="op">-</span>sin(x1) <span class="op">*</span> ((sin((x1 <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> pi)) <span class="op">**</span> <span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb86-11" data-line-number="11">        y2 <span class="op">=</span> <span class="op">-</span>sin(x2) <span class="op">*</span> ((sin((<span class="dv">2</span> <span class="op">*</span> x2 <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> pi)) <span class="op">**</span> <span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb86-12" data-line-number="12">        solution.objectives[:] <span class="op">=</span> [y1 <span class="op">+</span> y2]</a></code></pre></div>
 <p>第三个问题是ACKLEY函数（ACKLEY FUNCTION）。</p>
 <div class="figure" style="text-align: center"><span id="fig:python3"></span>
 <img src="img/python3.png" alt="ACKLEY FUNCTION" width="70%" />
@@ -331,47 +361,49 @@ f(x)=-\sum_{i=1}^{d}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{2m}
 </div>
 <p><span class="math display">\[
 f(x) = -aexp(-b\sqrt{\frac{1}{d}\sum_{i=1}^dx_i^2}-exp(\frac{1}{d}\sum_{i=1}^{d}cos(cx_i))+a+exp(1)
-\]</span> 推荐的测试参数为<span class="math inline">\(a=20,b=0.2,c=2\pi\)</span>, <span class="math inline">\(x_i\in[-32.768,32.768],i=1,\cdots,d\)</span>。 全局最小值为<span class="math inline">\(f(x^*)=0,\quad at\quad x^* = (0,\cdots,0)\)</span></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Ackley(Problem):
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
-        <span class="bu">super</span>(Ackley, <span class="va">self</span>).<span class="fu">__init__</span>(nvars<span class="op">=</span><span class="dv">2</span>, nobjs<span class="op">=</span><span class="dv">1</span>)
-        <span class="va">self</span>.types[:] <span class="op">=</span> [Real(<span class="op">-</span><span class="dv">15</span>, <span class="dv">30</span>), Real(<span class="op">-</span><span class="dv">15</span>, <span class="dv">20</span>)]
-
-    <span class="kw">def</span> evaluate(<span class="va">self</span>, solution):
-        <span class="bu">vars</span> <span class="op">=</span> solution.variables[:]
-        n <span class="op">=</span> <span class="dv">2</span>
-        a <span class="op">=</span> <span class="dv">20</span>
-        b <span class="op">=</span> <span class="fl">0.2</span>
-        c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> pi
-        s1 <span class="op">=</span> <span class="dv">0</span>
-        s2 <span class="op">=</span> <span class="dv">0</span>
-        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):
-            s1 <span class="op">=</span> s1 <span class="op">+</span> <span class="bu">vars</span>[i] <span class="op">**</span> <span class="dv">2</span>
-            s2 <span class="op">=</span> s2 <span class="op">+</span> cos(c <span class="op">*</span> <span class="bu">vars</span>[i])
-        y <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> exp(<span class="op">-</span>b <span class="op">*</span> sqrt(<span class="dv">1</span> <span class="op">/</span> n <span class="op">*</span> s1)) <span class="op">-</span> exp(<span class="dv">1</span> <span class="op">/</span> n <span class="op">*</span> s2) <span class="op">+</span> a <span class="op">+</span> exp(<span class="dv">1</span>)
-        solution.objectives[:] <span class="op">=</span> [y]
-        </code></pre></div>
+\]</span>
+推荐的测试参数为<span class="math inline">\(a=20,b=0.2,c=2\pi\)</span>, <span class="math inline">\(x_i\in[-32.768,32.768],i=1,\cdots,d\)</span>。
+全局最小值为<span class="math inline">\(f(x^*)=0,\quad at\quad x^* = (0,\cdots,0)\)</span></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="kw">class</span> Ackley(Problem):</a>
+<a class="sourceLine" id="cb87-2" data-line-number="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb87-3" data-line-number="3">        <span class="bu">super</span>(Ackley, <span class="va">self</span>).<span class="fu">__init__</span>(nvars<span class="op">=</span><span class="dv">2</span>, nobjs<span class="op">=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb87-4" data-line-number="4">        <span class="va">self</span>.types[:] <span class="op">=</span> [Real(<span class="op">-</span><span class="dv">15</span>, <span class="dv">30</span>), Real(<span class="op">-</span><span class="dv">15</span>, <span class="dv">20</span>)]</a>
+<a class="sourceLine" id="cb87-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb87-6" data-line-number="6">    <span class="kw">def</span> evaluate(<span class="va">self</span>, solution):</a>
+<a class="sourceLine" id="cb87-7" data-line-number="7">        <span class="bu">vars</span> <span class="op">=</span> solution.variables[:]</a>
+<a class="sourceLine" id="cb87-8" data-line-number="8">        n <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb87-9" data-line-number="9">        a <span class="op">=</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb87-10" data-line-number="10">        b <span class="op">=</span> <span class="fl">0.2</span></a>
+<a class="sourceLine" id="cb87-11" data-line-number="11">        c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> pi</a>
+<a class="sourceLine" id="cb87-12" data-line-number="12">        s1 <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb87-13" data-line-number="13">        s2 <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb87-14" data-line-number="14">        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</a>
+<a class="sourceLine" id="cb87-15" data-line-number="15">            s1 <span class="op">=</span> s1 <span class="op">+</span> <span class="bu">vars</span>[i] <span class="op">**</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb87-16" data-line-number="16">            s2 <span class="op">=</span> s2 <span class="op">+</span> cos(c <span class="op">*</span> <span class="bu">vars</span>[i])</a>
+<a class="sourceLine" id="cb87-17" data-line-number="17">        y <span class="op">=</span> <span class="op">-</span>a <span class="op">*</span> exp(<span class="op">-</span>b <span class="op">*</span> sqrt(<span class="dv">1</span> <span class="op">/</span> n <span class="op">*</span> s1)) <span class="op">-</span> exp(<span class="dv">1</span> <span class="op">/</span> n <span class="op">*</span> s2) <span class="op">+</span> a <span class="op">+</span> exp(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb87-18" data-line-number="18">        solution.objectives[:] <span class="op">=</span> [y]</a>
+<a class="sourceLine" id="cb87-19" data-line-number="19">        </a></code></pre></div>
 <p>然后我们将每个问题构成一个单独的实例。</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">problem <span class="op">=</span> gold()
-problem2 <span class="op">=</span> mich()
-problem3 <span class="op">=</span> Ackley()</code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb88-1" data-line-number="1">problem <span class="op">=</span> gold()</a>
+<a class="sourceLine" id="cb88-2" data-line-number="2">problem2 <span class="op">=</span> mich()</a>
+<a class="sourceLine" id="cb88-3" data-line-number="3">problem3 <span class="op">=</span> Ackley()</a></code></pre></div>
 <p>接下来，我们创建BAS算法的实例。BAS算法中需要修改一些参数来获得更好的结果。例如第一个BAS实例中step=1,c=5。完成初始化后，我们可以针对不同的问题迭代不同的次数，例如第三个BAS实例中，算法迭代了300次。最后通过print函数读取最优解。可以直接输出solution这个类，他的输出顺序是:</p>
 <p><strong>Solution[solution.variables|solution.objectives|solution.constraints]</strong></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">algorithm <span class="op">=</span> BAS(problem, step<span class="op">=</span><span class="dv">1</span>, c<span class="op">=</span><span class="dv">5</span>)
-algorithm.run(<span class="dv">100</span>)
-<span class="bu">print</span>(algorithm.best)</code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb89-1" data-line-number="1">algorithm <span class="op">=</span> BAS(problem, step<span class="op">=</span><span class="dv">1</span>, c<span class="op">=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb89-2" data-line-number="2">algorithm.run(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"><span class="bu">print</span>(algorithm.best)</a></code></pre></div>
 <p>结果显示为：</p>
 <pre><code>Solution[-0.0024583254426162517,-1.002363921850713|3.0026888420039026|0]</code></pre>
 <p>当然也可以直接输出目标函数，例如算法实例2。</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">algorithm2 <span class="op">=</span> BAS(problem2, step<span class="op">=</span><span class="dv">5</span>)
-algorithm2.run(<span class="dv">1000</span>)
-<span class="bu">print</span>(algorithm2.best.objectives)</code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb91-1" data-line-number="1">algorithm2 <span class="op">=</span> BAS(problem2, step<span class="op">=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb91-2" data-line-number="2">algorithm2.run(<span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb91-3" data-line-number="3"><span class="bu">print</span>(algorithm2.best.objectives)</a></code></pre></div>
 <p>结果显示为：</p>
 <pre><code>[-1.6524859808670134]</code></pre>
 <p>或者也可以通过格式化的方法获得更好的输出效果</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">algorithm3 <span class="op">=</span> BAS(problem3, step<span class="op">=</span><span class="dv">30</span>, c<span class="op">=</span><span class="fl">0.1</span>)
-algorithm3.run(<span class="dv">300</span>)
-<span class="bu">print</span>(<span class="st">&#39;Variables = </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Objective = </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(algorithm3.best.variables,algorithm3.best.objectives))</code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb93-1" data-line-number="1">algorithm3 <span class="op">=</span> BAS(problem3, step<span class="op">=</span><span class="dv">30</span>, c<span class="op">=</span><span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb93-2" data-line-number="2">algorithm3.run(<span class="dv">300</span>)</a>
+<a class="sourceLine" id="cb93-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&#39;Variables = </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Objective = </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(algorithm3.best.variables,algorithm3.best.objectives))</a></code></pre></div>
 <p>结果显示为:</p>
 <pre><code>Variables = [1.52121543e-06 2.42423873e-06]
 Objective = [8.095169530708546e-06]</code></pre>
@@ -430,7 +462,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
