@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>rBAS使用文档</title>
+  <title>第 9 章 Matlab用户 | rBAS使用文档</title>
   <meta name="description" content="rBAS中文使用说明文档V0.2">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="rBAS使用文档" />
+  <meta property="og:title" content="第 9 章 Matlab用户 | rBAS使用文档 />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="jywang2016/rBAS" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="rBAS使用文档" />
+  <meta name="twitter:title" content="第 9 章 Matlab用户 | rBAS使用文档 />
   
   <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2018-11-29">
+<meta name="date" content="2018-12-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="paper.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -53,7 +54,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -66,13 +67,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -133,9 +132,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-3"><i class="fa fa-check"></i>致谢</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
@@ -158,20 +157,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
-<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
+<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-6"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
+<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-7"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
 <li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.1"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
-<li class="chapter" data-level="3.1.2" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
-<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.3"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
+<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-8"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
+<li class="chapter" data-level="3.1.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bas-1"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
+<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-9"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
 <li class="chapter" data-level="3.1.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#BSOparms"><i class="fa fa-check"></i><b>3.1.4</b> 算法调用说明</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bBASa"><i class="fa fa-check"></i><b>3.2</b> bBAS</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.2.1"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
-<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
+<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-10"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-11"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
@@ -200,24 +199,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>5</b> 用户界面</a><ul>
-<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
-<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
+<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-12"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
+<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-13"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="interface.html"><a href="interface.html#michalewicz-function-2"><i class="fa fa-check"></i><b>5.2.1</b> Michalewicz function</a></li>
 <li class="chapter" data-level="5.2.2" data-path="interface.html"><a href="interface.html#pressure-vessel-function-1"><i class="fa fa-check"></i><b>5.2.2</b> Pressure Vessel function</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="interface.html"><a href="interface.html#authors"><i class="fa fa-check"></i><b>5.3</b> Authors界面</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> BAS案例一:多杆机构优化问题</a><ul>
-<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
+<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-14"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="examples.html"><a href="examples.html#bars4"><i class="fa fa-check"></i><b>6.1.1</b> 四连杆机构(Four-bar linkage mechanism)</a></li>
 <li class="chapter" data-level="6.1.2" data-path="examples.html"><a href="examples.html#bars6"><i class="fa fa-check"></i><b>6.1.2</b> 六连杆机构(Stephenson III Six-bar linkage mechanism)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
+<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-15"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="examples.html"><a href="examples.html#bars4optim"><i class="fa fa-check"></i><b>6.2.1</b> 四连杆机构</a></li>
 <li class="chapter" data-level="6.2.2" data-path="examples.html"><a href="examples.html#bars6optim"><i class="fa fa-check"></i><b>6.2.2</b> 六连杆机构</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
-<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-6.4"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
+<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-16"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
+<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-17"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="examples.html"><a href="examples.html#case1-path-generation-without-prescribed-timing"><i class="fa fa-check"></i><b>6.4.1</b> Case1 无规定时间内轨迹生成(Path generation without prescribed timing)</a></li>
 <li class="chapter" data-level="6.4.2" data-path="examples.html"><a href="examples.html#case2-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.2</b> Case2 有规定时间的轨迹生成(with prescribed timing)</a></li>
 <li class="chapter" data-level="6.4.3" data-path="examples.html"><a href="examples.html#case3-path-generation-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.3</b> Case3 规定时间内路径生成（Path generation with prescribed timing）</a></li>
@@ -229,30 +228,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
-<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
-<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
-<li class="chapter" data-level="7.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
-<li class="chapter" data-level="7.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
+<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-18"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
+<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-19"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="7.3" data-path="examples2.html"><a href="examples2.html#section-20"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="examples2.html"><a href="examples2.html#section-21"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>8</b> Python接口</a><ul>
-<li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
-<li class="chapter" data-level="8.2" data-path="python.html"><a href="python.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 使用</a></li>
+<li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-22"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
+<li class="chapter" data-level="8.2" data-path="python.html"><a href="python.html#section-23"><i class="fa fa-check"></i><b>8.2</b> 使用</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>9</b> Matlab用户</a><ul>
 <li class="chapter" data-level="9.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>9.1</b> 使用R.matlab包</a></li>
 <li class="chapter" data-level="9.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>9.2</b> 中转站：C/C++</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>10</b> 已发表工作</a><ul>
-<li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
-<li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
-<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
+<li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-24"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
+<li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-25"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
+<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-26"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
-<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
-<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-11.2"><i class="fa fa-check"></i><b>11.2</b> 联系方式</a></li>
+<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-27"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-28"><i class="fa fa-check"></i><b>11.2</b> 联系方式</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
-<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li class="chapter" data-level="" data-path="section-29.html"><a href="section-29.html"><i class="fa fa-check"></i>结语</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
@@ -288,82 +287,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.1</span> 使用R.matlab包</h2>
 <p>这一节更类似于娱乐和探索。因为该方法用于优化求解的速度，真的让人难以接受（也有可能是我没有找对方法）。如果无意于此，可以跳过。</p>
 <p>首先，可以按照下面的代码从CRAN安装该包。</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;R.matlab&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;R.matlab&#39;</span>)</code></pre>
 <p>当然，也可以利用<code>devtools</code>从github上按照该包。</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;HenrikBengtsson/R.matlab&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;HenrikBengtsson/R.matlab&#39;</span>)</code></pre>
 <p>接下来，按照<a href="https://cran.r-project.org/web/packages/R.matlab/R.matlab.pdf">包的文档</a>进行操作。</p>
 <p>首先，加载包。</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&#39;R.matlab&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;R.matlab&#39;</span>)</code></pre>
 <p>在R中打开<code>matlab server</code>。</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">Matlab<span class="op">$</span><span class="kw">startServer</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Matlab<span class="op">$</span><span class="kw">startServer</span>()</code></pre>
 <p>效果就是可以看到matlab窗口以最小化的形式出现，不过里面没有视图，大家可以不必理会。后续操作均在R中完成。</p>
 <p>其次创建matlab对象，用于与Matlab通讯。</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">matlab &lt;-<span class="st"> </span><span class="kw">Matlab</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">matlab &lt;-<span class="st"> </span><span class="kw">Matlab</span>()</code></pre>
 <p>然后，把要优化的函数（<strong>使用matlab定义</strong>），写入R。</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">setFunction</span>(matlab, <span class="st">&quot; \</span></a>
-<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="st">  function z=test(x) \</span></a>
-<a class="sourceLine" id="cb100-3" data-line-number="3"><span class="st">            %test function \</span></a>
-<a class="sourceLine" id="cb100-4" data-line-number="4"><span class="st">            z = 100 *(x(2) - x(1).^2).^2+(x(1)-1).^2;\</span></a>
-<a class="sourceLine" id="cb100-5" data-line-number="5"><span class="st">            &quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setFunction</span>(matlab, <span class="st">&quot; \</span>
+<span class="st">  function z=test(x) \</span>
+<span class="st">            %test function \</span>
+<span class="st">            z = 100 *(x(2) - x(1).^2).^2+(x(1)-1).^2;\</span>
+<span class="st">            &quot;</span>)</code></pre>
 <p>这段代码，在matlab的本地服务器创建了一个M函数，如下所示。注意用<code>\</code>号的使用。</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb101-1" data-line-number="1">function z =test(x,y)</a>
-<a class="sourceLine" id="cb101-2" data-line-number="2">  <span class="co">%test function</span></a>
-<a class="sourceLine" id="cb101-3" data-line-number="3">  z=<span class="fl">100</span>*(y-x.^<span class="fl">2</span>).^<span class="fl">2</span>+(x-<span class="fl">1</span>).^<span class="fl">2</span>;</a></code></pre></div>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">function z =test(x,y)
+  <span class="co">%test function</span>
+  z=<span class="fl">100</span>*(y-x.^<span class="fl">2</span>).^<span class="fl">2</span>+(x-<span class="fl">1</span>).^<span class="fl">2</span>;</code></pre>
 <p>接下来我们创建目标函数。</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1">func_MR &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb102-2" data-line-number="2">  <span class="kw">setVariable</span>(matlab,<span class="dt">x =</span> x) <span class="co"># 把R里面的x，赋值到matlab里面的x变量</span></a>
-<a class="sourceLine" id="cb102-3" data-line-number="3">  <span class="kw">evaluate</span>(matlab,<span class="st">&#39;z = test(x)&#39;</span>) <span class="co"># 在matlab里面执行 z = test(x) 命令</span></a>
-<a class="sourceLine" id="cb102-4" data-line-number="4">  res &lt;-<span class="st"> </span><span class="kw">getVariable</span>(matlab,<span class="kw">c</span>(<span class="st">&#39;z&#39;</span>)) <span class="co"># 从matlab里面读取 z 变量</span></a>
-<a class="sourceLine" id="cb102-5" data-line-number="5">  <span class="kw">return</span>(res<span class="op">$</span>z) <span class="co">#返回z值</span></a>
-<a class="sourceLine" id="cb102-6" data-line-number="6">}</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">func_MR &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="kw">setVariable</span>(matlab,<span class="dt">x =</span> x) <span class="co"># 把R里面的x，赋值到matlab里面的x变量</span>
+  <span class="kw">evaluate</span>(matlab,<span class="st">&#39;z = test(x)&#39;</span>) <span class="co"># 在matlab里面执行 z = test(x) 命令</span>
+  res &lt;-<span class="st"> </span><span class="kw">getVariable</span>(matlab,<span class="kw">c</span>(<span class="st">&#39;z&#39;</span>)) <span class="co"># 从matlab里面读取 z 变量</span>
+  <span class="kw">return</span>(res<span class="op">$</span>z) <span class="co">#返回z值</span>
+}</code></pre>
 <p>这段代码块思路是，既然利用的是rBAS包，那么每次更新，都利用上一回合R计算的值，传递到matlab里面。然后，在matlab里面执行用户定义的函数。最后再用R把matlab里面算出来的变量值读取出来。</p>
 <p>这就是我们新的优化函数，虽然绕一点，但是是容易想到和理解的办法。接下来就是使用rBAS包来优化这个目标函数了。</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">system.time</span>({</a>
-<a class="sourceLine" id="cb103-2" data-line-number="2">  fit&lt;-</a>
-<a class="sourceLine" id="cb103-3" data-line-number="3"><span class="st">    </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> func_MR,</a>
-<a class="sourceLine" id="cb103-4" data-line-number="4">             <span class="dt">init =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb103-5" data-line-number="5">             <span class="dt">s =</span> <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb103-6" data-line-number="6">             <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="op">-</span><span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb103-7" data-line-number="7">             <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb103-8" data-line-number="8">             <span class="dt">n =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb103-9" data-line-number="9">             <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb103-10" data-line-number="10">             <span class="dt">w_vs =</span> <span class="fl">0.4</span>, </a>
-<a class="sourceLine" id="cb103-11" data-line-number="11">             <span class="dt">step =</span> <span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb103-12" data-line-number="12">             <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb103-13" data-line-number="13">             <span class="dt">c =</span> <span class="dv">8</span>,</a>
-<a class="sourceLine" id="cb103-14" data-line-number="14">             <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),</a>
-<a class="sourceLine" id="cb103-15" data-line-number="15">             <span class="dt">trace =</span> T,<span class="dt">seed =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb103-16" data-line-number="16">}) </a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>({
+  fit&lt;-
+<span class="st">    </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> func_MR,
+             <span class="dt">init =</span> <span class="ot">NULL</span>,
+             <span class="dt">s =</span> <span class="dv">2</span>,
+             <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="op">-</span><span class="dv">50</span>),
+             <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),
+             <span class="dt">n =</span> <span class="dv">1</span>,
+             <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+             <span class="dt">w_vs =</span> <span class="fl">0.4</span>, 
+             <span class="dt">step =</span> <span class="dv">10</span>,
+             <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+             <span class="dt">c =</span> <span class="dv">8</span>,
+             <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),
+             <span class="dt">trace =</span> T,<span class="dt">seed =</span> <span class="dv">1</span>)
+}) </code></pre>
 <p>我们使用了一段<code>BSO</code>算法的优化代码，但是，粒子数目设置为2，回合数只设置为1。结果，这么简单的计算，要花费<strong>13s</strong>。两个软件来回通讯占用了大量的时间，我相信，应该不会有用户愿意等待这么长久的时间。这个完整的优化过程，之后会有纯R代码，求解过程不到0.1s的时间。</p>
 <p>最后呢，需要使用下面的代码关闭matlab服务器。</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">close</span>(matlab)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">close</span>(matlab)</code></pre>
 <p>R代码使用<code>BSO</code>解这个优化问题是这样的效果。</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">library</span>(rBAS)</a>
-<a class="sourceLine" id="cb105-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb105-3" data-line-number="3">test &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb105-4" data-line-number="4">  z &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>(x[<span class="dv">2</span>]<span class="op">-</span>x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(x[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb105-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb105-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb105-7" data-line-number="7"><span class="kw">system.time</span>({</a>
-<a class="sourceLine" id="cb105-8" data-line-number="8">  fit&lt;-</a>
-<a class="sourceLine" id="cb105-9" data-line-number="9"><span class="st">    </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> test,</a>
-<a class="sourceLine" id="cb105-10" data-line-number="10">             <span class="dt">init =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb105-11" data-line-number="11">             <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="op">-</span><span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb105-12" data-line-number="12">             <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb105-13" data-line-number="13">             <span class="dt">n =</span> <span class="dv">300</span>,</a>
-<a class="sourceLine" id="cb105-14" data-line-number="14">             <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb105-15" data-line-number="15">             <span class="dt">w_vs =</span> <span class="fl">0.4</span>, </a>
-<a class="sourceLine" id="cb105-16" data-line-number="16">             <span class="dt">step =</span> <span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb105-17" data-line-number="17">             <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb105-18" data-line-number="18">             <span class="dt">c =</span> <span class="dv">8</span>,</a>
-<a class="sourceLine" id="cb105-19" data-line-number="19">             <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),</a>
-<a class="sourceLine" id="cb105-20" data-line-number="20">             <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb105-21" data-line-number="21">})</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rBAS)
+
+test &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  z &lt;-<span class="st"> </span><span class="dv">100</span><span class="op">*</span>(x[<span class="dv">2</span>]<span class="op">-</span>x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(x[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span>
+}
+
+<span class="kw">system.time</span>({
+  fit&lt;-
+<span class="st">    </span><span class="kw">BSOoptim</span>(<span class="dt">fn =</span> test,
+             <span class="dt">init =</span> <span class="ot">NULL</span>,
+             <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="op">-</span><span class="dv">50</span>),
+             <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),
+             <span class="dt">n =</span> <span class="dv">300</span>,
+             <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+             <span class="dt">w_vs =</span> <span class="fl">0.4</span>, 
+             <span class="dt">step =</span> <span class="dv">10</span>,
+             <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+             <span class="dt">c =</span> <span class="dv">8</span>,
+             <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),
+             <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>)
+})</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.08    0.00    0.08</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">fit<span class="op">$</span>par</a></code></pre></div>
+##    0.08    0.02    0.10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">fit<span class="op">$</span>par</code></pre>
 <pre><code>## [1] 1 1</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">fit<span class="op">$</span>value</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">fit<span class="op">$</span>value</code></pre>
 <pre><code>## [1] 0</code></pre>
 <p>时间短，而且能求出理论的最小值。这也反映了第二个方法过于低效的问题，我们看看借助第三方语言能否行得通。</p>
 </div>
@@ -371,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> 中转站：C/C++</h2>
 <p>matlab的<code>matlab Coder</code>可以让用户把自己的代码变成C或者C++，前提是，需要有编译器。不过，如果你使用过R，那么一般都会安装<a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a>，这就意味着你安装了MinGw。下面的过程需要用到Rtools，还请大家自行下载安装。</p>
 <p>打开matlab，输入下面的指令：</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb111-1" data-line-number="1">mex -steup</a></code></pre></div>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">mex -steup</code></pre>
 <p>如果电脑中只安装过Rtools，而没有VS之类的编译器，一般会显示图<a href="matlabr.html#fig:mex">9.1</a>的界面。</p>
 <div class="figure" style="text-align: center"><span id="fig:mex"></span>
 <img src="img/mex.png" alt="mex -setup" width="95%" />
@@ -382,13 +381,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>第一句报错，是因为我并没有把Rtools中的mingw_64文件夹加入环境变量。因此，在执行第二句之后，再执行<code>mex -setup</code>就不会报错。</p>
 <p>好了，加入你成功了，那么抛开前面所有的知识不看。现在说Coder工具箱。</p>
 <p>假设你的路径下有2个M文件，一个是我们之前所说的测试函数<code>test.m</code>，还有一个是我们所说的，用来测试<code>test</code>函数的文件<code>test_main.m</code>文件。它们的代码如下。</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="co">% -------------test.m----------------%</span></a>
-<a class="sourceLine" id="cb112-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb112-3" data-line-number="3">function z = test(x)</a>
-<a class="sourceLine" id="cb112-4" data-line-number="4">z = <span class="fl">100</span> *(x(<span class="fl">2</span>) - x(<span class="fl">1</span>).^<span class="fl">2</span>).^<span class="fl">2</span>+(x(<span class="fl">1</span>)-<span class="fl">1</span>).^<span class="fl">2</span>;</a></code></pre></div>
-<div class="sourceCode" id="cb113"><pre class="sourceCode matlab"><code class="sourceCode matlab"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="co">% -------------test_main.m----------------%</span></a>
-<a class="sourceLine" id="cb113-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb113-3" data-line-number="3">z = test([<span class="fl">1</span> <span class="fl">1</span>]);</a></code></pre></div>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% -------------test.m----------------%</span>
+
+function z = test(x)
+z = <span class="fl">100</span> *(x(<span class="fl">2</span>) - x(<span class="fl">1</span>).^<span class="fl">2</span>).^<span class="fl">2</span>+(x(<span class="fl">1</span>)-<span class="fl">1</span>).^<span class="fl">2</span>;</code></pre>
+<pre class="sourceCode matlab"><code class="sourceCode matlab"><span class="co">% -------------test_main.m----------------%</span>
+
+z = test([<span class="fl">1</span> <span class="fl">1</span>]);</code></pre>
 <p>接下来我们点击Matlab菜单栏上的APP，在里面找到Matlab Coder工具箱打开，如图<a href="matlabr.html#fig:coder1">9.2</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:coder1"></span>
 <img src="img/coder1.png" alt="Matlab Coder" width="95%" />
@@ -441,28 +440,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>那现在问题来了，如果我们有了C代码，如何在R语言中用了。</p>
 <p>由于matlab生成的代码很多库都是matlab依赖的（我这么认为，不一定正确），所以我们需要简单地调整一下，把代码变得简洁。</p>
 <p>原始的代码是这样的。</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb114-1" data-line-number="1"><span class="co">/* Include Files */</span></a>
-<a class="sourceLine" id="cb114-2" data-line-number="2"><span class="pp">#include </span><span class="im">&quot;rt_nonfinite.h&quot;</span></a>
-<a class="sourceLine" id="cb114-3" data-line-number="3"><span class="pp">#include </span><span class="im">&quot;test.h&quot;</span></a>
-<a class="sourceLine" id="cb114-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb114-5" data-line-number="5"><span class="co">/* Function Definitions */</span></a>
-<a class="sourceLine" id="cb114-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb114-7" data-line-number="7"><span class="co">/*</span></a>
-<a class="sourceLine" id="cb114-8" data-line-number="8"><span class="co"> * Arguments    : const double x[2]</span></a>
-<a class="sourceLine" id="cb114-9" data-line-number="9"><span class="co"> * Return Type  : double</span></a>
-<a class="sourceLine" id="cb114-10" data-line-number="10"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb114-11" data-line-number="11"><span class="dt">double</span> test(<span class="dt">const</span> <span class="dt">double</span> x[<span class="dv">2</span>])</a>
-<a class="sourceLine" id="cb114-12" data-line-number="12">{</a>
-<a class="sourceLine" id="cb114-13" data-line-number="13">  <span class="dt">double</span> a;</a>
-<a class="sourceLine" id="cb114-14" data-line-number="14">  a = x[<span class="dv">1</span>] - x[<span class="dv">0</span>] * x[<span class="dv">0</span>];</a>
-<a class="sourceLine" id="cb114-15" data-line-number="15">  <span class="cf">return</span> <span class="fl">100.0</span> * (a * a) + (x[<span class="dv">0</span>] - <span class="fl">1.0</span>) * (x[<span class="dv">0</span>] - <span class="fl">1.0</span>);</a>
-<a class="sourceLine" id="cb114-16" data-line-number="16">}</a>
-<a class="sourceLine" id="cb114-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb114-18" data-line-number="18"><span class="co">/*</span></a>
-<a class="sourceLine" id="cb114-19" data-line-number="19"><span class="co"> * File trailer for test.c</span></a>
-<a class="sourceLine" id="cb114-20" data-line-number="20"><span class="co"> *</span></a>
-<a class="sourceLine" id="cb114-21" data-line-number="21"><span class="co"> * [EOF]</span></a>
-<a class="sourceLine" id="cb114-22" data-line-number="22"><span class="co"> */</span></a></code></pre></div>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="co">/* Include Files */</span>
+<span class="pp">#include </span><span class="im">&quot;rt_nonfinite.h&quot;</span>
+<span class="pp">#include </span><span class="im">&quot;test.h&quot;</span>
+
+<span class="co">/* Function Definitions */</span>
+
+<span class="co">/*</span>
+<span class="co"> * Arguments    : const double x[2]</span>
+<span class="co"> * Return Type  : double</span>
+<span class="co"> */</span>
+<span class="dt">double</span> test(<span class="dt">const</span> <span class="dt">double</span> x[<span class="dv">2</span>])
+{
+  <span class="dt">double</span> a;
+  a = x[<span class="dv">1</span>] - x[<span class="dv">0</span>] * x[<span class="dv">0</span>];
+  <span class="cf">return</span> <span class="fl">100.0</span> * (a * a) + (x[<span class="dv">0</span>] - <span class="fl">1.0</span>) * (x[<span class="dv">0</span>] - <span class="fl">1.0</span>);
+}
+
+<span class="co">/*</span>
+<span class="co"> * File trailer for test.c</span>
+<span class="co"> *</span>
+<span class="co"> * [EOF]</span>
+<span class="co"> */</span></code></pre>
 <p>我们进行<strong>微调</strong>（大家肯定是能理解并模仿的），变成R可以正确编译的。注意，由于Rcpp能让R和C++无缝贴合的强大功能，我把代码调整为了C++。后面的<code>Michalewicz function</code>，<code>Pressure Vessel function</code>均是用C++所写。</p>
 <pre class="rcpp"><code>#include &lt;Rcpp.h&gt;
 using namespace Rcpp;
@@ -473,30 +472,30 @@ double test(NumericVector x) {
   return 100.0 * (a*a) + (x[0] - 1.0) * (x[0] - 1.0);
 }</code></pre>
 <p>把这段代码保存成<code>Rcpptest.cpp</code>文件，然后在R里面执行代码：</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="kw">library</span>(Rcpp) <span class="co">#加载Rcpp包</span></a>
-<a class="sourceLine" id="cb116-2" data-line-number="2"><span class="kw">sourceCpp</span>(<span class="st">&#39;你的Rcpptest.cpp文件路径&#39;</span>) <span class="co">#编译之前保存的cpp文件</span></a></code></pre></div>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="co">#执行BSO优化算法函数</span></a>
-<a class="sourceLine" id="cb117-2" data-line-number="2"><span class="kw">system.time</span>({</a>
-<a class="sourceLine" id="cb117-3" data-line-number="3">  fit&lt;-<span class="kw">BSOoptim</span>(<span class="dt">fn =</span> test, <span class="co">#调用了编译的C++中的test函数</span></a>
-<a class="sourceLine" id="cb117-4" data-line-number="4">                <span class="dt">init =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb117-5" data-line-number="5">                <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="op">-</span><span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb117-6" data-line-number="6">                <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),</a>
-<a class="sourceLine" id="cb117-7" data-line-number="7">                <span class="dt">n =</span> <span class="dv">300</span>,</a>
-<a class="sourceLine" id="cb117-8" data-line-number="8">                <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb117-9" data-line-number="9">                <span class="dt">w_vs =</span> <span class="fl">0.4</span>, </a>
-<a class="sourceLine" id="cb117-10" data-line-number="10">                <span class="dt">step =</span> <span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb117-11" data-line-number="11">                <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb117-12" data-line-number="12">                <span class="dt">c =</span> <span class="dv">8</span>,</a>
-<a class="sourceLine" id="cb117-13" data-line-number="13">                <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),</a>
-<a class="sourceLine" id="cb117-14" data-line-number="14">                <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb117-15" data-line-number="15">})</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Rcpp) <span class="co">#加载Rcpp包</span>
+<span class="kw">sourceCpp</span>(<span class="st">&#39;你的Rcpptest.cpp文件路径&#39;</span>) <span class="co">#编译之前保存的cpp文件</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#执行BSO优化算法函数</span>
+<span class="kw">system.time</span>({
+  fit&lt;-<span class="kw">BSOoptim</span>(<span class="dt">fn =</span> test, <span class="co">#调用了编译的C++中的test函数</span>
+                <span class="dt">init =</span> <span class="ot">NULL</span>,
+                <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">50</span>,<span class="op">-</span><span class="dv">50</span>),
+                <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">50</span>),
+                <span class="dt">n =</span> <span class="dv">300</span>,
+                <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+                <span class="dt">w_vs =</span> <span class="fl">0.4</span>, 
+                <span class="dt">step =</span> <span class="dv">10</span>,
+                <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+                <span class="dt">c =</span> <span class="dv">8</span>,
+                <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),
+                <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>)
+})</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.10    0.00    0.09</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="co">#查看优化参数</span></a>
-<a class="sourceLine" id="cb119-2" data-line-number="2">fit<span class="op">$</span>par</a></code></pre></div>
+##    0.09    0.00    0.10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化参数</span>
+fit<span class="op">$</span>par</code></pre>
 <pre><code>## [1] 1 1</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="co">#查看优化结果</span></a>
-<a class="sourceLine" id="cb121-2" data-line-number="2">fit<span class="op">$</span>value</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化结果</span>
+fit<span class="op">$</span>value</code></pre>
 <pre><code>## [1] 0</code></pre>
 <p>执行速度很快，大家可能会有疑问，为啥看起来比纯R代码执行的时间还要长一点。这是因为你多次执行，耗时和电脑所处的状态有关系，这点误差是正常的。但是，如果是计算量较大的代码，利<strong>用Rcpp会比R要节省大量的时间</strong>。</p>
 <p>接下来我们看看另外两个例子，也就是<code>Michalewicz function</code>和<code>Pressure Vessel function</code>函数的优化问题。</p>
@@ -514,21 +513,21 @@ double michcpp(NumericVector x) {
 }
 </code></pre>
 <p>和matlab或者R代码比起来，也是十分易懂的。</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">library</span>(Rcpp) <span class="co">#加载Rcpp包</span></a>
-<a class="sourceLine" id="cb124-2" data-line-number="2"><span class="kw">sourceCpp</span>(<span class="st">&#39;你的Rcppmich.cpp文件路径&#39;</span>) <span class="co">#编译之前保存的cpp文件</span></a></code></pre></div>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="co">#执行BAS优化算法函数</span></a>
-<a class="sourceLine" id="cb125-2" data-line-number="2"><span class="kw">system.time</span>({</a>
-<a class="sourceLine" id="cb125-3" data-line-number="3">  fit&lt;-<span class="kw">BASoptim</span>(<span class="dt">fn =</span> michcpp, <span class="co">#利用了C++中的michcpp函数</span></a>
-<a class="sourceLine" id="cb125-4" data-line-number="4">                <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb125-5" data-line-number="5">                <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb125-6" data-line-number="6">})</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Rcpp) <span class="co">#加载Rcpp包</span>
+<span class="kw">sourceCpp</span>(<span class="st">&#39;你的Rcppmich.cpp文件路径&#39;</span>) <span class="co">#编译之前保存的cpp文件</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#执行BAS优化算法函数</span>
+<span class="kw">system.time</span>({
+  fit&lt;-<span class="kw">BASoptim</span>(<span class="dt">fn =</span> michcpp, <span class="co">#利用了C++中的michcpp函数</span>
+                <span class="dt">lower =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">6</span>,<span class="dv">0</span>), <span class="dt">upper =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>),
+                <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
+})</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.02    0.00    0.01</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="co">#查看优化参数</span></a>
-<a class="sourceLine" id="cb127-2" data-line-number="2">fit<span class="op">$</span>par</a></code></pre></div>
+##       0       0       0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化参数</span>
+fit<span class="op">$</span>par</code></pre>
 <pre><code>## [1] -4.964687  1.575415</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="co">#查看优化结果</span></a>
-<a class="sourceLine" id="cb129-2" data-line-number="2">fit<span class="op">$</span>value</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化结果</span>
+fit<span class="op">$</span>value</code></pre>
 <pre><code>## [1] -1.966817</code></pre>
 <p>对于<code>Pressure Vessel function</code>，保存为<code>RcppPV.cpp</code>文件，代码如下：</p>
 <pre class="rcpp"><code>#include &lt;Rcpp.h&gt;
@@ -562,55 +561,55 @@ NumericVector PVcon(NumericVector x) {
 }
 </code></pre>
 <p>其中，<code>PVobj</code>是目标函数，<code>PVcon</code>是约束函数。</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">library</span>(Rcpp) <span class="co">#加载Rcpp包</span></a>
-<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">sourceCpp</span>(<span class="st">&#39;你的RcppPV.cpp文件路径&#39;</span>) <span class="co">#编译之前保存的cpp文件</span></a></code></pre></div>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="co">#执行BSO优化算法函数</span></a>
-<a class="sourceLine" id="cb133-2" data-line-number="2"><span class="kw">system.time</span>({</a>
-<a class="sourceLine" id="cb133-3" data-line-number="3">  fit&lt;-<span class="kw">BSOoptim</span>(<span class="dt">fn =</span> PVobj, <span class="co">#C++中的PVobj函数</span></a>
-<a class="sourceLine" id="cb133-4" data-line-number="4">         <span class="dt">init =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb133-5" data-line-number="5">         <span class="dt">constr =</span> PVcon, <span class="co">#C++中的PVcon函数</span></a>
-<a class="sourceLine" id="cb133-6" data-line-number="6">         <span class="dt">lower =</span> <span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb133-7" data-line-number="7">         <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),</a>
-<a class="sourceLine" id="cb133-8" data-line-number="8">         <span class="dt">n =</span> <span class="dv">1000</span>,</a>
-<a class="sourceLine" id="cb133-9" data-line-number="9">         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb133-10" data-line-number="10">         <span class="dt">w_vs =</span> <span class="fl">0.9</span>,</a>
-<a class="sourceLine" id="cb133-11" data-line-number="11">         <span class="dt">step =</span> <span class="dv">100</span>,</a>
-<a class="sourceLine" id="cb133-12" data-line-number="12">         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),</a>
-<a class="sourceLine" id="cb133-13" data-line-number="13">         <span class="dt">c =</span> <span class="dv">35</span>,</a>
-<a class="sourceLine" id="cb133-14" data-line-number="14">         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),</a>
-<a class="sourceLine" id="cb133-15" data-line-number="15">         <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb133-16" data-line-number="16">         <span class="dt">pen =</span> <span class="fl">1e6</span>)</a>
-<a class="sourceLine" id="cb133-17" data-line-number="17">})</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Rcpp) <span class="co">#加载Rcpp包</span>
+<span class="kw">sourceCpp</span>(<span class="st">&#39;你的RcppPV.cpp文件路径&#39;</span>) <span class="co">#编译之前保存的cpp文件</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#执行BSO优化算法函数</span>
+<span class="kw">system.time</span>({
+  fit&lt;-<span class="kw">BSOoptim</span>(<span class="dt">fn =</span> PVobj, <span class="co">#C++中的PVobj函数</span>
+         <span class="dt">init =</span> <span class="ot">NULL</span>,
+         <span class="dt">constr =</span> PVcon, <span class="co">#C++中的PVcon函数</span>
+         <span class="dt">lower =</span> <span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),
+         <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),
+         <span class="dt">n =</span> <span class="dv">1000</span>,
+         <span class="dt">w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+         <span class="dt">w_vs =</span> <span class="fl">0.9</span>,
+         <span class="dt">step =</span> <span class="dv">100</span>,
+         <span class="dt">step_w =</span> <span class="kw">c</span>(<span class="fl">0.9</span>,<span class="fl">0.4</span>),
+         <span class="dt">c =</span> <span class="dv">35</span>,
+         <span class="dt">v =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">5.12</span>,<span class="fl">5.12</span>),
+         <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>,
+         <span class="dt">pen =</span> <span class="fl">1e6</span>)
+})</code></pre>
 <pre><code>##    user  system elapsed 
-##    1.55    0.00    1.54</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="co">#查看优化参数</span></a>
-<a class="sourceLine" id="cb135-2" data-line-number="2">fit<span class="op">$</span>par</a></code></pre></div>
+##    1.58    0.00    1.59</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化参数</span>
+fit<span class="op">$</span>par</code></pre>
 <pre><code>## [1]  13.948846   7.541387  42.098446 176.636570</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="co">#查看优化结果</span></a>
-<a class="sourceLine" id="cb137-2" data-line-number="2">fit<span class="op">$</span>value</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化结果</span>
+fit<span class="op">$</span>value</code></pre>
 <pre><code>## [1] 6059.131</code></pre>
 <p>结果很好，耗时也可以接受。不过，在写<code>BSOoptim</code>函数的时候，我使用了2层的循环来嵌套，因此，<code>BSOoptim</code>函数比rBAS包中其他的函数要慢上一些。后续我打算使用Rcpp把<code>BSOoptim</code>重写一遍，这样对大型的优化问题耗时会更容易接受。</p>
 <p>下面是<code>BSASoptim</code>对该问题的优化结果，同样也是采用C++编译的方式。</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1"><span class="kw">system.time</span>({</a>
-<a class="sourceLine" id="cb139-2" data-line-number="2">  result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> PVobj,</a>
-<a class="sourceLine" id="cb139-3" data-line-number="3">                      <span class="dt">k =</span> <span class="dv">5</span>,</a>
-<a class="sourceLine" id="cb139-4" data-line-number="4">                      <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb139-5" data-line-number="5">                      <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),</a>
-<a class="sourceLine" id="cb139-6" data-line-number="6">                      <span class="dt">constr =</span> PVcon,</a>
-<a class="sourceLine" id="cb139-7" data-line-number="7">                      <span class="dt">n =</span> <span class="dv">1000</span>,</a>
-<a class="sourceLine" id="cb139-8" data-line-number="8">                      <span class="dt">step =</span> <span class="dv">100</span>,</a>
-<a class="sourceLine" id="cb139-9" data-line-number="9">                      <span class="dt">d1 =</span> <span class="dv">5</span>,</a>
-<a class="sourceLine" id="cb139-10" data-line-number="10">                      <span class="dt">pen =</span> <span class="fl">1e6</span>,</a>
-<a class="sourceLine" id="cb139-11" data-line-number="11">                      <span class="dt">steptol =</span> <span class="fl">1e-6</span>,</a>
-<a class="sourceLine" id="cb139-12" data-line-number="12">                      <span class="dt">n_flag =</span> <span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb139-13" data-line-number="13">                      <span class="dt">seed =</span> <span class="dv">2</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb139-14" data-line-number="14">})</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>({
+  result &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> PVobj,
+                      <span class="dt">k =</span> <span class="dv">5</span>,
+                      <span class="dt">lower =</span><span class="kw">c</span>( <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>),
+                      <span class="dt">upper =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">200</span>),
+                      <span class="dt">constr =</span> PVcon,
+                      <span class="dt">n =</span> <span class="dv">1000</span>,
+                      <span class="dt">step =</span> <span class="dv">100</span>,
+                      <span class="dt">d1 =</span> <span class="dv">5</span>,
+                      <span class="dt">pen =</span> <span class="fl">1e6</span>,
+                      <span class="dt">steptol =</span> <span class="fl">1e-6</span>,
+                      <span class="dt">n_flag =</span> <span class="dv">2</span>,
+                      <span class="dt">seed =</span> <span class="dv">2</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
+})</code></pre>
 <pre><code>## ----step &lt; steptol---------stop the iteration------</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.39    0.00    0.39</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">result<span class="op">$</span>par</a></code></pre></div>
+##    0.40    0.00    0.44</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>par</code></pre>
 <pre><code>## [1]  14.908531   7.652175  43.541638 159.543000</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1">result<span class="op">$</span>value</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre>
 <pre><code>## [1] 6305.57</code></pre>
 
 </div>
@@ -641,7 +640,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": false
 },
@@ -651,6 +650,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -668,7 +671,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
