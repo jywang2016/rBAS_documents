@@ -1,0 +1,89 @@
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}R以及rBAS安装}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}R安装}{7}{section.1.1}
+\contentsline {section}{\numberline {1.2}Rstudio安装}{7}{section.1.2}
+\contentsline {section}{\numberline {1.3}rBAS安装}{9}{section.1.3}
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}算法原理}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}BAS}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}算法流程}{11}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}不足与改进}{12}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}BSAS}{13}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}与BAS不同之处}{13}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}不足与改进}{14}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}BAS-WPT}{15}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}与BAS不同之处}{15}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}约束问题抽象形式}{16}{subsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2.1}约束问题一般形式}{16}{subsubsection.2.3.2.1}
+\contentsline {subsubsection}{\numberline {2.3.2.2}惩罚函数}{16}{subsubsection.2.3.2.2}
+\contentsline {subsection}{\numberline {2.3.3}不足与改进}{17}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}BAS with momentum(second-order BAS)}{17}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}算法原理}{17}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}不足与改进}{18}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}混合算法}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}BSO}{21}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}粒子群算法流程}{21}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}与BAS的结合}{22}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}总结}{24}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}算法调用说明}{24}{subsection.3.1.4}
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}函数使用}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}BASoptim/BASoptim2}{27}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}BASoptim参数说明}{28}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}BAS2optim参数说明}{29}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}BASoptim简单案例}{30}{subsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.3.1}Michalewicz function}{30}{subsubsection.4.1.3.1}
+\contentsline {subsubsection}{\numberline {4.1.3.2}Goldstein-Price function}{31}{subsubsection.4.1.3.2}
+\contentsline {subsection}{\numberline {4.1.4}BASoptim2简单案例}{33}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}BSASoptim}{35}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}BSASoptim参数说明}{35}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}BSASoptim取值摸索}{36}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}BSASoptim案例}{38}{subsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3.1}Michalewicz function}{38}{subsubsection.4.2.3.1}
+\contentsline {subsubsection}{\numberline {4.2.3.2}Pressure Vessel function}{38}{subsubsection.4.2.3.2}
+\contentsline {subsubsection}{\numberline {4.2.3.3}Himmelblau function}{42}{subsubsection.4.2.3.3}
+\contentsline {section}{\numberline {4.3}BSAS-WPT}{44}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}BSAS-WPT 参数说明}{45}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}BSAS-WPT 案例}{45}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Pressure Vessel function}{45}{subsubsection.4.3.2.1}
+\contentsline {subsubsection}{\numberline {4.3.2.2}Himmelblau function}{46}{subsubsection.4.3.2.2}
+\contentsline {section}{\numberline {4.4}BSOoptim}{47}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}BSO参数说明}{47}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}BSO案例}{48}{subsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.2.1}Michalewicz function}{48}{subsubsection.4.4.2.1}
+\contentsline {subsubsection}{\numberline {4.4.2.2}Pressure Vessel function}{49}{subsubsection.4.4.2.2}
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}用户界面}{53}{chapter.5}
+\contentsline {section}{\numberline {5.1}调用语句}{53}{section.5.1}
+\contentsline {section}{\numberline {5.2}使用案例}{54}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Michalewicz function}{54}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Pressure Vessel function}{55}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Authors界面}{62}{section.5.3}
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}BAS案例一:多杆机构优化问题}{63}{chapter.6}
+\contentsline {section}{\numberline {6.1}背景}{63}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}四连杆机构(Four-bar linkage mechanism)}{63}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}六连杆机构(Stephenson III Six-bar linkage mechanism)}{64}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}优化问题}{66}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}四连杆机构}{66}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}六连杆机构}{67}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}优化理论}{67}{section.6.3}
+\contentsline {section}{\numberline {6.4}优化结果}{68}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Case1 无规定时间内轨迹生成(Path generation without prescribed timing)}{68}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Case2 有规定时间的轨迹生成(with prescribed timing)}{73}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Case3 规定时间内路径生成（Path generation with prescribed timing）}{76}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Case4 规定时间路径生成问题}{81}{subsection.6.4.4}
+\contentsline {subsection}{\numberline {6.4.5}Case5 规定时间内路径生成问题}{84}{subsection.6.4.5}
+\contentsline {subsection}{\numberline {6.4.6}Case6 六杆机构路径生成}{91}{subsection.6.4.6}
+\contentsline {subsection}{\numberline {6.4.7}Case7 无规定时间的路径生成}{97}{subsection.6.4.7}
+\contentsline {subsection}{\numberline {6.4.8}Case8 无规定时间的路径生成}{101}{subsection.6.4.8}
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}BAS案例二:龙门起重机运动控制}{105}{chapter.7}
+\contentsline {section}{\numberline {7.1}问题背景}{105}{section.7.1}
+\contentsline {section}{\numberline {7.2}优化问题抽象}{106}{section.7.2}
+\contentsline {section}{\numberline {7.3}优化理论}{108}{section.7.3}
+\contentsline {section}{\numberline {7.4}优化结果}{108}{section.7.4}
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}Matlab用户}{111}{chapter.8}
+\contentsline {section}{\numberline {8.1}使用R.matlab包}{111}{section.8.1}
+\contentsline {section}{\numberline {8.2}中转站：C/C++}{115}{section.8.2}
+\contentsline {chapter}{\numberline {第九章\hspace {.3em}}已发表工作}{129}{chapter.9}
+\contentsline {section}{\numberline {9.1}工具箱/软件}{129}{section.9.1}
+\contentsline {section}{\numberline {9.2}论文}{129}{section.9.2}
+\contentsline {chapter}{\numberline {第十章\hspace {.3em}}更新及维护计划}{131}{chapter.10}
+\contentsline {section}{\numberline {10.1}待加入的功能}{131}{section.10.1}
+\contentsline {section}{\numberline {10.2}联系方式}{132}{section.10.2}
+\contentsline {chapter}{附录}{133}{Item.3}

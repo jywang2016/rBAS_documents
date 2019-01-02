@@ -1,0 +1,82 @@
+# 已发表工作 {#paper}
+
+## 工具箱/软件
+
+- [rBAS](https://github.com/jywang2016/rBAS) ; R语言环境下的包 。收录有BAS/BSAS/BAS-WPT/Second-Order-BAS/BSO算法，还会持续更新。此外，有用户界面可供调用。
+
+- [platpus](https://github.com/whhxp/Platypus/tree/master/platypus); python环境下的包。目前仅收录有BAS以及三个测试函数，后续会持续更新。由吴会欢同学提供，具体的使用说明下次手册更新会进行介绍。
+
+- [BSO](https://github.com/RoyalTeng/BSO);
+Matlab环境的BSO算法代码。由github用户[RoyalTeng](https://github.com/RoyalTeng)提供
+
+- [pybas](https://github.com/AAFun/pybas); Python 3.X 环境下的BAS算法包，由群友`A.star`提供。
+
+
+## 论文
+
+基本理论
+
+- Xiangyuan Jiang, Shuai Li,BAS: Beetle Antennae Search Algorithm for Optimization Problems,international journal of robotics and control. DOI:https://doi.org/10.5430/ijrc.v1n1p1
+- Jiang X, Li S. Beetle Antennae Search without Parameter Tuning (BAS-WPT) for Multi-objective Optimization[J]. arXiv preprint arXiv:1711.02395, 2017.
+- Wang J, Chen H. BSAS: Beetle Swarm Antennae Search Algorithm for Optimization Problems[J]. arXiv preprint arXiv:1807.10470, 2018.
+- Wang T, Yang L, Liu Q. Beetle Swarm Optimization Algorithm:Theory and Application[J].arXiv preprint arXiv:1808.00206, 2018
+- Lin M, Li Q. A Hybrid Optimization Method of Beetle Antennae Search Algorithm and
+Particle Swarm Optimization[C]. ECAR 2018. ISBN:978-1-60595-579-7
+
+混沌天牛群
+
+- 赵玉强,钱谦.一类带学习与竞技策略的混沌天牛群搜索算法[J].通信技术,2018,51(11):2582-2588.
+
+多飞行器协同
+
+- 吴歇尔. 面向多无人机的协同任务预分配及重分配研究[D].南昌航空大学,2018.
+
+神经网络结合
+
+- 王甜甜, 刘强. 基于BAS-BP模型的风暴潮灾害损失预测[J]. 海洋环境科学, 2018, 37(3):457-463.
+
+[极限学习机](https://arxiv.org/ftp/arxiv/papers/1811/1811.09100.pdf)
+
+- Zhang X, Yang Zhi, et al. Conditioning Optimization of Extreme Learning Machine by Multitask Beetle Antennae Swarm Algorithm[J]. arXiv preprint arXiv:1811.09100, 2018
+
+智能电网
+
+- Zhu Z, Zhang Z, Man W, et al. A new beetle antennae search algorithm for multi-objective energy management in microgrid[C]//2018 13th IEEE Conference on Industrial Electronics and Applications (ICIEA). IEEE, 2018.
+
+组合投资分析
+
+- Chen T. Beetle Swarm Optimization for Solving Investment Portfolio Problems[J]. The Journal of Engineering, 2018.
+
+用于传感器网络覆盖
+
+- Dianna Song, Application of Particle Swarm Optimization Based on Beetle Antennae Search Strategy in Wireless Sensor Network Coverage, International Conference on Network, Communication, Computer Engineering (NCCE 2018)
+
+用于水质监测
+
+- 李明富,凌艳,曹勇.基于BAS TSFNN的水质监测方法研究[J].湘潭大学学报自然科版,2018,(3):100~103
+
+用于直线度公差评定
+
+-  陈君宝,王宸,王生怀. 基于变步长天牛须搜索算法的空间直线度误差评定[J]，工具技术, 2018年第8期。
+
+目标识别
+
+- 杨广;基于多区域局部自适应特征的工业机器人自主目标识别与抓取[D];浙江大学;2018年
+
+改进算法
+
+- 邵良杉，韩瑞达. 基于天牛须搜索的花朵授粉算法[J]. 计算机工程与应用, 2018, 54(18): 188-194.	
+
+奇异值分解(图像)
+
+- 肖振久,姜东,张晗等.增强奇异值分解的自适应零水印[J]. 中国图像图形学报,2018,10.
+
+## 专利
+
+- 基于天牛须搜索的SDN网络中多目标组播路由路径构建方法
+- 奇异值分解和天牛须寻优算法的灰度图像自适应增强方法
+- 基于天牛须算法和数学形态学的射线图像焊缝提取方法
+
+此外，由于个人能力与时间有限，希望大家看到相关的BAS文章或者软件后，可以在 https://github.com/jywang2016/rBAS_documents/issues  上**写明文章(软件)的信息，应用的领域（如果有具体的应用案例的话）以及采用的是哪种BAS算法**，以此来帮助我的整理。十分感谢大家的帮助！
+
+

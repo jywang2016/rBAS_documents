@@ -7,14 +7,15 @@
 - ~~加入`BSAS`~~
 - ~~加入`BSAS-WPT`~~
 - 加入`binary BAS` (阮月)
-- 加入二阶 `BAS` (李晓晓)
-- add `BSO(Beetle Swarm Optimizaiton)` (王甜甜)
+- ~~加入二阶 `BAS`~~ (李晓晓)
+- ~~add `BSO(Beetle Swarm Optimizaiton)`~~ (王甜甜)
 - ...
 
 应用:
 
 - 工程应用:
     + ~~多杆件机构优化~~(莫小娟)
+    + ~~龙门起重机摆角优化~~(李晓晓)
     + 建筑系统阻容模型辨识
     + 装配路径规划
     + 批量问题(binary BAS)

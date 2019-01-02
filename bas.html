@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Untitled</title>
+  <meta name="description" content="Untitled">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Untitled" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Untitled" />
+  
+  
+  
+
+<meta name="author" content="Jiangyu Wang">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rBAS中文文档</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#bas"><i class="fa fa-check"></i><b>1</b> BAS案例二:龙门起重机运动控制</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#section-1.1"><i class="fa fa-check"></i><b>1.1</b> 问题背景</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#section-1.2"><i class="fa fa-check"></i><b>1.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#section-1.3"><i class="fa fa-check"></i><b>1.3</b> 优化理论</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#section-1.4"><i class="fa fa-check"></i><b>1.4</b> 优化结果</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Untitled</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Untitled</h1>
+<h4 class="author"><em>Jiangyu Wang</em></h4>
+<h4 class="date"><em>2018骞<b4>9鏈&lt;88&gt;7鏃<a5></em></h4>
+</div>
+<div id="bas" class="section level1">
+<h1><span class="header-section-number">第 1 章</span> BAS案例二:龙门起重机运动控制</h1>
+<blockquote>
+<p>由群友李晓晓同学提供案例。</p>
+</blockquote>
+<div id="section-1.1" class="section level2">
+<h2><span class="header-section-number">1.1</span> 问题背景</h2>
+<p>龙门起重机（gantry crane），如图<a href="#fig:gc">1.1</a>所示，是水平桥架设置在两条支腿上构成门架形状的一种桥架型起重机。起重小车trolley在桥架上运行，利用绳索（cable）一类的柔性体连接负载（load）。在负载的输送过程中，load的摆动问题一直是影响吊车装运效率提高的一大难题。</p>
+<div class="figure" style="text-align: center"><span id="fig:gc"></span>
+<img src="img/gc.png" alt="龙门起重机示意" width="70%" />
+<p class="caption">
+图 1.1: 龙门起重机示意
+</p>
+</div>
+<p>模型可以简化为图<a href="#fig:gc2">1.2</a>。重物通过绳索与小车相连，小车在外力的作用下水平运动，小车质量为M（kg），重物的质量为m（kg），绳索的长度为r（m），<span class="math inline">\(\theta\)</span>为摆角，x表示水平方向上的位移。</p>
+<div class="figure" style="text-align: center"><span id="fig:gc2"></span>
+<img src="img/gc2.png" alt="龙门起重机模型" width="60%" />
+<p class="caption">
+图 1.2: 龙门起重机模型
+</p>
+</div>
+</div>
+<div id="section-1.2" class="section level2">
+<h2><span class="header-section-number">1.2</span> 优化问题抽象</h2>
+<p>优化的变量为<code>bang-coast-bang</code>控制中，<span class="math inline">\(x = [tp_1,tp_2,tf]^T\)</span>，两个给予脉冲加速度激励的时段以及全部的作业时间，以此来使得负载的摆角（优化目标）最小。</p>
+<p>取小车的位置x，摆角<span class="math inline">\(\theta\)</span>作为系统的广义坐标系。小车和负载在t时刻的位置坐标如式<a href="#eq:loadposition">(1.1)</a>所示。</p>
+<span class="math display" id="eq:loadposition">\[\begin{equation}
+\begin{cases} 
+x_M(t)&amp;=&amp;x(t)\\ 
+y_M(t)&amp;=&amp;0 \\
+x_m(t)&amp;=&amp;x(t)+rsin\theta(t)\\
+t_m(t)&amp;=&amp;-rco\theta(t)
+\end{cases}
+\tag{1.1}
+\end{equation}\]</span>
+<p>因此，对<span class="math inline">\(t\)</span>求导，得到小车和负载的速度分量如式<a href="#eq:speedp">(1.2)</a>所示。</p>
+<span class="math display" id="eq:speedp">\[\begin{equation}
+\begin{cases} 
+\dot{x}_M(t) &amp;=&amp; \dot{x}_t\\
+\dot{y}_M(t) &amp;=&amp; 0\\
+\dot{x}_m(t) &amp;=&amp; \dot{x}(t)+r\dot{\theta}(t)cos\theta(t)\\
+\dot{y}_m(t) &amp;=&amp; r\dot{\theta}(t)sin\theta(t)
+\end{cases}
+\tag{1.2}
+\end{equation}\]</span>
+<p>系统动能如式<a href="#eq:kineticenergy">(1.3)</a>：</p>
+<span class="math display" id="eq:kineticenergy">\[\begin{equation}
+\begin{split}
+T  = &amp;\frac{1}{2}MV_M^2(t) + \frac{1}{2}mV_m^2(t) \\
+=&amp;\frac{1}{2}M(\dot{x}_M^2(t)+\dot{y}_M^2(t))+\frac{1}{2}m(\dot{x}_m^2(t)+\dot{y}_m^2(t))\\
+=&amp;\frac{1}{2}M\dot{x}_M^2(t) + \frac{1}{2}m\dot{x}_m^2(t) + \\
+&amp;\frac{1}{2}mr^2\dot{\theta}^2(t) + mr\dot{x}(t)\dot{\theta}(t)cos\theta(t)
+\end{split}
+\tag{1.3}
+\end{equation}\]</span>
+<p>势能如式<a href="#eq:potentialenergy">(1.4)</a>：</p>
+<span class="math display" id="eq:potentialenergy">\[\begin{equation}
+P = -mgrcos\theta(t)
+\tag{1.4}
+\end{equation}\]</span>
+<p>通过式<a href="#eq:potentialenergy">(1.4)</a>和式<a href="#eq:kineticenergy">(1.3)</a>，我们可以得到拉格朗日方程，即<span class="math inline">\(L = T -P\)</span>。根据欧拉-拉格朗日方程(Euler-Lagrangian equation)，龙门起重机的动力学模型如式<a href="#eq:EL">(1.5)</a>所示。</p>
+<span class="math display" id="eq:EL">\[\begin{equation}
+\frac{d}{dt}[\frac{\partial{L}}{\partial{\dot{q_k}}}] - \frac{\partial{L}}{\partial{q_k}}=Q_k, \quad k=1,\cdots,n
+\tag{1.5}
+\end{equation}\]</span>
+<p>其中，<span class="math inline">\(n\)</span>表示系统的自由度，<span class="math inline">\(\{q_1,\cdots,q_n\}\)</span>表示广义坐标集合，<span class="math inline">\(\{Q_1,\cdots,Q_n\}\)</span>表示广义的驱动力（对应于各自的广义坐标）。把摆角作为广义坐标，可以得到式<a href="#eq:thetaEL1">(1.6)</a>。</p>
+<span class="math display" id="eq:thetaEL1">\[\begin{equation}
+\frac{d}{dt}[\frac{\partial{L}}{\partial{\dot{\theta}}}] - \frac{\partial{L}}{\partial{\theta}}=0
+\tag{1.6}
+\end{equation}\]</span>
+<p>第一项为<span class="math inline">\(mr^2\ddot{\theta}(t)+mr\ddot{x}(t)cos\theta(t)\)</span>，第二项为<span class="math inline">\(-mgrsin\theta(t)\)</span>，代入式<a href="#eq:thetaEL1">(1.6)</a>中可以得到<span class="math inline">\(\theta\)</span>的求解方程，即式<a href="#eq:thetaEL2">(1.7)</a>。</p>
+<span class="math display" id="eq:thetaEL2">\[\begin{equation}
+\ddot{\theta}(t)=-\frac{\ddot{x}(t)cos\theta(t)+gsin\theta(t)}{r}
+\tag{1.7}
+\end{equation}\]</span>
+<p>通过求解该方程，我们可以得到我们的优化目标。</p>
+</div>
+<div id="section-1.3" class="section level2">
+<h2><span class="header-section-number">1.3</span> 优化理论</h2>
+<p>优化理论为二阶BAS算法。李晓晓同学给出的参数是，<span class="math inline">\(w_0 = 0.7\)</span>， <span class="math inline">\(w_1 = 0.2\)</span>。当然，文档中对于不同的目标函数可能有不同的调参结果，大家可以自行调试。</p>
+</div>
+<div id="section-1.4" class="section level2">
+<h2><span class="header-section-number">1.4</span> 优化结果</h2>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:example2parms">表 1.1: </span>实验参数取值
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:left;">
+Description
+</th>
+<th style="text-align:left;">
+Values
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(c\)</span>
+</td>
+<td style="text-align:left;">
+Constant
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\lambda\)</span>
+</td>
+<td style="text-align:left;">
+Step length ratio
+</td>
+<td style="text-align:left;">
+0.95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\gamma\)</span>
+</td>
+<td style="text-align:left;">
+Penalty coefficient
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(10^{50}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(n\)</span>
+</td>
+<td style="text-align:left;">
+Number of iterations
+</td>
+<td style="text-align:left;">
+1000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(r\)</span>
+</td>
+<td style="text-align:left;">
+Height of crane
+</td>
+<td style="text-align:left;">
+20(m)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(h\)</span>
+</td>
+<td style="text-align:left;">
+Load displacement
+</td>
+<td style="text-align:left;">
+40(m)
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:example2result">表 1.2: </span>优化结果对比
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variables
+</th>
+<th style="text-align:right;">
+fmincon
+</th>
+<th style="text-align:right;">
+BAS
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(tp_1\)</span>
+</td>
+<td style="text-align:right;">
+8.9624000
+</td>
+<td style="text-align:right;">
+6.9082000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(tp_2\)</span>
+</td>
+<td style="text-align:right;">
+8.9803000
+</td>
+<td style="text-align:right;">
+6.9741000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(tf\)</span>
+</td>
+<td style="text-align:right;">
+19.8346000
+</td>
+<td style="text-align:right;">
+15.8866000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(f\)</span>
+</td>
+<td style="text-align:right;">
+0.0029586
+</td>
+<td style="text-align:right;">
+0.0001415
+</td>
+</tr>
+</tbody>
+</table>
+<p>从表<a href="#tab:example2result">1.2</a>中可以看到，BAS能够让起重机小车在7秒内加速到最大速度，在16秒内就能到达终点并消除摆角。动图<a href="#fig:example2fminconbob">1.3</a>至<a href="#fig:example2bastrace">1.6</a>分别为采用<code>fmincon</code>和<code>BAS</code>做优化的结果，可以让我们有更为直观的认识。</p>
+<div class="figure" style="text-align: center"><span id="fig:example2fminconbob"></span>
+<img src="img/fminconbob.gif" alt="fmincon摆锤"  />
+<p class="caption">
+图 1.3: fmincon摆锤
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:example2basbob"></span>
+<img src="img/BASbob.gif" alt="BAS摆锤"  />
+<p class="caption">
+图 1.4: BAS摆锤
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:example2fmincontrace"></span>
+<img src="img/fmincontrace.gif" alt="fmincon轨迹"  />
+<p class="caption">
+图 1.5: fmincon轨迹
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:example2bastrace"></span>
+<img src="img/BAStrace.gif" alt="BAS轨迹"  />
+<p class="caption">
+图 1.6: BAS轨迹
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ex2accel"></span>
+<img src="img/ex2_1.png" alt="起重小车加速度曲线" width="70%" />
+<p class="caption">
+图 1.7: 起重小车加速度曲线
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ex2velocity"></span>
+<img src="img/ex2_2.png" alt="起重小车速度曲线" width="70%" />
+<p class="caption">
+图 1.8: 起重小车速度曲线
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ex2position"></span>
+<img src="img/ex2_3.png" alt="起重小车位置曲线" width="70%" />
+<p class="caption">
+图 1.9: 起重小车位置曲线
+</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

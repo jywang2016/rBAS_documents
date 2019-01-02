@@ -1,6 +1,6 @@
 # 算法原理 {#algorithm}
 
-本章讲述目前`rBAS`集成的三种算法的原理。如有错漏，还请指出。
+本章讲述目前`rBAS`集成的三种算法，即`BAS`，`BSAS`，`BSAS-WPT`的原理。如有错漏，还请指出。此外，本章所述的算法，在原始的`BAS`基础上，并没有过多地改变根本上的东西。第\@ref(mixedalgorithm)章的算法，则是`BAS`和其他一些算法的结合，又或者，有更多根本性改动。如王糖糖同学提出的`BSO`，很典型地`BAS`和`PSO`的结合，则不在此章节。
 
 ## BAS
 关于`BAS`，主要的参考资料为`姜向远`博士和`李帅`老师在`arXiv`上的论文，[BAS: beetle antennae search algorithm for optimization problems](https://arxiv.org/abs/1710.10724)。而我是在知乎上看到一篇[文章](https://zhuanlan.zhihu.com/p/30742461)后，才开始复现`BAS`算法。
@@ -160,7 +160,7 @@ h_j(\mathbf{x}) = \begin{cases}
 
 其中，式\@ref(eq:penalty)中的$\lambda$表示约束违背的惩罚因子，选取尽量大的正数。而后的$h_j(\mathbf{x})$为`Heaviside`函数，即不等式约束满足时，该函数为0，反之为1。
 
-### 不足与改进 {#BSASimprove}
+### 不足与改进 {#BSASimprove2}
 
 - 约束处理能力不足
     + 缺点：在约束边界上优化目标突变问题的处理上表现不佳
@@ -168,3 +168,58 @@ h_j(\mathbf{x}) = \begin{cases}
     
 此处的不足，还需要考虑步长反馈和群体搜索的问题。不过，既然`BSAS`把姜博的`WPT`给窃来了，摇身变为了`BSAS-WPT`，那就不说上述两个问题了。等他日有闲，再去整合`李晓晓`同学的二阶`BAS`。
 
+## BAS with momentum(second-order BAS) {#BAS2}
+
+带动量的BAS，唔……这名字听着有点长。顾名思义，是利用了惯性项（即，前一时刻的状态），来使得算法不陷入局部最优。不得不说，李晓晓同学对算法的改进既保留了BAS本身的简洁，又增大了BAS对局部最优处理的能力。
+
+在打算复现BSO(BAS和PSO的诚意结合)算法之前，我就看过了李晓晓同学提供给我的二阶BAS代码。相比于BSO，进行了大量的细节上的BAS和PSO融合，二阶BAS只对天牛位置更新的等式（即式\@ref(eq:xupdate)）做了大的改动。因此，我觉得这还是更为类似BAS的，大家接受起来应该也更为容易。
+
+
+### 算法原理
+
+在\@ref(BASflow)节的基础上，改动了一大一小两处地方。大的是，天牛位置更新。小的改动是，步长增加了一个最小分辨率，也就是存在了最小值，不会无限制地缩减。
+
+在位置更新上，参考式\@ref(eq:bas2vupdate)至式\@ref(eq:bas2xupdate)。
+
+\begin{equation}
+\mathbf{v}^{t+1} = w_0\mathbf{v}^t - w_1\overrightarrow{b}(f(\mathbf{x}_l^t)-f(\mathbf{x}_r^t))
+(\#eq:bas2vupdate)
+\end{equation}
+
+\begin{equation}
+\mathbf{v}^{t+1} = \begin{cases} 
+V_{max},&\mathbf{v}^{t+1} > V_{max} \\ 
+\mathbf{v}^{t+1},  &\mathbf{v}^{t+1} \in [V_{max},V_{max}] \\
+-V_{max},&\mathbf{v}^{t+1} <- V_{max}
+\end{cases}
+(\#eq:bas2vbound)
+\end{equation}
+
+\begin{equation}
+\mathbf{x}^{t+1} = \mathbf{x}^t+\mathbf{v}^{t+1}
+(\#eq:bas2xupdate)
+\end{equation}
+
+大的改动；在式\@ref(eq:bas2vupdate)中，$v$表示速度，$w_0$和$w_1$分别为常数，也可以理解为权重。前者是上一时刻速度的权重，后者是由左右须函数强度差（类似于梯度）的权重。式\@ref(eq:bas2vbound)是对速度范围进行的限定。把式\@ref(eq:bas2xupdate) 和式\@ref(eq:xupdate) 相比，**不仅多了速度项，还把原有的步长从式中去掉了**。
+
+那步长在哪里用呢，有两个地方。
+
+- 用来更新感知距离，也就是质心到须的距离。$d = \delta/c$，$c$是两者之比。
+- 用来确定式\@ref(eq:bas2vbound)中最大速度$V_{max}$，即$V_{max} = c_0 \delta$。原文中的$c_0$和$w_0$是用的同一符号，但是在后续的测试函数调试中，两者分开似乎效果更好。因此，在`rBAS`中的`BASoptim2`中，为了更加灵活而将两者区分开来，把选择权给了大家。
+
+此外，还有一个小改动。步长的更新采用了一个最小分辨率，参考式\@ref(eq:bas2stepupdate)。
+
+\begin{equation}
+\delta^{t+1}=\eta_{\delta}(\delta^{t}-\delta_0) + \delta_0
+(\#eq:bas2stepupdate)
+\end{equation}
+
+如果有必要的话，大家在使用过程中可以设定较小的$\delta_0$来规避此项规则。
+
+### 不足与改进
+
+总的来说，我觉得是大家看完原理，应该就能自己敲出代码的算法。这也反映了该算法的简洁，这和BAS原本的风格应该是一致的。
+
+当然，简洁也意味着可以提升的余地还存在。既然二阶BAS把最精华的惯性项奉上了，我们可以开始对其的改造。此处就不一一罗列。可以参考前面的章节。
+
+就我而言，我觉得BSAS的思路完全可以用在二阶BAS上。这也是由于在某些测试函数上，BSAS更容易地（特指调参简单）达到更优精度给我带来的启发。看来，`群体`和`反馈`是一直可以借鉴的思路。

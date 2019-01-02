@@ -10,7 +10,7 @@ library(rBAS)
 
 >文档网页是由[`pkgdown`](http://pkgdown.r-lib.org/)包制作而成，logo由[`hexSticker`](https://github.com/GuangchuangYu/hexSticker)包制作。
 
-## BASoptim {#basoptim}
+## BASoptim/BASoptim2 {#basoptim}
 
 除了通过访问函数文档网站外，还可以在`R`中输入下面的命令，来查看文档。
 ```{r,eval=FALSE}
@@ -33,6 +33,8 @@ BASoptim(fn,
          seed = NULL, trace = T )
 ```
 
+>直接带有`=`号的参数，表明是有默认值的。大家可以不指定，但是上下限需要根据实际问题来人为指定。给出的上下限只是因为第一个调试函数是`Michalewicz`而已。
+
 由于英文蹩脚，所以大家看起包自带的文档会比较吃力。因此，在此处给出中文说明。
 
 - 已知条件：目标函数与约束
@@ -52,6 +54,26 @@ BASoptim(fn,
 -   其他
     +   seed  给定随机种子，用来固定寻优结果。不同的种子，对结果的影响**非常大**。
     +   trace 是否显示寻优过程信息
+
+### BAS2optim参数说明 {#BAS2parms}
+
+[`BASoptim2`函数](https://jywang2016.github.io/rBAS/reference/BASoptim2.html)(对应`二阶BAS`算法)调用的格式如下：
+
+```{r,eval=FALSE}
+BASoptim2(fn, init = NULL, lower = c(-6, 0), upper = c(-1, 2),
+          constr = NULL, c = 2, l0 = 0, l1 = 0, eta_l = 0.95,
+          step0 = 5e-05, step = 0.8, eta_step = 0.95, n = 200,
+          seed = NULL, trace = T, steptol = step0/2, pen = 1e+05,
+          w0 = 0.7, w1 = 0.2, c0 = 0.6)
+```
+
+与前面`BASoptim`函数调用的大部分参数含义相同。不同点如下：
+
+- c; $d = \delta/c$，$c$ 是步长 $\delta$ 与感知距离 $\d$ 之比。二阶BAS中，不直接指定感知距离。因此，与感知距离相关的参数都被移除。
+- step0; 步长的最小分辨率，可参见式\@ref(eq:bas2stepupdate)。
+- w0;w1;c0分别是式\@ref(eq:bas2vupdate)中的权重系数，和$V_{max} = c_0 \delta$中确定最大速度的系数。
+
+> 实际调参中，调节w0会给结果带来较大的改变。
 
 ### BASoptim简单案例 {#BASexamples}
 
@@ -133,6 +155,57 @@ test$value
 ```
 
 同样，结果也是给出了全局最优点（或在此附近，继续迭代下去，可能会有更精确更小的值）。
+
+### BASoptim2简单案例 {#BAS2examples}
+```{r}
+mich <- function(x){
+  y1 <- -sin(x[1])*(sin((x[1]^2)/pi))^20
+  y2 <- -sin(x[2])*(sin((2*x[2]^2)/pi))^20
+  return(y1+y2)
+}
+fit<-
+  BASoptim2(fn = mich,
+            lower = c(-6,0),
+            upper = c(-1,2),
+            n = 100,
+            trace = F,
+            c = 0.4,#d = 1.2/0.4 = 3
+            step = 1.2,
+            seed = 1,
+            w0 = 0.4,w1 = 0.2, c0 = 0.6)
+fit$par;fit$value
+
+func1 <- function(x){
+  sum(x^2)
+}
+fit<-
+  BASoptim2(fn = func1,
+            lower = c(-100,-100),
+            upper = c(100,100),
+            n = 100,
+            trace = F,
+            c = 20,
+            step = 100,
+            seed = 1,
+            w0 = 0.5,w1 = 0.2, c0 = 0.6)
+fit$par;fit$value
+
+func2 <- function(x){
+  sum((abs(x)-5)^2)
+}
+fit<-
+  BASoptim2(fn = func2,
+            lower = c(-10,-10),
+            upper = c(10,10),
+            n = 100,
+            trace = F,
+            c = 5,
+            step = 5,
+            seed = 1,
+            w0 = 0.2,w1 = 0.2, c0 = 0.6)
+fit$par;fit$value
+```
+
 
 ## BSASoptim {#bsasoptim}
 
@@ -410,3 +483,266 @@ result$value
 ```
 
 `BSAS-WPT`没有做过多的参数调节，即可获得更畅快地优化体验。举例，在对`Himmelblau`函数进行优化时，我仅仅设定了随机种子`seed`，然后把`step`从1调到了2，看了看效果的变化。发现都不错，最后每隔0.1选取`step`，试探最好的效果在哪里，于是就成了上面的例子。 如果把这一套，放在`BSASoptim`函数上，对于复杂的优化问题，就**成了一种折磨**。
+
+## BSOoptim
+
+### BSO参数说明 {#BSOfuncparms}
+
+
+由于BSO参数与原理中的公式较为复杂。因此，在讲述其原理时，对函数的参数也进行了说明。故大家可以参考\@ref(BSOparms)节。此处，仅仅复制该节内容。
+
+```{r eval=FALSE}
+BSOoptim(fn, init = NULL, constr = NULL, 
+         lower = c(-50, -50), upper = c(50, 50), n = 300, 
+         s = floor(10 + 2 *sqrt(length(lower))), 
+         w = c(0.9, 0.4), 
+         w_vs = 0.4, 
+         step = 10,
+         step_w = c(0.9, 0.4), 
+         c = 8, 
+         v = c(-5.12, 5.12), 
+         trace = T,
+         seed = NULL, 
+         pen = 1e+06)
+```
+
+上面的代码是函数的默认调用形式，其中$s$表示设定的天牛或者粒子数目，$w$也就是式\@ref(eq:psoomega)中提到的$\omega_{max}$和$\omega_{min}$。`w_vs` 是$\lambda$，也就是式\@ref(eq:bsox)中天牛速度和移动步长之间的权重，直观地理解为`weight between velocity and step-size`。`step`和`c`仍然是表示步长和步长与须距离之比。而$step_w$为一个向量，表示的是式\@ref(eq:basstep)中的$\omega_{\delta_1} = 0.4$， $\omega_{\delta_0} = 0.9$。
+
+### BSO案例{#bsoexample}
+
+#### Michalewicz function
+
+一个简单的例子（`Michalewicz function`）如下：
+```{r}
+library(rBAS)
+mich <- function(x){
+y1 <- -sin(x[1])*(sin((x[1]^2)/pi))^20
+y2 <- -sin(x[2])*(sin((2*x[2]^2)/pi))^20
+return(y1+y2)
+}
+result <-
+ BSOoptim(fn = mich,
+           init = NULL,
+           lower = c(-6,0),
+           upper = c(-1,2),
+           n = 100,
+           step = 5,
+           s = 10,seed = 1, trace = F)
+result$par; result$value
+```
+
+#### Pressure Vessel function
+
+```{r}
+pressure_Vessel <- list(
+obj = function(x){
+  x1 <- floor(x[1])*0.0625
+  x2 <- floor(x[2])*0.0625
+  x3 <- x[3]
+  x4 <- x[4]
+  result <- 0.6224*x1*x3*x4 + 1.7781*x2*x3^2 +3.1611*x1^2*x4 + 19.84*x1^2*x3
+},
+con = function(x){
+  x1 <- floor(x[1])*0.0625
+  x2 <- floor(x[2])*0.0625
+  x3 <- x[3]
+  x4 <- x[4]
+  c(
+    0.0193*x3 - x1,#<=0
+    0.00954*x3 - x2,
+    750.0*1728.0 - pi*x3^2*x4 - 4/3*pi*x3^3
+  )
+}
+)
+```
+
+```{r}
+result<-
+BSOoptim(fn = pressure_Vessel$obj,
+         init = NULL,
+         constr = pressure_Vessel$con,
+         lower = c( 1, 1, 10, 10),
+         upper = c(100, 100, 200, 200),
+         n = 1000,
+         w = c(0.9,0.4),
+         w_vs = 0.9,
+         step = 100,
+         step_w = c(0.9,0.4),
+         c = 35,
+         v = c(-5.12,5.12),
+         trace = F,seed = 1,
+         pen = 1e6)
+ result$par
+ result$value
+```
+
+得到的结果十分好（甚至比论文[@Wang2018BSO]还要高出那么一点点）。但是，这是调参调出来的结果。
+
+总的来说，我自己的经验是：
+
+- 调节最大迭代次数`n`
+- 调节步长`step`和步长与须距离比值`c`（让搜索距离的尺度尽量在迭代后不要太大）
+- 调节`w_vs`，该值越大，粒子群算法更新方式所占的比重越大。
+
+而`王糖糖`同学给出的建议是：
+
+> "在试验的时候发现，当维度提高时，步长和迭代次数也要相应的提高"
+>
+> ---王糖糖
+
+最后呢，我们为什么要改算法！
+
+```{r bsow, fig.cap='为什么我们孜孜不倦改算法', out.width='50%', fig.align='center', echo=FALSE}
+knitr::include_graphics("img/BSO_w.jpg")
+```
+
+> 开个玩笑，祝大家周末愉快，学业顺心。
+
+
+## bBAS {#bBASr}
+
+### bBAS参数说明 {#bBASfuncparms}
+
+bBAS算法原理参看 \@ref(bBASa) 节。 对应的`bBASoptim`函数，与其他算法相比，需要调节的参数较少。调用形式如下。
+
+```{r,eval=FALSE}
+bBASoptim(fn, init = NULL, 
+          lower = c(-6, 0), upper = c(-1, 2),
+          d0 = 1e-30, d1 = 3, eta_d = 0.99, 
+          w = 0.2, c = 0.5, vmax = 4,
+          n = 800,
+          seed = NULL, trace = 20, resolution = rep(1,length(lower)))
+```
+
+$w$ 与 $c$ 分别为式\@ref(eq:xbest1)与式\@ref(eq:xbest0)中的惯性项与常系数。 $vmax$ 则用于控制速度的边界。
+
+`trace`参数表示，每隔多少次循环，打印一次结果。
+
+`resolution` 则是我们在处理实数空间优化问题时候所给的分辨率。这么说有点绕口，举例说明。如果`Michalewicz function`使我们的优化目标，上下限分别是 `(-6,0)`和`(-1,2)`。
+
+那问题来了，用二进制数来模拟取值空间：
+
+- 我们如何让二进制数取负数呢？
+- 我们如何让二进制数取小数呢？
+
+首先，算法把 $x_1\in[-6,-1]$ 转为$x_1\in[0,5]$ 来处理。然后新的空间转为二进制后，可以写作$x_1 \in [000,101]$，$x_2 \in [00,10]$。也就是，表示第一个分量，需要三个二进制位，表示第二个分量，需要两个二进制位，然后我们的算法就可以对于每个二进制位的0-1进行寻优调节。**但是实际上的二进制上限会与十进制的值有所出入**，可能会出现 $x_1 = 111, x_2 = 11$的状况。
+
+>大家可能会问，为什么不进行上下限的判定？主要是因为还没有想好，如果超过上下限，该限制哪些位数上的取值。此外，二进制转十进制判断大小，会拖慢循环的速度。所以，下面有个更好的办法。
+
+因此，我们只在**转二进制后只获取和关注位数信息**，把新的范围写为 $x_1\in[000,111], x_2\in[00,11]$ ，也就是上限全部位数为1，下限全部位数为0。然后利用下面的方法来变成原来的实数空间的取值。
+
+$$
+\begin{aligned}
+x_1 &= \frac{x_{1,binary}-0}{(2^3-1)-0} * (-1-(-6))\\
+x_0 &= \frac{x_{0,binary}-0}{(2^2-1)-0} * (2-(0))\\
+\end{aligned}
+$$
+这样，就不用担心在取值的过程中，溢出上下限了。
+
+接下来，问题又来了，这样的表示方法，能够搜索到的值寥寥无几。我们可以穷举出来， $x1\in\frac{5}{2^3-1}*k\quad k=0,1,\cdots,7$ ，共8种取值，而 $x_2$ 共4种取值。所以，**如果搜索空间只有32种可能**，这肯定是不合理的，我们需要更细的粒度来让算法更为细致地搜索参数空间。这就是分辨率参数的由来。
+
+还是上面的问题，**取值范围有限是由于二进制位数小引起**的，**二进制位数小是由于十进制的上下限差距小引起**的。换言之，我们可以考虑放大参数的上下限。 比如，我们使用100的分辨率（倍数），那么 $x_1\in[-600,-10] = [0,590] = [0000000000,1001001110]$ ,现在，二进制位数变为了**10位**，当然，还会稍作扩大，使得 $x_1$ 新的上限为`1111111111`。而 $x2$ 的取值为 $x_2\in[0,200]=[00000000,11001000]$ , 二进制位变为了**8位**。同样，按照下面的方式转为原始空间的取值。
+
+$$
+\begin{aligned}
+x_1 &= \frac{x_{1,binary}-0}{(2^{10}-1)-0} * (-1-(-6))\\
+x_0 &= \frac{x_{0,binary}-0}{(2^{8}-1)-0} * (2-(0))\\
+\end{aligned}
+$$
+
+这样，我们能探索的空间有 $2^{10}*2^8$种可能性，这样能极大地增大寻优的几率。**把分辨率理解为，你要精确到小数点后多少位**。比如 $x\in[-2.048,2.048]$，设置1000的分辨率，表明希望能精确到0.001位。当然，这是比较形象的一个理解办法。
+
+一个小的技巧是，对于库存问题，参数本身的取值就是0和1，那么分辨率设为1即可，这也是默认取值；而对于实数空间的取值，如[-2.048,2.048]，可以设置分辨率为1000。**如果参数中既有0-1变量，又有实数变量，可以分别设置，比如 $x_1 = 0,1 \quad x_2\in[-1,1]$，可以设置分辨率为 `resolution = c(1,100)`。
+
+### bBAS案例 {#bBASexamples}
+
+对于上面提及的`Michalewicz function` 优化问题，代码如下：
+
+```{r}
+library(rBAS)
+mich <- function(x){
+  y1 <- -sin(x[1])*(sin((x[1]^2)/pi))^20
+  y2 <- -sin(x[2])*(sin((2*x[2]^2)/pi))^20
+  return(y1+y2)
+}
+fit <- bBASoptim(fn = mich,
+                 init = c(-3,1),
+                 resolution = c(100,100), #分辨率的设置
+                 trace = 20, #每隔20个循环，打印一次信息
+                 c = 0.6,
+                 seed = 3)
+fit$par;fit$value
+```
+
+
+此处还有阮月同学提供的库存(批次)问题(lot-sizing)案例。
+
+$$
+\begin{align}
+\text{minimize} &\sum_{i=1}^n(Ax_i+cI_i) \notag\\
+s.t. ~~ &I_0 = 0 \notag \\
+&I_{i-1}+x_iQ_i-I_i=R_i \notag \\
+&I_i\geq 0 \notag \\
+&Q_i\geq 0 \notag \\
+&x_i \in{0,1}\notag \\
+\end{align}
+$$
+
+该案例具体的参数解释会在之后案例章节描述。此处简单给出例子。
+
+```{r}
+lot_size2 <- function(x){
+  R = c(100,60,40,50,80)
+  A = 100
+  c = 1
+  x1 = 1 - x
+
+  I = rep(0,5)
+
+  for(m in 1:4){
+    t = 0
+    for (p in (m+1):5){
+      if(x1[p] == 1){
+        t = t + R[p]
+      }
+      else{break}
+    }
+    I[m] = t
+  }
+  if(x[1]!=1){
+    pen = 1e5
+  }else{
+    pen = 0
+  }
+  cost = sum(A*x) + sum(c*I) + pen
+
+  return(cost)
+}
+fit <- bBASoptim(fn = lot_size2,
+                 init = rep(1,5),
+                 lower = rep(0,5),
+                 upper = rep(1,5),
+                 resolution = rep(1,5),
+                 n = 200,
+                 trace = 10)
+fit$par;fit$value
+```
+
+得到的结果能使得库存与订单总的费用最小。
+
+```{r lotsizingtable, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+data <- data.frame(day1 = c(100,1,160,60,60,100,160),
+                   day2 = c(60,0,'-','-','-','-','-'),
+                   day3 = c(40,1,90,50,50,100,150),
+                   day4 = c(50,0,'-','-','-','-','-'),
+                   day5 = c(80,1,80,'-','-','-',100),
+                   '$f(X^k)$'=c('-','-','-','-','-','-',410))
+rownames(data) <- c('$R_d$','$x_d^k$','$Q_d^k$','$I_d^k$','$c_d^k$','$Ax_d^k$','$C(X_d^k)$')
+colnames(data) <- c("day1","day2","day3","day4","day5","$f(X^k)$")
+knitr::kable(
+  data, booktabs = TRUE,
+  caption = '需求，订单与库存费用结果','html'
+)%>%
+  kableExtra::kable_styling('striped',full_width = F)
+```
