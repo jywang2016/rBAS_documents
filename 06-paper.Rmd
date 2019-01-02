@@ -55,9 +55,11 @@ Particle Swarm Optimization[C]. ECAR 2018. ISBN:978-1-60595-579-7
 
 - 李明富,凌艳,曹勇.基于BAS TSFNN的水质监测方法研究[J].湘潭大学学报自然科版,2018,(3):100~103
 
-用于直线度公差评定
+用于直线度误差评定
 
 -  陈君宝,王宸,王生怀. 基于变步长天牛须搜索算法的空间直线度误差评定[J]，工具技术, 2018年第8期。
+-  Wang C, Ren C, Li B, Wang Y, Wang K, "Research on Straightness Error Evaluation Method Based on Search Algorithm of Beetle,", Wang K, Wang Y, Strandhagen JO, Yu T, eds. (Springer Singapore, Singapore, 2019), pp. 368-374.
+
 
 目标识别
 
@@ -70,6 +72,10 @@ Particle Swarm Optimization[C]. ECAR 2018. ISBN:978-1-60595-579-7
 奇异值分解(图像)
 
 - 肖振久,姜东,张晗等.增强奇异值分解的自适应零水印[J]. 中国图像图形学报,2018,10.
+
+室内定位
+
+- 邹东尧,陈鹏伟,刘宽.基于天牛须搜索优化的室内定位算法[J].湖北民族学院学报(自然科学版),2018(04):427-431+455.
 
 ## 专利
 
