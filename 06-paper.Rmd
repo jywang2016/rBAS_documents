@@ -39,6 +39,10 @@ Particle Swarm Optimization[C]. ECAR 2018. ISBN:978-1-60595-579-7
 
 - Zhang X, Yang Zhi, et al. Conditioning Optimization of Extreme Learning Machine by Multitask Beetle Antennae Swarm Algorithm[J]. arXiv preprint arXiv:1811.09100, 2018
 
+Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
+
+- Qi F, Wang Q, Xu L. Disease classification model based on Qubit neural tree networks[C]//2018 9th International Conference on Information Technology in Medicine and Education (ITME). IEEE, 2018: 154-158.
+
 智能电网
 
 - Zhu Z, Zhang Z, Man W, et al. A new beetle antennae search algorithm for multi-objective energy management in microgrid[C]//2018 13th IEEE Conference on Industrial Electronics and Applications (ICIEA). IEEE, 2018.
