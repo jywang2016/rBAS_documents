@@ -271,7 +271,7 @@ sourceCpp('你的Rcpptest.cpp文件路径') #编译之前保存的cpp文件
 ```
 
 ```{r,include=FALSE}
-Rcpp::sourceCpp('E:/R-blogger/C/Rcpptest.cpp')
+Rcpp::sourceCpp('D:/JYwang_HUST/R-blogger/C/Rcpptest.cpp')
 ```
 
 ```{r}
@@ -326,7 +326,7 @@ sourceCpp('你的Rcppmich.cpp文件路径') #编译之前保存的cpp文件
 ```
 
 ```{r,include=FALSE}
-Rcpp::sourceCpp('E:/R-blogger/C/Rcppmich.cpp')
+Rcpp::sourceCpp('D:/JYwang_HUST/R-blogger/C/Rcppmich.cpp')
 ```
 
 ```{r}
@@ -387,7 +387,7 @@ sourceCpp('你的RcppPV.cpp文件路径') #编译之前保存的cpp文件
 ```
 
 ```{r,include=FALSE}
-Rcpp::sourceCpp('E:/R-blogger/C/RcppPV.cpp')
+Rcpp::sourceCpp('D:/JYwang_HUST/R-blogger/C/RcppPV.cpp')
 ```
 
 ```{r}

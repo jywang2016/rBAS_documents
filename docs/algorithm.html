@@ -9,7 +9,7 @@
   <meta name="description" content="rBAS中文使用说明文档V0.2">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="第 2 章 算法原理 | rBAS使用文档 />
+  <meta property="og:title" content="第 2 章 算法原理 | rBAS使用文档" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="jywang2016/rBAS" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 2 章 算法原理 | rBAS使用文档 />
+  <meta name="twitter:title" content="第 2 章 算法原理 | rBAS使用文档" />
   
   <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-03">
+<meta name="date" content="2019-01-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,67 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css\style.css" type="text/css" />
@@ -132,9 +106,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>手册内容概述</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>夹带私货</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-3"><i class="fa fa-check"></i>致谢</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
@@ -157,20 +131,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-6"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
-<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-7"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
+<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
+<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
 <li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-8"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
-<li class="chapter" data-level="3.1.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bas-1"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
-<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-9"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
+<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.1"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
+<li class="chapter" data-level="3.1.2" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
+<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.3"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
 <li class="chapter" data-level="3.1.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#BSOparms"><i class="fa fa-check"></i><b>3.1.4</b> 算法调用说明</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bBASa"><i class="fa fa-check"></i><b>3.2</b> bBAS</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-10"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
-<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-11"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
+<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.2.1"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
@@ -199,24 +173,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>5</b> 用户界面</a><ul>
-<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-12"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
-<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-13"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
+<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
+<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="interface.html"><a href="interface.html#michalewicz-function-2"><i class="fa fa-check"></i><b>5.2.1</b> Michalewicz function</a></li>
 <li class="chapter" data-level="5.2.2" data-path="interface.html"><a href="interface.html#pressure-vessel-function-1"><i class="fa fa-check"></i><b>5.2.2</b> Pressure Vessel function</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="interface.html"><a href="interface.html#authors"><i class="fa fa-check"></i><b>5.3</b> Authors界面</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> BAS案例一:多杆机构优化问题</a><ul>
-<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-14"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
+<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="examples.html"><a href="examples.html#bars4"><i class="fa fa-check"></i><b>6.1.1</b> 四连杆机构(Four-bar linkage mechanism)</a></li>
 <li class="chapter" data-level="6.1.2" data-path="examples.html"><a href="examples.html#bars6"><i class="fa fa-check"></i><b>6.1.2</b> 六连杆机构(Stephenson III Six-bar linkage mechanism)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-15"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
+<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="examples.html"><a href="examples.html#bars4optim"><i class="fa fa-check"></i><b>6.2.1</b> 四连杆机构</a></li>
 <li class="chapter" data-level="6.2.2" data-path="examples.html"><a href="examples.html#bars6optim"><i class="fa fa-check"></i><b>6.2.2</b> 六连杆机构</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-16"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
-<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-17"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
+<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
+<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-6.4"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="examples.html"><a href="examples.html#case1-path-generation-without-prescribed-timing"><i class="fa fa-check"></i><b>6.4.1</b> Case1 无规定时间内轨迹生成(Path generation without prescribed timing)</a></li>
 <li class="chapter" data-level="6.4.2" data-path="examples.html"><a href="examples.html#case2-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.2</b> Case2 有规定时间的轨迹生成(with prescribed timing)</a></li>
 <li class="chapter" data-level="6.4.3" data-path="examples.html"><a href="examples.html#case3-path-generation-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.3</b> Case3 规定时间内路径生成（Path generation with prescribed timing）</a></li>
@@ -228,31 +202,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
-<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-18"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
-<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-19"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
-<li class="chapter" data-level="7.3" data-path="examples2.html"><a href="examples2.html#section-20"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
-<li class="chapter" data-level="7.4" data-path="examples2.html"><a href="examples2.html#section-21"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
+<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
+<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="7.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>8</b> Python接口</a><ul>
-<li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-22"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
-<li class="chapter" data-level="8.2" data-path="python.html"><a href="python.html#section-23"><i class="fa fa-check"></i><b>8.2</b> 使用</a></li>
+<li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
+<li class="chapter" data-level="8.2" data-path="python.html"><a href="python.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 使用</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>9</b> Matlab用户</a><ul>
 <li class="chapter" data-level="9.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>9.1</b> 使用R.matlab包</a></li>
 <li class="chapter" data-level="9.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>9.2</b> 中转站：C/C++</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>10</b> 已发表工作</a><ul>
-<li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-24"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
-<li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-25"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
-<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-26"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
+<li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
+<li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
+<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
-<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-27"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
-<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-28"><i class="fa fa-check"></i><b>11.2</b> 联系方式</a></li>
+<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-11.2"><i class="fa fa-check"></i><b>11.2</b> 联系方式</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
-<li class="chapter" data-level="" data-path="section-29.html"><a href="section-29.html"><i class="fa fa-check"></i>结语</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -282,40 +256,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="BASflow" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> 算法流程</h3>
 <p>1.随机生成方向向量，标准化</p>
-<p><span class="math display" id="eq:dir">\[\begin{equation}
+<span class="math display" id="eq:dir">\[\begin{equation}
 \overrightarrow{\mathbf{b}}=\frac{\text{rnd}(n,1)}{\|\text{rnd}(n,1)\|}
 \tag{2.1}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>其中，<span class="math inline">\(n\)</span>是待优化参数的维度。</p>
 <p>2.计算左右须的坐标</p>
-<p><span class="math display" id="eq:xlxr">\[\begin{equation}
+<span class="math display" id="eq:xlxr">\[\begin{equation}
 \begin{split}
 \mathbf{x}_r&amp;=\mathbf{x}^t+d^t\overrightarrow{\mathbf{b}} \\
 \mathbf{x}_l&amp;=\mathbf{x}^t-d^t\overrightarrow{\mathbf{b}}
 \end{split}
 \tag{2.2}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>其中，<span class="math inline">\(\mathbf{x}^t\)</span>为<span class="math inline">\(t\)</span>时刻天牛的位置，<span class="math inline">\(d^t\)</span>则是<span class="math inline">\(t\)</span>时刻，质心到须的距离。</p>
 <p>3.根据两须对应函数值，决定天牛下一时刻移动位置</p>
-<p><span class="math display" id="eq:xupdate">\[\begin{equation}
+<span class="math display" id="eq:xupdate">\[\begin{equation}
 \mathbf{x}^t=\mathbf{x}^{t-1}+\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
 \tag{2.3}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>其中，<span class="math inline">\(\delta^t\)</span>为t时刻的步长,<span class="math inline">\(f\)</span>为待优化目标函数。</p>
 <p>4.步长与搜索距离更新</p>
-<p><span class="math display" id="eq:deltaupdate" id="eq:dupdate">\[\begin{align}
+<span class="math display" id="eq:deltaupdate" id="eq:dupdate">\[\begin{align}
 d^t&amp;= \eta_d d^{t-1}+d_0 \tag{2.4}\\
 \delta^t&amp;=\eta_{\delta} \delta^{t-1} \tag{2.5}
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>其中，<span class="math inline">\(d_0\)</span>是人为设定的距离的常数，<span class="math inline">\(\eta_d\)</span>与<span class="math inline">\(\eta_\delta\)</span>分别是搜索距离和步长的更新衰减系数。</p>
-<p>为了避免参数过多，姜向远博士在<code>BAS-WPT</code>算法中是按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来更新搜索距离和步长的。其中，<span class="math inline">\(c_2\)</span>是人为设定的常数。
+为了避免参数过多，姜向远博士在<code>BAS-WPT</code>算法中是按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来更新搜索距离和步长的。其中，<span class="math inline">\(c_2\)</span>是人为设定的常数。
 <span class="math display" id="eq:WPTupdate">\[\begin{equation}
 \begin{split}
 \delta^t&amp;=\eta_{\delta} \delta^{t-1}\\
 d^t &amp;= \frac{\delta^t}{c_2}\\
 \end{split}
 \tag{2.6} 
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 </div>
 <div id="BASimprove" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> 不足与改进</h3>
@@ -355,15 +329,15 @@ d^t &amp;= \frac{\delta^t}{c_2}\\
 <h3><span class="header-section-number">2.2.1</span> 与BAS不同之处</h3>
 <p>此部分没有公式，因为和<code>BAS</code>算法核心公式思路是一致的。而图<a href="algorithm.html#fig:basflow">2.1</a>与图<a href="algorithm.html#fig:bsasflow">2.2</a>描述了一种假设的寻优场景，能比较清晰地体现<code>BSAS</code>与<code>BAS</code>之间的不同。</p>
 <div class="figure" style="text-align: center"><span id="fig:basflow"></span>
-<img src="img/BAS.png" alt="BAS寻优过程示意" width="80%" />
+<img src="img/BAS.png" alt="BAS&lt;U+5BFB&gt;优&lt;U+8FC7&gt;程示意" width="80%" />
 <p class="caption">
-图 2.1: BAS寻优过程示意
+图 2.1: BAS<U+5BFB>优<U+8FC7>程示意
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:bsasflow"></span>
-<img src="img/BSAS.png" alt="BSAS寻优过程示意" width="80%" />
+<img src="img/BSAS.png" alt="BSAS&lt;U+5BFB&gt;优&lt;U+8FC7&gt;程示意" width="80%" />
 <p class="caption">
-图 2.2: BSAS寻优过程示意
+图 2.2: BSAS<U+5BFB>优<U+8FC7>程示意
 </p>
 </div>
 <p>假定，天牛要找到图中<strong>最蓝的点</strong>。图<a href="algorithm.html#fig:basflow">2.1</a> 中，天牛的起点在距离最优点较远处。由于位置更新只与时间有关，也就是每一步，天牛的步长都会缩减（为了可视化效果，天牛的大小我并没有缩放）。如果初始位置距离最优点较远，那在给定的步长缩减情况下，天牛只能在一个<strong>局部最优点</strong>处收敛。而图<a href="algorithm.html#fig:bsasflow">2.2</a>中，每回合天牛会派出<span class="math inline">\(k\)</span>只天牛在外试探，如果有更优的点，那么更新天牛位置。这样天牛可以更好地到达<strong>全局最优点</strong>。</p>
@@ -388,8 +362,7 @@ d^t &amp;= \frac{\delta^t}{c_2}\\
 </div>
 <div id="bas-wpt" class="section level2">
 <h2><span class="header-section-number">2.3</span> BAS-WPT</h2>
-<p>相比于<a href="algorithm.html#BASflow">2.1.1</a>节中描绘的<code>BAS</code>，
-<a href="https://arxiv.org/abs/1711.02395">Beetle Antennae Search without Parameter Tuning (BAS-WPT) for Multi-objective Optimization</a>一文给出了改进后的<code>BAS</code>是如何处理<strong>步长调节</strong>和<strong>约束问题抽象</strong>的。</p>
+<p>相比于<a href="algorithm.html#BASflow">2.1.1</a>节中描绘的<code>BAS</code>， <a href="https://arxiv.org/abs/1711.02395">Beetle Antennae Search without Parameter Tuning (BAS-WPT) for Multi-objective Optimization</a>一文给出了改进后的<code>BAS</code>是如何处理<strong>步长调节</strong>和<strong>约束问题抽象</strong>的。</p>
 <div id="BASWPTflow" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> 与BAS不同之处</h3>
 <p><code>BAS-WPT</code>的小尾巴<code>without parameter tunning</code>已经说明了两者之间的区别，即<code>BAS-WPT</code>是不需要进行参数调节的。当然，按照我现在的理解，是<code>BAS-WPT</code>一方面简化了<strong>每回合搜索距离</strong>(质心到须的距离)的<strong>更新</strong>，不需要再<strong>额外设定与调节</strong>诸如<span class="math inline">\(d_0\)</span>，<span class="math inline">\(\eta_d\)</span>等参数，用户只需要按照式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>来设置<span class="math inline">\(c_2\)</span>便可；另一方面，参数标准化，让<strong>存在量级差异</strong>的参数之间不必再像<code>BAS</code>一样，共享一个你不知道该怎么设定的步长<span class="math inline">\(\delta^t\)</span>（步长过大，小的参数可能经常处于在边界的状态；步长过小，大的参数可能搜索范围达不到）。</p>
@@ -403,31 +376,31 @@ d^t &amp;= \frac{\delta^t}{c_2}\\
 <div id="constrform" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> 约束问题抽象形式</h3>
 <p>此外，<code>BAS-WPT</code>还为<code>BAS</code>引入了约束问题处理的手段。不过，这和我做模型预测控制时候看到的抽象方式是相同的。我觉得<code>BAS</code>的用户们应该都早已了解，此处就照本宣科。</p>
-<div id="section-4" class="section level4">
+<div id="section-2.3.2.1" class="section level4">
 <h4><span class="header-section-number">2.3.2.1</span> 约束问题一般形式</h4>
-<p><span class="math display" id="eq:ConProb">\[\begin{equation}
+<span class="math display" id="eq:ConProb">\[\begin{equation}
 \begin{split}
 &amp; \frac{\text{Minimize}}{\text{Maximize}} f(\mathbf{x}) \\
 s.t.  &amp; g_j(\mathbf{x})\leq 0, j=1, \cdots, K \\
 &amp; x^\text{max}_i \leq x_i \leq x^\text{min}_i, i=1, \cdots N
 \end{split}
 \tag{2.7}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p><span class="math inline">\(g_j(\mathbf{x})\leq 0\)</span> 和 <span class="math inline">\(x^\text{max}_i \leq x_i \leq x^\text{min}_i\)</span> 表示了参数本身的范围和更为精细具体的不等式约束控制。在<code>rBAS</code>包中，我们会有很<strong>直观和简便</strong>的方式，来设置这些约束。</p>
 </div>
-<div id="section-5" class="section level4">
+<div id="section-2.3.2.2" class="section level4">
 <h4><span class="header-section-number">2.3.2.2</span> 惩罚函数</h4>
-<p><span class="math display" id="eq:penalty">\[\begin{equation}
+<span class="math display" id="eq:penalty">\[\begin{equation}
 F(\mathbf{x})=f(\mathbf{x})+\lambda\sum_{j=1}^{K}h_j(\mathbf{x})g_j(\mathbf{x})
 \tag{2.8}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:violation">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:violation">\[\begin{equation}
 h_j(\mathbf{x}) = \begin{cases} 
 1, &amp; g_j(\mathbf{x})&gt;0 \\ 
 0, &amp; g_j(\mathbf{x})\leq0
 \end{cases}
 \tag{2.9}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>其中，式<a href="algorithm.html#eq:penalty">(2.8)</a>中的<span class="math inline">\(\lambda\)</span>表示约束违背的惩罚因子，选取尽量大的正数。而后的<span class="math inline">\(h_j(\mathbf{x})\)</span>为<code>Heaviside</code>函数，即不等式约束满足时，该函数为0，反之为1。</p>
 </div>
 </div>
@@ -447,26 +420,26 @@ h_j(\mathbf{x}) = \begin{cases}
 <h2><span class="header-section-number">2.4</span> BAS with momentum(second-order BAS)</h2>
 <p>带动量的BAS，唔……这名字听着有点长。顾名思义，是利用了惯性项（即，前一时刻的状态），来使得算法不陷入局部最优。不得不说，李晓晓同学对算法的改进既保留了BAS本身的简洁，又增大了BAS对局部最优处理的能力。</p>
 <p>在打算复现BSO(BAS和PSO的诚意结合)算法之前，我就看过了李晓晓同学提供给我的二阶BAS代码。相比于BSO，进行了大量的细节上的BAS和PSO融合，二阶BAS只对天牛位置更新的等式（即式<a href="algorithm.html#eq:xupdate">(2.3)</a>）做了大的改动。因此，我觉得这还是更为类似BAS的，大家接受起来应该也更为容易。</p>
-<div id="section-6" class="section level3">
+<div id="section-2.4.1" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> 算法原理</h3>
 <p>在<a href="algorithm.html#BASflow">2.1.1</a>节的基础上，改动了一大一小两处地方。大的是，天牛位置更新。小的改动是，步长增加了一个最小分辨率，也就是存在了最小值，不会无限制地缩减。</p>
 <p>在位置更新上，参考式<a href="algorithm.html#eq:bas2vupdate">(2.10)</a>至式<a href="algorithm.html#eq:bas2xupdate">(2.12)</a>。</p>
-<p><span class="math display" id="eq:bas2vupdate">\[\begin{equation}
+<span class="math display" id="eq:bas2vupdate">\[\begin{equation}
 \mathbf{v}^{t+1} = w_0\mathbf{v}^t - w_1\overrightarrow{b}(f(\mathbf{x}_l^t)-f(\mathbf{x}_r^t))
 \tag{2.10}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:bas2vbound">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:bas2vbound">\[\begin{equation}
 \mathbf{v}^{t+1} = \begin{cases} 
 V_{max},&amp;\mathbf{v}^{t+1} &gt; V_{max} \\ 
 \mathbf{v}^{t+1},  &amp;\mathbf{v}^{t+1} \in [V_{max},V_{max}] \\
 -V_{max},&amp;\mathbf{v}^{t+1} &lt;- V_{max}
 \end{cases}
 \tag{2.11}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:bas2xupdate">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:bas2xupdate">\[\begin{equation}
 \mathbf{x}^{t+1} = \mathbf{x}^t+\mathbf{v}^{t+1}
 \tag{2.12}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>大的改动；在式<a href="algorithm.html#eq:bas2vupdate">(2.10)</a>中，<span class="math inline">\(v\)</span>表示速度，<span class="math inline">\(w_0\)</span>和<span class="math inline">\(w_1\)</span>分别为常数，也可以理解为权重。前者是上一时刻速度的权重，后者是由左右须函数强度差（类似于梯度）的权重。式<a href="algorithm.html#eq:bas2vbound">(2.11)</a>是对速度范围进行的限定。把式<a href="algorithm.html#eq:bas2xupdate">(2.12)</a> 和式<a href="algorithm.html#eq:xupdate">(2.3)</a> 相比，<strong>不仅多了速度项，还把原有的步长从式中去掉了</strong>。</p>
 <p>那步长在哪里用呢，有两个地方。</p>
 <ul>
@@ -474,13 +447,13 @@ V_{max},&amp;\mathbf{v}^{t+1} &gt; V_{max} \\
 <li>用来确定式<a href="algorithm.html#eq:bas2vbound">(2.11)</a>中最大速度<span class="math inline">\(V_{max}\)</span>，即<span class="math inline">\(V_{max} = c_0 \delta\)</span>。原文中的<span class="math inline">\(c_0\)</span>和<span class="math inline">\(w_0\)</span>是用的同一符号，但是在后续的测试函数调试中，两者分开似乎效果更好。因此，在<code>rBAS</code>中的<code>BASoptim2</code>中，为了更加灵活而将两者区分开来，把选择权给了大家。</li>
 </ul>
 <p>此外，还有一个小改动。步长的更新采用了一个最小分辨率，参考式<a href="algorithm.html#eq:bas2stepupdate">(2.13)</a>。</p>
-<p><span class="math display" id="eq:bas2stepupdate">\[\begin{equation}
+<span class="math display" id="eq:bas2stepupdate">\[\begin{equation}
 \delta^{t+1}=\eta_{\delta}(\delta^{t}-\delta_0) + \delta_0
 \tag{2.13}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>如果有必要的话，大家在使用过程中可以设定较小的<span class="math inline">\(\delta_0\)</span>来规避此项规则。</p>
 </div>
-<div id="section-7" class="section level3">
+<div id="section-2.4.2" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> 不足与改进</h3>
 <p>总的来说，我觉得是大家看完原理，应该就能自己敲出代码的算法。这也反映了该算法的简洁，这和BAS原本的风格应该是一致的。</p>
 <p>当然，简洁也意味着可以提升的余地还存在。既然二阶BAS把最精华的惯性项奉上了，我们可以开始对其的改造。此处就不一一罗列。可以参考前面的章节。</p>
@@ -545,7 +518,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

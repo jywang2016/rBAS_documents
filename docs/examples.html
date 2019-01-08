@@ -9,7 +9,7 @@
   <meta name="description" content="rBAS中文使用说明文档V0.2">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="第 6 章 BAS案例一:多杆机构优化问题 | rBAS使用文档 />
+  <meta property="og:title" content="第 6 章 BAS案例一:多杆机构优化问题 | rBAS使用文档" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="jywang2016/rBAS" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 6 章 BAS案例一:多杆机构优化问题 | rBAS使用文档 />
+  <meta name="twitter:title" content="第 6 章 BAS案例一:多杆机构优化问题 | rBAS使用文档" />
   
   <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-03">
+<meta name="date" content="2019-01-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,67 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="css\style.css" type="text/css" />
@@ -132,9 +106,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>手册内容概述</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>夹带私货</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-3"><i class="fa fa-check"></i>致谢</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
 <li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
@@ -157,20 +131,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-6"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
-<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-7"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
+<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
+<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
 <li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-8"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
-<li class="chapter" data-level="3.1.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bas-1"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
-<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-9"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
+<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.1"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
+<li class="chapter" data-level="3.1.2" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
+<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.3"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
 <li class="chapter" data-level="3.1.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#BSOparms"><i class="fa fa-check"></i><b>3.1.4</b> 算法调用说明</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bBASa"><i class="fa fa-check"></i><b>3.2</b> bBAS</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-10"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
-<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-11"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
+<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.2.1"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
@@ -199,24 +173,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>5</b> 用户界面</a><ul>
-<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-12"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
-<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-13"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
+<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
+<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="interface.html"><a href="interface.html#michalewicz-function-2"><i class="fa fa-check"></i><b>5.2.1</b> Michalewicz function</a></li>
 <li class="chapter" data-level="5.2.2" data-path="interface.html"><a href="interface.html#pressure-vessel-function-1"><i class="fa fa-check"></i><b>5.2.2</b> Pressure Vessel function</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="interface.html"><a href="interface.html#authors"><i class="fa fa-check"></i><b>5.3</b> Authors界面</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> BAS案例一:多杆机构优化问题</a><ul>
-<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-14"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
+<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="examples.html"><a href="examples.html#bars4"><i class="fa fa-check"></i><b>6.1.1</b> 四连杆机构(Four-bar linkage mechanism)</a></li>
 <li class="chapter" data-level="6.1.2" data-path="examples.html"><a href="examples.html#bars6"><i class="fa fa-check"></i><b>6.1.2</b> 六连杆机构(Stephenson III Six-bar linkage mechanism)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-15"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
+<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="examples.html"><a href="examples.html#bars4optim"><i class="fa fa-check"></i><b>6.2.1</b> 四连杆机构</a></li>
 <li class="chapter" data-level="6.2.2" data-path="examples.html"><a href="examples.html#bars6optim"><i class="fa fa-check"></i><b>6.2.2</b> 六连杆机构</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-16"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
-<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-17"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
+<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
+<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-6.4"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="examples.html"><a href="examples.html#case1-path-generation-without-prescribed-timing"><i class="fa fa-check"></i><b>6.4.1</b> Case1 无规定时间内轨迹生成(Path generation without prescribed timing)</a></li>
 <li class="chapter" data-level="6.4.2" data-path="examples.html"><a href="examples.html#case2-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.2</b> Case2 有规定时间的轨迹生成(with prescribed timing)</a></li>
 <li class="chapter" data-level="6.4.3" data-path="examples.html"><a href="examples.html#case3-path-generation-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.3</b> Case3 规定时间内路径生成（Path generation with prescribed timing）</a></li>
@@ -228,31 +202,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
-<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-18"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
-<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-19"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
-<li class="chapter" data-level="7.3" data-path="examples2.html"><a href="examples2.html#section-20"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
-<li class="chapter" data-level="7.4" data-path="examples2.html"><a href="examples2.html#section-21"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
+<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
+<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="7.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>8</b> Python接口</a><ul>
-<li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-22"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
-<li class="chapter" data-level="8.2" data-path="python.html"><a href="python.html#section-23"><i class="fa fa-check"></i><b>8.2</b> 使用</a></li>
+<li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
+<li class="chapter" data-level="8.2" data-path="python.html"><a href="python.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 使用</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="matlabr.html"><a href="matlabr.html"><i class="fa fa-check"></i><b>9</b> Matlab用户</a><ul>
 <li class="chapter" data-level="9.1" data-path="matlabr.html"><a href="matlabr.html#r.matlab"><i class="fa fa-check"></i><b>9.1</b> 使用R.matlab包</a></li>
 <li class="chapter" data-level="9.2" data-path="matlabr.html"><a href="matlabr.html#cc"><i class="fa fa-check"></i><b>9.2</b> 中转站：C/C++</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>10</b> 已发表工作</a><ul>
-<li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-24"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
-<li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-25"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
-<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-26"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
+<li class="chapter" data-level="10.1" data-path="paper.html"><a href="paper.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 工具箱/软件</a></li>
+<li class="chapter" data-level="10.2" data-path="paper.html"><a href="paper.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 论文</a></li>
+<li class="chapter" data-level="10.3" data-path="paper.html"><a href="paper.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 专利</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
-<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-27"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
-<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-28"><i class="fa fa-check"></i><b>11.2</b> 联系方式</a></li>
+<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 待加入的功能</a></li>
+<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-11.2"><i class="fa fa-check"></i><b>11.2</b> 联系方式</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
-<li class="chapter" data-level="" data-path="section-29.html"><a href="section-29.html"><i class="fa fa-check"></i>结语</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -280,30 +254,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>由群友莫小娟博士研究生提供案例。</p>
 </blockquote>
 <p>由于案例均为各位热心的同学提供，均为自己的研究。因此，希望大家要引用其中的结果时，可以引用对应同学的文章。此外，也请大家转载时注明来源。</p>
-<div id="section-14" class="section level2">
+<div id="section-6.1" class="section level2">
 <h2><span class="header-section-number">6.1</span> 背景</h2>
 <div id="bars4" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> 四连杆机构(Four-bar linkage mechanism)</h3>
 <p>四连杆机构如图<a href="examples.html#fig:fourbars">6.1</a>所示：</p>
 <div class="figure" style="text-align: center"><span id="fig:fourbars"></span>
-<img src="img/bars4.png" alt="四连杆机构示意" width="70%" />
+<img src="img/bars4.png" alt="四&lt;U+8FDE&gt;杆机构示意" width="70%" />
 <p class="caption">
-图 6.1: 四连杆机构示意
+图 6.1: 四<U+8FDE>杆机构示意
 </p>
 </div>
 <p>基于闭环矢量方程，推导出节点位置。推导过程如式<a href="examples.html#eq:bars4loop1">(6.1)</a>至式<a href="examples.html#eq:bars4loop4">(6.4)</a>:</p>
-<p><span class="math display" id="eq:bars4loop1">\[\begin{equation}
+<span class="math display" id="eq:bars4loop1">\[\begin{equation}
 \mathbf{\text{Loop:}}   r_1e^{i\theta_0} + r_4e^{i\theta_4} - r_2e^{i\theta_2} -r_3e^{i\theta_3} = 0\\
 \tag{6.1}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:bars4loop2">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:bars4loop2">\[\begin{equation}
 \begin{cases} 
 r_1cos(\theta_0) + r_4cos(\theta_4)-r_2cos(\theta_2)-r_3cos(\theta_3)=0 \\ 
 r_1sin(\theta_0) + r_4sin(\theta_4)-r_2sin(\theta_2)-r_3sin(\theta_3)=0
 \end{cases}
 \tag{6.2}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:bars4loop3">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:bars4loop3">\[\begin{equation}
 \begin{split}
 &amp;\theta_3 =2atan(\frac{-A\pm\sqrt{2}{A^2-4BC}}{2B})+\theta_0\\
 &amp;A = cos(\theta_2 - \theta_0)-K_1+K_2cos(\theta_2-\theta_0)+K_3\\
@@ -311,33 +285,33 @@ r_1sin(\theta_0) + r_4sin(\theta_4)-r_2sin(\theta_2)-r_3sin(\theta_3)=0
 &amp;K_1 = r_1/r_2,K_2=r_1/r_3,K_3=(r_4^2-r_1^2-r_2^2-r_3^2)/(2r_2r_3)\\
 \end{split}
 \tag{6.3}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:bars4loop4">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:bars4loop4">\[\begin{equation}
 \begin{cases} 
 x_p=x_0+r_2cos(\theta_2)+r_pcos(\theta_3+\theta_p) \\ 
 y_p=y_0+r_2sin(\theta_2)+r_psin(\theta_3+\theta_p)
 \end{cases}
 \tag{6.4}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 </div>
 <div id="bars6" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> 六连杆机构(Stephenson III Six-bar linkage mechanism)</h3>
 <p>六连杆机构如图<a href="examples.html#fig:sixbars">6.2</a>所示：</p>
 <div class="figure" style="text-align: center"><span id="fig:sixbars"></span>
-<img src="img/bars6.png" alt="六连杆机构示意" width="70%" />
+<img src="img/bars6.png" alt="六&lt;U+8FDE&gt;杆机构示意" width="70%" />
 <p class="caption">
-图 6.2: 六连杆机构示意
+图 6.2: 六<U+8FDE>杆机构示意
 </p>
 </div>
 <p>基于闭环矢量方程，推导出节点位置和外部链接角度。推导过程如式<a href="examples.html#eq:bars6loop1">(6.5)</a>至式<a href="examples.html#eq:bars6loop2">(6.6)</a>:</p>
-<p><span class="math display" id="eq:bars6loop1">\[\begin{equation}
+<span class="math display" id="eq:bars6loop1">\[\begin{equation}
 \begin{split}
 &amp;\mathbf{\text{Loop1:}}   r_1e^{i\theta_0} + r_4e^{i\theta_4} - r_2e^{i\theta_2} -r_3e^{i\theta_3} = 0\\
 &amp;\mathbf{\text{Loop2:}}   r_1&#39;e^{i\theta_0&#39;} + r_6e^{i\theta_6} - r_2e^{i\theta_2} -r_pe^{i(\theta_3+\theta_p)}-r_5e^{i\theta_5} = 0\\
 \end{split}
 \tag{6.5}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:bars6loop2">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:bars6loop2">\[\begin{equation}
 \begin{split}
 \text{Loop1:}\\
 &amp;\alpha = r_2cos(\theta_2) - r_1cos(\theta_0), \beta = r_2sin(\theta_2)-r_1sin(\theta_0) \\
@@ -352,9 +326,9 @@ y_p=y_0+r_2sin(\theta_2)+r_psin(\theta_3+\theta_p)
 &amp;\theta_5 = atan2(r_6sin(\theta_6)-\beta_1,r_6cos(\theta_6)-\alpha_1)
 \end{split}
 \tag{6.6}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>于是，可以得到节点位置如式<a href="examples.html#eq:bars6loop3">(6.7)</a>：</p>
-<p><span class="math display" id="eq:bars6loop3">\[\begin{equation}
+<span class="math display" id="eq:bars6loop3">\[\begin{equation}
 \begin{cases} 
 x_A = x_0,y_A = y_0 \\
 x_D = x_0+r_1cos(\theta_0),y_D = y_0+r_1sin(\theta_0)\\
@@ -363,42 +337,42 @@ x_p = x_0 + r_2cos(\theta_2) + r_pcos(\theta_3+\theta_p)\\
 y_P = y_0 + r_2sin(\theta_2)+r_Psin(\theta_3+\theta_p)\\
 \end{cases}
 \tag{6.7}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 </div>
 </div>
-<div id="section-15" class="section level2">
+<div id="section-6.2" class="section level2">
 <h2><span class="header-section-number">6.2</span> 优化问题</h2>
 <div id="bars4optim" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> 四连杆机构</h3>
 <p>四杆机构的优化问题可以用式<a href="examples.html#eq:optim4bars">(6.8)</a>表示。</p>
-<p><span class="math display" id="eq:optim4bars">\[\begin{equation}
+<span class="math display" id="eq:optim4bars">\[\begin{equation}
 \begin{split}
 \text{min   } &amp;\sum_{i=1}^N[(P_{Xd}^i-P_X^i)^2+(P_{Yd}^i-P_Y^i)^2]+M_1h_1(x)+M_2h_2(x)\\
 \text{where } &amp; x_i\in [l_{min}^i,l_{max}^i] \quad \forall x_i \in X,\\
 &amp;X=[r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^N]\\
 \end{split}
 \tag{6.8}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>其中，</p>
-<p><span class="math display" id="eq:hx1">\[\begin{equation}
+<span class="math display" id="eq:hx1">\[\begin{equation}
 h_1(x) = \begin{cases}
 1, &amp; \text{the Grashof condition false}\\
 0, &amp; \text{the Grashof condition true}
 \end{cases}
 \tag{6.9}
-\end{equation}\]</span></p>
-<p><span class="math display" id="eq:hx2">\[\begin{equation}
+\end{equation}\]</span>
+<span class="math display" id="eq:hx2">\[\begin{equation}
 h_2(x) = \begin{cases}
 1, &amp; \text{the sequence condition of the crank angle false}\\
 0, &amp; \text{the sequence condition of the crank angle true}
 \end{cases}
 \tag{6.10}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p><span class="math inline">\(h_1(X)\)</span> 和 <span class="math inline">\(h_2(X)\)</span> 分别用于评估曲柄存在条件（<code>Grashof Condition</code>）以及曲柄角度（顺时针或逆时针）的顺序情况。<span class="math inline">\(M_1\)</span> 和 <span class="math inline">\(M_2\)</span>分别是对应的惩罚系数。<span class="math inline">\(X\)</span> 为设计参数。</p>
 </div>
 <div id="bars6optim" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> 六连杆机构</h3>
-<p><span class="math display" id="eq:optim6bars">\[\begin{equation}
+<span class="math display" id="eq:optim6bars">\[\begin{equation}
 \begin{split}
 \text{min   } &amp;\sum_{i=1}^N[(P_{Xd}^i-P_X^i)^2+(P_{Yd}^i-P_Y^i)^2]+\sum_{i=1}^M[(\theta_{6d}^i-\theta_6^i)^2]\\
 &amp;+M_1h_1(x)+M_2h_2(x)+M_3h_3(X)\\
@@ -406,41 +380,41 @@ h_2(x) = \begin{cases}
 &amp;X=[r_1,r_2,r_3,r_4,r_5,r_6,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^N]\\
 \end{split}
 \tag{6.11}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>其中，<span class="math inline">\(h_1(X)\)</span> 与 <span class="math inline">\(h_2(X)\)</span> 同式<a href="examples.html#eq:hx1">(6.9)</a>与<a href="examples.html#eq:hx2">(6.10)</a>， <span class="math inline">\(h_3(X)\)</span>如式<a href="examples.html#eq:hx3">(6.12)</a>：</p>
-<p><span class="math display" id="eq:hx3">\[\begin{equation}
+<span class="math display" id="eq:hx3">\[\begin{equation}
 h_3(x) = \begin{cases}
 1, &amp; \text{non-violation of transmission angle false}\\
 0, &amp; \text{non-violation of transmission angle true}
 \end{cases}
 \tag{6.12}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p><span class="math inline">\(h_3(X)\)</span> 所表示的是，是否没有违背传动角（超过20°）的约束。同样地，<span class="math inline">\(M_3\)</span> 为对应的惩罚系数。</p>
 </div>
 </div>
-<div id="section-16" class="section level2">
+<div id="section-6.3" class="section level2">
 <h2><span class="header-section-number">6.3</span> 优化理论</h2>
 <p>案例所使用的算法是<strong>标准化的群体天牛算法</strong>。有意思的是，此处群体天牛算法，和<code>rBAS</code>包的<code>BSASoptim</code>的算法极为类似。这也说明，加入群体智能策略，会使得<code>BAS</code>对于复杂问题寻优能力增强。</p>
 <p>联系在于：此案例使用的群体天牛，是在每回合，对于天牛探索方向数的提升。即，每回合生成多个随机的方向，在这些方向上，派出天牛进行试探。这点和<code>BSAS</code>保持一致，可以理解为，<strong>如果天牛不止有一对须，而是有多对，那每回合探索的方向也会有多个</strong>。大致的原理如式<a href="examples.html#eq:barsbsas">(6.13)</a>：</p>
-<p><span class="math display" id="eq:barsbsas">\[\begin{equation}
+<span class="math display" id="eq:barsbsas">\[\begin{equation}
 \begin{split}
 x_{ri} &amp;= x_{t} + d^t\overrightarrow{b_i}, \quad i = 1,\cdots,q\\
 x_{li} &amp;= x_{t} - d^t\overrightarrow{b_i}, \\
 x_{ti} &amp;= x_{t-1} - \delta^t\overrightarrow{b_i}sign(f(x_{ri})-f(x_{li}))
 \end{split}
 \tag{6.13}
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 <p>区别在于：并未使用基于结果反馈的步长调节策略。</p>
 <p>对于轨迹优化问题，莫小娟同学给出的参数建议是，<span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=50000\)</span>。部分同学可能看过手册的<a href="algorithm.html#algorithm">2</a>节，对于步长<span class="math inline">\(d\)</span>和须到质心距离<span class="math inline">\(\delta\)</span>的更新，即式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>中有所提及。此处，参数的含义如式<a href="examples.html#eq:barsupdate">(6.14)</a>所示。部分参数与式<a href="algorithm.html#eq:WPTupdate">(2.6)</a>类同，也有同名但含义冲突的，大家复现时需要注意这些地方。</p>
-<p><span class="math display" id="eq:barsupdate">\[\begin{equation}
+<span class="math display" id="eq:barsupdate">\[\begin{equation}
 \begin{split}
 d^t &amp;= c_1d^{t-1}\\
 \delta^t&amp;=c_2 d^t\\
 \end{split}
 \tag{6.14} 
-\end{equation}\]</span></p>
+\end{equation}\]</span>
 </div>
-<div id="section-17" class="section level2">
+<div id="section-6.4" class="section level2">
 <h2><span class="header-section-number">6.4</span> 优化结果</h2>
 <p>此处，莫小娟同学提供了8个案例，并且与其他的经典算法（指多杆机构优化问题中多用的算法）进行了优化效果的对比。</p>
 <div id="case1-path-generation-without-prescribed-timing" class="section level3">
@@ -449,32 +423,30 @@ d^t &amp;= c_1d^{t-1}\\
 <p>设计参数为：</p>
 <p><span class="math display">\[
 X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^6]
-\]</span>
-目标点坐标：</p>
+\]</span> 目标点坐标：</p>
 <p><span class="math display">\[
 \{C_d^i\} = \{(20,20),(20,25),(20,30),(20,40),(20,45)\}
 \]</span></p>
 <p>参数约束：</p>
 <p><span class="math display">\[
 r_1,r_2,r_3,r_4\in[0,60]\quad r_p,x_0,y_0\in[-60,60]\quad \theta_0,\theta_1,\cdots,\theta_2^6,\theta_p\in[0,2\pi]
-\]</span>
-算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case1gif">6.3</a>。</p>
+\]</span> 算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case1gif">6.3</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case1gif"></span>
-<img src="img/case1.gif" alt="四杆机构轨迹生成"  />
+<img src="img/case1.gif" alt="四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.3: 四杆机构轨迹生成
+图 6.3: 四杆机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 <p>与其他算法对比结果如图<a href="examples.html#fig:case1png">6.4</a>和表<a href="examples.html#tab:case1table">6.1</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case1png"></span>
-<img src="img/case1png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case1png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.4: 各算法优化轨迹
+图 6.4: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <table>
 <caption>
-<span id="tab:case1table">表 6.1: </span>case1各算法结果对比
+<span id="tab:case1table">表 6.1: </span>case1各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -600,7 +572,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:right;">
 0.398977
@@ -620,7 +592,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0\)</span>
+<span class="math inline">\(牟_0\)</span>
 </td>
 <td style="text-align:right;">
 4.015959
@@ -680,7 +652,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^1\)</span>
+<span class="math inline">\(牟_2^1\)</span>
 </td>
 <td style="text-align:right;">
 1.366547
@@ -700,7 +672,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^2\)</span>
+<span class="math inline">\(牟_2^2\)</span>
 </td>
 <td style="text-align:right;">
 2.330773
@@ -720,7 +692,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^3\)</span>
+<span class="math inline">\(牟_2^3\)</span>
 </td>
 <td style="text-align:right;">
 2.871039
@@ -740,7 +712,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^4\)</span>
+<span class="math inline">\(牟_2^4\)</span>
 </td>
 <td style="text-align:right;">
 3.394591
@@ -760,7 +732,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^5\)</span>
+<span class="math inline">\(牟_2^5\)</span>
 </td>
 <td style="text-align:right;">
 3.970960
@@ -780,7 +752,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^6\)</span>
+<span class="math inline">\(牟_2^6\)</span>
 </td>
 <td style="text-align:right;">
 4.963490
@@ -827,33 +799,32 @@ BAS
 <p>设计参数为：</p>
 <p><span class="math display">\[
 X = [r_1,r_2,r_3,r_4,r_p,\theta_p]
-\]</span>
-目标点坐标：</p>
-<p><span class="math display">\[\begin{align}
+\]</span> 目标点坐标：</p>
+<span class="math display">\[\begin{align}
 &amp;\{C_d^i\} = \{(3,3),(2.759,3.363),(2.759,3.363),(1.890,3.862),(1.355,3.943)\} \notag \\
 &amp;\{\theta_2^1,\theta_2^2,\theta_2^3,\theta_2^4,\theta_2^5\}=\{\pi/6,\pi/4,\pi/3,5\pi/12,\pi/2\} \notag \\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>参数约束：</p>
 <p><span class="math display">\[
 r_1,r_2,r_3,r_4\in[0,5]\quad r_p\in[-5,5]\quad \theta_p\in[0,2\pi]
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=10000\)</span>，动画结果如图<a href="examples.html#fig:case2gif">6.5</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case2gif"></span>
-<img src="img/case2.gif" alt="case2四杆机构轨迹生成"  />
+<img src="img/case2.gif" alt="case2四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.5: case2四杆机构轨迹生成
+图 6.5: case2四杆机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case2png">6.6</a>和表<a href="examples.html#tab:case2table">6.2</a>。
 <div class="figure" style="text-align: center"><span id="fig:case2png"></span>
-<img src="img/case2png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case2png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.6: 各算法优化轨迹
+图 6.6: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <table>
 <caption>
-<span id="tab:case2table">表 6.2: </span>case2各算法结果对比
+<span id="tab:case2table">表 6.2: </span>case2各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -979,7 +950,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:right;">
 0.7243557
@@ -1028,33 +999,33 @@ BAS
 X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^6]
 \]</span></p>
 <p>目标点坐标：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 \{C_d^i\} = \{&amp;(0.5,1.1),(0.4,1.1),(0.3,1.1),(0.2,1.0),(0.1,0.9),(0.05,0.75), \notag \\
 &amp;(0.02,0.6),(0,0.5),(0,0.4),(0.03,0.3),(0.1,0.25),(0.15,0.2), \notag\\
 &amp;(0.2,0.3),(0.3,0.4),(0.4,0.5),(0.5,0.7),(0.6,0.9),(0.6,1.0)\} \notag\\
 \{\theta_2^i\}=\{&amp;\theta_2^1,\theta_2^1+20\cdot i/\pi\},\quad i = 1,\cdots,17 \notag \\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>参数约束：</p>
 <p><span class="math display">\[
 r_1,r_2,r_3,r_4\in[0,5]\quad r_p,x_0,y_0\in[-5,5]\quad \theta_0,\theta_2^1,\theta_p\in[0,2\pi]
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=8,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case3gif">6.7</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case3gif"></span>
-<img src="img/case3.gif" alt="case3四杆机构轨迹生成"  />
+<img src="img/case3.gif" alt="case3四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.7: case3四杆机构轨迹生成
+图 6.7: case3四杆机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case3png">6.8</a>和表<a href="examples.html#tab:case3table">6.3</a>。
 <div class="figure" style="text-align: center"><span id="fig:case3png"></span>
-<img src="img/case3png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case3png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.8: 各算法优化轨迹
+图 6.8: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <table>
 <caption>
-<span id="tab:case3table">表 6.3: </span>case3各算法结果对比
+<span id="tab:case3table">表 6.3: </span>case3各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -1216,7 +1187,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:right;">
 -0.332546
@@ -1242,7 +1213,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0\)</span>
+<span class="math inline">\(牟_0\)</span>
 </td>
 <td style="text-align:right;">
 0.719000
@@ -1320,7 +1291,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^1\)</span>
+<span class="math inline">\(牟_2^1\)</span>
 </td>
 <td style="text-align:right;">
 0.215900
@@ -1381,31 +1352,31 @@ BAS
 X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0]
 \]</span></p>
 <p>目标点坐标：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 &amp;\{C_d^i\} = \{(0,0),(1.9098,5.8779),(6.60989.5106),(13.09,9.5106),(18.09,5.8779),(20,0)\} \notag \\
 &amp;\{\theta_2^1,\theta_2^2,\theta_2^3,\theta_2^4,\theta_2^5\}=\{\pi/6,\pi/3,\pi/2,2\pi/3,5\pi/6,\pi\} \notag \\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>参数约束：</p>
 <p><span class="math display">\[
 r_1,r_2,r_3,r_4\in[0,50]\quad r_p,x_0,y_0\in[-50,50]\quad \theta_0,\theta_p\in[0,2\pi]
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9997,c_2=0.5,q=40,T_{max}=30000\)</span>，动画结果如图<a href="examples.html#fig:case4gif">6.9</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case4gif"></span>
-<img src="img/case4.gif" alt="case4四杆机构轨迹生成"  />
+<img src="img/case4.gif" alt="case4四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.9: case4四杆机构轨迹生成
+图 6.9: case4四杆机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case4png">6.10</a>和表<a href="examples.html#tab:case4table">6.4</a>。
 <div class="figure" style="text-align: center"><span id="fig:case4png"></span>
-<img src="img/case4png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case4png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.10: 各算法优化轨迹
+图 6.10: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <table>
 <caption>
-<span id="tab:case4table">表 6.4: </span>case4各算法结果对比
+<span id="tab:case4table">表 6.4: </span>case4各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -1531,7 +1502,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:right;">
 0.6517294
@@ -1551,7 +1522,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0\)</span>
+<span class="math inline">\(牟_0\)</span>
 </td>
 <td style="text-align:right;">
 0.0428247
@@ -1640,31 +1611,31 @@ BAS
 X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^{10}]
 \]</span></p>
 <p>目标点坐标：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 \{C_d^i\} = \{&amp;(20,10),(17.66,15.142),(11.736,17.878),(5,16.928),(0.60307,12.736), \notag \\
 &amp;(0.60307,7.2638),(5,3.0718),(11.736,2.1215),(17.66,4.8577),(20,0)\}\notag\\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>参数约束：</p>
 <p><span class="math display">\[
 r_1,r_2,r_3,r_4\in[0,80]\quad r_p,x_0,y_0\in[-80,80]\quad \theta_0,\theta_2^1,\cdots,\theta_2^{10},\theta_p\in[0,2\pi]
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=40000\)</span>，动画结果如图<a href="examples.html#fig:case5gif">6.11</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case5gif"></span>
-<img src="img/case5.gif" alt="case5四杆机构轨迹生成"  />
+<img src="img/case5.gif" alt="case5四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.11: case5四杆机构轨迹生成
+图 6.11: case5四杆机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case5png">6.12</a>和表<a href="examples.html#tab:case5table">6.5</a>。
 <div class="figure" style="text-align: center"><span id="fig:case5png"></span>
-<img src="img/case5png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case5png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.12: 各算法优化轨迹
+图 6.12: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <table>
 <caption>
-<span id="tab:case5table">表 6.5: </span>case5各算法结果对比
+<span id="tab:case5table">表 6.5: </span>case5各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -1808,7 +1779,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:right;">
 -0.3452264
@@ -1831,7 +1802,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0\)</span>
+<span class="math inline">\(牟_0\)</span>
 </td>
 <td style="text-align:right;">
 5.5969445
@@ -1900,7 +1871,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^1\)</span>
+<span class="math inline">\(牟_2^1\)</span>
 </td>
 <td style="text-align:right;">
 0.6376873
@@ -1923,7 +1894,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^2\)</span>
+<span class="math inline">\(牟_2^2\)</span>
 </td>
 <td style="text-align:right;">
 1.3255329
@@ -1946,7 +1917,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^3\)</span>
+<span class="math inline">\(牟_2^3\)</span>
 </td>
 <td style="text-align:right;">
 2.0080339
@@ -1969,7 +1940,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^4\)</span>
+<span class="math inline">\(牟_2^4\)</span>
 </td>
 <td style="text-align:right;">
 2.6955659
@@ -1992,7 +1963,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^5\)</span>
+<span class="math inline">\(牟_2^5\)</span>
 </td>
 <td style="text-align:right;">
 3.3845794
@@ -2015,7 +1986,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^6\)</span>
+<span class="math inline">\(牟_2^6\)</span>
 </td>
 <td style="text-align:right;">
 4.0829376
@@ -2038,7 +2009,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^7\)</span>
+<span class="math inline">\(牟_2^7\)</span>
 </td>
 <td style="text-align:right;">
 4.7984548
@@ -2061,7 +2032,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^8\)</span>
+<span class="math inline">\(牟_2^8\)</span>
 </td>
 <td style="text-align:right;">
 5.5117056
@@ -2084,7 +2055,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^9\)</span>
+<span class="math inline">\(牟_2^9\)</span>
 </td>
 <td style="text-align:right;">
 6.2127919
@@ -2107,7 +2078,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^{10}\)</span>
+<span class="math inline">\(牟_2^{10}\)</span>
 </td>
 <td style="text-align:right;">
 0.6371866
@@ -2166,7 +2137,7 @@ BAS
 X = [r_1,r_2,r_3,r_4,r_5,r_6,r_p,\theta_p,r_1&#39;,\theta_0,\theta_0&#39;,x_0,y_0,\theta_2^1] 
 \]</span></p>
 <p>目标点坐标：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 \{C_d^i\} = \{&amp;(-0.5424,2.3708),(0.2202,2.9871),(0.9761,3.4633), \notag \\
 &amp;(1.0618,36380),(0.8835,3.7226),(0.5629,3.7156),\notag \\
 &amp;(0.1744,3.6128),(-0.2338,3.4206),(-0.6315,3.1536), \notag \\
@@ -2176,27 +2147,27 @@ X = [r_1,r_2,r_3,r_4,r_5,r_6,r_p,\theta_p,r_1&#39;,\theta_0,\theta_0&#39;,x_0,y_
 \{\theta_2^i\} = \{&amp;0,15,40,60,80,100,120,140,160,180,\notag \\
 &amp; 200, 220,240,260,280,300,320,345\} \notag \\
 &amp; \rightarrow \theta_2^i = \theta_2 + \delta_2^i \notag \\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>在停顿位置处的输入输出角度的关联如下：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 &amp;\theta_2^i = \theta_2^1+\{160,180,200,220\}\rightarrow \theta_6^i=210 \notag \\
 &amp;\theta_2^i=\theta_2^1+\{345,0,15\} \rightarrow \theta_6^i = 225 \notag \\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <blockquote>
 <p>注意，上述涉及到角度的数值单位均为deg，而非弧度。</p>
 </blockquote>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.05,\delta_0=0.025,c_1=0.9999,c_2=0.5,q=10,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case6gif">6.13</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case6gif"></span>
-<img src="img/case6.gif" alt="case6六杆机构轨迹生成"  />
+<img src="img/case6.gif" alt="case6六杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.13: case6六杆机构轨迹生成
+图 6.13: case6六杆机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 <p>与其他算法对比结果如图<a href="examples.html#fig:case6png">6.14</a>, 图<a href="examples.html#fig:case6png2">6.15</a>和表<a href="examples.html#tab:case6table">6.6</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case6png"></span>
-<img src="img/case6png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case6png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.14: 各算法优化轨迹
+图 6.14: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:case6png2"></span>
@@ -2207,7 +2178,7 @@ X = [r_1,r_2,r_3,r_4,r_5,r_6,r_p,\theta_p,r_1&#39;,\theta_0,\theta_0&#39;,x_0,y_
 </div>
 <table>
 <caption>
-<span id="tab:case6table">表 6.6: </span>case6各算法结果对比
+<span id="tab:case6table">表 6.6: </span>case6各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -2373,7 +2344,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:left;">
 0.7776
@@ -2393,7 +2364,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0\)</span>
+<span class="math inline">\(牟_0\)</span>
 </td>
 <td style="text-align:left;">
 6.269879
@@ -2433,7 +2404,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0&#39;\)</span>
+<span class="math inline">\(牟_0&#39;\)</span>
 </td>
 <td style="text-align:left;">
 0.235595
@@ -2493,7 +2464,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^1\)</span>
+<span class="math inline">\(牟_2^1\)</span>
 </td>
 <td style="text-align:left;">
 0.00052
@@ -2562,32 +2533,32 @@ BAS
 X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^{12}]
 \]</span></p>
 <p>目标点坐标：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 \{C_d^i\} = \{&amp;(4.15,2.21),(4.50,2.18),(4.53,1.83),(4.13,1.68),(3.67,1.58),(2.96,1.33), \notag \\
 &amp;(2.67,1.06),(2.63,0.82),(2.92,0.81),(3.23,1.07),(3.49,1.45),(3.76,1.87)\}\notag\\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>参数约束：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 &amp;r_1\in[0,5]\quad r_2,r_3,r_4\in[0,10] \quad r_p\in[0,14],\notag \\
 &amp;x_0,y_0\in[-80,80]\quad \theta_0,\theta_2^1,\cdots,\theta_2^{12},\theta_p\in[0,2\pi] \notag \\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.05,\delta_0=0.025,c_1=0.9995,c_2=0.5,q=40,T_{max}=20000\)</span>，动画结果如图<a href="examples.html#fig:case7gif">6.16</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case7gif"></span>
-<img src="img/case7.gif" alt="case7机构轨迹生成"  />
+<img src="img/case7.gif" alt="case7机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.16: case7机构轨迹生成
+图 6.16: case7机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case7png">6.17</a>和表<a href="examples.html#tab:case7table">6.7</a>。
 <div class="figure" style="text-align: center"><span id="fig:case7png"></span>
-<img src="img/case7png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case7png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.17: 各算法优化轨迹
+图 6.17: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <table>
 <caption>
-<span id="tab:case7table">表 6.7: </span>case7各算法结果对比
+<span id="tab:case7table">表 6.7: </span>case7各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -2695,7 +2666,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:right;">
 -0.539171
@@ -2712,7 +2683,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0\)</span>
+<span class="math inline">\(牟_0\)</span>
 </td>
 <td style="text-align:right;">
 0.000000
@@ -2763,7 +2734,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^1\)</span>
+<span class="math inline">\(牟_2^1\)</span>
 </td>
 <td style="text-align:right;">
 -0.201400
@@ -2806,34 +2777,34 @@ BAS
 X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^{25}]
 \]</span></p>
 <p>目标点坐标：</p>
-<p><span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align}
 \{C_d^i\} = \{&amp;(7.03,5.99),(6.95,5.45),(6.77,5.03),(6.4,4.6),(5.91,4.03), \notag \\
 &amp;(5.43,3.56),(4.93,2.94),(4.67,2.6),(4.38,2.2),(4.04,1.67),\notag \\
 &amp;(3.76,1.22),(3.76,1.97),(3.76,2.78),(3.76,3.56),(3.76,4.34), \notag \\
 &amp;(3.76,4.91),(3.76,5.47),(3.8,5.98),(4.07,6.4),(4.53,6.75), \notag \\
 &amp;(5.07,6.85),(5.05,6.84),(5.89,6.83),(6.41,6.8),(6.92,6.58)\} \notag \\
-\end{align}\]</span></p>
+\end{align}\]</span>
 <p>参数约束：</p>
 <p><span class="math display">\[
 r_1,r_2,r_3,r_4\in[0,5]\quad r_p,x_0,y_0\in[-5,5] \quad \theta_0,\theta_2^1,\cdots,\theta_2^{25},\theta_p\in[0,2\pi]
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.05,\delta_0=0.025,c_1=0.99975,c_2=0.5,q=40,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case8gif">6.18</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case8gif"></span>
-<img src="img/case8.gif" alt="case8机构轨迹生成"  />
+<img src="img/case8.gif" alt="case8机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
 <p class="caption">
-图 6.18: case8机构轨迹生成
+图 6.18: case8机构<U+8F68><U+8FF9>生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case8png">6.19</a>和表<a href="examples.html#tab:case8table">6.8</a>。
 <div class="figure" style="text-align: center"><span id="fig:case8png"></span>
-<img src="img/case8png.png" alt="各算法优化轨迹" width="50%" />
+<img src="img/case8png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
 <p class="caption">
-图 6.19: 各算法优化轨迹
+图 6.19: 各算法优化<U+8F68><U+8FF9>
 </p>
 </div>
 <table>
 <caption>
-<span id="tab:case8table">表 6.8: </span>case8各算法结果对比
+<span id="tab:case8table">表 6.8: </span>case8各算法<U+7ED3>果<U+5BF9>比
 </caption>
 <thead>
 <tr>
@@ -2941,7 +2912,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_p\)</span>
+<span class="math inline">\(牟_p\)</span>
 </td>
 <td style="text-align:left;">
 0.187430
@@ -2958,7 +2929,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_0\)</span>
+<span class="math inline">\(牟_0\)</span>
 </td>
 <td style="text-align:left;">
 -0.61763
@@ -3009,7 +2980,7 @@ BAS
 </tr>
 <tr>
 <td style="text-align:left;">
-<span class="math inline">\(θ_2^1\)</span>
+<span class="math inline">\(牟_2^1\)</span>
 </td>
 <td style="text-align:left;">
 <ul>
@@ -3106,7 +3077,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
