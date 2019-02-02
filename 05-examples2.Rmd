@@ -104,13 +104,13 @@ data[,1] <- paste0('$',data[,1],"$")
 
 if (knitr:::is_latex_output()) {
   knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = '实验参数取值','latex'
 ) %>%
   kableExtra::kable_styling('striped',full_width = F)
 } else {
   knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = '实验参数取值','html'
 ) %>%
   kableExtra::kable_styling('striped',full_width = F)
@@ -126,13 +126,13 @@ data[,1] <- paste0('$',data[,1],"$")
 
 if (knitr:::is_latex_output()) {
   knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = '优化结果对比','latex'
 ) %>%
   kableExtra::kable_styling('striped',full_width = F)
 } else {
   knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = '优化结果对比','html'
 ) %>%
   kableExtra::kable_styling('striped',full_width = F)

@@ -206,7 +206,6 @@ fit<-
 fit$par;fit$value
 ```
 
-
 ## BSASoptim {#bsasoptim}
 
 [`BSASoptim`函数](https://jywang2016.github.io/rBAS/reference/BSASoptim.html)(对应`BSAS`算法)，在`BAS`的基础上，加入了步长反馈和群体策略。调用的格式如下：
@@ -590,14 +589,6 @@ BSOoptim(fn = pressure_Vessel$obj,
 >
 > ---王糖糖
 
-最后呢，我们为什么要改算法！
-
-```{r bsow, fig.cap='为什么我们孜孜不倦改算法', out.width='50%', fig.align='center', echo=FALSE}
-knitr::include_graphics("img/BSO_w.jpg")
-```
-
-> 开个玩笑，祝大家周末愉快，学业顺心。
-
 
 ## bBAS {#bBASr}
 
@@ -677,7 +668,7 @@ fit$par;fit$value
 
 此处还有阮月同学提供的库存(批次)问题(lot-sizing)案例。
 
-$$
+
 \begin{align}
 \text{minimize} &\sum_{i=1}^n(Ax_i+cI_i) \notag\\
 s.t. ~~ &I_0 = 0 \notag \\
@@ -685,8 +676,9 @@ s.t. ~~ &I_0 = 0 \notag \\
 &I_i\geq 0 \notag \\
 &Q_i\geq 0 \notag \\
 &x_i \in{0,1}\notag \\
+(\#eq:lotsize)
 \end{align}
-$$
+
 
 该案例具体的参数解释会在之后案例章节描述。此处简单给出例子。
 
@@ -741,8 +733,10 @@ data <- data.frame(day1 = c(100,1,160,60,60,100,160),
 rownames(data) <- c('$R_d$','$x_d^k$','$Q_d^k$','$I_d^k$','$c_d^k$','$Ax_d^k$','$C(X_d^k)$')
 colnames(data) <- c("day1","day2","day3","day4","day5","$f(X^k)$")
 knitr::kable(
-  data, booktabs = TRUE,
-  caption = '需求，订单与库存费用结果','html'
-)%>%
-  kableExtra::kable_styling('striped',full_width = F)
+  data, booktabs = TRUE,escape = F,align = 'c',
+  caption = "需求订单与库存"#,'html'
+)#%>%
+#  kableExtra::kable_styling('striped',latex_options = "striped", full_width = F)
+
 ```
+

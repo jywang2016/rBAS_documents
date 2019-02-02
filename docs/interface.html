@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
-<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>²Î¿¼ÎÄÏ×</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -285,9 +285,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>左边是固定的参数调节栏，最上方有目前的收录的三种算法可供选择，以及本包的作者信息。右侧也有三个选项，分别是<strong>优化过程信息</strong>，<strong>优化参数结果</strong>以及<strong>优化结果可视化</strong>。</p>
 <p>按照你的需要，调节好左边的参数信息（第一个参数，也就是初始值<code>init</code>，默认为空，也可以指定），然后点击左下方的<code>Run BAS</code>键，即可看到如图<a href="interface.html#fig:basprogress">5.2</a>的内容：</p>
 <div class="figure" style="text-align: center"><span id="fig:basprogress"></span>
-<img src="img/app2.png" alt="optimization progress&lt;U+680F&gt;信息" width="95%" />
+<img src="img/app2.png" alt="optimization progress栏信息" width="95%" />
 <p class="caption">
-图 5.2: optimization progress<U+680F>信息
+图 5.2: optimization progress栏信息
 </p>
 </div>
 <blockquote>
@@ -295,16 +295,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <p>分别点击<code>Optimization Parameters</code>和<code>Progress Plot</code>键，可以看到最后的结果，以及可视化信息，分别如图<a href="interface.html#fig:basparms">5.3</a>与 <a href="interface.html#fig:basplot">5.4</a>所示。</p>
 <div class="figure" style="text-align: center"><span id="fig:basparms"></span>
-<img src="img/app3.png" alt="Optimization Parameters&lt;U+680F&gt;信息" width="95%" />
+<img src="img/app3.png" alt="Optimization Parameters栏信息" width="95%" />
 <p class="caption">
-图 5.3: Optimization Parameters<U+680F>信息
+图 5.3: Optimization Parameters栏信息
 </p>
 </div>
 <p>可以看到，窗口的<code>$par</code>显示的是参数的优化结果，而<code>$value</code>则是对应的目标函数值。</p>
 <div class="figure" style="text-align: center"><span id="fig:basplot"></span>
-<img src="img/app4.png" alt="Progress Plot&lt;U+680F&gt;信息" width="95%" />
+<img src="img/app4.png" alt="Progress Plot栏信息" width="95%" />
 <p class="caption">
-图 5.4: Progress Plot<U+680F>信息
+图 5.4: Progress Plot栏信息
 </p>
 </div>
 <p><code>BAS</code>与其他两种算法有着不同的可视化结果，其并不是基于反馈来控制步长的。因此，图中的两条曲线，红色的为每一回合的目标函数值，而蓝色的为此前回合中最优的目标函数值。</p>
@@ -340,23 +340,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con)</code></pre></div>
 <p>自行调整参数后，用户界面如图<a href="interface.html#fig:wpt1">5.5</a>所示：</p>
 <div class="figure" style="text-align: center"><span id="fig:wpt1"></span>
-<img src="img/wpt1.png" alt="BSAS-WPT&lt;U+53C2&gt;&lt;U+6570&gt;&lt;U+8C03&gt;整" width="95%" />
+<img src="img/wpt1.png" alt="BSAS-WPT参数调整" width="95%" />
 <p class="caption">
-图 5.5: BSAS-WPT<U+53C2><U+6570><U+8C03>整
+图 5.5: BSAS-WPT参数调整
 </p>
 </div>
 <p>点击<code>Run BAS-WPT</code>之后，选择<code>optimization Parameters</code>栏目，可以看到优化结果如图<a href="interface.html#fig:wptparms">5.6</a>所示：</p>
 <div class="figure" style="text-align: center"><span id="fig:wptparms"></span>
-<img src="img/wpt2.png" alt="BSAS-WPT优化&lt;U+7ED3&gt;果" width="95%" />
+<img src="img/wpt2.png" alt="BSAS-WPT优化结果" width="95%" />
 <p class="caption">
-图 5.6: BSAS-WPT优化<U+7ED3>果
+图 5.6: BSAS-WPT优化结果
 </p>
 </div>
 <p>选择<code>Progress Plot</code>栏目，过程可视化如图<a href="interface.html#fig:wptplot">5.7</a>所示：</p>
 <div class="figure" style="text-align: center"><span id="fig:wptplot"></span>
-<img src="img/wpt3.png" alt="BSAS-WPT优化&lt;U+8FC7&gt;程可&lt;U+89C6&gt;化" width="95%" />
+<img src="img/wpt3.png" alt="BSAS-WPT优化过程可视化" width="95%" />
 <p class="caption">
-图 5.7: BSAS-WPT优化<U+8FC7>程可<U+89C6>化
+图 5.7: BSAS-WPT优化过程可视化
 </p>
 </div>
 </div>
@@ -368,9 +368,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">run_BAS_App</span>() <span class="co">#直接调用函数</span></code></pre></div>
 <p>可以看到<code>rBAS</code>的用户界面，里面有关于<code>rBAS</code>的作者信息，如图<a href="interface.html#fig:author">5.8</a>所示。</p>
 <div class="figure" style="text-align: center"><span id="fig:author"></span>
-<img src="img/author.png" alt="用&lt;U+6237&gt;界面作者信息" width="100%" />
+<img src="img/author.png" alt="用户界面作者信息" width="100%" />
 <p class="caption">
-图 5.8: 用<U+6237>界面作者信息
+图 5.8: 用户界面作者信息
 </p>
 </div>
 <p>如果大家对该项目有兴趣，参与了包的开发，或者<code>BAS</code>算法应用案例的提出。我会在征得当事人同意的情况下，将名字加入该界面:)。</p>

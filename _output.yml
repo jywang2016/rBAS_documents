@@ -7,7 +7,7 @@ bookdown::gitbook:
         <li><a href="./">rBAS中文文档</a></li>
       after: |
         <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
-    download: []
+    download: ["pdf"]
     sharing:
       github: yes
       facebook: no

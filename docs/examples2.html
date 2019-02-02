@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
-<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>²Î¿¼ÎÄÏ×</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -256,16 +256,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">7.1</span> 问题背景</h2>
 <p>龙门起重机（gantry crane），如图<a href="examples2.html#fig:gc">7.1</a>所示，是水平桥架设置在两条支腿上构成门架形状的一种桥架型起重机。起重小车trolley在桥架上运行，利用绳索（cable）一类的柔性体连接负载（load）。在负载的输送过程中，load的摆动问题一直是影响吊车装运效率提高的一大难题。</p>
 <div class="figure" style="text-align: center"><span id="fig:gc"></span>
-<img src="img/gc.png" alt="&lt;U+9F99&gt;&lt;U+95E8&gt;起重机示意" width="70%" />
+<img src="img/gc.png" alt="龙门起重机示意" width="70%" />
 <p class="caption">
-图 7.1: <U+9F99><U+95E8>起重机示意
+图 7.1: 龙门起重机示意
 </p>
 </div>
 <p>模型可以简化为图<a href="examples2.html#fig:gc2">7.2</a>。重物通过绳索与小车相连，小车在外力的作用下水平运动，小车质量为M（kg），重物的质量为m（kg），绳索的长度为r（m），<span class="math inline">\(\theta\)</span>为摆角，x表示水平方向上的位移。</p>
 <div class="figure" style="text-align: center"><span id="fig:gc2"></span>
-<img src="img/gc2.png" alt="&lt;U+9F99&gt;&lt;U+95E8&gt;起重机模型" width="60%" />
+<img src="img/gc2.png" alt="龙门起重机模型" width="60%" />
 <p class="caption">
-图 7.2: <U+9F99><U+95E8>起重机模型
+图 7.2: 龙门起重机模型
 </p>
 </div>
 </div>
@@ -332,85 +332,85 @@ P = -mgrcos\theta(t)
 <h2><span class="header-section-number">7.4</span> 优化结果</h2>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:example2parms">表 7.1: </span><u><u><u><u>取值</u></u></u></u>
+<span id="tab:example2parms">表 7.1: </span>实验参数取值
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;">
+<th style="text-align:center;">
 Parameter
 </th>
-<th style="text-align:left;">
+<th style="text-align:center;">
 Description
 </th>
-<th style="text-align:left;">
+<th style="text-align:center;">
 Values
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(c\)</span>
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 Constant
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 5
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(\lambda\)</span>
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 Step length ratio
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 0.95
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(\gamma\)</span>
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 Penalty coefficient
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(10^{50}\)</span>
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(n\)</span>
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 Number of iterations
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 1000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(r\)</span>
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 Height of crane
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 20(m)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(h\)</span>
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 Load displacement
 </td>
-<td style="text-align:left;">
+<td style="text-align:center;">
 40(m)
 </td>
 </tr>
@@ -418,63 +418,63 @@ Load displacement
 </table>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:example2result">表 7.2: </span>优化<u>果<u>比</u></u>
+<span id="tab:example2result">表 7.2: </span>优化结果对比
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;">
+<th style="text-align:center;">
 Variables
 </th>
-<th style="text-align:right;">
+<th style="text-align:center;">
 fmincon
 </th>
-<th style="text-align:right;">
+<th style="text-align:center;">
 BAS
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(tp_1\)</span>
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 8.9624000
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 6.9082000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(tp_2\)</span>
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 8.9803000
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 6.9741000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(tf\)</span>
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 19.8346000
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 15.8866000
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <span class="math inline">\(f\)</span>
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 0.0029586
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 0.0001415
 </td>
 </tr>
@@ -482,45 +482,45 @@ BAS
 </table>
 <p>从表<a href="examples2.html#tab:example2result">7.2</a>中可以看到，BAS能够让起重机小车在7秒内加速到最大速度，在16秒内就能到达终点并消除摆角。动图<a href="examples2.html#fig:example2fminconbob">7.3</a>至<a href="examples2.html#fig:example2bastrace">7.6</a>分别为采用<code>fmincon</code>和<code>BAS</code>做优化的结果，可以让我们有更为直观的认识。</p>
 <div class="figure" style="text-align: center"><span id="fig:example2fminconbob"></span>
-<img src="img/fminconbob.gif" alt="fmincon&lt;U+6446&gt;&lt;U+9524&gt;"  />
+<img src="img/fminconbob.gif" alt="fmincon摆锤"  />
 <p class="caption">
-图 7.3: fmincon<U+6446><U+9524>
+图 7.3: fmincon摆锤
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:example2basbob"></span>
-<img src="img/BASbob.gif" alt="BAS&lt;U+6446&gt;&lt;U+9524&gt;"  />
+<img src="img/BASbob.gif" alt="BAS摆锤"  />
 <p class="caption">
-图 7.4: BAS<U+6446><U+9524>
+图 7.4: BAS摆锤
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:example2fmincontrace"></span>
-<img src="img/fmincontrace.gif" alt="fmincon&lt;U+8F68&gt;&lt;U+8FF9&gt;"  />
+<img src="img/fmincontrace.gif" alt="fmincon轨迹"  />
 <p class="caption">
-图 7.5: fmincon<U+8F68><U+8FF9>
+图 7.5: fmincon轨迹
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:example2bastrace"></span>
-<img src="img/BAStrace.gif" alt="BAS&lt;U+8F68&gt;&lt;U+8FF9&gt;"  />
+<img src="img/BAStrace.gif" alt="BAS轨迹"  />
 <p class="caption">
-图 7.6: BAS<U+8F68><U+8FF9>
+图 7.6: BAS轨迹
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:ex2accel"></span>
-<img src="img/ex2_1.png" alt="起重小&lt;U+8F66&gt;加速度曲&lt;U+7EBF&gt;" width="70%" />
+<img src="img/ex2_1.png" alt="起重小车加速度曲线" width="70%" />
 <p class="caption">
-图 7.7: 起重小<U+8F66>加速度曲<U+7EBF>
+图 7.7: 起重小车加速度曲线
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:ex2velocity"></span>
-<img src="img/ex2_2.png" alt="起重小&lt;U+8F66&gt;速度曲&lt;U+7EBF&gt;" width="70%" />
+<img src="img/ex2_2.png" alt="起重小车速度曲线" width="70%" />
 <p class="caption">
-图 7.8: 起重小<U+8F66>速度曲<U+7EBF>
+图 7.8: 起重小车速度曲线
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:ex2position"></span>
-<img src="img/ex2_3.png" alt="起重小&lt;U+8F66&gt;位置曲&lt;U+7EBF&gt;" width="70%" />
+<img src="img/ex2_3.png" alt="起重小车位置曲线" width="70%" />
 <p class="caption">
-图 7.9: 起重小<U+8F66>位置曲<U+7EBF>
+图 7.9: 起重小车位置曲线
 </p>
 </div>
 

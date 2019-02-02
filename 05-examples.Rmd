@@ -229,7 +229,7 @@ knitr::include_graphics("img/case1png.png")
 data <- read.table('img/tab/case1.txt')
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = 'case1各算法结果对比'
 )
 ```
@@ -275,7 +275,7 @@ knitr::include_graphics("img/case2png.png")
 data <- read.table('img/tab/case2.txt')
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = 'case2各算法结果对比'
 )
 ```
@@ -325,7 +325,7 @@ knitr::include_graphics("img/case3png.png")
 data <- read.table('img/tab/case3.txt')
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  round(data,4), booktabs = TRUE,escape = F,align = 'c',
   caption = 'case3各算法结果对比'
 )
 ```
@@ -372,7 +372,7 @@ knitr::include_graphics("img/case4png.png")
 data <- read.table('img/tab/case4.txt')
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = 'case4各算法结果对比'
 )
 ```
@@ -421,7 +421,7 @@ knitr::include_graphics("img/case5png.png")
 data <- read.table('img/tab/case5.txt')
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = 'case5各算法结果对比'
 )
 ```
@@ -488,7 +488,7 @@ data <- read.table('img/tab/case6.txt')
 data[15,] <- format(data[15,],digits =2)
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = 'case6各算法结果对比'
 )
 ```
@@ -536,7 +536,7 @@ knitr::include_graphics("img/case7png.png")
 data <- read.table('img/tab/case7.txt')
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = 'case7各算法结果对比'
 )
 ```
@@ -586,7 +586,7 @@ knitr::include_graphics("img/case8png.png")
 data <- read.table('img/tab/case8.txt')
 rownames(data) <- paste0('$',rownames(data),"$")
 knitr::kable(
-  data, booktabs = TRUE,
+  data, booktabs = TRUE,escape = F,align = 'c',
   caption = 'case8各算法结果对比'
 )
 ```

@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
-<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>²Î¿¼ÎÄÏ×</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -260,9 +260,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">6.1.1</span> 四连杆机构(Four-bar linkage mechanism)</h3>
 <p>四连杆机构如图<a href="examples.html#fig:fourbars">6.1</a>所示：</p>
 <div class="figure" style="text-align: center"><span id="fig:fourbars"></span>
-<img src="img/bars4.png" alt="四&lt;U+8FDE&gt;杆机构示意" width="70%" />
+<img src="img/bars4.png" alt="四连杆机构示意" width="70%" />
 <p class="caption">
-图 6.1: 四<U+8FDE>杆机构示意
+图 6.1: 四连杆机构示意
 </p>
 </div>
 <p>基于闭环矢量方程，推导出节点位置。推导过程如式<a href="examples.html#eq:bars4loop1">(6.1)</a>至式<a href="examples.html#eq:bars4loop4">(6.4)</a>:</p>
@@ -298,9 +298,9 @@ y_p=y_0+r_2sin(\theta_2)+r_psin(\theta_3+\theta_p)
 <h3><span class="header-section-number">6.1.2</span> 六连杆机构(Stephenson III Six-bar linkage mechanism)</h3>
 <p>六连杆机构如图<a href="examples.html#fig:sixbars">6.2</a>所示：</p>
 <div class="figure" style="text-align: center"><span id="fig:sixbars"></span>
-<img src="img/bars6.png" alt="六&lt;U+8FDE&gt;杆机构示意" width="70%" />
+<img src="img/bars6.png" alt="六连杆机构示意" width="70%" />
 <p class="caption">
-图 6.2: 六<U+8FDE>杆机构示意
+图 6.2: 六连杆机构示意
 </p>
 </div>
 <p>基于闭环矢量方程，推导出节点位置和外部链接角度。推导过程如式<a href="examples.html#eq:bars6loop1">(6.5)</a>至式<a href="examples.html#eq:bars6loop2">(6.6)</a>:</p>
@@ -432,363 +432,158 @@ X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^6]
 r_1,r_2,r_3,r_4\in[0,60]\quad r_p,x_0,y_0\in[-60,60]\quad \theta_0,\theta_1,\cdots,\theta_2^6,\theta_p\in[0,2\pi]
 \]</span> 算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case1gif">6.3</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case1gif"></span>
-<img src="img/case1.gif" alt="四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case1.gif" alt="四杆机构轨迹生成"  />
 <p class="caption">
-图 6.3: 四杆机构<U+8F68><U+8FF9>生成
+图 6.3: 四杆机构轨迹生成
 </p>
 </div>
 <p>与其他算法对比结果如图<a href="examples.html#fig:case1png">6.4</a>和表<a href="examples.html#tab:case1table">6.1</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case1png"></span>
-<img src="img/case1png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case1png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.4: 各算法优化<U+8F68><U+8FF9>
+图 6.4: 各算法优化轨迹
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case1table">表 6.1: </span>case1各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case1table">表 6.1: </span>case1各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-MUMSA
-</th>
-<th style="text-align:right;">
-GA
-</th>
-<th style="text-align:right;">
-DE
-</th>
-<th style="text-align:right;">
-GA.DE
-</th>
-<th style="text-align:right;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">MUMSA</th>
+<th align="center">GA</th>
+<th align="center">DE</th>
+<th align="center">GA.DE</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:right;">
-31.788264
-</td>
-<td style="text-align:right;">
-28.771330
-</td>
-<td style="text-align:right;">
-35.020740
-</td>
-<td style="text-align:right;">
-13.2516000
-</td>
-<td style="text-align:right;">
-19.4920810
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">31.788264</td>
+<td align="center">28.771330</td>
+<td align="center">35.020740</td>
+<td align="center">13.2516000</td>
+<td align="center">19.4920810</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:right;">
-8.204647
-</td>
-<td style="text-align:right;">
-5.000000
-</td>
-<td style="text-align:right;">
-6.404196
-</td>
-<td style="text-align:right;">
-5.9407800
-</td>
-<td style="text-align:right;">
-6.2644716
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">8.204647</td>
+<td align="center">5.000000</td>
+<td align="center">6.404196</td>
+<td align="center">5.9407800</td>
+<td align="center">6.2644716</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:right;">
-24.932131
-</td>
-<td style="text-align:right;">
-35.365480
-</td>
-<td style="text-align:right;">
-31.607220
-</td>
-<td style="text-align:right;">
-58.3118000
-</td>
-<td style="text-align:right;">
-20.1001631
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">24.932131</td>
+<td align="center">35.365480</td>
+<td align="center">31.607220</td>
+<td align="center">58.3118000</td>
+<td align="center">20.1001631</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:right;">
-31.385926
-</td>
-<td style="text-align:right;">
-59.136810
-</td>
-<td style="text-align:right;">
-50.599490
-</td>
-<td style="text-align:right;">
-53.7207000
-</td>
-<td style="text-align:right;">
-19.0219161
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">31.385926</td>
+<td align="center">59.136810</td>
+<td align="center">50.599490</td>
+<td align="center">53.7207000</td>
+<td align="center">19.0219161</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:right;">
-37.108246
-</td>
-<td style="text-align:right;">
-14.850370
-</td>
-<td style="text-align:right;">
-46.461261
-</td>
-<td style="text-align:right;">
-61.3011560
-</td>
-<td style="text-align:right;">
-39.8538048
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">37.108246</td>
+<td align="center">14.850370</td>
+<td align="center">46.461261</td>
+<td align="center">61.3011560</td>
+<td align="center">39.8538048</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:right;">
-0.398977
-</td>
-<td style="text-align:right;">
-1.570796
-</td>
-<td style="text-align:right;">
-1.106544
-</td>
-<td style="text-align:right;">
--1.3002600
-</td>
-<td style="text-align:right;">
-0.3679660
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">0.398977</td>
+<td align="center">1.570796</td>
+<td align="center">1.106544</td>
+<td align="center">-1.3002600</td>
+<td align="center">0.3679660</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0\)</span>
-</td>
-<td style="text-align:right;">
-4.015959
-</td>
-<td style="text-align:right;">
-5.287474
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0.1960760
-</td>
-<td style="text-align:right;">
-4.4245619
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0\)</span></td>
+<td align="center">4.015959</td>
+<td align="center">5.287474</td>
+<td align="center">0.000000</td>
+<td align="center">0.1960760</td>
+<td align="center">4.4245619</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_0\)</span>
-</td>
-<td style="text-align:right;">
--6.366519
-</td>
-<td style="text-align:right;">
-29.913290
-</td>
-<td style="text-align:right;">
-60.000000
-</td>
-<td style="text-align:right;">
--35.3621000
-</td>
-<td style="text-align:right;">
--13.0300715
-</td>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td align="center">-6.366519</td>
+<td align="center">29.913290</td>
+<td align="center">60.000000</td>
+<td align="center">-35.3621000</td>
+<td align="center">-13.0300715</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(y_0\)</span>
-</td>
-<td style="text-align:right;">
-56.836760
-</td>
-<td style="text-align:right;">
-32.602280
-</td>
-<td style="text-align:right;">
-18.077910
-</td>
-<td style="text-align:right;">
-36.7704000
-</td>
-<td style="text-align:right;">
-51.1796666
-</td>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td align="center">56.836760</td>
+<td align="center">32.602280</td>
+<td align="center">18.077910</td>
+<td align="center">36.7704000</td>
+<td align="center">51.1796666</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^1\)</span>
-</td>
-<td style="text-align:right;">
-1.366547
-</td>
-<td style="text-align:right;">
-6.283185
-</td>
-<td style="text-align:right;">
-6.283185
-</td>
-<td style="text-align:right;">
-1.6601500
-</td>
-<td style="text-align:right;">
-5.9699819
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^1\)</span></td>
+<td align="center">1.366547</td>
+<td align="center">6.283185</td>
+<td align="center">6.283185</td>
+<td align="center">1.6601500</td>
+<td align="center">5.9699819</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^2\)</span>
-</td>
-<td style="text-align:right;">
-2.330773
-</td>
-<td style="text-align:right;">
-0.318205
-</td>
-<td style="text-align:right;">
-0.264935
-</td>
-<td style="text-align:right;">
-2.0468400
-</td>
-<td style="text-align:right;">
-0.4554995
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^2\)</span></td>
+<td align="center">2.330773</td>
+<td align="center">0.318205</td>
+<td align="center">0.264935</td>
+<td align="center">2.0468400</td>
+<td align="center">0.4554995</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^3\)</span>
-</td>
-<td style="text-align:right;">
-2.871039
-</td>
-<td style="text-align:right;">
-0.638520
-</td>
-<td style="text-align:right;">
-0.500377
-</td>
-<td style="text-align:right;">
-2.4281100
-</td>
-<td style="text-align:right;">
-1.0202707
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^3\)</span></td>
+<td align="center">2.871039</td>
+<td align="center">0.638520</td>
+<td align="center">0.500377</td>
+<td align="center">2.4281100</td>
+<td align="center">1.0202707</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^4\)</span>
-</td>
-<td style="text-align:right;">
-3.394591
-</td>
-<td style="text-align:right;">
-0.979950
-</td>
-<td style="text-align:right;">
-0.735321
-</td>
-<td style="text-align:right;">
-2.8090100
-</td>
-<td style="text-align:right;">
-1.5550696
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^4\)</span></td>
+<td align="center">3.394591</td>
+<td align="center">0.979950</td>
+<td align="center">0.735321</td>
+<td align="center">2.8090100</td>
+<td align="center">1.5550696</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^5\)</span>
-</td>
-<td style="text-align:right;">
-3.970960
-</td>
-<td style="text-align:right;">
-1.412732
-</td>
-<td style="text-align:right;">
-0.996529
-</td>
-<td style="text-align:right;">
-3.1900900
-</td>
-<td style="text-align:right;">
-2.1117409
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^5\)</span></td>
+<td align="center">3.970960</td>
+<td align="center">1.412732</td>
+<td align="center">0.996529</td>
+<td align="center">3.1900900</td>
+<td align="center">2.1117409</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^6\)</span>
-</td>
-<td style="text-align:right;">
-4.963490
-</td>
-<td style="text-align:right;">
-2.076254
-</td>
-<td style="text-align:right;">
-1.333549
-</td>
-<td style="text-align:right;">
-3.5737900
-</td>
-<td style="text-align:right;">
-2.8839248
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^6\)</span></td>
+<td align="center">4.963490</td>
+<td align="center">2.076254</td>
+<td align="center">1.333549</td>
+<td align="center">3.5737900</td>
+<td align="center">2.8839248</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:right;">
-0.002057
-</td>
-<td style="text-align:right;">
-1.101697
-</td>
-<td style="text-align:right;">
-0.122738
-</td>
-<td style="text-align:right;">
-0.0000172
-</td>
-<td style="text-align:right;">
-0.0000124
-</td>
+<tr class="even">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">0.002057</td>
+<td align="center">1.101697</td>
+<td align="center">0.122738</td>
+<td align="center">0.0000172</td>
+<td align="center">0.0000124</td>
 </tr>
 </tbody>
 </table>
@@ -810,183 +605,86 @@ r_1,r_2,r_3,r_4\in[0,5]\quad r_p\in[-5,5]\quad \theta_p\in[0,2\pi]
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=10000\)</span>，动画结果如图<a href="examples.html#fig:case2gif">6.5</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case2gif"></span>
-<img src="img/case2.gif" alt="case2四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case2.gif" alt="case2四杆机构轨迹生成"  />
 <p class="caption">
-图 6.5: case2四杆机构<U+8F68><U+8FF9>生成
+图 6.5: case2四杆机构轨迹生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case2png">6.6</a>和表<a href="examples.html#tab:case2table">6.2</a>。
 <div class="figure" style="text-align: center"><span id="fig:case2png"></span>
-<img src="img/case2png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case2png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.6: 各算法优化<U+8F68><U+8FF9>
+图 6.6: 各算法优化轨迹
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case2table">表 6.2: </span>case2各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case2table">表 6.2: </span>case2各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-PSO
-</th>
-<th style="text-align:right;">
-HPSO
-</th>
-<th style="text-align:right;">
-GA
-</th>
-<th style="text-align:right;">
-MUMSA
-</th>
-<th style="text-align:right;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">PSO</th>
+<th align="center">HPSO</th>
+<th align="center">GA</th>
+<th align="center">MUMSA</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:right;">
-3.0576200
-</td>
-<td style="text-align:right;">
-3.7877200
-</td>
-<td style="text-align:right;">
-3.0630424
-</td>
-<td style="text-align:right;">
-3.7732686
-</td>
-<td style="text-align:right;">
-3.7135255
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">3.0576200</td>
+<td align="center">3.7877200</td>
+<td align="center">3.0630424</td>
+<td align="center">3.7732686</td>
+<td align="center">3.7135255</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:right;">
-1.8618400
-</td>
-<td style="text-align:right;">
-1.9984200
-</td>
-<td style="text-align:right;">
-1.9959624
-</td>
-<td style="text-align:right;">
-2.0000040
-</td>
-<td style="text-align:right;">
-1.9978745
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">1.8618400</td>
+<td align="center">1.9984200</td>
+<td align="center">1.9959624</td>
+<td align="center">2.0000040</td>
+<td align="center">1.9978745</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:right;">
-3.8459100
-</td>
-<td style="text-align:right;">
-4.1331300
-</td>
-<td style="text-align:right;">
-3.3058230
-</td>
-<td style="text-align:right;">
-4.1169710
-</td>
-<td style="text-align:right;">
-4.0469527
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">3.8459100</td>
+<td align="center">4.1331300</td>
+<td align="center">3.3058230</td>
+<td align="center">4.1169710</td>
+<td align="center">4.0469527</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:right;">
-2.9706300
-</td>
-<td style="text-align:right;">
-2.7451300
-</td>
-<td style="text-align:right;">
-2.5247060
-</td>
-<td style="text-align:right;">
-2.7461567
-</td>
-<td style="text-align:right;">
-2.7192391
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">2.9706300</td>
+<td align="center">2.7451300</td>
+<td align="center">2.5247060</td>
+<td align="center">2.7461567</td>
+<td align="center">2.7192391</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:right;">
-2.4968270
-</td>
-<td style="text-align:right;">
-2.3697220
-</td>
-<td style="text-align:right;">
-2.3721479
-</td>
-<td style="text-align:right;">
-2.3684374
-</td>
-<td style="text-align:right;">
-2.3702974
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">2.4968270</td>
+<td align="center">2.3697220</td>
+<td align="center">2.3721479</td>
+<td align="center">2.3684374</td>
+<td align="center">2.3702974</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:right;">
-0.7243557
-</td>
-<td style="text-align:right;">
-0.7841479
-</td>
-<td style="text-align:right;">
-0.8044176
-</td>
-<td style="text-align:right;">
-0.7831567
-</td>
-<td style="text-align:right;">
-0.7865371
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">0.7243557</td>
+<td align="center">0.7841479</td>
+<td align="center">0.8044176</td>
+<td align="center">0.7831567</td>
+<td align="center">0.7865371</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:right;">
-0.0005860
-</td>
-<td style="text-align:right;">
-0.0009860
-</td>
-<td style="text-align:right;">
-0.0000018
-</td>
-<td style="text-align:right;">
-0.0000018
-</td>
-<td style="text-align:right;">
-0.0000007
-</td>
+<tr class="odd">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">0.0005860</td>
+<td align="center">0.0009860</td>
+<td align="center">0.0000018</td>
+<td align="center">0.0000018</td>
+<td align="center">0.0000007</td>
 </tr>
 </tbody>
 </table>
@@ -1011,335 +709,142 @@ r_1,r_2,r_3,r_4\in[0,5]\quad r_p,x_0,y_0\in[-5,5]\quad \theta_0,\theta_2^1,\thet
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=8,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case3gif">6.7</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case3gif"></span>
-<img src="img/case3.gif" alt="case3四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case3.gif" alt="case3四杆机构轨迹生成"  />
 <p class="caption">
-图 6.7: case3四杆机构<U+8F68><U+8FF9>生成
+图 6.7: case3四杆机构轨迹生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case3png">6.8</a>和表<a href="examples.html#tab:case3table">6.3</a>。
 <div class="figure" style="text-align: center"><span id="fig:case3png"></span>
-<img src="img/case3png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case3png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.8: 各算法优化<U+8F68><U+8FF9>
+图 6.8: 各算法优化轨迹
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case3table">表 6.3: </span>case3各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case3table">表 6.3: </span>case3各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-PSO
-</th>
-<th style="text-align:right;">
-HPSO
-</th>
-<th style="text-align:right;">
-GA
-</th>
-<th style="text-align:right;">
-MUMSA
-</th>
-<th style="text-align:right;">
-GA.DE
-</th>
-<th style="text-align:right;">
-MKH
-</th>
-<th style="text-align:right;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">PSO</th>
+<th align="center">HPSO</th>
+<th align="center">GA</th>
+<th align="center">MUMSA</th>
+<th align="center">GA.DE</th>
+<th align="center">MKH</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:right;">
-2.926100
-</td>
-<td style="text-align:right;">
-2.850000
-</td>
-<td style="text-align:right;">
-3.057878
-</td>
-<td style="text-align:right;">
-4.453772
-</td>
-<td style="text-align:right;">
-47.4379000
-</td>
-<td style="text-align:right;">
-1.0042900
-</td>
-<td style="text-align:right;">
-1.0541803
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">2.9261</td>
+<td align="center">2.8500</td>
+<td align="center">3.0579</td>
+<td align="center">4.4538</td>
+<td align="center">47.4379</td>
+<td align="center">1.0043</td>
+<td align="center">1.0542</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:right;">
-0.487700
-</td>
-<td style="text-align:right;">
-0.370000
-</td>
-<td style="text-align:right;">
-0.237803
-</td>
-<td style="text-align:right;">
-0.297057
-</td>
-<td style="text-align:right;">
-0.3247700
-</td>
-<td style="text-align:right;">
-0.4218000
-</td>
-<td style="text-align:right;">
-0.4238711
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">0.4877</td>
+<td align="center">0.3700</td>
+<td align="center">0.2378</td>
+<td align="center">0.2971</td>
+<td align="center">0.3248</td>
+<td align="center">0.4218</td>
+<td align="center">0.4239</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:right;">
-2.909900
-</td>
-<td style="text-align:right;">
-2.904800
-</td>
-<td style="text-align:right;">
-4.828954
-</td>
-<td style="text-align:right;">
-3.913095
-</td>
-<td style="text-align:right;">
-0.4728570
-</td>
-<td style="text-align:right;">
-0.8782100
-</td>
-<td style="text-align:right;">
-0.9145640
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">2.9099</td>
+<td align="center">2.9048</td>
+<td align="center">4.8290</td>
+<td align="center">3.9131</td>
+<td align="center">0.4729</td>
+<td align="center">0.8782</td>
+<td align="center">0.9146</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:right;">
-2.150300
-</td>
-<td style="text-align:right;">
-0.500000
-</td>
-<td style="text-align:right;">
-2.056465
-</td>
-<td style="text-align:right;">
-0.849372
-</td>
-<td style="text-align:right;">
-47.3093000
-</td>
-<td style="text-align:right;">
-0.5801300
-</td>
-<td style="text-align:right;">
-0.5988706
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">2.1503</td>
+<td align="center">0.5000</td>
+<td align="center">2.0565</td>
+<td align="center">0.8494</td>
+<td align="center">47.3093</td>
+<td align="center">0.5801</td>
+<td align="center">0.5989</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:right;">
-1.493947
-</td>
-<td style="text-align:right;">
-1.973700
-</td>
-<td style="text-align:right;">
-2.003475
-</td>
-<td style="text-align:right;">
-2.651983
-</td>
-<td style="text-align:right;">
-0.3412513
-</td>
-<td style="text-align:right;">
-0.5234000
-</td>
-<td style="text-align:right;">
-0.5450268
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">1.4939</td>
+<td align="center">1.9737</td>
+<td align="center">2.0035</td>
+<td align="center">2.6520</td>
+<td align="center">0.3413</td>
+<td align="center">0.5234</td>
+<td align="center">0.5450</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:right;">
--0.332546
-</td>
-<td style="text-align:right;">
-1.027396
-</td>
-<td style="text-align:right;">
-1.177913
-</td>
-<td style="text-align:right;">
-2.464734
-</td>
-<td style="text-align:right;">
--1.2153827
-</td>
-<td style="text-align:right;">
-0.8147728
-</td>
-<td style="text-align:right;">
-0.8227469
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">-0.3325</td>
+<td align="center">1.0274</td>
+<td align="center">1.1779</td>
+<td align="center">2.4647</td>
+<td align="center">-1.2154</td>
+<td align="center">0.8148</td>
+<td align="center">0.8227</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0\)</span>
-</td>
-<td style="text-align:right;">
-0.719000
-</td>
-<td style="text-align:right;">
-0.760000
-</td>
-<td style="text-align:right;">
-1.002168
-</td>
-<td style="text-align:right;">
-2.738736
-</td>
-<td style="text-align:right;">
-3.3202900
-</td>
-<td style="text-align:right;">
-0.2929400
-</td>
-<td style="text-align:right;">
-0.2850398
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0\)</span></td>
+<td align="center">0.7190</td>
+<td align="center">0.7600</td>
+<td align="center">1.0022</td>
+<td align="center">2.7387</td>
+<td align="center">3.3203</td>
+<td align="center">0.2929</td>
+<td align="center">0.2850</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_0\)</span>
-</td>
-<td style="text-align:right;">
--0.384600
-</td>
-<td style="text-align:right;">
-0.940000
-</td>
-<td style="text-align:right;">
-1.776808
-</td>
-<td style="text-align:right;">
--1.309243
-</td>
-<td style="text-align:right;">
-0.5269880
-</td>
-<td style="text-align:right;">
-0.2688600
-</td>
-<td style="text-align:right;">
-0.2676998
-</td>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td align="center">-0.3846</td>
+<td align="center">0.9400</td>
+<td align="center">1.7768</td>
+<td align="center">-1.3092</td>
+<td align="center">0.5270</td>
+<td align="center">0.2689</td>
+<td align="center">0.2677</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(y_0\)</span>
-</td>
-<td style="text-align:right;">
--0.675200
-</td>
-<td style="text-align:right;">
--1.171200
-</td>
-<td style="text-align:right;">
--0.641991
-</td>
-<td style="text-align:right;">
-2.806964
-</td>
-<td style="text-align:right;">
-0.7239300
-</td>
-<td style="text-align:right;">
-0.1771500
-</td>
-<td style="text-align:right;">
-0.1544272
-</td>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td align="center">-0.6752</td>
+<td align="center">-1.1712</td>
+<td align="center">-0.6420</td>
+<td align="center">2.8070</td>
+<td align="center">0.7239</td>
+<td align="center">0.1772</td>
+<td align="center">0.1544</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^1\)</span>
-</td>
-<td style="text-align:right;">
-0.215900
-</td>
-<td style="text-align:right;">
-0.513400
-</td>
-<td style="text-align:right;">
-0.226186
-</td>
-<td style="text-align:right;">
-4.853543
-</td>
-<td style="text-align:right;">
-3.5123300
-</td>
-<td style="text-align:right;">
-0.8859500
-</td>
-<td style="text-align:right;">
-1.1764113
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^1\)</span></td>
+<td align="center">0.2159</td>
+<td align="center">0.5134</td>
+<td align="center">0.2262</td>
+<td align="center">4.8535</td>
+<td align="center">3.5123</td>
+<td align="center">0.8860</td>
+<td align="center">1.1764</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:right;">
-0.049200
-</td>
-<td style="text-align:right;">
-0.011100
-</td>
-<td style="text-align:right;">
-0.033700
-</td>
-<td style="text-align:right;">
-0.019600
-</td>
-<td style="text-align:right;">
-0.0108613
-</td>
-<td style="text-align:right;">
-0.0091100
-</td>
-<td style="text-align:right;">
-0.0090289
-</td>
+<tr class="odd">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">0.0492</td>
+<td align="center">0.0111</td>
+<td align="center">0.0337</td>
+<td align="center">0.0196</td>
+<td align="center">0.0109</td>
+<td align="center">0.0091</td>
+<td align="center">0.0090</td>
 </tr>
 </tbody>
 </table>
@@ -1362,243 +867,110 @@ r_1,r_2,r_3,r_4\in[0,50]\quad r_p,x_0,y_0\in[-50,50]\quad \theta_0,\theta_p\in[0
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9997,c_2=0.5,q=40,T_{max}=30000\)</span>，动画结果如图<a href="examples.html#fig:case4gif">6.9</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case4gif"></span>
-<img src="img/case4.gif" alt="case4四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case4.gif" alt="case4四杆机构轨迹生成"  />
 <p class="caption">
-图 6.9: case4四杆机构<U+8F68><U+8FF9>生成
+图 6.9: case4四杆机构轨迹生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case4png">6.10</a>和表<a href="examples.html#tab:case4table">6.4</a>。
 <div class="figure" style="text-align: center"><span id="fig:case4png"></span>
-<img src="img/case4png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case4png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.10: 各算法优化<U+8F68><U+8FF9>
+图 6.10: 各算法优化轨迹
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case4table">表 6.4: </span>case4各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case4table">表 6.4: </span>case4各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-MUMSA
-</th>
-<th style="text-align:right;">
-GA
-</th>
-<th style="text-align:right;">
-PSO
-</th>
-<th style="text-align:right;">
-GA.DE
-</th>
-<th style="text-align:right;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">MUMSA</th>
+<th align="center">GA</th>
+<th align="center">PSO</th>
+<th align="center">GA.DE</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:right;">
-50.0000000
-</td>
-<td style="text-align:right;">
-50.0000000
-</td>
-<td style="text-align:right;">
-50.0000000
-</td>
-<td style="text-align:right;">
-50.000000
-</td>
-<td style="text-align:right;">
-47.2345017
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">50.0000000</td>
+<td align="center">50.0000000</td>
+<td align="center">50.0000000</td>
+<td align="center">50.000000</td>
+<td align="center">47.2345017</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:right;">
-5.0000000
-</td>
-<td style="text-align:right;">
-5.0000000
-</td>
-<td style="text-align:right;">
-5.0000000
-</td>
-<td style="text-align:right;">
-5.000000
-</td>
-<td style="text-align:right;">
-8.8473992
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">5.0000000</td>
+<td align="center">5.0000000</td>
+<td align="center">5.0000000</td>
+<td align="center">5.000000</td>
+<td align="center">8.8473992</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:right;">
-7.0310470
-</td>
-<td style="text-align:right;">
-6.9700900
-</td>
-<td style="text-align:right;">
-7.0310200
-</td>
-<td style="text-align:right;">
-5.905343
-</td>
-<td style="text-align:right;">
-25.0474709
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">7.0310470</td>
+<td align="center">6.9700900</td>
+<td align="center">7.0310200</td>
+<td align="center">5.905343</td>
+<td align="center">25.0474709</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:right;">
-48.1341830
-</td>
-<td style="text-align:right;">
-48.1993000
-</td>
-<td style="text-align:right;">
-48.1342000
-</td>
-<td style="text-align:right;">
-50.000000
-</td>
-<td style="text-align:right;">
-50.0000000
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">48.1341830</td>
+<td align="center">48.1993000</td>
+<td align="center">48.1342000</td>
+<td align="center">50.000000</td>
+<td align="center">50.0000000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:right;">
-21.3533558
-</td>
-<td style="text-align:right;">
-21.2191204
-</td>
-<td style="text-align:right;">
-21.3532819
-</td>
-<td style="text-align:right;">
-18.819312
-</td>
-<td style="text-align:right;">
-50.0000000
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">21.3533558</td>
+<td align="center">21.2191204</td>
+<td align="center">21.3532819</td>
+<td align="center">18.819312</td>
+<td align="center">50.0000000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:right;">
-0.6517294
-</td>
-<td style="text-align:right;">
-0.6380060
-</td>
-<td style="text-align:right;">
-0.6517238
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-5.7107187
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">0.6517294</td>
+<td align="center">0.6380060</td>
+<td align="center">0.6517238</td>
+<td align="center">0.000000</td>
+<td align="center">5.7107187</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0\)</span>
-</td>
-<td style="text-align:right;">
-0.0428247
-</td>
-<td style="text-align:right;">
-0.0508453
-</td>
-<td style="text-align:right;">
-0.0428286
-</td>
-<td style="text-align:right;">
-0.463633
-</td>
-<td style="text-align:right;">
-0.8225945
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0\)</span></td>
+<td align="center">0.0428247</td>
+<td align="center">0.0508453</td>
+<td align="center">0.0428286</td>
+<td align="center">0.463633</td>
+<td align="center">0.8225945</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_0\)</span>
-</td>
-<td style="text-align:right;">
-12.1974940
-</td>
-<td style="text-align:right;">
-12.2377000
-</td>
-<td style="text-align:right;">
-12.1975000
-</td>
-<td style="text-align:right;">
-14.373772
-</td>
-<td style="text-align:right;">
-16.5531171
-</td>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td align="center">12.1974940</td>
+<td align="center">12.2377000</td>
+<td align="center">12.1975000</td>
+<td align="center">14.373772</td>
+<td align="center">16.5531171</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(y_0\)</span>
-</td>
-<td style="text-align:right;">
--15.9982030
-</td>
-<td style="text-align:right;">
--15.8332000
-</td>
-<td style="text-align:right;">
--15.9981000
-</td>
-<td style="text-align:right;">
--12.444295
-</td>
-<td style="text-align:right;">
--48.1473786
-</td>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td align="center">-15.9982030</td>
+<td align="center">-15.8332000</td>
+<td align="center">-15.9981000</td>
+<td align="center">-12.444295</td>
+<td align="center">-48.1473786</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:right;">
-2.5803500
-</td>
-<td style="text-align:right;">
-2.5828600
-</td>
-<td style="text-align:right;">
-2.5803600
-</td>
-<td style="text-align:right;">
-2.349649
-</td>
-<td style="text-align:right;">
-0.7863680
-</td>
+<tr class="even">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">2.5803500</td>
+<td align="center">2.5828600</td>
+<td align="center">2.5803600</td>
+<td align="center">2.349649</td>
+<td align="center">0.7863680</td>
 </tr>
 </tbody>
 </table>
@@ -1621,506 +993,211 @@ r_1,r_2,r_3,r_4\in[0,80]\quad r_p,x_0,y_0\in[-80,80]\quad \theta_0,\theta_2^1,\c
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.10,\delta_0=0.05,c_1=0.9998,c_2=0.5,q=40,T_{max}=40000\)</span>，动画结果如图<a href="examples.html#fig:case5gif">6.11</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case5gif"></span>
-<img src="img/case5.gif" alt="case5四杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case5.gif" alt="case5四杆机构轨迹生成"  />
 <p class="caption">
-图 6.11: case5四杆机构<U+8F68><U+8FF9>生成
+图 6.11: case5四杆机构轨迹生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case5png">6.12</a>和表<a href="examples.html#tab:case5table">6.5</a>。
 <div class="figure" style="text-align: center"><span id="fig:case5png"></span>
-<img src="img/case5png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case5png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.12: 各算法优化<U+8F68><U+8FF9>
+图 6.12: 各算法优化轨迹
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case5table">表 6.5: </span>case5各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case5table">表 6.5: </span>case5各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-MUMSA
-</th>
-<th style="text-align:right;">
-GA
-</th>
-<th style="text-align:right;">
-PSO
-</th>
-<th style="text-align:right;">
-DE
-</th>
-<th style="text-align:right;">
-GA.DE
-</th>
-<th style="text-align:right;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">MUMSA</th>
+<th align="center">GA</th>
+<th align="center">PSO</th>
+<th align="center">DE</th>
+<th align="center">GA.DE</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:right;">
-79.5160680
-</td>
-<td style="text-align:right;">
-79.981513
-</td>
-<td style="text-align:right;">
-52.535162
-</td>
-<td style="text-align:right;">
-54.360893
-</td>
-<td style="text-align:right;">
-80.0000000
-</td>
-<td style="text-align:right;">
-71.8681225
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">79.5160680</td>
+<td align="center">79.981513</td>
+<td align="center">52.535162</td>
+<td align="center">54.360893</td>
+<td align="center">80.0000000</td>
+<td align="center">71.8681225</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:right;">
-9.7239730
-</td>
-<td style="text-align:right;">
-9.109993
-</td>
-<td style="text-align:right;">
-8.687886
-</td>
-<td style="text-align:right;">
-8.683351
-</td>
-<td style="text-align:right;">
-8.4203200
-</td>
-<td style="text-align:right;">
-9.2618623
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">9.7239730</td>
+<td align="center">9.109993</td>
+<td align="center">8.687886</td>
+<td align="center">8.683351</td>
+<td align="center">8.4203200</td>
+<td align="center">9.2618623</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:right;">
-45.8425240
-</td>
-<td style="text-align:right;">
-72.936511
-</td>
-<td style="text-align:right;">
-36.155078
-</td>
-<td style="text-align:right;">
-34.318634
-</td>
-<td style="text-align:right;">
-51.3426000
-</td>
-<td style="text-align:right;">
-44.4542963
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">45.8425240</td>
+<td align="center">72.936511</td>
+<td align="center">36.155078</td>
+<td align="center">34.318634</td>
+<td align="center">51.3426000</td>
+<td align="center">44.4542963</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:right;">
-51.4384800
-</td>
-<td style="text-align:right;">
-80.000000
-</td>
-<td style="text-align:right;">
-80.000000
-</td>
-<td style="text-align:right;">
-79.996171
-</td>
-<td style="text-align:right;">
-42.4532000
-</td>
-<td style="text-align:right;">
-43.0533508
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">51.4384800</td>
+<td align="center">80.000000</td>
+<td align="center">80.000000</td>
+<td align="center">79.996171</td>
+<td align="center">42.4532000</td>
+<td align="center">43.0533508</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:right;">
-8.7289390
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-1.481055
-</td>
-<td style="text-align:right;">
-1.465250
-</td>
-<td style="text-align:right;">
-10.6530404
-</td>
-<td style="text-align:right;">
-8.7820722
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">8.7289390</td>
+<td align="center">0.000000</td>
+<td align="center">1.481055</td>
+<td align="center">1.465250</td>
+<td align="center">10.6530404</td>
+<td align="center">8.7820722</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:right;">
--0.3452264
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-1.570796
-</td>
-<td style="text-align:right;">
-1.570669
-</td>
-<td style="text-align:right;">
-2.6465448
-</td>
-<td style="text-align:right;">
-1.6362575
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">-0.3452264</td>
+<td align="center">0.000000</td>
+<td align="center">1.570796</td>
+<td align="center">1.570669</td>
+<td align="center">2.6465448</td>
+<td align="center">1.6362575</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0\)</span>
-</td>
-<td style="text-align:right;">
-5.5969445
-</td>
-<td style="text-align:right;">
-0.026149
-</td>
-<td style="text-align:right;">
-1.403504
-</td>
-<td style="text-align:right;">
-2.129650
-</td>
-<td style="text-align:right;">
-4.2817700
-</td>
-<td style="text-align:right;">
-1.6011655
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0\)</span></td>
+<td align="center">5.5969445</td>
+<td align="center">0.026149</td>
+<td align="center">1.403504</td>
+<td align="center">2.129650</td>
+<td align="center">4.2817700</td>
+<td align="center">1.6011655</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_0\)</span>
-</td>
-<td style="text-align:right;">
-2.0211090
-</td>
-<td style="text-align:right;">
-10.155966
-</td>
-<td style="text-align:right;">
-11.002124
-</td>
-<td style="text-align:right;">
-10.954397
-</td>
-<td style="text-align:right;">
-5.5337200
-</td>
-<td style="text-align:right;">
-16.7540360
-</td>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td align="center">2.0211090</td>
+<td align="center">10.155966</td>
+<td align="center">11.002124</td>
+<td align="center">10.954397</td>
+<td align="center">5.5337200</td>
+<td align="center">16.7540360</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(y_0\)</span>
-</td>
-<td style="text-align:right;">
-13.2165878
-</td>
-<td style="text-align:right;">
-10.000000
-</td>
-<td style="text-align:right;">
-11.095585
-</td>
-<td style="text-align:right;">
-11.074534
-</td>
-<td style="text-align:right;">
-0.4771830
-</td>
-<td style="text-align:right;">
-15.2986682
-</td>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td align="center">13.2165878</td>
+<td align="center">10.000000</td>
+<td align="center">11.095585</td>
+<td align="center">11.074534</td>
+<td align="center">0.4771830</td>
+<td align="center">15.2986682</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^1\)</span>
-</td>
-<td style="text-align:right;">
-0.6376873
-</td>
-<td style="text-align:right;">
-6.283185
-</td>
-<td style="text-align:right;">
-6.282619
-</td>
-<td style="text-align:right;">
-6.283185
-</td>
-<td style="text-align:right;">
-2.0935000
-</td>
-<td style="text-align:right;">
-0.1258416
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^1\)</span></td>
+<td align="center">0.6376873</td>
+<td align="center">6.283185</td>
+<td align="center">6.282619</td>
+<td align="center">6.283185</td>
+<td align="center">2.0935000</td>
+<td align="center">0.1258416</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^2\)</span>
-</td>
-<td style="text-align:right;">
-1.3255329
-</td>
-<td style="text-align:right;">
-0.600745
-</td>
-<td style="text-align:right;">
-0.615302
-</td>
-<td style="text-align:right;">
-0.616731
-</td>
-<td style="text-align:right;">
-2.8129100
-</td>
-<td style="text-align:right;">
-0.8167208
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^2\)</span></td>
+<td align="center">1.3255329</td>
+<td align="center">0.600745</td>
+<td align="center">0.615302</td>
+<td align="center">0.616731</td>
+<td align="center">2.8129100</td>
+<td align="center">0.8167208</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^3\)</span>
-</td>
-<td style="text-align:right;">
-2.0080339
-</td>
-<td style="text-align:right;">
-1.372812
-</td>
-<td style="text-align:right;">
-1.305421
-</td>
-<td style="text-align:right;">
-1.310254
-</td>
-<td style="text-align:right;">
-3.5160500
-</td>
-<td style="text-align:right;">
-1.5351326
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^3\)</span></td>
+<td align="center">2.0080339</td>
+<td align="center">1.372812</td>
+<td align="center">1.305421</td>
+<td align="center">1.310254</td>
+<td align="center">3.5160500</td>
+<td align="center">1.5351326</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^4\)</span>
-</td>
-<td style="text-align:right;">
-2.6955659
-</td>
-<td style="text-align:right;">
-2.210575
-</td>
-<td style="text-align:right;">
-2.188053
-</td>
-<td style="text-align:right;">
-2.193570
-</td>
-<td style="text-align:right;">
-4.2063800
-</td>
-<td style="text-align:right;">
-2.1811489
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^4\)</span></td>
+<td align="center">2.6955659</td>
+<td align="center">2.210575</td>
+<td align="center">2.188053</td>
+<td align="center">2.193570</td>
+<td align="center">4.2063800</td>
+<td align="center">2.1811489</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^5\)</span>
-</td>
-<td style="text-align:right;">
-3.3845794
-</td>
-<td style="text-align:right;">
-2.862639
-</td>
-<td style="text-align:right;">
-2.913049
-</td>
-<td style="text-align:right;">
-2.917170
-</td>
-<td style="text-align:right;">
-4.8905100
-</td>
-<td style="text-align:right;">
-2.8753839
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^5\)</span></td>
+<td align="center">3.3845794</td>
+<td align="center">2.862639</td>
+<td align="center">2.913049</td>
+<td align="center">2.917170</td>
+<td align="center">4.8905100</td>
+<td align="center">2.8753839</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^6\)</span>
-</td>
-<td style="text-align:right;">
-4.0829376
-</td>
-<td style="text-align:right;">
-3.420547
-</td>
-<td style="text-align:right;">
-3.499313
-</td>
-<td style="text-align:right;">
-3.490746
-</td>
-<td style="text-align:right;">
-5.5739800
-</td>
-<td style="text-align:right;">
-3.5728072
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^6\)</span></td>
+<td align="center">4.0829376</td>
+<td align="center">3.420547</td>
+<td align="center">3.499313</td>
+<td align="center">3.490746</td>
+<td align="center">5.5739800</td>
+<td align="center">3.5728072</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^7\)</span>
-</td>
-<td style="text-align:right;">
-4.7984548
-</td>
-<td style="text-align:right;">
-4.072611
-</td>
-<td style="text-align:right;">
-4.125586
-</td>
-<td style="text-align:right;">
-4.132017
-</td>
-<td style="text-align:right;">
-6.2645800
-</td>
-<td style="text-align:right;">
-4.2854058
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^7\)</span></td>
+<td align="center">4.7984548</td>
+<td align="center">4.072611</td>
+<td align="center">4.125586</td>
+<td align="center">4.132017</td>
+<td align="center">6.2645800</td>
+<td align="center">4.2854058</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^8\)</span>
-</td>
-<td style="text-align:right;">
-5.5117056
-</td>
-<td style="text-align:right;">
-4.910373
-</td>
-<td style="text-align:right;">
-4.919977
-</td>
-<td style="text-align:right;">
-4.922075
-</td>
-<td style="text-align:right;">
-0.6761980
-</td>
-<td style="text-align:right;">
-5.0016208
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^8\)</span></td>
+<td align="center">5.5117056</td>
+<td align="center">4.910373</td>
+<td align="center">4.919977</td>
+<td align="center">4.922075</td>
+<td align="center">0.6761980</td>
+<td align="center">5.0016208</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^9\)</span>
-</td>
-<td style="text-align:right;">
-6.2127919
-</td>
-<td style="text-align:right;">
-5.682440
-</td>
-<td style="text-align:right;">
-5.685021
-</td>
-<td style="text-align:right;">
-5.695372
-</td>
-<td style="text-align:right;">
-1.3830700
-</td>
-<td style="text-align:right;">
-5.7133417
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^9\)</span></td>
+<td align="center">6.2127919</td>
+<td align="center">5.682440</td>
+<td align="center">5.685021</td>
+<td align="center">5.695372</td>
+<td align="center">1.3830700</td>
+<td align="center">5.7133417</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^{10}\)</span>
-</td>
-<td style="text-align:right;">
-0.6371866
-</td>
-<td style="text-align:right;">
-6.283185
-</td>
-<td style="text-align:right;">
-6.282323
-</td>
-<td style="text-align:right;">
-6.282970
-</td>
-<td style="text-align:right;">
-2.0934800
-</td>
-<td style="text-align:right;">
-0.1258290
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_2^{10}\)</span></td>
+<td align="center">0.6371866</td>
+<td align="center">6.283185</td>
+<td align="center">6.282323</td>
+<td align="center">6.282970</td>
+<td align="center">2.0934800</td>
+<td align="center">0.1258290</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:right;">
-0.0047000
-</td>
-<td style="text-align:right;">
-2.281273
-</td>
-<td style="text-align:right;">
-1.971004
-</td>
-<td style="text-align:right;">
-1.952326
-</td>
-<td style="text-align:right;">
-0.0006022
-</td>
-<td style="text-align:right;">
-0.0004252
-</td>
+<tr class="even">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">0.0047000</td>
+<td align="center">2.281273</td>
+<td align="center">1.971004</td>
+<td align="center">1.952326</td>
+<td align="center">0.0006022</td>
+<td align="center">0.0004252</td>
 </tr>
 </tbody>
 </table>
@@ -2158,16 +1235,16 @@ X = [r_1,r_2,r_3,r_4,r_5,r_6,r_p,\theta_p,r_1&#39;,\theta_0,\theta_0&#39;,x_0,y_
 </blockquote>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.05,\delta_0=0.025,c_1=0.9999,c_2=0.5,q=10,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case6gif">6.13</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case6gif"></span>
-<img src="img/case6.gif" alt="case6六杆机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case6.gif" alt="case6六杆机构轨迹生成"  />
 <p class="caption">
-图 6.13: case6六杆机构<U+8F68><U+8FF9>生成
+图 6.13: case6六杆机构轨迹生成
 </p>
 </div>
 <p>与其他算法对比结果如图<a href="examples.html#fig:case6png">6.14</a>, 图<a href="examples.html#fig:case6png2">6.15</a>和表<a href="examples.html#tab:case6table">6.6</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case6png"></span>
-<img src="img/case6png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case6png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.14: 各算法优化<U+8F68><U+8FF9>
+图 6.14: 各算法优化轨迹
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:case6png2"></span>
@@ -2177,350 +1254,145 @@ X = [r_1,r_2,r_3,r_4,r_5,r_6,r_p,\theta_p,r_1&#39;,\theta_0,\theta_0&#39;,x_0,y_
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case6table">表 6.6: </span>case6各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case6table">表 6.6: </span>case6各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-DE.A
-</th>
-<th style="text-align:left;">
-DE.B
-</th>
-<th style="text-align:left;">
-DE.C
-</th>
-<th style="text-align:left;">
-MUMSA
-</th>
-<th style="text-align:left;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">DE.A</th>
+<th align="center">DE.B</th>
+<th align="center">DE.C</th>
+<th align="center">MUMSA</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:left;">
-1.8145
-</td>
-<td style="text-align:left;">
-1.8065
-</td>
-<td style="text-align:left;">
-2.0926
-</td>
-<td style="text-align:left;">
-1.713529
-</td>
-<td style="text-align:left;">
-1.838058488
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">1.8145</td>
+<td align="center">1.8065</td>
+<td align="center">2.0926</td>
+<td align="center">1.713529</td>
+<td align="center">1.838058488</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:left;">
-0.9911
-</td>
-<td style="text-align:left;">
-0.9826
-</td>
-<td style="text-align:left;">
-1.1464
-</td>
-<td style="text-align:left;">
-0.92602
-</td>
-<td style="text-align:left;">
-1.006097698
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">0.9911</td>
+<td align="center">0.9826</td>
+<td align="center">1.1464</td>
+<td align="center">0.92602</td>
+<td align="center">1.006097698</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:left;">
-1.9995
-</td>
-<td style="text-align:left;">
-2.0177
-</td>
-<td style="text-align:left;">
-1.989
-</td>
-<td style="text-align:left;">
-1.991373
-</td>
-<td style="text-align:left;">
-1.997800646
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">1.9995</td>
+<td align="center">2.0177</td>
+<td align="center">1.989</td>
+<td align="center">1.991373</td>
+<td align="center">1.997800646</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:left;">
-2.0315
-</td>
-<td style="text-align:left;">
-2.0009
-</td>
-<td style="text-align:left;">
-1.9727
-</td>
-<td style="text-align:left;">
-1.848672
-</td>
-<td style="text-align:left;">
-2.008472163
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">2.0315</td>
+<td align="center">2.0009</td>
+<td align="center">1.9727</td>
+<td align="center">1.848672</td>
+<td align="center">2.008472163</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_5\)</span>
-</td>
-<td style="text-align:left;">
-4.3674
-</td>
-<td style="text-align:left;">
-5.7769
-</td>
-<td style="text-align:left;">
-6.6633
-</td>
-<td style="text-align:left;">
-5.35498
-</td>
-<td style="text-align:left;">
-6.106586728
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_5\)</span></td>
+<td align="center">4.3674</td>
+<td align="center">5.7769</td>
+<td align="center">6.6633</td>
+<td align="center">5.35498</td>
+<td align="center">6.106586728</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_6\)</span>
-</td>
-<td style="text-align:left;">
-2.4924
-</td>
-<td style="text-align:left;">
-2.5296
-</td>
-<td style="text-align:left;">
-2.5517
-</td>
-<td style="text-align:left;">
-2.54979
-</td>
-<td style="text-align:left;">
-2.551492193
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_6\)</span></td>
+<td align="center">2.4924</td>
+<td align="center">2.5296</td>
+<td align="center">2.5517</td>
+<td align="center">2.54979</td>
+<td align="center">2.551492193</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:left;">
-2.8174
-</td>
-<td style="text-align:left;">
-2.8711
-</td>
-<td style="text-align:left;">
-2.7178
-</td>
-<td style="text-align:left;">
-2.975936132
-</td>
-<td style="text-align:left;">
-2.815041279
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">2.8174</td>
+<td align="center">2.8711</td>
+<td align="center">2.7178</td>
+<td align="center">2.975936132</td>
+<td align="center">2.815041279</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:left;">
-0.7776
-</td>
-<td style="text-align:left;">
-0.783712
-</td>
-<td style="text-align:left;">
-0.845246
-</td>
-<td style="text-align:left;">
-0.831651258
-</td>
-<td style="text-align:left;">
-0.78386985
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">0.7776</td>
+<td align="center">0.783712</td>
+<td align="center">0.845246</td>
+<td align="center">0.831651258</td>
+<td align="center">0.78386985</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0\)</span>
-</td>
-<td style="text-align:left;">
-6.269879
-</td>
-<td style="text-align:left;">
-0.011582
-</td>
-<td style="text-align:left;">
-6.242260827
-</td>
-<td style="text-align:left;">
-0.067677
-</td>
-<td style="text-align:left;">
-6.277427755
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0\)</span></td>
+<td align="center">6.269879</td>
+<td align="center">0.011582</td>
+<td align="center">6.242260827</td>
+<td align="center">0.067677</td>
+<td align="center">6.277427755</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1&#39;\)</span>
-</td>
-<td style="text-align:left;">
-4.4158
-</td>
-<td style="text-align:left;">
-5.2817
-</td>
-<td style="text-align:left;">
-6.2907
-</td>
-<td style="text-align:left;">
-4.87374
-</td>
-<td style="text-align:left;">
-5.63828226
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_1&#39;\)</span></td>
+<td align="center">4.4158</td>
+<td align="center">5.2817</td>
+<td align="center">6.2907</td>
+<td align="center">4.87374</td>
+<td align="center">5.63828226</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0&#39;\)</span>
-</td>
-<td style="text-align:left;">
-0.235595
-</td>
-<td style="text-align:left;">
-0.0170309
-</td>
-<td style="text-align:left;">
-6.18118303
-</td>
-<td style="text-align:left;">
-0.0967027
-</td>
-<td style="text-align:left;">
-6.257863894
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0&#39;\)</span></td>
+<td align="center">0.235595</td>
+<td align="center">0.0170309</td>
+<td align="center">6.18118303</td>
+<td align="center">0.0967027</td>
+<td align="center">6.257863894</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_0\)</span>
-</td>
-<td style="text-align:left;">
-0.0115
-</td>
-<td style="text-align:left;">
-0.0415
-</td>
-<td style="text-align:left;">
--0.2729
-</td>
-<td style="text-align:left;">
-0.175257
-</td>
-<td style="text-align:left;">
--0.013849346
-</td>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td align="center">0.0115</td>
+<td align="center">0.0415</td>
+<td align="center">-0.2729</td>
+<td align="center">0.175257</td>
+<td align="center">-0.013849346</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(y_0\)</span>
-</td>
-<td style="text-align:left;">
-0.0157
-</td>
-<td style="text-align:left;">
--0.0377
-</td>
-<td style="text-align:left;">
-0.0931
-</td>
-<td style="text-align:left;">
--0.1187032
-</td>
-<td style="text-align:left;">
-0.011591976
-</td>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td align="center">0.0157</td>
+<td align="center">-0.0377</td>
+<td align="center">0.0931</td>
+<td align="center">-0.1187032</td>
+<td align="center">0.011591976</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^1\)</span>
-</td>
-<td style="text-align:left;">
-0.00052
-</td>
-<td style="text-align:left;">
-0.003648
-</td>
-<td style="text-align:left;">
--0.04062
-</td>
-<td style="text-align:left;">
-6.222361
-</td>
-<td style="text-align:left;">
-6.281768246
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^1\)</span></td>
+<td align="center">0.00052</td>
+<td align="center">0.003648</td>
+<td align="center">-0.04062</td>
+<td align="center">6.222361</td>
+<td align="center">6.281768246</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Evaluations\)</span>
-</td>
-<td style="text-align:left;">
-53310
-</td>
-<td style="text-align:left;">
-93405
-</td>
-<td style="text-align:left;">
-93405
-</td>
-<td style="text-align:left;">
-93405
-</td>
-<td style="text-align:left;">
-50000
-</td>
+<tr class="odd">
+<td><span class="math inline">\(Evaluations\)</span></td>
+<td align="center">53310</td>
+<td align="center">93405</td>
+<td align="center">93405</td>
+<td align="center">93405</td>
+<td align="center">50000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:left;">
-0.000250876
-</td>
-<td style="text-align:left;">
-0.005653158
-</td>
-<td style="text-align:left;">
-0.03537533
-</td>
-<td style="text-align:left;">
-0.0014
-</td>
-<td style="text-align:left;">
-0.000195212659
-</td>
+<tr class="even">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">0.000250876</td>
+<td align="center">0.005653158</td>
+<td align="center">0.03537533</td>
+<td align="center">0.0014</td>
+<td align="center">0.000195212659</td>
 </tr>
 </tbody>
 </table>
@@ -2544,227 +1416,106 @@ X = [r_1,r_2,r_3,r_4,r_p,\theta_p,\theta_0,x_0,y_0,\theta_2^1,\cdots,\theta_2^{1
 \end{align}\]</span>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.05,\delta_0=0.025,c_1=0.9995,c_2=0.5,q=40,T_{max}=20000\)</span>，动画结果如图<a href="examples.html#fig:case7gif">6.16</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case7gif"></span>
-<img src="img/case7.gif" alt="case7机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case7.gif" alt="case7机构轨迹生成"  />
 <p class="caption">
-图 6.16: case7机构<U+8F68><U+8FF9>生成
+图 6.16: case7机构轨迹生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case7png">6.17</a>和表<a href="examples.html#tab:case7table">6.7</a>。
 <div class="figure" style="text-align: center"><span id="fig:case7png"></span>
-<img src="img/case7png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case7png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.17: 各算法优化<U+8F68><U+8FF9>
+图 6.17: 各算法优化轨迹
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case7table">表 6.7: </span>case7各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case7table">表 6.7: </span>case7各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-PSO
-</th>
-<th style="text-align:right;">
-HPSO
-</th>
-<th style="text-align:right;">
-MKH
-</th>
-<th style="text-align:right;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">PSO</th>
+<th align="center">HPSO</th>
+<th align="center">MKH</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:right;">
-4.550300
-</td>
-<td style="text-align:right;">
-4.535900
-</td>
-<td style="text-align:right;">
-2.8764500
-</td>
-<td style="text-align:right;">
-2.8162769
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">4.550300</td>
+<td align="center">4.535900</td>
+<td align="center">2.8764500</td>
+<td align="center">2.8162769</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:right;">
-1.101300
-</td>
-<td style="text-align:right;">
-1.113300
-</td>
-<td style="text-align:right;">
-1.1464400
-</td>
-<td style="text-align:right;">
-1.1382629
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">1.101300</td>
+<td align="center">1.113300</td>
+<td align="center">1.1464400</td>
+<td align="center">1.1382629</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:right;">
-3.955800
-</td>
-<td style="text-align:right;">
-14.738100
-</td>
-<td style="text-align:right;">
-4.4077300
-</td>
-<td style="text-align:right;">
-4.0509922
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">3.955800</td>
+<td align="center">14.738100</td>
+<td align="center">4.4077300</td>
+<td align="center">4.0509922</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:right;">
-3.933000
-</td>
-<td style="text-align:right;">
-16.801700
-</td>
-<td style="text-align:right;">
-4.7571300
-</td>
-<td style="text-align:right;">
-4.1957758
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">3.933000</td>
+<td align="center">16.801700</td>
+<td align="center">4.7571300</td>
+<td align="center">4.1957758</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:right;">
-3.941572
-</td>
-<td style="text-align:right;">
-3.941866
-</td>
-<td style="text-align:right;">
-2.6665746
-</td>
-<td style="text-align:right;">
-2.6682801
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">3.941572</td>
+<td align="center">3.941866</td>
+<td align="center">2.6665746</td>
+<td align="center">2.6682801</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:right;">
--0.539171
-</td>
-<td style="text-align:right;">
--1.521104
-</td>
-<td style="text-align:right;">
--1.1363513
-</td>
-<td style="text-align:right;">
-5.1910788
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">-0.539171</td>
+<td align="center">-1.521104</td>
+<td align="center">-1.1363513</td>
+<td align="center">5.1910788</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0\)</span>
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0.1650200
-</td>
-<td style="text-align:right;">
-0.2070603
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0\)</span></td>
+<td align="center">0.000000</td>
+<td align="center">0.000000</td>
+<td align="center">0.1650200</td>
+<td align="center">0.2070603</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_0\)</span>
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-1.1426500
-</td>
-<td style="text-align:right;">
-1.1226995
-</td>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td align="center">0.000000</td>
+<td align="center">0.000000</td>
+<td align="center">1.1426500</td>
+<td align="center">1.1226995</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(y_0\)</span>
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0.4823700
-</td>
-<td style="text-align:right;">
-0.5246662
-</td>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td align="center">0.000000</td>
+<td align="center">0.000000</td>
+<td align="center">0.4823700</td>
+<td align="center">0.5246662</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^1\)</span>
-</td>
-<td style="text-align:right;">
--0.201400
-</td>
-<td style="text-align:right;">
--0.181600
-</td>
-<td style="text-align:right;">
--0.3139900
-</td>
-<td style="text-align:right;">
-6.1191060
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^1\)</span></td>
+<td align="center">-0.201400</td>
+<td align="center">-0.181600</td>
+<td align="center">-0.3139900</td>
+<td align="center">6.1191060</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:right;">
-0.171600
-</td>
-<td style="text-align:right;">
-0.096400
-</td>
-<td style="text-align:right;">
-0.0001597
-</td>
-<td style="text-align:right;">
-0.0000994
-</td>
+<tr class="odd">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">0.171600</td>
+<td align="center">0.096400</td>
+<td align="center">0.0001597</td>
+<td align="center">0.0000994</td>
 </tr>
 </tbody>
 </table>
@@ -2790,233 +1541,109 @@ r_1,r_2,r_3,r_4\in[0,5]\quad r_p,x_0,y_0\in[-5,5] \quad \theta_0,\theta_2^1,\cdo
 \]</span></p>
 <p>算法参数为 <span class="math inline">\(d_0 = 0.05,\delta_0=0.025,c_1=0.99975,c_2=0.5,q=40,T_{max}=50000\)</span>，动画结果如图<a href="examples.html#fig:case8gif">6.18</a>。</p>
 <div class="figure" style="text-align: center"><span id="fig:case8gif"></span>
-<img src="img/case8.gif" alt="case8机构&lt;U+8F68&gt;&lt;U+8FF9&gt;生成"  />
+<img src="img/case8.gif" alt="case8机构轨迹生成"  />
 <p class="caption">
-图 6.18: case8机构<U+8F68><U+8FF9>生成
+图 6.18: case8机构轨迹生成
 </p>
 </div>
 与其他算法对比结果如图<a href="examples.html#fig:case8png">6.19</a>和表<a href="examples.html#tab:case8table">6.8</a>。
 <div class="figure" style="text-align: center"><span id="fig:case8png"></span>
-<img src="img/case8png.png" alt="各算法优化&lt;U+8F68&gt;&lt;U+8FF9&gt;" width="50%" />
+<img src="img/case8png.png" alt="各算法优化轨迹" width="50%" />
 <p class="caption">
-图 6.19: 各算法优化<U+8F68><U+8FF9>
+图 6.19: 各算法优化轨迹
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:case8table">表 6.8: </span>case8各算法<U+7ED3>果<U+5BF9>比
-</caption>
+<caption><span id="tab:case8table">表 6.8: </span>case8各算法结果对比</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-MKH
-</th>
-<th style="text-align:left;">
-GA.FL
-</th>
-<th style="text-align:left;">
-Ant.Gradient
-</th>
-<th style="text-align:right;">
-BAS
-</th>
+<tr class="header">
+<th></th>
+<th align="center">MKH</th>
+<th align="center">GA.FL</th>
+<th align="center">Ant.Gradient</th>
+<th align="center">BAS</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_1\)</span>
-</td>
-<td style="text-align:left;">
-9.99432
-</td>
-<td style="text-align:left;">
-9
-</td>
-<td style="text-align:left;">
-13.08
-</td>
-<td style="text-align:right;">
-9.6132193
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_1\)</span></td>
+<td align="center">9.99432</td>
+<td align="center">9</td>
+<td align="center">13.08</td>
+<td align="center">9.6132193</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_2\)</span>
-</td>
-<td style="text-align:left;">
-1.93027
-</td>
-<td style="text-align:left;">
-3.01
-</td>
-<td style="text-align:left;">
-1.89
-</td>
-<td style="text-align:right;">
-1.9459840
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_2\)</span></td>
+<td align="center">1.93027</td>
+<td align="center">3.01</td>
+<td align="center">1.89</td>
+<td align="center">1.9459840</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_3\)</span>
-</td>
-<td style="text-align:left;">
-4.57242
-</td>
-<td style="text-align:left;">
-8.8
-</td>
-<td style="text-align:left;">
-8.41
-</td>
-<td style="text-align:right;">
-4.9080817
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_3\)</span></td>
+<td align="center">4.57242</td>
+<td align="center">8.8</td>
+<td align="center">8.41</td>
+<td align="center">4.9080817</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_4\)</span>
-</td>
-<td style="text-align:left;">
-7.36674
-</td>
-<td style="text-align:left;">
-8.8
-</td>
-<td style="text-align:left;">
-6.75
-</td>
-<td style="text-align:right;">
-6.6768279
-</td>
+<tr class="even">
+<td><span class="math inline">\(r_4\)</span></td>
+<td align="center">7.36674</td>
+<td align="center">8.8</td>
+<td align="center">6.75</td>
+<td align="center">6.6768279</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(r_p\)</span>
-</td>
-<td style="text-align:left;">
-8.04254
-</td>
-<td style="text-align:left;">
-11.0995
-</td>
-<td style="text-align:left;">
-14.45
-</td>
-<td style="text-align:right;">
-8.6409226
-</td>
+<tr class="odd">
+<td><span class="math inline">\(r_p\)</span></td>
+<td align="center">8.04254</td>
+<td align="center">11.0995</td>
+<td align="center">14.45</td>
+<td align="center">8.6409226</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_p\)</span>
-</td>
-<td style="text-align:left;">
-0.187430
-</td>
-<td style="text-align:left;">
--0.681
-</td>
-<td style="text-align:left;">
-0.195
-</td>
-<td style="text-align:right;">
-0.1694076
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_p\)</span></td>
+<td align="center">0.187430</td>
+<td align="center">-0.681</td>
+<td align="center">0.195</td>
+<td align="center">0.1694076</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_0\)</span>
-</td>
-<td style="text-align:left;">
--0.61763
-</td>
-<td style="text-align:left;">
-0.489
-</td>
-<td style="text-align:left;">
--0.3815
-</td>
-<td style="text-align:right;">
-5.7260733
-</td>
+<tr class="odd">
+<td><span class="math inline">\(\theta_0\)</span></td>
+<td align="center">-0.61763</td>
+<td align="center">0.489</td>
+<td align="center">-0.3815</td>
+<td align="center">5.7260733</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_0\)</span>
-</td>
-<td style="text-align:left;">
--2.31301
-</td>
-<td style="text-align:left;">
--2.4
-</td>
-<td style="text-align:left;">
--8.77
-</td>
-<td style="text-align:right;">
--2.9214626
-</td>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td align="center">-2.31301</td>
+<td align="center">-2.4</td>
+<td align="center">-8.77</td>
+<td align="center">-2.9214626</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(y_0\)</span>
-</td>
-<td style="text-align:left;">
-2.86189
-</td>
-<td style="text-align:left;">
--4
-</td>
-<td style="text-align:left;">
-1.20
-</td>
-<td style="text-align:right;">
-2.7190256
-</td>
+<tr class="odd">
+<td><span class="math inline">\(y_0\)</span></td>
+<td align="center">2.86189</td>
+<td align="center">-4</td>
+<td align="center">1.20</td>
+<td align="center">2.7190256</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(牟_2^1\)</span>
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:right;">
-0.4529787
-</td>
+<tr class="even">
+<td><span class="math inline">\(\theta_2^1\)</span></td>
+<td align="center">*</td>
+<td align="center">*</td>
+<td align="center">*</td>
+<td align="center">0.4529787</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Error\)</span>
-</td>
-<td style="text-align:left;">
-0.03916
-</td>
-<td style="text-align:left;">
-0.9022
-</td>
-<td style="text-align:left;">
-0.5504
-</td>
-<td style="text-align:right;">
-0.0397777
-</td>
+<tr class="odd">
+<td><span class="math inline">\(Error\)</span></td>
+<td align="center">0.03916</td>
+<td align="center">0.9022</td>
+<td align="center">0.5504</td>
+<td align="center">0.0397777</td>
 </tr>
 </tbody>
-</table></li>
-</ul></li>
-</ul></li>
-</ul>
+</table>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
-`r if (knitr:::is_html_output()) '# 参考文献 {#references .unnumbered}'`
+`r if (knitr:::is_html_output()) '# References {#references .unnumbered}'`
 
 ```{r include=FALSE}
 # 自动生成 R 包的参考文献

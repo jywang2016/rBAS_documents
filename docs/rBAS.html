@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
-<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>²Î¿¼ÎÄÏ×</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -328,9 +328,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 f(x)=\sum_{i=1}^{d=2}sin(x_i)[sin(\frac{ix_i^2}{\pi})]^{20}
 \]</span> 图<a href="rBAS.html#fig:mich">4.1</a>为<code>Michalewicz</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。
 <div class="figure" style="text-align: center"><span id="fig:mich"></span>
-<img src="img/Mich.png" alt=" Michalewicz函&lt;U+6570&gt;示意" width="80%" />
+<img src="img/Mich.png" alt=" Michalewicz函数示意" width="80%" />
 <p class="caption">
-图 4.1:  Michalewicz函<U+6570>示意
+图 4.1:  Michalewicz函数示意
 </p>
 </div>
 <p>我们先在<code>R</code>的脚本中构建出函数：</p>
@@ -364,9 +364,9 @@ f({x})=&amp; [1+(x_1+x_2+1)^2(19-14x_1+3x_1^2-14x_2\notag \\
 \end{equation}\]</span>
 图<a href="rBAS.html#fig:gold">4.2</a>为<code>Goldstein-Price</code>函数在给定的约束范围的三维示意图。可以看到，最小值在<span class="math inline">\(x = -5,y = 1.5\)</span>的附近。图<a href="rBAS.html#fig:mich">4.1</a>与<a href="rBAS.html#fig:gold">4.2</a>均使用<a href="https://plot.ly/r/"><code>plotly</code></a>绘制。
 <div class="figure" style="text-align: center"><span id="fig:gold"></span>
-<img src="img/Gold.png" alt=" Michalewicz函&lt;U+6570&gt;示意" width="80%" />
+<img src="img/Gold.png" alt=" Michalewicz函数示意" width="80%" />
 <p class="caption">
-图 4.2:  Michalewicz函<U+6570>示意
+图 4.2:  Michalewicz函数示意
 </p>
 </div>
 <p>函数构造：</p>
@@ -795,16 +795,6 @@ result<span class="op">$</span>par; result<span class="op">$</span>value</code><
 <p>“在试验的时候发现，当维度提高时，步长和迭代次数也要相应的提高”</p>
 <p>—王糖糖</p>
 </blockquote>
-<p>最后呢，我们为什么要改算法！</p>
-<div class="figure" style="text-align: center"><span id="fig:bsow"></span>
-<img src="img/BSO_w.jpg" alt="&lt;U+4E3A&gt;什么我&lt;U+4EEC&gt;孜孜不倦改算法" width="50%" />
-<p class="caption">
-图 4.3: <U+4E3A>什么我<U+4EEC>孜孜不倦改算法
-</p>
-</div>
-<blockquote>
-<p>开个玩笑，祝大家周末愉快，学业顺心。</p>
-</blockquote>
 </div>
 </div>
 </div>
@@ -909,16 +899,15 @@ fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class=
 <pre><code>## [1] -4.972603  1.568627</code></pre>
 <pre><code>## [1] -1.963422</code></pre>
 <p>此处还有阮月同学提供的库存(批次)问题(lot-sizing)案例。</p>
-<p><span class="math display">\[
-\begin{align}
+<span class="math display" id="eq:lotsize">\[\begin{align}
 \text{minimize} &amp;\sum_{i=1}^n(Ax_i+cI_i) \notag\\
 s.t. ~~ &amp;I_0 = 0 \notag \\
 &amp;I_{i-1}+x_iQ_i-I_i=R_i \notag \\
 &amp;I_i\geq 0 \notag \\
 &amp;Q_i\geq 0 \notag \\
 &amp;x_i \in{0,1}\notag \\
-\end{align}
-\]</span></p>
+\tag{4.3}
+\end{align}\]</span>
 <p>该案例具体的参数解释会在之后案例章节描述。此处简单给出例子。</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lot_size2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){
   R =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">60</span>,<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">80</span>)
@@ -979,222 +968,90 @@ fit &lt;-<span class="st"> </span><span class="kw">bBASoptim</span>(<span class=
 <pre><code>## [1] 1 0 1 0 1</code></pre>
 <pre><code>## [1] 410</code></pre>
 <p>得到的结果能使得库存与订单总的费用最小。</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:lotsizingtable">表 4.1: </span>需求，<u><u>与<u>存<u>用<u>果</u></u></u></u></u>
-</caption>
+<table>
+<caption><span id="tab:lotsizingtable">表 4.1: </span>需求订单与库存</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-day1
-</th>
-<th style="text-align:left;">
-day2
-</th>
-<th style="text-align:right;">
-day3
-</th>
-<th style="text-align:left;">
-day4
-</th>
-<th style="text-align:left;">
-day5
-</th>
-<th style="text-align:left;">
-<span class="math inline">\(f(X^k)\)</span>
-</th>
+<tr class="header">
+<th></th>
+<th align="center">day1</th>
+<th align="center">day2</th>
+<th align="center">day3</th>
+<th align="center">day4</th>
+<th align="center">day5</th>
+<th align="center"><span class="math inline">\(f(X^k)\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(R_d\)</span>
-</td>
-<td style="text-align:right;">
-100
-</td>
-<td style="text-align:left;">
-60
-</td>
-<td style="text-align:right;">
-40
-</td>
-<td style="text-align:left;">
-50
-</td>
-<td style="text-align:left;">
-80
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
+<tr class="odd">
+<td><span class="math inline">\(R_d\)</span></td>
+<td align="center">100</td>
+<td align="center">60</td>
+<td align="center">40</td>
+<td align="center">50</td>
+<td align="center">80</td>
+<td align="center">-</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(x_d^k\)</span>
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
+<tr class="even">
+<td><span class="math inline">\(x_d^k\)</span></td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">-</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Q_d^k\)</span>
-</td>
-<td style="text-align:right;">
-160
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:right;">
-90
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-80
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
+<tr class="odd">
+<td><span class="math inline">\(Q_d^k\)</span></td>
+<td align="center">160</td>
+<td align="center">-</td>
+<td align="center">90</td>
+<td align="center">-</td>
+<td align="center">80</td>
+<td align="center">-</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(I_d^k\)</span>
-</td>
-<td style="text-align:right;">
-60
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
+<tr class="even">
+<td><span class="math inline">\(I_d^k\)</span></td>
+<td align="center">60</td>
+<td align="center">-</td>
+<td align="center">50</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(c_d^k\)</span>
-</td>
-<td style="text-align:right;">
-60
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
+<tr class="odd">
+<td><span class="math inline">\(c_d^k\)</span></td>
+<td align="center">60</td>
+<td align="center">-</td>
+<td align="center">50</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(Ax_d^k\)</span>
-</td>
-<td style="text-align:right;">
-100
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:right;">
-100
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
+<tr class="even">
+<td><span class="math inline">\(Ax_d^k\)</span></td>
+<td align="center">100</td>
+<td align="center">-</td>
+<td align="center">100</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-<span class="math inline">\(C(X_d^k)\)</span>
-</td>
-<td style="text-align:right;">
-160
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:right;">
-150
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-100
-</td>
-<td style="text-align:left;">
-410
-</td>
+<tr class="odd">
+<td><span class="math inline">\(C(X_d^k)\)</span></td>
+<td align="center">160</td>
+<td align="center">-</td>
+<td align="center">150</td>
+<td align="center">-</td>
+<td align="center">100</td>
+<td align="center">410</td>
 </tr>
 </tbody>
-</table></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+</table>
 
 </div>
 </div>
 </div>
-<h3><U+53C2>¦Ò¤å<U+732E></h3>
+<h3>²Î¿¼ÎÄÏ×</h3>
 <div id="refs" class="references">
 <div id="ref-Jiang2017BAS">
 <p>Jiang Xiangyuan, Li Shuai. 2017a. “BAS: Beetle Antennae Search Algorithm for Optimization Problems.” <em>arXiv</em>.</p>

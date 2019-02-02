@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
-<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>²Î¿¼ÎÄÏ×</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -397,11 +397,11 @@ V_i^c = \begin{cases}
 <p>其中， <span class="math inline">\(w\)</span> 是惯性项，为前一时刻速度分量的影响权重， <span class="math inline">\(c\)</span> 为一个固定的常数， <span class="math inline">\(r\)</span> 为 <span class="math inline">\((0,1)\)</span> 区间的随机数。</p>
 <p>step3: 有了速度分量后，如何更新 <span class="math inline">\(x_{best}\)</span> 呢？ 和实数空间上的优化问题不同，如果直接把速度与对应的位置向量相加，这势必不符合会使得原有的位置向量脱离0-1的范畴。实际上，更新方式如式<a href="mixedalgorithm.html#eq:xupdatebBAS">(3.11)</a>所示。</p>
 <span class="math display" id="eq:xupdatebBAS">\[\begin{equation}
-x_i(t+1)=\begin{cases}
-&amp;\overline{x_i}(t) &amp; if\quad rand() \leq S(V_i)\\
-&amp;x_i(t) &amp; if\quad rand() &gt; S(V_i)
-\end{cases}
-\tag{3.11}
+x_i(t+1)=\begin{cases} 
+\overline{x_i}(t) &amp; if\quad rand() \leq S(V_i)\\ 
+x_i(t) &amp; if\quad rand() &gt; S(V_i) 
+\end{cases} 
+\tag{3.11} 
 \end{equation}\]</span>
 <p>当生成的服从均匀分布 <span class="math inline">\(U(0,1)\)</span> 的随机数向量（长度与速度相同），某些元素小于等于状态转换概率 <span class="math inline">\(S(V_i)\)</span> 时，那么下一时刻的位置等于在这些元素对应位置上的位置<strong>取非</strong>。反之，保持不变。例如，位置向量 <span class="math inline">\(x_t = (1,1,1,0,0,1,0)\)</span> ，如果其 2,3,5元素上满足随机数小于等于转换概率条件，那么下一时刻的位置为 <span class="math inline">\(x_{t+1}=(1,0,0,0,1,1,0)\)</span> 。</p>
 <p>速度参与更新的方式，表现在计算状态转换概率 <span class="math inline">\(S(V_i)\)</span> 上，类似于<code>Sigmoid</code>函数，该概率计算方式如式<a href="mixedalgorithm.html#eq:sbBAS">(3.12)</a>所示。</p>

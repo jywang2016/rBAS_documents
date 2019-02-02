@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
-<li><a href="references.html#references"><U+53C2>¦Ò¤å<U+732E></a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>²Î¿¼ÎÄÏ×</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -329,15 +329,15 @@ d^t &amp;= \frac{\delta^t}{c_2}\\
 <h3><span class="header-section-number">2.2.1</span> 与BAS不同之处</h3>
 <p>此部分没有公式，因为和<code>BAS</code>算法核心公式思路是一致的。而图<a href="algorithm.html#fig:basflow">2.1</a>与图<a href="algorithm.html#fig:bsasflow">2.2</a>描述了一种假设的寻优场景，能比较清晰地体现<code>BSAS</code>与<code>BAS</code>之间的不同。</p>
 <div class="figure" style="text-align: center"><span id="fig:basflow"></span>
-<img src="img/BAS.png" alt="BAS&lt;U+5BFB&gt;优&lt;U+8FC7&gt;程示意" width="80%" />
+<img src="img/BAS.png" alt="BAS寻优过程示意" width="80%" />
 <p class="caption">
-图 2.1: BAS<U+5BFB>优<U+8FC7>程示意
+图 2.1: BAS寻优过程示意
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:bsasflow"></span>
-<img src="img/BSAS.png" alt="BSAS&lt;U+5BFB&gt;优&lt;U+8FC7&gt;程示意" width="80%" />
+<img src="img/BSAS.png" alt="BSAS寻优过程示意" width="80%" />
 <p class="caption">
-图 2.2: BSAS<U+5BFB>优<U+8FC7>程示意
+图 2.2: BSAS寻优过程示意
 </p>
 </div>
 <p>假定，天牛要找到图中<strong>最蓝的点</strong>。图<a href="algorithm.html#fig:basflow">2.1</a> 中，天牛的起点在距离最优点较远处。由于位置更新只与时间有关，也就是每一步，天牛的步长都会缩减（为了可视化效果，天牛的大小我并没有缩放）。如果初始位置距离最优点较远，那在给定的步长缩减情况下，天牛只能在一个<strong>局部最优点</strong>处收敛。而图<a href="algorithm.html#fig:bsasflow">2.2</a>中，每回合天牛会派出<span class="math inline">\(k\)</span>只天牛在外试探，如果有更优的点，那么更新天牛位置。这样天牛可以更好地到达<strong>全局最优点</strong>。</p>
