@@ -41,6 +41,10 @@ Particle Swarm Optimization[C]. ECAR 2018. ISBN:978-1-60595-579-7
 
 - Zhang X, Yang Zhi, et al. Conditioning Optimization of Extreme Learning Machine by Multitask Beetle Antennae Swarm Algorithm[J]. arXiv preprint arXiv:1811.09100, 2018
 
+支持向量机
+
+- Sun J, Zhang J, Gu Y, et al. Prediction of permeability and unconfined compressive strength of pervious concrete using evolved support vector regression[J]. Construction and Building Materials, 2019, 207: 440-449.
+
 Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
 
 - Qi F, Wang Q, Xu L. Disease classification model based on Qubit neural tree networks[C]//2018 9th International Conference on Information Technology in Medicine and Education (ITME). IEEE, 2018: 154-158.
@@ -66,6 +70,9 @@ Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
 -  陈君宝,王宸,王生怀. 基于变步长天牛须搜索算法的空间直线度误差评定[J]，工具技术, 2018年第8期。
 -  Wang C, Ren C, Li B, Wang Y, Wang K, "Research on Straightness Error Evaluation Method Based on Search Algorithm of Beetle,", Wang K, Wang Y, Strandhagen JO, Yu T, eds. (Springer Singapore, Singapore, 2019), pp. 368-374.
 
+系统辨识
+
+- Wang J, Chen H, Yuan Y, et al. A novel efficient optimization algorithm for parameter estimation of building thermal dynamic models[J]. Building and Environment, 2019,153,233-240.
 
 目标识别
 

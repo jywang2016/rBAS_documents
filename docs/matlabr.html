@@ -25,7 +25,7 @@
 <meta name="author" content="王江宇">
 
 
-<meta name="date" content="2019-02-02">
+<meta name="date" content="2019-03-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -226,7 +226,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>²Î¿¼ÎÄÏ×</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
 
@@ -333,7 +333,7 @@ test &lt;-<span class="st"> </span><span class="cf">function</span>(x){
              <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>)
 })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.11    0.00    0.11</code></pre>
+##    0.13    0.01    0.14</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit<span class="op">$</span>par</code></pre></div>
 <pre><code>## [1] 1 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit<span class="op">$</span>value</code></pre></div>
@@ -464,7 +464,7 @@ double test(NumericVector x) {
                 <span class="dt">trace =</span> F,<span class="dt">seed =</span> <span class="dv">1</span>)
 })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.13    0.00    0.13</code></pre>
+##    0.10    0.02    0.11</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化参数</span>
 fit<span class="op">$</span>par</code></pre></div>
 <pre><code>## [1] 1 1</code></pre>
@@ -496,7 +496,7 @@ double michcpp(NumericVector x) {
                 <span class="dt">seed =</span> <span class="dv">1</span>, <span class="dt">n =</span> <span class="dv">100</span>,<span class="dt">trace =</span> <span class="ot">FALSE</span>)
 })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.02    0.00    0.01</code></pre>
+##       0       0       0</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化参数</span>
 fit<span class="op">$</span>par</code></pre></div>
 <pre><code>## [1] -4.964687  1.575415</code></pre>
@@ -555,7 +555,7 @@ NumericVector PVcon(NumericVector x) {
          <span class="dt">pen =</span> <span class="fl">1e6</span>)
 })</code></pre></div>
 <pre><code>##    user  system elapsed 
-##    1.91    0.00    1.91</code></pre>
+##    1.90    0.00    1.92</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#查看优化参数</span>
 fit<span class="op">$</span>par</code></pre></div>
 <pre><code>## [1]  13.948846   7.541387  42.098446 176.636570</code></pre>
@@ -580,7 +580,7 @@ fit<span class="op">$</span>value</code></pre></div>
 })</code></pre></div>
 <pre><code>## ----step &lt; steptol---------stop the iteration------</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.47    0.00    0.47</code></pre>
+##    0.45    0.00    0.45</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>par</code></pre></div>
 <pre><code>## [1]  14.908531   7.652175  43.541638 159.543000</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result<span class="op">$</span>value</code></pre></div>
@@ -631,7 +631,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": {},
+"download": ["bookdown.pdf"],
 "toc": {
 "collapse": "none"
 }

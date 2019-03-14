@@ -92,7 +92,7 @@
 \contentsline {chapter}{\numberline {第十章\hspace {.3em}}已发表工作}{119}{chapter.10}% 
 \contentsline {section}{\numberline {10.1}工具箱/软件}{119}{section.10.1}% 
 \contentsline {section}{\numberline {10.2}论文}{119}{section.10.2}% 
-\contentsline {section}{\numberline {10.3}专利}{122}{section.10.3}% 
+\contentsline {section}{\numberline {10.3}专利}{123}{section.10.3}% 
 \contentsline {chapter}{\numberline {第十一章\hspace {.3em}}更新及维护计划}{125}{chapter.11}% 
 \contentsline {section}{\numberline {11.1}待加入的功能}{125}{section.11.1}% 
 \contentsline {section}{\numberline {11.2}联系方式}{126}{section.11.2}% 
