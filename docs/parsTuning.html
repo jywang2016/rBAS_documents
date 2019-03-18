@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第 10 章 调参 | rBAS使用文档</title>
+  <meta name="description" content="rBAS中文使用说明文档V0.2">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="第 10 章 调参 | rBAS使用文档" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="rBAS中文使用说明文档V0.2" />
+  <meta name="github-repo" content="jywang2016/rBAS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 10 章 调参 | rBAS使用文档" />
+  
+  <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
+  
+
+<meta name="author" content="王江宇">
+
+
+<meta name="date" content="2019-03-18">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="paper.html">
+<link rel="next" href="updates.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">rBAS中文文档</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e6898be5868ce58685e5aeb9e6a682e8bfb0"><i class="fa fa-check"></i>手册内容概述</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e5a4b9e5b8a6e7a781e8b4a7"><i class="fa fa-check"></i>夹带私货</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
+<li class="chapter" data-level="1" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>1</b> R以及rBAS安装</a><ul>
+<li class="chapter" data-level="1.1" data-path="install.html"><a href="install.html#Rinstall"><i class="fa fa-check"></i><b>1.1</b> R安装</a></li>
+<li class="chapter" data-level="1.2" data-path="install.html"><a href="install.html#Rstudioinstall"><i class="fa fa-check"></i><b>1.2</b> Rstudio安装</a></li>
+<li class="chapter" data-level="1.3" data-path="install.html"><a href="install.html#rBASinstall"><i class="fa fa-check"></i><b>1.3</b> rBAS安装</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="algorithm.html"><a href="algorithm.html"><i class="fa fa-check"></i><b>2</b> 算法原理</a><ul>
+<li class="chapter" data-level="2.1" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>2.1</b> BAS</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="algorithm.html"><a href="algorithm.html#BASflow"><i class="fa fa-check"></i><b>2.1.1</b> 算法流程</a></li>
+<li class="chapter" data-level="2.1.2" data-path="algorithm.html"><a href="algorithm.html#BASimprove"><i class="fa fa-check"></i><b>2.1.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="algorithm.html"><a href="algorithm.html#bsas"><i class="fa fa-check"></i><b>2.2</b> BSAS</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="algorithm.html"><a href="algorithm.html#BSASflow"><i class="fa fa-check"></i><b>2.2.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.2.2" data-path="algorithm.html"><a href="algorithm.html#BSASimprove"><i class="fa fa-check"></i><b>2.2.2</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="algorithm.html"><a href="algorithm.html#bas-wpt"><i class="fa fa-check"></i><b>2.3</b> BAS-WPT</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="algorithm.html"><a href="algorithm.html#BASWPTflow"><i class="fa fa-check"></i><b>2.3.1</b> 与BAS不同之处</a></li>
+<li class="chapter" data-level="2.3.2" data-path="algorithm.html"><a href="algorithm.html#constrform"><i class="fa fa-check"></i><b>2.3.2</b> 约束问题抽象形式</a></li>
+<li class="chapter" data-level="2.3.3" data-path="algorithm.html"><a href="algorithm.html#BSASimprove2"><i class="fa fa-check"></i><b>2.3.3</b> 不足与改进</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="algorithm.html"><a href="algorithm.html#BAS2"><i class="fa fa-check"></i><b>2.4</b> BAS with momentum(second-order BAS)</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="algorithm.html"><a href="algorithm.html#section-2.4.1"><i class="fa fa-check"></i><b>2.4.1</b> 算法原理</a></li>
+<li class="chapter" data-level="2.4.2" data-path="algorithm.html"><a href="algorithm.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 不足与改进</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html"><i class="fa fa-check"></i><b>3</b> 混合算法</a><ul>
+<li class="chapter" data-level="3.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bso"><i class="fa fa-check"></i><b>3.1</b> BSO</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.1"><i class="fa fa-check"></i><b>3.1.1</b> 粒子群算法流程</a></li>
+<li class="chapter" data-level="3.1.2" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>3.1.2</b> 与BAS的结合</a></li>
+<li class="chapter" data-level="3.1.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.1.3"><i class="fa fa-check"></i><b>3.1.3</b> 总结</a></li>
+<li class="chapter" data-level="3.1.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#BSOparms"><i class="fa fa-check"></i><b>3.1.4</b> 算法调用说明</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#bBASa"><i class="fa fa-check"></i><b>3.2</b> bBAS</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#section-3.2.1"><i class="fa fa-check"></i><b>3.2.1</b> 算法流程</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>3.2.2</b> 总结</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rBAS.html"><a href="rBAS.html"><i class="fa fa-check"></i><b>4</b> 函数使用</a><ul>
+<li class="chapter" data-level="4.1" data-path="rBAS.html"><a href="rBAS.html#basoptim"><i class="fa fa-check"></i><b>4.1</b> BASoptim/BASoptim2</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="rBAS.html"><a href="rBAS.html#BASparms"><i class="fa fa-check"></i><b>4.1.1</b> BASoptim参数说明</a></li>
+<li class="chapter" data-level="4.1.2" data-path="rBAS.html"><a href="rBAS.html#BAS2parms"><i class="fa fa-check"></i><b>4.1.2</b> BAS2optim参数说明</a></li>
+<li class="chapter" data-level="4.1.3" data-path="rBAS.html"><a href="rBAS.html#BASexamples"><i class="fa fa-check"></i><b>4.1.3</b> BASoptim简单案例</a></li>
+<li class="chapter" data-level="4.1.4" data-path="rBAS.html"><a href="rBAS.html#BAS2examples"><i class="fa fa-check"></i><b>4.1.4</b> BASoptim2简单案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="rBAS.html"><a href="rBAS.html#bsasoptim"><i class="fa fa-check"></i><b>4.2</b> BSASoptim</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="rBAS.html"><a href="rBAS.html#BSASparms"><i class="fa fa-check"></i><b>4.2.1</b> BSASoptim参数说明</a></li>
+<li class="chapter" data-level="4.2.2" data-path="rBAS.html"><a href="rBAS.html#BSAStrick"><i class="fa fa-check"></i><b>4.2.2</b> BSASoptim取值摸索</a></li>
+<li class="chapter" data-level="4.2.3" data-path="rBAS.html"><a href="rBAS.html#BSASexample"><i class="fa fa-check"></i><b>4.2.3</b> BSASoptim案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="rBAS.html"><a href="rBAS.html#bsaswpt"><i class="fa fa-check"></i><b>4.3</b> BSAS-WPT</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="rBAS.html"><a href="rBAS.html#bsaswptparms"><i class="fa fa-check"></i><b>4.3.1</b> BSAS-WPT 参数说明</a></li>
+<li class="chapter" data-level="4.3.2" data-path="rBAS.html"><a href="rBAS.html#bsaswptexample"><i class="fa fa-check"></i><b>4.3.2</b> BSAS-WPT 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rBAS.html"><a href="rBAS.html#bsooptim"><i class="fa fa-check"></i><b>4.4</b> BSOoptim</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="rBAS.html"><a href="rBAS.html#BSOfuncparms"><i class="fa fa-check"></i><b>4.4.1</b> BSO参数说明</a></li>
+<li class="chapter" data-level="4.4.2" data-path="rBAS.html"><a href="rBAS.html#bsoexample"><i class="fa fa-check"></i><b>4.4.2</b> BSO案例</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="rBAS.html"><a href="rBAS.html#bBASr"><i class="fa fa-check"></i><b>4.5</b> bBAS</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="rBAS.html"><a href="rBAS.html#bBASfuncparms"><i class="fa fa-check"></i><b>4.5.1</b> bBAS参数说明</a></li>
+<li class="chapter" data-level="4.5.2" data-path="rBAS.html"><a href="rBAS.html#bBASexamples"><i class="fa fa-check"></i><b>4.5.2</b> bBAS案例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="interface.html"><a href="interface.html"><i class="fa fa-check"></i><b>5</b> 用户界面</a><ul>
+<li class="chapter" data-level="5.1" data-path="interface.html"><a href="interface.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 调用语句</a></li>
+<li class="chapter" data-level="5.2" data-path="interface.html"><a href="interface.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 使用案例</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="interface.html"><a href="interface.html#michalewicz-function-2"><i class="fa fa-check"></i><b>5.2.1</b> Michalewicz function</a></li>
+<li class="chapter" data-level="5.2.2" data-path="interface.html"><a href="interface.html#pressure-vessel-function-1"><i class="fa fa-check"></i><b>5.2.2</b> Pressure Vessel function</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="interface.html"><a href="interface.html#authors"><i class="fa fa-check"></i><b>5.3</b> Authors界面</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>6</b> BAS案例一:多杆机构优化问题</a><ul>
+<li class="chapter" data-level="6.1" data-path="examples.html"><a href="examples.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 背景</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="examples.html"><a href="examples.html#bars4"><i class="fa fa-check"></i><b>6.1.1</b> 四连杆机构(Four-bar linkage mechanism)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="examples.html"><a href="examples.html#bars6"><i class="fa fa-check"></i><b>6.1.2</b> 六连杆机构(Stephenson III Six-bar linkage mechanism)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="examples.html"><a href="examples.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 优化问题</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="examples.html"><a href="examples.html#bars4optim"><i class="fa fa-check"></i><b>6.2.1</b> 四连杆机构</a></li>
+<li class="chapter" data-level="6.2.2" data-path="examples.html"><a href="examples.html#bars6optim"><i class="fa fa-check"></i><b>6.2.2</b> 六连杆机构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="examples.html"><a href="examples.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 优化理论</a></li>
+<li class="chapter" data-level="6.4" data-path="examples.html"><a href="examples.html#section-6.4"><i class="fa fa-check"></i><b>6.4</b> 优化结果</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="examples.html"><a href="examples.html#case1-path-generation-without-prescribed-timing"><i class="fa fa-check"></i><b>6.4.1</b> Case1 无规定时间内轨迹生成(Path generation without prescribed timing)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="examples.html"><a href="examples.html#case2-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.2</b> Case2 有规定时间的轨迹生成(with prescribed timing)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="examples.html"><a href="examples.html#case3-path-generation-with-prescribed-timing"><i class="fa fa-check"></i><b>6.4.3</b> Case3 规定时间内路径生成（Path generation with prescribed timing）</a></li>
+<li class="chapter" data-level="6.4.4" data-path="examples.html"><a href="examples.html#case4-"><i class="fa fa-check"></i><b>6.4.4</b> Case4 规定时间路径生成问题</a></li>
+<li class="chapter" data-level="6.4.5" data-path="examples.html"><a href="examples.html#case5-"><i class="fa fa-check"></i><b>6.4.5</b> Case5 规定时间内路径生成问题</a></li>
+<li class="chapter" data-level="6.4.6" data-path="examples.html"><a href="examples.html#case6-"><i class="fa fa-check"></i><b>6.4.6</b> Case6 六杆机构路径生成</a></li>
+<li class="chapter" data-level="6.4.7" data-path="examples.html"><a href="examples.html#case7-"><i class="fa fa-check"></i><b>6.4.7</b> Case7 无规定时间的路径生成</a></li>
+<li class="chapter" data-level="6.4.8" data-path="examples.html"><a href="examples.html#case8-"><i class="fa fa-check"></i><b>6.4.8</b> Case8 无规定时间的路径生成</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="examples2.html"><a href="examples2.html"><i class="fa fa-check"></i><b>7</b> BAS案例二:龙门起重机运动控制</a><ul>
+<li class="chapter" data-level="7.1" data-path="examples2.html"><a href="examples2.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 问题背景</a></li>
+<li class="chapter" data-level="7.2" data-path="examples2.html"><a href="examples2.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 优化问题抽象</a></li>
+<li class="chapter" data-level="7.3" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.3</b> 优化理论</a></li>
+<li class="chapter" data-level="7.4" data-path="mixedalgorithm.html"><a href="mixedalgorithm.html#-1"><i class="fa fa-check"></i><b>7.4</b> 优化结果</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>8</b> Python接口</a><ul>
+<li class="chapter" data-level="8.1" data-path="python.html"><a href="python.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 安装方式</a></li>
+<li class="chapter" data-level="8.2" data-path="python.html"><a href="python.html#section-8.2"><i class="fa fa-check"></i><b>8.2</b> 使用</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="paper.html"><a href="paper.html"><i class="fa fa-check"></i><b>9</b> 已发表工作</a><ul>
+<li class="chapter" data-level="9.1" data-path="paper.html"><a href="paper.html#section-9.1"><i class="fa fa-check"></i><b>9.1</b> 工具箱/软件</a></li>
+<li class="chapter" data-level="9.2" data-path="paper.html"><a href="paper.html#section-9.2"><i class="fa fa-check"></i><b>9.2</b> 论文</a></li>
+<li class="chapter" data-level="9.3" data-path="paper.html"><a href="paper.html#section-9.3"><i class="fa fa-check"></i><b>9.3</b> 专利</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="parsTuning.html"><a href="parsTuning.html"><i class="fa fa-check"></i><b>10</b> 调参</a><ul>
+<li class="chapter" data-level="10.1" data-path="parsTuning.html"><a href="parsTuning.html#1"><i class="fa fa-check"></i><b>10.1</b> 技巧1：高维问题的初始步长设定</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="parsTuning.html"><a href="parsTuning.html#section-10.1.1"><i class="fa fa-check"></i><b>10.1.1</b> 原理</a></li>
+<li class="chapter" data-level="10.1.2" data-path="parsTuning.html"><a href="parsTuning.html#section-10.1.2"><i class="fa fa-check"></i><b>10.1.2</b> 测试函数</a></li>
+<li class="chapter" data-level="10.1.3" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>10.1.3</b> BAS测试代码</a></li>
+<li class="chapter" data-level="10.1.4" data-path="algorithm.html"><a href="algorithm.html#bas"><i class="fa fa-check"></i><b>10.1.4</b> BAS测试结果</a></li>
+<li class="chapter" data-level="10.1.5" data-path="parsTuning.html"><a href="parsTuning.html#bsas-"><i class="fa fa-check"></i><b>10.1.5</b> BSAS 测试代码</a></li>
+<li class="chapter" data-level="10.1.6" data-path="algorithm.html"><a href="algorithm.html#bsas"><i class="fa fa-check"></i><b>10.1.6</b> BSAS测试结果</a></li>
+<li class="chapter" data-level="10.1.7" data-path="parsTuning.html"><a href="parsTuning.html#-2"><i class="fa fa-check"></i><b>10.1.7</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="parsTuning.html"><a href="parsTuning.html#2"><i class="fa fa-check"></i><b>10.2</b> 技巧2：判断迭代终止时算法收敛状况</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="parsTuning.html"><a href="parsTuning.html#1"><i class="fa fa-check"></i><b>10.2.1</b> 实验1</a></li>
+<li class="chapter" data-level="10.2.2" data-path="parsTuning.html"><a href="parsTuning.html#2"><i class="fa fa-check"></i><b>10.2.2</b> 实验2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
+<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 工具箱</a></li>
+<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-11.2"><i class="fa fa-check"></i><b>11.2</b> 待加入的功能</a></li>
+<li class="chapter" data-level="11.3" data-path="updates.html"><a href="updates.html#section-11.3"><i class="fa fa-check"></i><b>11.3</b> 联系方式</a></li>
+</ul></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="" data-path="e7bb93e8afad.html"><a href="e7bb93e8afad.html"><i class="fa fa-check"></i>结语</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rBAS使用文档</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="parsTuning" class="section level1">
+<h1><span class="header-section-number">第 10 章</span> 调参</h1>
+<p>本章节将会收录一些调参技巧和BAS算法改进的想法。如果大家有好的想法或者研究，欢迎在issues上提出。</p>
+<div id="1" class="section level2">
+<h2><span class="header-section-number">10.1</span> 技巧1：高维问题的初始步长设定</h2>
+<p>李老师指出在高维问题下，BAS及其改进算法由于<strong>步长的分量过小，天牛无法有效移动</strong>，导致性能不佳。如果该假设成立，则在处理类似问题时在初始化步长时，在原有的参数选择上，乘以 <span class="math inline">\(\sqrt{n}\)</span>，其中<span class="math inline">\(n\)</span>是待优化变量的维度。</p>
+<div id="section-10.1.1" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> 原理</h3>
+<p>在章节<a href="algorithm.html#BASflow">2.1.1</a>的式<a href="algorithm.html#eq:dir">(2.1)</a>中，我们给出了BAS生成随机方向并标注化的式子，如下所示。</p>
+<p><span class="math display">\[
+\overrightarrow{\mathbf{b}}=\frac{\text{rnd}(n,1)}{\|\text{rnd}(n,1)\|}
+\]</span> 此后，利用上述的方向和两须的函数差值来计算下次天牛的位置，如式<a href="algorithm.html#eq:xupdate">(2.3)</a>.方便起见，同样在此处给出。</p>
+<p><span class="math display">\[
+\mathbf{x}^t=\mathbf{x}^{t-1}+\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
+\tag{2}
+\]</span></p>
+<p>方向向量 <span class="math inline">\(b\)</span> 会与 步长 <span class="math inline">\(\delta^t\)</span> 直接相乘，直接影响下一次的天牛位置。高维度问题，<span class="math inline">\(b\)</span> 的每个元素在标准化后都较小。这也会使得步长<span class="math inline">\(\delta^t\)</span>在每个方向的分量都很小。<strong>即，天牛只能在这个方向上走动一段很小的距离</strong>。这个现象会随着问题维度的增加而变得严重。</p>
+<p>此前，有同学反映，即使是对于简单的 <span class="math inline">\(f = \sum x_i^2\)</span> 问题，在维度高了之后，BAS算法的效果也会变差。这个例子将用于本文来验证这个现象，以及上述的改进策略是否有效。</p>
+</div>
+<div id="section-10.1.2" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> 测试函数</h3>
+<p>测试函数如式</p>
+<span class="math display" id="eq:testPT">\[\begin{equation}
+f = \sum_{i=1}^{n}x_i^2 
+\tag{10.1}
+\end{equation}\]</span>
+</div>
+<div id="bas" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> BAS测试代码</h3>
+<p>代码用R语言编写，直接调用<code>rBAS</code>包，大家也可以用matlab来实现，因为在BAS上只要改变初始步长即可以重复此处实验。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 包加载</span>
+<span class="kw">library</span>(rBAS)    <span class="co">#BAS及BSAS算法使用</span>
+<span class="kw">library</span>(ggplot2) <span class="co">#用于绘图</span>
+<span class="kw">library</span>(dplyr)   <span class="co">#管道函数，方便数据传输</span></code></pre></div>
+<p>在R语言中给定目标函数。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 优化目标</span>
+obj &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="kw">return</span>(<span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>))
+}</code></pre></div>
+<p>两种策略的比较，一种是原始的BAS，一种是初始步长乘以维度。 <strong>实验取的向量长度分别为2,4,6…40</strong>。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test_BAS &lt;-<span class="st"> </span><span class="cf">function</span>(dims){
+  m &lt;-<span class="st"> </span>dims
+  fit_sqrt &lt;-<span class="st"> </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> obj,
+                  <span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,m),
+                  <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="dv">10</span>,m),
+                  <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">10</span>,m),
+                  <span class="dt">trace =</span> F,
+                  <span class="dt">d1 =</span> <span class="dv">1</span>,
+                  <span class="dt">step =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> <span class="dv">200</span>,
+                  <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> <span class="dv">1</span>)
+  fit_raw &lt;-<span class="st"> </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> obj,
+                  <span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,m),
+                  <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="dv">10</span>,m),
+                  <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">10</span>,m),
+                  <span class="dt">trace =</span> F,
+                  <span class="dt">d1 =</span> <span class="dv">1</span>,
+                  <span class="dt">step =</span> <span class="dv">1</span>,<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> <span class="dv">200</span>,
+                  <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> <span class="dv">1</span>)
+  result &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">BAS_modified =</span> fit_sqrt<span class="op">$</span>value,
+              <span class="dt">BAS_original =</span> fit_raw<span class="op">$</span>value)
+  <span class="kw">return</span>(result)
+}
+
+dimsx &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>,<span class="dv">40</span>,<span class="dt">by =</span> <span class="dv">2</span>)
+dims &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> dimsx, <span class="dt">nrow =</span> <span class="dv">1</span>)
+BAS_experiment &lt;-<span class="st"> </span><span class="kw">apply</span>(dims,<span class="dv">2</span>,test_BAS)</code></pre></div>
+</div>
+<div id="bas" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> BAS测试结果</h3>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
+<img src="bookdown_files/figure-html/unnamed-chunk-41-1.png" alt="高维优化问题下BAS不同初始步长结果对比" width="480" />
+<p class="caption">
+图 10.1: 高维优化问题下BAS不同初始步长结果对比
+</p>
+</div>
+<p>从结果可以看到，橙色线代表的改进策略，会带来显著的效果提升。</p>
+</div>
+<div id="bsas-" class="section level3">
+<h3><span class="header-section-number">10.1.5</span> BSAS 测试代码</h3>
+<p>同样，对BSAS算法的不同粒子数量的取值，也分别进行了对比实验。同样，维度也是从2到40。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test_BSAS &lt;-<span class="st"> </span><span class="cf">function</span>(dims,k){
+  m &lt;-<span class="st"> </span>dims
+  fit_sqrt &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> obj,
+                        <span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,m),
+                        <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="dv">10</span>,m),
+                        <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">10</span>,m),
+                        <span class="dt">trace =</span> F,
+                        <span class="dt">k =</span> k,
+                        <span class="dt">step =</span> <span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m),
+                        <span class="dt">d1 =</span> <span class="dv">1</span>,<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> <span class="dv">200</span>,
+                        <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> <span class="dv">1</span>)
+  fit_raw &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> obj,
+                       <span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,m),
+                       <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="dv">10</span>,m),
+                       <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">10</span>,m),
+                       <span class="dt">trace =</span> F,
+                       <span class="dt">k =</span> k,
+                       <span class="dt">step =</span> <span class="dv">1</span>,
+                       <span class="dt">d1 =</span> <span class="dv">1</span>,<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> <span class="dv">200</span>,
+                       <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> <span class="dv">1</span>)
+  result &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">BSAS_modified =</span> fit_sqrt<span class="op">$</span>value,
+              <span class="dt">BSAS_original =</span> fit_raw<span class="op">$</span>value)
+  <span class="kw">return</span>(result)
+}
+
+BSAS_experiment &lt;-<span class="st"> </span><span class="kw">apply</span>(dims,<span class="dv">2</span>,test_BSAS,<span class="dt">k=</span><span class="dv">1</span>)</code></pre></div>
+</div>
+<div id="bsas" class="section level3">
+<h3><span class="header-section-number">10.1.6</span> BSAS测试结果</h3>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
+<img src="bookdown_files/figure-html/unnamed-chunk-43-1.png" alt="高维优化问题下BSAS不同初始步长结果对比" width="576" />
+<p class="caption">
+图 10.2: 高维优化问题下BSAS不同初始步长结果对比
+</p>
+</div>
+<p>对于只有一个粒子的BSAS算法（即只在步长自适应上进行优化的BAS），在维度升高的时候，改进策略也是成功的。当然，总体而言，两种情况均比BAS对应的情况效果要优。</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="bookdown_files/figure-html/unnamed-chunk-44-1.png" alt="高维优化问题下BSAS(k=2)不同初始步长结果对比" width="576" />
+<p class="caption">
+图 10.3: 高维优化问题下BSAS(k=2)不同初始步长结果对比
+</p>
+</div>
+<p>在上图中可以看到，在粒子数增加到2之后，算法的结果也证实了策略的可用。但是，两种方法结果接近的维度会更加延后。在30维度的时候，才开始出现了显著差异。一方面表明粒子数对算法的提升，另一方面，也说明了这个策略在越高维度的时候，效果也愈加显著。</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<img src="bookdown_files/figure-html/unnamed-chunk-45-1.png" alt="高维优化问题下BSAS(k=4)不同初始步长结果对比" width="576" />
+<p class="caption">
+图 10.4: 高维优化问题下BSAS(k=4)不同初始步长结果对比
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
+<img src="bookdown_files/figure-html/unnamed-chunk-46-1.png" alt="高维优化问题下BSAS(k=5)不同初始步长结果对比" width="576" />
+<p class="caption">
+图 10.5: 高维优化问题下BSAS(k=5)不同初始步长结果对比
+</p>
+</div>
+<p>同样，可以看到在粒子数增加时，BSAS算法的效果也在逐渐优化。而加入了改进初始步长策略，橙线对应的结果也要优于蓝色线条的。总体来说，该算法在BAS和BSAS的情况下都是凑效。</p>
+</div>
+<div id="-2" class="section level3">
+<h3><span class="header-section-number">10.1.7</span> 总结</h3>
+<p>从上述测试的结果可以看到，在优化问题维度提高时，按照原有经验选择的初始步长，可能会导致算法效果不佳。</p>
+<p>当然，大家可以还是按照原来的经验，即根据参数范围来估计一个初始步长。只要记得最后在高维问题时乘以对应的 <span class="math inline">\(\sqrt{n}\)</span>即可。这样算法在高维下会体现出更优的性能。</p>
+</div>
+</div>
+<div id="2" class="section level2">
+<h2><span class="header-section-number">10.2</span> 技巧2：判断迭代终止时算法收敛状况</h2>
+<p>李老师指出目前可能存在三种比较常见的迭代终止原因。</p>
+<ol style="list-style-type: decimal">
+<li>算法陷入局部极值</li>
+<li>步长太小，天牛走不动，但是并未达到局部极值</li>
+<li>天牛走得动，并非局部极值，但是迭代次数已到，终止了迭代</li>
+</ol>
+<p>对结果进行相应的判断，并做出对策，有利于做出进一步地参数优化，甚至是算法改进。</p>
+<p>如，如果属于情况1，可以尝试在原来的优化基础上，重新给定大的步长，帮助算法跳出当前的局部极值，达到更优的局部极值；情况2，也可以通过给定合适的步长大小来改善；情况3，可以考虑增加迭代次数。</p>
+<p>同样地，我们采用两个测试函数来解释上述的情况，并验证对应方案的效果。</p>
+<div id="1" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> 实验1</h3>
+<p>实验1利用简单的测试函数，来对比BAS和BSAS在高维问题下的结果，以及出现问题的原因（<strong>属于三种情况的哪一种</strong>），来给出改进或者调试的思路。</p>
+<p>测试函数如式<a href="parsTuning.html#eq:testPT">(10.1)</a>所示。该函数在<span class="math inline">\(x_i = 0\)</span>处取得全局最优。</p>
+<div id="bas" class="section level4">
+<h4><span class="header-section-number">10.2.1.1</span> BAS算法</h4>
+<p>利用BAS搜索目标函数的最优值，设置迭代次数为200，维度为10。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+<span class="kw">library</span>(rBAS)
+<span class="kw">library</span>(numDeriv)
+
+obj &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="kw">return</span>(<span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>))
+}
+
+BASn &lt;-<span class="st"> </span><span class="cf">function</span>(n,dims,<span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,m)){
+  m &lt;-<span class="st"> </span>dims
+  fit_BAS &lt;-<span class="st"> </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> obj,
+                      <span class="dt">init =</span> init,
+                      <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="dv">10</span>,m),
+                      <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">10</span>,m),
+                      <span class="dt">trace =</span> F,
+                      <span class="dt">d1 =</span> <span class="dv">1</span>,
+                      <span class="dt">step =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> n,
+                      <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> <span class="dv">1</span>)
+  <span class="kw">return</span>(fit_BAS)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit1 &lt;-<span class="st"> </span><span class="kw">BASn</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">dims =</span> <span class="dv">10</span>)
+fit1<span class="op">$</span>par;fit1<span class="op">$</span>value</code></pre></div>
+<pre><code>##  [1]  1.25580526  0.23166118  0.71917160 -0.42806595  1.12091543
+##  [6]  1.62701181  1.18880886  0.58474173  0.09426773  0.62736667</code></pre>
+<pre><code>## [1] 8.392446</code></pre>
+<p>可以看到，在200次迭代之后，天牛所处的位置并没有接近最优值，即 <span class="math inline">\(x = 0\)</span>，其中的部分元素接近于0。最后的函数值是8.4。</p>
+<p>此时的步长如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit1<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] 0.0001108463</code></pre>
+<p>为1e-4，这表明此时的<strong>步长偏小</strong>，<strong>天牛所处的位置与最优点的距离</strong>为步长量级的<span class="math inline">\(10^4\)</span>倍。因此，本实验属于上述的情况2，<strong>步长太小，走不动</strong>。</p>
+<p>此种情况可以通过在<strong>上回合的优化结果下，重新给定合适的大步长</strong>来得到更优的结果。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit2 &lt;-<span class="st"> </span><span class="kw">BASn</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">dims =</span> <span class="dv">10</span>,<span class="dt">init =</span> fit1<span class="op">$</span>par)
+fit2<span class="op">$</span>par;fit2<span class="op">$</span>value</code></pre></div>
+<pre><code>##  [1]  0.034425449  0.011889588  0.021235726  0.017903444  0.041177485
+##  [6] -0.023956800  0.008979989  0.005722928  0.024887352 -0.001700370</code></pre>
+<pre><code>## [1] 0.00510314</code></pre>
+<p>可以看到，此时的函数值已经十分接近于最优值，方法凑效。</p>
+<p>此时的步长如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit2<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] 0.0001108463</code></pre>
+<p>由于步长和优化的坐标之间仍然存在量级的差距，还是表明在这个位置，<strong>哪怕每次都是朝着最优位置走，天牛也迈不开步子</strong>，我们可以再次使用重新给定步长的手段。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit3 &lt;-<span class="st"> </span><span class="kw">BASn</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">dims =</span> <span class="dv">10</span>,<span class="dt">init =</span> fit2<span class="op">$</span>par)
+fit3<span class="op">$</span>par;fit3<span class="op">$</span>value</code></pre></div>
+<pre><code>##  [1] -0.0011431003 -0.0031872963 -0.0039303321  0.0020186072  0.0021288149
+##  [6]  0.0001232545 -0.0019088662 -0.0037557675  0.0003802965 -0.0010499301</code></pre>
+<pre><code>## [1] 5.45314e-05</code></pre>
+<p>可以看到，优化结果更加接近于最优值。</p>
+<p>此时的步长如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit3<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] 0.0001108463</code></pre>
+<p>为了方便起见，同时列出三次寻优的结果</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit1<span class="op">$</span>value;fit2<span class="op">$</span>value;fit3<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] 8.392446</code></pre>
+<pre><code>## [1] 0.00510314</code></pre>
+<pre><code>## [1] 5.45314e-05</code></pre>
+<p>结果不断地接近最优值。这表明在上述情况2出现时，在现有的结果上，重新给定大的步长，然后再次寻优是凑效的。也就是，需要重新让天牛能走起来。当然，方法本身也不可能每次都凑效，此时需要大家在调试成本和结果优化之间寻求一个平衡。</p>
+</div>
+<div id="bsas" class="section level4">
+<h4><span class="header-section-number">10.2.1.2</span> BSAS算法</h4>
+<p>BAS问题的关键在于步长的衰减没有反馈机制，不管结果好坏，步长都会衰减。尝试使用BSAS算法进行寻优，结果如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BSASn &lt;-<span class="st"> </span><span class="cf">function</span>(n,dims,k){
+  m &lt;-<span class="st"> </span>dims
+  fit_BSAS &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> obj,
+                        <span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,m),
+                        <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="dv">10</span>,m),
+                        <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="dv">10</span>,m),
+                        <span class="dt">trace =</span> F,
+                        <span class="dt">k =</span> k,
+                        <span class="dt">step =</span> <span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m),
+                        <span class="dt">d1 =</span> <span class="dv">1</span>,<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> n,
+                        <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> <span class="dv">1</span>)
+  <span class="kw">return</span>(fit_BSAS)
+}
+
+fit_BSAS1 &lt;-<span class="st"> </span><span class="kw">BSASn</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">dims =</span> <span class="dv">10</span>,<span class="dt">k =</span> <span class="dv">1</span>)
+
+fit_BSAS1<span class="op">$</span>par;fit_BSAS1<span class="op">$</span>value;fit_BSAS1<span class="op">$</span>step</code></pre></div>
+<pre><code>##  [1] -0.0004297315 -0.0093523824  0.0077216584  0.0016681671  0.0032866863
+##  [6] -0.0128492187  0.0085156508 -0.0104277522 -0.0030415481  0.0228343806</code></pre>
+<pre><code>## [1] 0.001037878</code></pre>
+<pre><code>## [1] 0.01872236</code></pre>
+<p>可以看到BSAS算法的结果是 0.001，比BAS算法进行了一次重新设定步长后的结果更优。猜测是因为步长反馈调节策略使得步长衰减得更合理所致。</p>
+<p>由于此时的步长是0.019，稍大于天牛所在位置的元素。因此，认为<strong>属于情况3，即由于迭代次数不够，导致没能到达最优（局部最优）位置</strong>。所以，加大迭代次数来看效果。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit_BSAS2 &lt;-<span class="st"> </span><span class="kw">BSASn</span>(<span class="dt">n =</span> <span class="dv">500</span>, <span class="dt">dims =</span> <span class="dv">10</span>,<span class="dt">k =</span> <span class="dv">1</span>)
+
+fit_BSAS2<span class="op">$</span>par;fit_BSAS2<span class="op">$</span>value;fit_BSAS2<span class="op">$</span>step</code></pre></div>
+<pre><code>##  [1] -1.610736e-06  2.899101e-07 -4.068405e-08 -2.802695e-07 -1.098365e-06
+##  [6] -6.222215e-08  8.150385e-07 -7.817550e-07 -1.019755e-06  1.515487e-06</code></pre>
+<pre><code>## [1] 8.581032e-12</code></pre>
+<pre><code>## [1] 2.135201e-06</code></pre>
+<p>可以看到，在迭代次数为500时，结果更优，为<span class="math inline">\(8.58*10^{-12}\)</span>。而步长<span class="math inline">\(2.14*10^-6\)</span>仍然是和位置的元素量级保持一致。因此，推测可以继续加大迭代次数来获得更优的结果。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit_BSAS3 &lt;-<span class="st"> </span><span class="kw">BSASn</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">dims =</span> <span class="dv">10</span>,<span class="dt">k =</span> <span class="dv">1</span>)
+
+fit_BSAS3<span class="op">$</span>par;fit_BSAS3<span class="op">$</span>value;fit_BSAS3<span class="op">$</span>step</code></pre></div>
+<pre><code>##  [1] -3.785371e-13 -1.806485e-13  2.075196e-13 -3.060651e-13  3.156182e-14
+##  [6] -6.596821e-14  1.428151e-13 -1.098809e-13  9.320642e-14 -1.186302e-13</code></pre>
+<pre><code>## [1] 3.732429e-25</code></pre>
+<pre><code>## [1] 4.664409e-13</code></pre>
+<p>可以看到，随着迭代次数的提升，结果不断优化。当前条件下的目标函数值为<span class="math inline">\(3.73*10^{-25}\)</span>。</p>
+<p>方便起见，列出三次实验结果。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit_BSAS1<span class="op">$</span>value;fit_BSAS2<span class="op">$</span>value;fit_BSAS3<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] 0.001037878</code></pre>
+<pre><code>## [1] 8.581032e-12</code></pre>
+<pre><code>## [1] 3.732429e-25</code></pre>
+</div>
+<div id="-3" class="section level4">
+<h4><span class="header-section-number">10.2.1.3</span> 总结</h4>
+<p>对于测试函数 <span class="math inline">\(f = \sum x_i^2\)</span>，</p>
+<ul>
+<li>BAS出现<strong>情况2</strong>，即步长太小，导致天牛走不动。这是由于BAS的步长衰减策略造成的。保持上一次的优化结果（作为下次优化的初始值），重新设定大的步长可以解决此类问题。</li>
+<li>BSAS出现<strong>情况3</strong>，即步长是能让天牛走动的，但迭代次数终止了算法。这是因为BSAS的步长是根据结果反馈来调节的，不至于衰减得太小导致天牛走不动。对于此类情况，延迟迭代次数的调差方法可以提高结果。</li>
+</ul>
+<p>一般的情况是，如果算法求得的位置，其中的元素大小远超步长大小，那么应该是属于情况2，要考虑重新设定步长。如果元素大小和步长大小量级相仿，则可以考虑增加迭代步长。</p>
+</div>
+</div>
+<div id="2" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> 实验2</h3>
+<p>实验2 利用存在较多局部最优的函数，来对比BAS和BSAS的结果，试图找出问题出现的原因，以及对应的改进思路。</p>
+<div id="-1" class="section level4">
+<h4><span class="header-section-number">10.2.2.1</span> 测试函数</h4>
+<span class="math display" id="eq:RastPT">\[\begin{equation}
+f=10*m - \sum_i^m (x_i^2-10*cos(2\pi x_i)) \quad x_i\in[-5.12,5.12]
+\tag{10.2}
+\end{equation}\]</span>
+<p>测试函数在 <span class="math inline">\(x_i = 0\)</span> 处取得最优值 <span class="math inline">\(f = 0\)</span> 。</p>
+<p>图<a href="parsTuning.html#fig:Rast">10.6</a>为测试函数2维时的取值分布。从中可以看到，等值线在接近 <span class="math inline">\(x = (0,0)\)</span>时颜色加深，表明接近最小值。</p>
+<div class="figure" style="text-align: center"><span id="fig:Rast"></span>
+<img src="img/Rast.png" alt="Fig.1 Rastrigin function" width="60%" height="40%" />
+<p class="caption">
+图 10.6: Fig.1 Rastrigin function
+</p>
+</div>
+</div>
+<div id="bas-1" class="section level4">
+<h4><span class="header-section-number">10.2.2.2</span> BAS算法</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Rast &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  y &lt;-<span class="st"> </span><span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span><span class="op">*</span><span class="kw">cos</span>(<span class="dv">2</span><span class="op">*</span>pi<span class="op">*</span>x))
+  <span class="kw">return</span>(<span class="dv">10</span><span class="op">*</span><span class="kw">length</span>(x) <span class="op">+</span><span class="st"> </span>y)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BAS_Rast_n &lt;-<span class="st"> </span><span class="cf">function</span>(n,dims,<span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,dims),<span class="dt">seed =</span> <span class="dv">1</span>){
+  m &lt;-<span class="st"> </span>dims
+  fit_BAS &lt;-<span class="st"> </span><span class="kw">BASoptim</span>(<span class="dt">fn =</span> Rast,
+                      <span class="dt">init =</span> init,
+                      <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="fl">5.12</span>,m),
+                      <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="fl">5.12</span>,m),
+                      <span class="dt">trace =</span> F,
+                      <span class="dt">d1 =</span> <span class="dv">1</span>,
+                      <span class="dt">step =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> n,
+                      <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> seed)
+  <span class="kw">return</span>(fit_BAS)
+}
+fit_Rast &lt;-<span class="st"> </span><span class="kw">BAS_Rast_n</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">dims =</span> <span class="dv">5</span>)
+fit_Rast<span class="op">$</span>par; fit_Rast<span class="op">$</span>value</code></pre></div>
+<pre><code>## [1] -1.869276e-05 -9.950173e-01  1.989897e+00  4.974418e+00  1.989810e+00</code></pre>
+<pre><code>## [1] 33.82836</code></pre>
+<p>结果与<span class="math inline">\((0,0,0,0,0)\)</span>还是存在较大的差距。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit_Rast<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] 7.838014e-05</code></pre>
+<p>此时的步长为 <span class="math inline">\(7.8*10^{-5}\)</span>，天牛也存在走不动的现象。此处的梯度为</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grad</span>(Rast,fit_Rast<span class="op">$</span>par)</code></pre></div>
+<pre><code>## [1] -0.007423366 -0.023255606 -0.006154134 -0.106994981 -0.040438609</code></pre>
+<p>从梯度接近于0来看，应该是陷入了局部最小值，也就是属于情况1。我们再给定一个大的步长，重新搜索。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit_Rast &lt;-<span class="st"> </span><span class="kw">BAS_Rast_n</span>(<span class="dt">n =</span> <span class="dv">200</span>, <span class="dt">dims =</span> <span class="dv">5</span>, 
+                       <span class="dt">init =</span> fit_Rast<span class="op">$</span>par,<span class="dt">seed =</span> <span class="dv">1</span>)
+fit_Rast<span class="op">$</span>par; fit_Rast<span class="op">$</span>value;fit_Rast<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] -1.9898668 -0.9949566 -0.9950607  1.9898565  0.9949586</code></pre>
+<pre><code>## [1] 10.94454</code></pre>
+<pre><code>## [1] 7.838014e-05</code></pre>
+<p>可以得知，结果进一步提升。此时的梯度是</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grad</span>(Rast,fit_Rast<span class="op">$</span>par)</code></pre></div>
+<pre><code>## [1]  0.0180051671  0.0007939765 -0.0404656270 -0.0220834035 -0.0000156832</code></pre>
+<p>同样，梯度十分接近于0，表明此处是一个局部最小值。即对于情况1，重新使用大的步长也能改善优化结果，有助于找到一个更优的局部最小值。<strong>换一个初始步长，可能会导致策略失效，即这样的策略也需要辅以调差</strong>。感兴趣的同学可以自行调节代码。</p>
+</div>
+<div id="bsas-1" class="section level4">
+<h4><span class="header-section-number">10.2.2.3</span> BSAS算法</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BSAS_Rast_n &lt;-<span class="st"> </span><span class="cf">function</span>(n,dims,<span class="dt">k =</span> <span class="dv">1</span>,<span class="dt">init =</span> <span class="kw">rep</span>(<span class="dv">5</span>,dims),<span class="dt">seed =</span> <span class="dv">1</span>){
+  m &lt;-<span class="st"> </span>dims
+  fit_BSAS &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> Rast,
+                        <span class="dt">init =</span> init,
+                        <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="fl">5.12</span>,m),
+                        <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="fl">5.12</span>,m),
+                        <span class="dt">trace =</span> F,
+                        <span class="dt">d1 =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),
+                        <span class="dt">k =</span> k,
+                        <span class="dt">step =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> n,
+                        <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> seed)
+  <span class="kw">return</span>(fit_BSAS)
+}
+
+fit_Rast &lt;-<span class="st"> </span><span class="kw">BSAS_Rast_n</span>(<span class="dt">n =</span> <span class="dv">200</span>,<span class="dt">k =</span> <span class="dv">1</span>, <span class="dt">dims =</span> <span class="dv">5</span>,<span class="dt">seed =</span> <span class="dv">1</span>) <span class="co">#2,2</span>
+fit_Rast<span class="op">$</span>par; fit_Rast<span class="op">$</span>value;fit_Rast<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] 2.984883 3.979838 1.989614 4.974257 2.984340</code></pre>
+<pre><code>## [1] 62.68211</code></pre>
+<pre><code>## [1] 0.00131646</code></pre>
+<p>梯度如下</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grad</span>(Rast,fit_Rast<span class="op">$</span>par)</code></pre></div>
+<pre><code>## [1]  0.01066209  0.02145915 -0.11811262 -0.17008744 -0.20354255</code></pre>
+<p>结果比BAS要差，且从梯度来看，算法已经达到了局部极值，属于情况1。</p>
+<p>此时沿用实验1中的结论，打算重新使用大的步长使其跳出局部极值。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="dv">5</span>
+n =<span class="st"> </span><span class="dv">200</span>
+k =<span class="st"> </span><span class="dv">1</span>
+seed =<span class="dv">1</span>
+fit_Rast &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> Rast,
+                      <span class="dt">init =</span> fit_Rast<span class="op">$</span>par,
+                      <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="fl">5.12</span>,m),
+                      <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="fl">5.12</span>,m),
+                      <span class="dt">trace =</span> F,
+                      <span class="dt">d1 =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),
+                      <span class="dt">k =</span> k,
+                      <span class="co">#p_step = 0.8,</span>
+                      <span class="dt">step =</span> <span class="dv">3</span>,<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> n,
+                      <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> seed)
+fit_Rast<span class="op">$</span>par; fit_Rast<span class="op">$</span>value;fit_Rast<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] 2.984560 3.979510 1.989868 4.974568 2.984608</code></pre>
+<pre><code>## [1] 62.68205</code></pre>
+<pre><code>## [1] 0.0006664883</code></pre>
+<p>从结果看来，并未有改善。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grad</span>(Rast,fit_Rast<span class="op">$</span>par)</code></pre></div>
+<pre><code>## [1] -0.11667250 -0.10781782 -0.01768515 -0.04851506 -0.09778878</code></pre>
+<p>从梯度看，算法仍然处于陷入了局部最优</p>
+</div>
+<div id="bsas" class="section level4">
+<h4><span class="header-section-number">10.2.2.4</span> BSAS步长更新概率</h4>
+<p>还是考虑从步长着手，设置<span class="math inline">\(p_{step}\)</span>参数为0.8，即有0.8的概率，哪怕找不到更优的位置，天牛也有0.8的概率会保持当前的步长继续搜索。<strong>尽管BSAS是根据结果反馈来调节步长的，在局部极值过多的情况下，找不到更优值，也会使得BSAS的步长一直衰减</strong>。</p>
+<p>可以会有同学担心，如果<span class="math inline">\(p_{step}\)</span>过大，又找不到更优位置，步长一直不更新怎么办。由于BSAS算法中有<span class="math inline">\(n_{flag}\)</span>参数来限制步长不更新的次数，因此不会出现找不到更优解一直保持原步长的现象。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n =<span class="st"> </span><span class="dv">400</span>
+fit_Rast &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> Rast,
+                      <span class="dt">init =</span> fit_Rast<span class="op">$</span>par,
+                      <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="fl">5.12</span>,m),
+                      <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="fl">5.12</span>,m),
+                      <span class="dt">trace =</span> F,
+                      <span class="dt">d1 =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),
+                      <span class="dt">k =</span> k,
+                      <span class="dt">p_step =</span> <span class="fl">0.8</span>,
+                      <span class="dt">step =</span> <span class="dv">3</span>,<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> n,
+                      <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> seed)
+fit_Rast<span class="op">$</span>par; fit_Rast<span class="op">$</span>value;fit_Rast<span class="op">$</span>step</code></pre></div>
+<pre><code>## [1] 9.956177e-01 2.985797e+00 3.578282e-05 1.989544e+00 2.983359e+00</code></pre>
+<pre><code>## [1] 22.88472</code></pre>
+<pre><code>## [1] 0.003268592</code></pre>
+<p>可以看到，结果存在较大的提升。</p>
+</div>
+<div id="section-10.2.2.5" class="section level4">
+<h4><span class="header-section-number">10.2.2.5</span> 天牛数</h4>
+<p>此外，由于测试函数的局部极小值过多，尝试在每回合多派天牛出去探索。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">k =<span class="st"> </span><span class="dv">12</span>
+n =<span class="st"> </span><span class="dv">400</span>
+seed =<span class="dv">1</span>
+fit_Rast &lt;-<span class="st"> </span><span class="kw">BSASoptim</span>(<span class="dt">fn =</span> Rast,
+                      <span class="dt">init =</span> fit_Rast<span class="op">$</span>par,
+                      <span class="dt">lower =</span> <span class="kw">rep</span>(<span class="op">-</span><span class="fl">5.12</span>,m),
+                      <span class="dt">upper =</span> <span class="kw">rep</span>(<span class="fl">5.12</span>,m),
+                      <span class="dt">trace =</span> F,
+                      <span class="dt">d1 =</span> (<span class="dv">1</span><span class="op">*</span><span class="kw">sqrt</span>(m)),
+                      <span class="dt">k =</span> k,
+                      <span class="dt">step =</span> <span class="dv">3</span>,<span class="dt">eta_d =</span> <span class="fl">0.98</span>,<span class="dt">n =</span> n,
+                      <span class="dt">steptol =</span> .Machine<span class="op">$</span>double.eps,<span class="dt">seed =</span> seed)
+fit_Rast<span class="op">$</span>value;fit_Rast<span class="op">$</span>par</code></pre></div>
+<pre><code>## [1] 5.969749</code></pre>
+<pre><code>## [1]  9.632584e-07  1.989909e+00 -2.924944e-06  9.949562e-01  9.949555e-01</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grad</span>(Rast,fit_Rast<span class="op">$</span>par)</code></pre></div>
+<pre><code>## [1]  0.0003822056 -0.0014643535 -0.0011605715 -0.0009625320 -0.0012620304</code></pre>
+<p>效果也得到了改善，从梯度上看，达到了新的局部最小值。</p>
+</div>
+<div id="-4" class="section level4">
+<h4><span class="header-section-number">10.2.2.6</span> 总结</h4>
+<ul>
+<li><p>此前提出的改善方法（主要集中在步长的策略），在复杂的测试函数下，仍然适用。</p></li>
+<li><p>在局部最小值较多的复杂测试函数下，<strong>步长不能轻易衰减</strong>。BSAS算法在提高了步长不衰减的概率参数后效果出现了提高。而没有设置该参数的情况下，步长很容易衰减到很小（因为BSAS的逻辑是<strong>效果不改善就减小步长</strong>），导致无法跳出局部最小。</p></li>
+<li><p>在进入局部最小值后，<strong>提高天牛数目</strong>和<strong>给定大的步长</strong>重新寻优策略结合使用，可以使得效果进一步提高。</p></li>
+</ul>
+<p>总的来说，这些技巧都是希望大家能重新审视优化过程中步长的变化策略。大家也可以根据不同的问题，自己指定一些步长的衰减策略。</p>
+<p>有意思的是，BSAS在<span class="math inline">\(k=1\)</span>时，其实就是<strong>步长根据结果反馈调节</strong>的BAS。也就是，<strong>下一步找得到更优的位置，天牛就保持当前步长，继续寻优；反之，则步长衰减</strong>。尽管有很多参数限制BSAS不要过于贪婪，但遇到复杂的优化问题时（如实验2），找不到更优位置，BSAS的步长也如同BAS一样，一直衰减。</p>
+<p>而对<span class="math inline">\(p_{step}\)</span>参数的调节，更像是对不同的问题，给出的不同的步长衰减策略。因此，大家不必局限于BSAS算法，完全可以在BAS算法和自己的问题基础上，改进适合自己的步长调节策略。</p>
+<p>最后，<code>rBAS</code>的下一次更新，<strong>将包含对算法的结果做出判断，并给出可能的参数改进建议的功能</strong>。判断依据和改进建议来自于上面的实验。</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="paper.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="updates.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

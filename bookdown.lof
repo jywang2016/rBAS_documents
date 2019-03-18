@@ -41,13 +41,11 @@
 \contentsline {figure}{\numberline {8.2}{\ignorespaces MICHALEWICZ FUNCTION}}{97}{figure.8.2}% 
 \contentsline {figure}{\numberline {8.3}{\ignorespaces ACKLEY FUNCTION}}{98}{figure.8.3}% 
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {9.1}{\ignorespaces mex -setup}}{106}{figure.9.1}% 
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Matlab Coder}}{107}{figure.9.2}% 
-\contentsline {figure}{\numberline {9.3}{\ignorespaces Matlab Coder}}{108}{figure.9.3}% 
-\contentsline {figure}{\numberline {9.4}{\ignorespaces Matlab Coder}}{108}{figure.9.4}% 
-\contentsline {figure}{\numberline {9.5}{\ignorespaces Matlab Coder}}{109}{figure.9.5}% 
-\contentsline {figure}{\numberline {9.6}{\ignorespaces Matlab Coder}}{109}{figure.9.6}% 
-\contentsline {figure}{\numberline {9.7}{\ignorespaces Matlab Coder}}{110}{figure.9.7}% 
-\contentsline {figure}{\numberline {9.8}{\ignorespaces Matlab Coder}}{110}{figure.9.8}% 
 \addvspace {10.0pt}
+\contentsline {figure}{\numberline {10.1}{\ignorespaces 高维优化问题下BAS不同初始步长结果对比}}{110}{figure.10.1}% 
+\contentsline {figure}{\numberline {10.2}{\ignorespaces 高维优化问题下BSAS不同初始步长结果对比}}{111}{figure.10.2}% 
+\contentsline {figure}{\numberline {10.3}{\ignorespaces 高维优化问题下BSAS(k=2)不同初始步长结果对比}}{112}{figure.10.3}% 
+\contentsline {figure}{\numberline {10.4}{\ignorespaces 高维优化问题下BSAS(k=4)不同初始步长结果对比}}{113}{figure.10.4}% 
+\contentsline {figure}{\numberline {10.5}{\ignorespaces 高维优化问题下BSAS(k=5)不同初始步长结果对比}}{113}{figure.10.5}% 
+\contentsline {figure}{\numberline {10.6}{\ignorespaces Fig.1 Rastrigin function}}{120}{figure.10.6}% 
 \addvspace {10.0pt}

@@ -171,7 +171,7 @@
 
 \title{rBAS使用文档}
 \author{王江宇}
-\date{2019-03-14}
+\date{2019-03-18}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -222,11 +222,10 @@
   第 \ref{python}
   章主要介绍吴会欢同学提供的python接口，目前有基本的BAS，以及三个测试函数，后续会持续更新。
 \item
-  第 \ref{matlabr} 章中主要介绍了两种方法供matlab用户来使用rBAS
-  package。当然，未来可能会出现matlab中R的接口，或者是BAS
-  toolbox，到时候此章无用。如果你发现了\textbf{更便捷的方法}，来实现两者的通讯，还请\href{https://github.com/jywang2016/rBAS_documents/issues}{提出建议}。
-\item
   第 \ref{paper} 章用于收录基于BAS及相关算法的工具箱，软件或者文献等等。
+\item
+  第 \ref{parsTuning}
+  章会记录一些BAS算法的调参经验，或者存在不足的原因及后续的改进方向。
 \item
   第 \ref{updates}
   章讲述了\texttt{rBAS}包的\textbf{开发和使用手册更新的计划}。因为算法总是会不断地推陈出新，所以\texttt{rBAS}包也必须和目前的研究保持一致。如果你有好的想法，可以看此章的内容，然后把自己的建议传达给我们。
@@ -3556,638 +3555,6 @@ Variables = [1.52121543e-06 2.42423873e-06]
 Objective = [8.095169530708546e-06]
 \end{verbatim}
 
-\chapter{Matlab用户}\label{matlabr}
-
-之前一直有同学在群里面反映，有没有matlab用户可以使用rBAS的方法。尽管我曾经也是matlab的忠实用户，但现在能力退化严重，实在是写不动代码。加之，我认为学习R的成本很低，而且更加便捷。因此，也就熄了再去做一个matlab
-toolbox的心思。
-
-不过，我还是决定尝试下是否存在两者的接口，可以完成参数的传递，让使用matlab的同学也可以使用rBAS。于是有了下面几点思路。
-
-\begin{itemize}
-\tightlist
-\item
-  使用matlab，通过R(D)COM服务器来与R通讯，其配置对于R用户而言尚且显得麻烦，何况matlab用户。不过在看mathwork的网站时，倒是得知他们把R
-  interface作为了未来的开发计划之一。所以，日后可以采用在matlab中调用R的形式。目前尚无此功能。
-\item
-  使用R中的R.matlab包，来与matlab通讯。这个办法咋一看很简单，尝试也成功了。最大的问题是\textbf{慢}，其次看源码应该是要配置\textbf{Java}(我电脑上原本有，执行无碍，但没有删除Java后尝试)。这种慢，可以称为很慢，后面我们能见识到。
-\item
-  使用\textbf{第三方语言}，如C/C++。别害怕，因为matlab提供了很强大的工具，即\texttt{Matlab\ Coder}来把你的matlab代码转为C或者C++。
-\end{itemize}
-
-下面我们讲第二点和第三点是如何操作的。
-
-\section{使用R.matlab包}\label{r.matlab}
-
-这一节更类似于娱乐和探索。因为该方法用于优化求解的速度，真的让人难以接受（也有可能是我没有找对方法）。如果无意于此，可以跳过。
-
-首先，可以按照下面的代码从CRAN安装该包。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{'R.matlab'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-当然，也可以利用\texttt{devtools}从github上按照该包。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{'HenrikBengtsson/R.matlab'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-接下来，按照\href{https://cran.r-project.org/web/packages/R.matlab/R.matlab.pdf}{包的文档}进行操作。
-
-首先，加载包。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(}\StringTok{'R.matlab'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-在R中打开\texttt{matlab\ server}。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Matlab}\OperatorTok{$}\KeywordTok{startServer}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-效果就是可以看到matlab窗口以最小化的形式出现，不过里面没有视图，大家可以不必理会。后续操作均在R中完成。
-
-其次创建matlab对象，用于与Matlab通讯。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{matlab <-}\StringTok{ }\KeywordTok{Matlab}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-然后，把要优化的函数（\textbf{使用matlab定义}），写入R。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{setFunction}\NormalTok{(matlab, }\StringTok{" \textbackslash{}}
-\StringTok{  function z=test(x) \textbackslash{}}
-\StringTok{            %test function \textbackslash{}}
-\StringTok{            z = 100 *(x(2) - x(1).^2).^2+(x(1)-1).^2;\textbackslash{}}
-\StringTok{            "}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-这段代码，在matlab的本地服务器创建了一个M函数，如下所示。注意用\texttt{\textbackslash{}}号的使用。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{function z =test(x,y)}
-  \CommentTok{%test function}
-\NormalTok{  z=}\FloatTok{100}\NormalTok{*(y-x.^}\FloatTok{2}\NormalTok{).^}\FloatTok{2}\NormalTok{+(x-}\FloatTok{1}\NormalTok{).^}\FloatTok{2}\NormalTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-接下来我们创建目标函数。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{func_MR <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-  \KeywordTok{setVariable}\NormalTok{(matlab,}\DataTypeTok{x =}\NormalTok{ x) }\CommentTok{# 把R里面的x，赋值到matlab里面的x变量}
-  \KeywordTok{evaluate}\NormalTok{(matlab,}\StringTok{'z = test(x)'}\NormalTok{) }\CommentTok{# 在matlab里面执行 z = test(x) 命令}
-\NormalTok{  res <-}\StringTok{ }\KeywordTok{getVariable}\NormalTok{(matlab,}\KeywordTok{c}\NormalTok{(}\StringTok{'z'}\NormalTok{)) }\CommentTok{# 从matlab里面读取 z 变量}
-  \KeywordTok{return}\NormalTok{(res}\OperatorTok{$}\NormalTok{z) }\CommentTok{#返回z值}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-这段代码块思路是，既然利用的是rBAS包，那么每次更新，都利用上一回合R计算的值，传递到matlab里面。然后，在matlab里面执行用户定义的函数。最后再用R把matlab里面算出来的变量值读取出来。
-
-这就是我们新的优化函数，虽然绕一点，但是是容易想到和理解的办法。接下来就是使用rBAS包来优化这个目标函数了。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{system.time}\NormalTok{(\{}
-\NormalTok{  fit<-}
-\StringTok{    }\KeywordTok{BSOoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ func_MR,}
-             \DataTypeTok{init =} \OtherTok{NULL}\NormalTok{,}
-             \DataTypeTok{s =} \DecValTok{2}\NormalTok{,}
-             \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{50}\NormalTok{,}\OperatorTok{-}\DecValTok{50}\NormalTok{),}
-             \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{,}\DecValTok{50}\NormalTok{),}
-             \DataTypeTok{n =} \DecValTok{1}\NormalTok{,}
-             \DataTypeTok{w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-             \DataTypeTok{w_vs =} \FloatTok{0.4}\NormalTok{, }
-             \DataTypeTok{step =} \DecValTok{10}\NormalTok{,}
-             \DataTypeTok{step_w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-             \DataTypeTok{c =} \DecValTok{8}\NormalTok{,}
-             \DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,}\FloatTok{5.12}\NormalTok{),}
-             \DataTypeTok{trace =}\NormalTok{ T,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
-\NormalTok{\}) }
-\end{Highlighting}
-\end{Shaded}
-
-我们使用了一段\texttt{BSO}算法的优化代码，但是，粒子数目设置为2，回合数只设置为1。结果，这么简单的计算，要花费\textbf{13s}。两个软件来回通讯占用了大量的时间，我相信，应该不会有用户愿意等待这么长久的时间。这个完整的优化过程，之后会有纯R代码，求解过程不到0.1s的时间。
-
-最后呢，需要使用下面的代码关闭matlab服务器。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{close}\NormalTok{(matlab)}
-\end{Highlighting}
-\end{Shaded}
-
-R代码使用\texttt{BSO}解这个优化问题是这样的效果。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(rBAS)}
-
-\NormalTok{test <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
-\NormalTok{  z <-}\StringTok{ }\DecValTok{100}\OperatorTok{*}\NormalTok{(x[}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{x[}\DecValTok{1}\NormalTok{]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{(x[}\DecValTok{1}\NormalTok{] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)}\OperatorTok{^}\DecValTok{2}
-\NormalTok{\}}
-
-\KeywordTok{system.time}\NormalTok{(\{}
-\NormalTok{  fit<-}
-\StringTok{    }\KeywordTok{BSOoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ test,}
-             \DataTypeTok{init =} \OtherTok{NULL}\NormalTok{,}
-             \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{50}\NormalTok{,}\OperatorTok{-}\DecValTok{50}\NormalTok{),}
-             \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{,}\DecValTok{50}\NormalTok{),}
-             \DataTypeTok{n =} \DecValTok{300}\NormalTok{,}
-             \DataTypeTok{w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-             \DataTypeTok{w_vs =} \FloatTok{0.4}\NormalTok{, }
-             \DataTypeTok{step =} \DecValTok{10}\NormalTok{,}
-             \DataTypeTok{step_w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-             \DataTypeTok{c =} \DecValTok{8}\NormalTok{,}
-             \DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,}\FloatTok{5.12}\NormalTok{),}
-             \DataTypeTok{trace =}\NormalTok{ F,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
-\NormalTok{\})}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##    0.11    0.01    0.12
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fit}\OperatorTok{$}\NormalTok{par}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1 1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fit}\OperatorTok{$}\NormalTok{value}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0
-\end{verbatim}
-
-时间短，而且能求出理论的最小值。这也反映了第二个方法过于低效的问题，我们看看借助第三方语言能否行得通。
-
-\section{中转站：C/C++}\label{cc}
-
-matlab的\texttt{matlab\ Coder}可以让用户把自己的代码变成C或者C++，前提是，需要有编译器。不过，如果你使用过R，那么一般都会安装\href{https://cran.r-project.org/bin/windows/Rtools/}{Rtools}，这就意味着你安装了MinGw。下面的过程需要用到Rtools，还请大家自行下载安装。
-
-打开matlab，输入下面的指令：
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mex -steup}
-\end{Highlighting}
-\end{Shaded}
-
-如果电脑中只安装过Rtools，而没有VS之类的编译器，一般会显示图\ref{fig:mex}的界面。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/mex} 
-
-}
-
-\caption{mex -setup}\label{fig:mex}
-\end{figure}
-
-第一句报错，是因为我并没有把Rtools中的mingw\_64文件夹加入环境变量。因此，在执行第二句之后，再执行\texttt{mex\ -setup}就不会报错。
-
-好了，加入你成功了，那么抛开前面所有的知识不看。现在说Coder工具箱。
-
-假设你的路径下有2个M文件，一个是我们之前所说的测试函数\texttt{test.m}，还有一个是我们所说的，用来测试\texttt{test}函数的文件\texttt{test\_main.m}文件。它们的代码如下。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{% -------------test.m----------------%}
-
-\NormalTok{function z = test(x)}
-\NormalTok{z = }\FloatTok{100}\NormalTok{ *(x(}\FloatTok{2}\NormalTok{) - x(}\FloatTok{1}\NormalTok{).^}\FloatTok{2}\NormalTok{).^}\FloatTok{2}\NormalTok{+(x(}\FloatTok{1}\NormalTok{)-}\FloatTok{1}\NormalTok{).^}\FloatTok{2}\NormalTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{% -------------test_main.m----------------%}
-
-\NormalTok{z = test([}\FloatTok{1} \FloatTok{1}\NormalTok{]);}
-\end{Highlighting}
-\end{Shaded}
-
-接下来我们点击Matlab菜单栏上的APP，在里面找到Matlab
-Coder工具箱打开，如图\ref{fig:coder1}。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/coder1} 
-
-}
-
-\caption{Matlab Coder}\label{fig:coder1}
-\end{figure}
-
-点击Enter a function name右边的
-\(\cdots\)符号，然后选中\texttt{test.m}文件，可以看到图\ref{fig:coder2}的效果。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/coder2} 
-
-}
-
-\caption{Matlab Coder}\label{fig:coder2}
-\end{figure}
-
-点击右下角\texttt{Next}按钮，可以看到如图\ref{fig:coder3}的界面。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/coder3} 
-
-}
-
-\caption{Matlab Coder}\label{fig:coder3}
-\end{figure}
-
-点击图\ref{fig:coder3}红色箭头所指处，并选中\texttt{test\_main.m}文件，点击\texttt{Autodefine\ Input\ types}，可以看到如图\ref{fig:coder4}的界面，接下来就是一路的\texttt{Next}。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/coder4} 
-
-}
-
-\caption{Matlab Coder}\label{fig:coder4}
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/coder5} 
-
-}
-
-\caption{Matlab Coder}\label{fig:coder5}
-\end{figure}
-
-直到图\ref{fig:coder6}，点击\texttt{Generate}按钮，生成C代码。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/coder6} 
-
-}
-
-\caption{Matlab Coder}\label{fig:coder6}
-\end{figure}
-
-而后工具箱会给出\texttt{test.c}代码的预览，如图\ref{fig:coder7}。
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{img/coder7} 
-
-}
-
-\caption{Matlab Coder}\label{fig:coder7}
-\end{figure}
-
-我相信，大家还是能看懂这段代码。对于简单的优化问题，我们照猫画虎，就可以写出对应的C或者C++的代码。如果不想写，还可以按照上述的方法生成。
-
-那现在问题来了，如果我们有了C代码，如何在R语言中用了。
-
-由于matlab生成的代码很多库都是matlab依赖的（我这么认为，不一定正确），所以我们需要简单地调整一下，把代码变得简洁。
-
-原始的代码是这样的。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{/* Include Files */}
-\PreprocessorTok{#include }\ImportTok{"rt_nonfinite.h"}
-\PreprocessorTok{#include }\ImportTok{"test.h"}
-
-\CommentTok{/* Function Definitions */}
-
-\CommentTok{/*}
-\CommentTok{ * Arguments    : const double x[2]}
-\CommentTok{ * Return Type  : double}
-\CommentTok{ */}
-\DataTypeTok{double}\NormalTok{ test(}\DataTypeTok{const} \DataTypeTok{double}\NormalTok{ x[}\DecValTok{2}\NormalTok{])}
-\NormalTok{\{}
-  \DataTypeTok{double}\NormalTok{ a;}
-\NormalTok{  a = x[}\DecValTok{1}\NormalTok{] - x[}\DecValTok{0}\NormalTok{] * x[}\DecValTok{0}\NormalTok{];}
-  \ControlFlowTok{return} \FloatTok{100.0}\NormalTok{ * (a * a) + (x[}\DecValTok{0}\NormalTok{] - }\FloatTok{1.0}\NormalTok{) * (x[}\DecValTok{0}\NormalTok{] - }\FloatTok{1.0}\NormalTok{);}
-\NormalTok{\}}
-
-\CommentTok{/*}
-\CommentTok{ * File trailer for test.c}
-\CommentTok{ *}
-\CommentTok{ * [EOF]}
-\CommentTok{ */}
-\end{Highlighting}
-\end{Shaded}
-
-我们进行\textbf{微调}（大家肯定是能理解并模仿的），变成R可以正确编译的。注意，由于Rcpp能让R和C++无缝贴合的强大功能，我把代码调整为了C++。后面的\texttt{Michalewicz\ function}，\texttt{Pressure\ Vessel\ function}均是用C++所写。
-
-\begin{verbatim}
-#include <Rcpp.h>
-using namespace Rcpp;
-// [[Rcpp::export]]
-double test(NumericVector x) {
-  double a;
-  a = x[1] - x[0] * x[0];
-  return 100.0 * (a*a) + (x[0] - 1.0) * (x[0] - 1.0);
-}
-\end{verbatim}
-
-把这段代码保存成\texttt{Rcpptest.cpp}文件，然后在R里面执行代码：
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(Rcpp) }\CommentTok{#加载Rcpp包}
-\KeywordTok{sourceCpp}\NormalTok{(}\StringTok{'你的Rcpptest.cpp文件路径'}\NormalTok{) }\CommentTok{#编译之前保存的cpp文件}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#执行BSO优化算法函数}
-\KeywordTok{system.time}\NormalTok{(\{}
-\NormalTok{  fit<-}\KeywordTok{BSOoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ test, }\CommentTok{#调用了编译的C++中的test函数}
-                \DataTypeTok{init =} \OtherTok{NULL}\NormalTok{,}
-                \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{50}\NormalTok{,}\OperatorTok{-}\DecValTok{50}\NormalTok{),}
-                \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{,}\DecValTok{50}\NormalTok{),}
-                \DataTypeTok{n =} \DecValTok{300}\NormalTok{,}
-                \DataTypeTok{w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-                \DataTypeTok{w_vs =} \FloatTok{0.4}\NormalTok{, }
-                \DataTypeTok{step =} \DecValTok{10}\NormalTok{,}
-                \DataTypeTok{step_w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-                \DataTypeTok{c =} \DecValTok{8}\NormalTok{,}
-                \DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,}\FloatTok{5.12}\NormalTok{),}
-                \DataTypeTok{trace =}\NormalTok{ F,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
-\NormalTok{\})}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##    0.14    0.00    0.14
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#查看优化参数}
-\NormalTok{fit}\OperatorTok{$}\NormalTok{par}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1 1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#查看优化结果}
-\NormalTok{fit}\OperatorTok{$}\NormalTok{value}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0
-\end{verbatim}
-
-执行速度很快，大家可能会有疑问，为啥看起来比纯R代码执行的时间还要长一点。这是因为你多次执行，耗时和电脑所处的状态有关系，这点误差是正常的。但是，如果是计算量较大的代码，利\textbf{用Rcpp会比R要节省大量的时间}。
-
-接下来我们看看另外两个例子，也就是\texttt{Michalewicz\ function}和\texttt{Pressure\ Vessel\ function}函数的优化问题。
-
-\texttt{Michalewicz\ function}
-也可以先用matlab生成C或者C++代码，然后稍作改编，保存为\texttt{Rcppmich.cpp}文件，代码如下：
-
-\begin{verbatim}
-#include <Rcpp.h>
-using namespace Rcpp;
-
-// [[Rcpp::export]]
-double michcpp(NumericVector x) {
-  double x0;
-  double x1;
-  x0 = -sin(x[0])*pow(sin((pow(x[0],2))/M_PI),20);
-  x1 = -sin(x[1])*pow(sin((2*pow(x[1],2))/M_PI),20);
-  return x0+x1;
-}
-\end{verbatim}
-
-和matlab或者R代码比起来，也是十分易懂的。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(Rcpp) }\CommentTok{#加载Rcpp包}
-\KeywordTok{sourceCpp}\NormalTok{(}\StringTok{'你的Rcppmich.cpp文件路径'}\NormalTok{) }\CommentTok{#编译之前保存的cpp文件}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#执行BAS优化算法函数}
-\KeywordTok{system.time}\NormalTok{(\{}
-\NormalTok{  fit<-}\KeywordTok{BASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ michcpp, }\CommentTok{#利用了C++中的michcpp函数}
-                \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{6}\NormalTok{,}\DecValTok{0}\NormalTok{), }\DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),}
-                \DataTypeTok{seed =} \DecValTok{1}\NormalTok{, }\DataTypeTok{n =} \DecValTok{100}\NormalTok{,}\DataTypeTok{trace =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{\})}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##       0       0       0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#查看优化参数}
-\NormalTok{fit}\OperatorTok{$}\NormalTok{par}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] -4.964687  1.575415
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#查看优化结果}
-\NormalTok{fit}\OperatorTok{$}\NormalTok{value}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] -1.966817
-\end{verbatim}
-
-对于\texttt{Pressure\ Vessel\ function}，保存为\texttt{RcppPV.cpp}文件，代码如下：
-
-\begin{verbatim}
-#include <Rcpp.h>
-using namespace Rcpp;
-
-// [[Rcpp::export]]
-double PVobj(NumericVector x) {
-  double x0 = floor(x[0])*0.0625;
-  double x1 = floor(x[1])*0.0625;
-  double x2 = x[2];
-  double x3 = x[3];
-  
-  double result = 0.6224*x0*x2*x3 + 1.7781*x1*pow(x2,2) 
-    +3.1611*pow(x0,2)*x3 + 19.84*pow(x0,2)*x2;
-  return result;
-}
-
-// [[Rcpp::export]]
-NumericVector PVcon(NumericVector x) {
-  double x0 = floor(x[0])*0.0625;
-  double x1 = floor(x[1])*0.0625;
-  double x2 = x[2];
-  double x3 = x[3];
-  
-  NumericVector constraint(3);
-  constraint[0] = 0.0193*x2 - x0;
-  constraint[1] = 0.00954*x2 - x1;
-  constraint[2] = 750.0*1728.0 - 3.141593*pow(x2,2)*x3 
-    - (4.0/3.0)*3.141593*pow(x2,3);
-  return constraint;
-}
-\end{verbatim}
-
-其中，\texttt{PVobj}是目标函数，\texttt{PVcon}是约束函数。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(Rcpp) }\CommentTok{#加载Rcpp包}
-\KeywordTok{sourceCpp}\NormalTok{(}\StringTok{'你的RcppPV.cpp文件路径'}\NormalTok{) }\CommentTok{#编译之前保存的cpp文件}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#执行BSO优化算法函数}
-\KeywordTok{system.time}\NormalTok{(\{}
-\NormalTok{  fit<-}\KeywordTok{BSOoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ PVobj, }\CommentTok{#C++中的PVobj函数}
-         \DataTypeTok{init =} \OtherTok{NULL}\NormalTok{,}
-         \DataTypeTok{constr =}\NormalTok{ PVcon, }\CommentTok{#C++中的PVcon函数}
-         \DataTypeTok{lower =} \KeywordTok{c}\NormalTok{( }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),}
-         \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{200}\NormalTok{),}
-         \DataTypeTok{n =} \DecValTok{1000}\NormalTok{,}
-         \DataTypeTok{w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-         \DataTypeTok{w_vs =} \FloatTok{0.9}\NormalTok{,}
-         \DataTypeTok{step =} \DecValTok{100}\NormalTok{,}
-         \DataTypeTok{step_w =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.4}\NormalTok{),}
-         \DataTypeTok{c =} \DecValTok{35}\NormalTok{,}
-         \DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,}\FloatTok{5.12}\NormalTok{),}
-         \DataTypeTok{trace =}\NormalTok{ F,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{,}
-         \DataTypeTok{pen =} \FloatTok{1e6}\NormalTok{)}
-\NormalTok{\})}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##    1.98    0.00    1.98
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#查看优化参数}
-\NormalTok{fit}\OperatorTok{$}\NormalTok{par}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  13.948846   7.541387  42.098446 176.636570
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#查看优化结果}
-\NormalTok{fit}\OperatorTok{$}\NormalTok{value}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 6059.131
-\end{verbatim}
-
-结果很好，耗时也可以接受。不过，在写\texttt{BSOoptim}函数的时候，我使用了2层的循环来嵌套，因此，\texttt{BSOoptim}函数比rBAS包中其他的函数要慢上一些。后续我打算使用Rcpp把\texttt{BSOoptim}重写一遍，这样对大型的优化问题耗时会更容易接受。
-
-下面是\texttt{BSASoptim}对该问题的优化结果，同样也是采用C++编译的方式。
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{system.time}\NormalTok{(\{}
-\NormalTok{  result <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ PVobj,}
-                      \DataTypeTok{k =} \DecValTok{5}\NormalTok{,}
-                      \DataTypeTok{lower =}\KeywordTok{c}\NormalTok{( }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),}
-                      \DataTypeTok{upper =} \KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{200}\NormalTok{),}
-                      \DataTypeTok{constr =}\NormalTok{ PVcon,}
-                      \DataTypeTok{n =} \DecValTok{1000}\NormalTok{,}
-                      \DataTypeTok{step =} \DecValTok{100}\NormalTok{,}
-                      \DataTypeTok{d1 =} \DecValTok{5}\NormalTok{,}
-                      \DataTypeTok{pen =} \FloatTok{1e6}\NormalTok{,}
-                      \DataTypeTok{steptol =} \FloatTok{1e-6}\NormalTok{,}
-                      \DataTypeTok{n_flag =} \DecValTok{2}\NormalTok{,}
-                      \DataTypeTok{seed =} \DecValTok{2}\NormalTok{,}\DataTypeTok{trace =} \OtherTok{FALSE}\NormalTok{)}
-\NormalTok{\})}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## ----step < steptol---------stop the iteration------
-\end{verbatim}
-
-\begin{verbatim}
-##    user  system elapsed 
-##    0.49    0.00    0.48
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{result}\OperatorTok{$}\NormalTok{par}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  14.908531   7.652175  43.541638 159.543000
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{result}\OperatorTok{$}\NormalTok{value}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 6305.57
-\end{verbatim}
-
 \chapter{已发表工作}\label{paper}
 
 \section{工具箱/软件}
@@ -4420,7 +3787,825 @@ Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
 \url{https://github.com/jywang2016/rBAS_documents/issues}
 上\textbf{写明文章(软件)的信息，应用的领域（如果有具体的应用案例的话）以及采用的是哪种BAS算法}，以此来帮助我的整理。十分感谢大家的帮助！
 
+\chapter{调参}\label{parsTuning}
+
+本章节将会收录一些调参技巧和BAS算法改进的想法。如果大家有好的想法或者研究，欢迎在issues上提出。
+
+\section{技巧1：高维问题的初始步长设定}\label{1}
+
+李老师指出在高维问题下，BAS及其改进算法由于\textbf{步长的分量过小，天牛无法有效移动}，导致性能不佳。如果该假设成立，则在处理类似问题时在初始化步长时，在原有的参数选择上，乘以
+\(\sqrt{n}\)，其中\(n\)是待优化变量的维度。
+
+\subsection{原理}
+
+在章节\ref{BASflow}的式\eqref{eq:dir}中，我们给出了BAS生成随机方向并标注化的式子，如下所示。
+
+\[
+\overrightarrow{\mathbf{b}}=\frac{\text{rnd}(n,1)}{\|\text{rnd}(n,1)\|}
+\]
+此后，利用上述的方向和两须的函数差值来计算下次天牛的位置，如式\eqref{eq:xupdate}.方便起见，同样在此处给出。
+
+\[
+\mathbf{x}^t=\mathbf{x}^{t-1}+\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
+\tag{2}
+\]
+
+方向向量 \(b\) 会与 步长 \(\delta^t\)
+直接相乘，直接影响下一次的天牛位置。高维度问题，\(b\)
+的每个元素在标准化后都较小。这也会使得步长\(\delta^t\)在每个方向的分量都很小。\textbf{即，天牛只能在这个方向上走动一段很小的距离}。这个现象会随着问题维度的增加而变得严重。
+
+此前，有同学反映，即使是对于简单的 \(f = \sum x_i^2\)
+问题，在维度高了之后，BAS算法的效果也会变差。这个例子将用于本文来验证这个现象，以及上述的改进策略是否有效。
+
+\subsection{测试函数}
+
+测试函数如式
+
+\begin{equation}
+f = \sum_{i=1}^{n}x_i^2 
+\label{eq:testPT}
+\end{equation}
+
+\subsection{BAS测试代码}\label{bas}
+
+代码用R语言编写，直接调用\texttt{rBAS}包，大家也可以用matlab来实现，因为在BAS上只要改变初始步长即可以重复此处实验。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 包加载}
+\KeywordTok{library}\NormalTok{(rBAS)    }\CommentTok{#BAS及BSAS算法使用}
+\KeywordTok{library}\NormalTok{(ggplot2) }\CommentTok{#用于绘图}
+\KeywordTok{library}\NormalTok{(dplyr)   }\CommentTok{#管道函数，方便数据传输}
+\end{Highlighting}
+\end{Shaded}
+
+在R语言中给定目标函数。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 优化目标}
+\NormalTok{obj <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x}\OperatorTok{^}\DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+两种策略的比较，一种是原始的BAS，一种是初始步长乘以维度。
+\textbf{实验取的向量长度分别为2,4,6\ldots{}40}。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test_BAS <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(dims)\{}
+\NormalTok{  m <-}\StringTok{ }\NormalTok{dims}
+\NormalTok{  fit_sqrt <-}\StringTok{ }\KeywordTok{BASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ obj,}
+                  \DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,m),}
+                  \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,m),}
+                  \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{,m),}
+                  \DataTypeTok{trace =}\NormalTok{ F,}
+                  \DataTypeTok{d1 =} \DecValTok{1}\NormalTok{,}
+                  \DataTypeTok{step =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =} \DecValTok{200}\NormalTok{,}
+                  \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  fit_raw <-}\StringTok{ }\KeywordTok{BASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ obj,}
+                  \DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,m),}
+                  \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,m),}
+                  \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{,m),}
+                  \DataTypeTok{trace =}\NormalTok{ F,}
+                  \DataTypeTok{d1 =} \DecValTok{1}\NormalTok{,}
+                  \DataTypeTok{step =} \DecValTok{1}\NormalTok{,}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =} \DecValTok{200}\NormalTok{,}
+                  \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  result <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{BAS_modified =}\NormalTok{ fit_sqrt}\OperatorTok{$}\NormalTok{value,}
+              \DataTypeTok{BAS_original =}\NormalTok{ fit_raw}\OperatorTok{$}\NormalTok{value)}
+  \KeywordTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\NormalTok{dimsx <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DataTypeTok{by =} \DecValTok{2}\NormalTok{)}
+\NormalTok{dims <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ dimsx, }\DataTypeTok{nrow =} \DecValTok{1}\NormalTok{)}
+\NormalTok{BAS_experiment <-}\StringTok{ }\KeywordTok{apply}\NormalTok{(dims,}\DecValTok{2}\NormalTok{,test_BAS)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{BAS测试结果}\label{bas}
+
+\begin{figure}
+
+{\centering \includegraphics{bookdown_files/figure-latex/unnamed-chunk-41-1} 
+
+}
+
+\caption{高维优化问题下BAS不同初始步长结果对比}\label{fig:unnamed-chunk-41}
+\end{figure}
+
+从结果可以看到，橙色线代表的改进策略，会带来显著的效果提升。
+
+\subsection{BSAS 测试代码}\label{bsas-}
+
+同样，对BSAS算法的不同粒子数量的取值，也分别进行了对比实验。同样，维度也是从2到40。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test_BSAS <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(dims,k)\{}
+\NormalTok{  m <-}\StringTok{ }\NormalTok{dims}
+\NormalTok{  fit_sqrt <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ obj,}
+                        \DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,m),}
+                        \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,m),}
+                        \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{,m),}
+                        \DataTypeTok{trace =}\NormalTok{ F,}
+                        \DataTypeTok{k =}\NormalTok{ k,}
+                        \DataTypeTok{step =} \DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m),}
+                        \DataTypeTok{d1 =} \DecValTok{1}\NormalTok{,}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =} \DecValTok{200}\NormalTok{,}
+                        \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  fit_raw <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ obj,}
+                       \DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,m),}
+                       \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,m),}
+                       \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{,m),}
+                       \DataTypeTok{trace =}\NormalTok{ F,}
+                       \DataTypeTok{k =}\NormalTok{ k,}
+                       \DataTypeTok{step =} \DecValTok{1}\NormalTok{,}
+                       \DataTypeTok{d1 =} \DecValTok{1}\NormalTok{,}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =} \DecValTok{200}\NormalTok{,}
+                       \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  result <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{BSAS_modified =}\NormalTok{ fit_sqrt}\OperatorTok{$}\NormalTok{value,}
+              \DataTypeTok{BSAS_original =}\NormalTok{ fit_raw}\OperatorTok{$}\NormalTok{value)}
+  \KeywordTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+
+\NormalTok{BSAS_experiment <-}\StringTok{ }\KeywordTok{apply}\NormalTok{(dims,}\DecValTok{2}\NormalTok{,test_BSAS,}\DataTypeTok{k=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{BSAS测试结果}\label{bsas}
+
+\begin{figure}
+
+{\centering \includegraphics{bookdown_files/figure-latex/unnamed-chunk-43-1} 
+
+}
+
+\caption{高维优化问题下BSAS不同初始步长结果对比}\label{fig:unnamed-chunk-43}
+\end{figure}
+
+对于只有一个粒子的BSAS算法（即只在步长自适应上进行优化的BAS），在维度升高的时候，改进策略也是成功的。当然，总体而言，两种情况均比BAS对应的情况效果要优。
+
+\begin{figure}
+
+{\centering \includegraphics{bookdown_files/figure-latex/unnamed-chunk-44-1} 
+
+}
+
+\caption{高维优化问题下BSAS(k=2)不同初始步长结果对比}\label{fig:unnamed-chunk-44}
+\end{figure}
+
+在上图中可以看到，在粒子数增加到2之后，算法的结果也证实了策略的可用。但是，两种方法结果接近的维度会更加延后。在30维度的时候，才开始出现了显著差异。一方面表明粒子数对算法的提升，另一方面，也说明了这个策略在越高维度的时候，效果也愈加显著。
+
+\begin{figure}
+
+{\centering \includegraphics{bookdown_files/figure-latex/unnamed-chunk-45-1} 
+
+}
+
+\caption{高维优化问题下BSAS(k=4)不同初始步长结果对比}\label{fig:unnamed-chunk-45}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics{bookdown_files/figure-latex/unnamed-chunk-46-1} 
+
+}
+
+\caption{高维优化问题下BSAS(k=5)不同初始步长结果对比}\label{fig:unnamed-chunk-46}
+\end{figure}
+
+同样，可以看到在粒子数增加时，BSAS算法的效果也在逐渐优化。而加入了改进初始步长策略，橙线对应的结果也要优于蓝色线条的。总体来说，该算法在BAS和BSAS的情况下都是凑效。
+
+\subsection{总结}\label{-2}
+
+从上述测试的结果可以看到，在优化问题维度提高时，按照原有经验选择的初始步长，可能会导致算法效果不佳。
+
+当然，大家可以还是按照原来的经验，即根据参数范围来估计一个初始步长。只要记得最后在高维问题时乘以对应的
+\(\sqrt{n}\)即可。这样算法在高维下会体现出更优的性能。
+
+\section{技巧2：判断迭代终止时算法收敛状况}\label{2}
+
+李老师指出目前可能存在三种比较常见的迭代终止原因。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  算法陷入局部极值
+\item
+  步长太小，天牛走不动，但是并未达到局部极值
+\item
+  天牛走得动，并非局部极值，但是迭代次数已到，终止了迭代
+\end{enumerate}
+
+对结果进行相应的判断，并做出对策，有利于做出进一步地参数优化，甚至是算法改进。
+
+如，如果属于情况1，可以尝试在原来的优化基础上，重新给定大的步长，帮助算法跳出当前的局部极值，达到更优的局部极值；情况2，也可以通过给定合适的步长大小来改善；情况3，可以考虑增加迭代次数。
+
+同样地，我们采用两个测试函数来解释上述的情况，并验证对应方案的效果。
+
+\subsection{实验1}\label{1}
+
+实验1利用简单的测试函数，来对比BAS和BSAS在高维问题下的结果，以及出现问题的原因（\textbf{属于三种情况的哪一种}），来给出改进或者调试的思路。
+
+测试函数如式\eqref{eq:testPT}所示。该函数在\(x_i = 0\)处取得全局最优。
+
+\subsubsection{BAS算法}\label{bas}
+
+利用BAS搜索目标函数的最优值，设置迭代次数为200，维度为10。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list =} \KeywordTok{ls}\NormalTok{())}
+\KeywordTok{library}\NormalTok{(rBAS)}
+\KeywordTok{library}\NormalTok{(numDeriv)}
+
+\NormalTok{obj <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{sum}\NormalTok{(x}\OperatorTok{^}\DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+
+\NormalTok{BASn <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n,dims,}\DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,m))\{}
+\NormalTok{  m <-}\StringTok{ }\NormalTok{dims}
+\NormalTok{  fit_BAS <-}\StringTok{ }\KeywordTok{BASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ obj,}
+                      \DataTypeTok{init =}\NormalTok{ init,}
+                      \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,m),}
+                      \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{,m),}
+                      \DataTypeTok{trace =}\NormalTok{ F,}
+                      \DataTypeTok{d1 =} \DecValTok{1}\NormalTok{,}
+                      \DataTypeTok{step =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =}\NormalTok{ n,}
+                      \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
+  \KeywordTok{return}\NormalTok{(fit_BAS)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit1 <-}\StringTok{ }\KeywordTok{BASn}\NormalTok{(}\DataTypeTok{n =} \DecValTok{200}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{10}\NormalTok{)}
+\NormalTok{fit1}\OperatorTok{$}\NormalTok{par;fit1}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1.25580526  0.23166118  0.71917160 -0.42806595  1.12091543
+##  [6]  1.62701181  1.18880886  0.58474173  0.09426773  0.62736667
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 8.392446
+\end{verbatim}
+
+可以看到，在200次迭代之后，天牛所处的位置并没有接近最优值，即
+\(x = 0\)，其中的部分元素接近于0。最后的函数值是8.4。
+
+此时的步长如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit1}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0001108463
+\end{verbatim}
+
+为1e-4，这表明此时的\textbf{步长偏小}，\textbf{天牛所处的位置与最优点的距离}为步长量级的\(10^4\)倍。因此，本实验属于上述的情况2，\textbf{步长太小，走不动}。
+
+此种情况可以通过在\textbf{上回合的优化结果下，重新给定合适的大步长}来得到更优的结果。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit2 <-}\StringTok{ }\KeywordTok{BASn}\NormalTok{(}\DataTypeTok{n =} \DecValTok{200}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{10}\NormalTok{,}\DataTypeTok{init =}\NormalTok{ fit1}\OperatorTok{$}\NormalTok{par)}
+\NormalTok{fit2}\OperatorTok{$}\NormalTok{par;fit2}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  0.034425449  0.011889588  0.021235726  0.017903444  0.041177485
+##  [6] -0.023956800  0.008979989  0.005722928  0.024887352 -0.001700370
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.00510314
+\end{verbatim}
+
+可以看到，此时的函数值已经十分接近于最优值，方法凑效。
+
+此时的步长如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit2}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0001108463
+\end{verbatim}
+
+由于步长和优化的坐标之间仍然存在量级的差距，还是表明在这个位置，\textbf{哪怕每次都是朝着最优位置走，天牛也迈不开步子}，我们可以再次使用重新给定步长的手段。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit3 <-}\StringTok{ }\KeywordTok{BASn}\NormalTok{(}\DataTypeTok{n =} \DecValTok{200}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{10}\NormalTok{,}\DataTypeTok{init =}\NormalTok{ fit2}\OperatorTok{$}\NormalTok{par)}
+\NormalTok{fit3}\OperatorTok{$}\NormalTok{par;fit3}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -0.0011431003 -0.0031872963 -0.0039303321  0.0020186072  0.0021288149
+##  [6]  0.0001232545 -0.0019088662 -0.0037557675  0.0003802965 -0.0010499301
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 5.45314e-05
+\end{verbatim}
+
+可以看到，优化结果更加接近于最优值。
+
+此时的步长如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit3}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0001108463
+\end{verbatim}
+
+为了方便起见，同时列出三次寻优的结果
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit1}\OperatorTok{$}\NormalTok{value;fit2}\OperatorTok{$}\NormalTok{value;fit3}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.392446
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.00510314
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 5.45314e-05
+\end{verbatim}
+
+结果不断地接近最优值。这表明在上述情况2出现时，在现有的结果上，重新给定大的步长，然后再次寻优是凑效的。也就是，需要重新让天牛能走起来。当然，方法本身也不可能每次都凑效，此时需要大家在调试成本和结果优化之间寻求一个平衡。
+
+\subsubsection{BSAS算法}\label{bsas}
+
+BAS问题的关键在于步长的衰减没有反馈机制，不管结果好坏，步长都会衰减。尝试使用BSAS算法进行寻优，结果如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BSASn <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n,dims,k)\{}
+\NormalTok{  m <-}\StringTok{ }\NormalTok{dims}
+\NormalTok{  fit_BSAS <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ obj,}
+                        \DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,m),}
+                        \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,m),}
+                        \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{,m),}
+                        \DataTypeTok{trace =}\NormalTok{ F,}
+                        \DataTypeTok{k =}\NormalTok{ k,}
+                        \DataTypeTok{step =} \DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m),}
+                        \DataTypeTok{d1 =} \DecValTok{1}\NormalTok{,}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =}\NormalTok{ n,}
+                        \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
+  \KeywordTok{return}\NormalTok{(fit_BSAS)}
+\NormalTok{\}}
+
+\NormalTok{fit_BSAS1 <-}\StringTok{ }\KeywordTok{BSASn}\NormalTok{(}\DataTypeTok{n =} \DecValTok{200}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{10}\NormalTok{,}\DataTypeTok{k =} \DecValTok{1}\NormalTok{)}
+
+\NormalTok{fit_BSAS1}\OperatorTok{$}\NormalTok{par;fit_BSAS1}\OperatorTok{$}\NormalTok{value;fit_BSAS1}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -0.0004297315 -0.0093523824  0.0077216584  0.0016681671  0.0032866863
+##  [6] -0.0128492187  0.0085156508 -0.0104277522 -0.0030415481  0.0228343806
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.001037878
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.01872236
+\end{verbatim}
+
+可以看到BSAS算法的结果是
+0.001，比BAS算法进行了一次重新设定步长后的结果更优。猜测是因为步长反馈调节策略使得步长衰减得更合理所致。
+
+由于此时的步长是0.019，稍大于天牛所在位置的元素。因此，认为\textbf{属于情况3，即由于迭代次数不够，导致没能到达最优（局部最优）位置}。所以，加大迭代次数来看效果。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit_BSAS2 <-}\StringTok{ }\KeywordTok{BSASn}\NormalTok{(}\DataTypeTok{n =} \DecValTok{500}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{10}\NormalTok{,}\DataTypeTok{k =} \DecValTok{1}\NormalTok{)}
+
+\NormalTok{fit_BSAS2}\OperatorTok{$}\NormalTok{par;fit_BSAS2}\OperatorTok{$}\NormalTok{value;fit_BSAS2}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -1.610736e-06  2.899101e-07 -4.068405e-08 -2.802695e-07 -1.098365e-06
+##  [6] -6.222215e-08  8.150385e-07 -7.817550e-07 -1.019755e-06  1.515487e-06
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 8.581032e-12
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 2.135201e-06
+\end{verbatim}
+
+可以看到，在迭代次数为500时，结果更优，为\(8.58*10^{-12}\)。而步长\(2.14*10^-6\)仍然是和位置的元素量级保持一致。因此，推测可以继续加大迭代次数来获得更优的结果。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit_BSAS3 <-}\StringTok{ }\KeywordTok{BSASn}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1000}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{10}\NormalTok{,}\DataTypeTok{k =} \DecValTok{1}\NormalTok{)}
+
+\NormalTok{fit_BSAS3}\OperatorTok{$}\NormalTok{par;fit_BSAS3}\OperatorTok{$}\NormalTok{value;fit_BSAS3}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -3.785371e-13 -1.806485e-13  2.075196e-13 -3.060651e-13  3.156182e-14
+##  [6] -6.596821e-14  1.428151e-13 -1.098809e-13  9.320642e-14 -1.186302e-13
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 3.732429e-25
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 4.664409e-13
+\end{verbatim}
+
+可以看到，随着迭代次数的提升，结果不断优化。当前条件下的目标函数值为\(3.73*10^{-25}\)。
+
+方便起见，列出三次实验结果。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit_BSAS1}\OperatorTok{$}\NormalTok{value;fit_BSAS2}\OperatorTok{$}\NormalTok{value;fit_BSAS3}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.001037878
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 8.581032e-12
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 3.732429e-25
+\end{verbatim}
+
+\subsubsection{总结}\label{-3}
+
+对于测试函数 \(f = \sum x_i^2\)，
+
+\begin{itemize}
+\tightlist
+\item
+  BAS出现\textbf{情况2}，即步长太小，导致天牛走不动。这是由于BAS的步长衰减策略造成的。保持上一次的优化结果（作为下次优化的初始值），重新设定大的步长可以解决此类问题。
+\item
+  BSAS出现\textbf{情况3}，即步长是能让天牛走动的，但迭代次数终止了算法。这是因为BSAS的步长是根据结果反馈来调节的，不至于衰减得太小导致天牛走不动。对于此类情况，延迟迭代次数的调差方法可以提高结果。
+\end{itemize}
+
+一般的情况是，如果算法求得的位置，其中的元素大小远超步长大小，那么应该是属于情况2，要考虑重新设定步长。如果元素大小和步长大小量级相仿，则可以考虑增加迭代步长。
+
+\subsection{实验2}\label{2}
+
+实验2
+利用存在较多局部最优的函数，来对比BAS和BSAS的结果，试图找出问题出现的原因，以及对应的改进思路。
+
+\subsubsection{测试函数}\label{-1}
+
+\begin{equation}
+f=10*m - \sum_i^m (x_i^2-10*cos(2\pi x_i)) \quad x_i\in[-5.12,5.12]
+\label{eq:RastPT}
+\end{equation}
+
+测试函数在 \(x_i = 0\) 处取得最优值 \(f = 0\) 。
+
+图\ref{fig:Rast}为测试函数2维时的取值分布。从中可以看到，等值线在接近
+\(x = (0,0)\)时颜色加深，表明接近最小值。
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth,height=0.4\textheight]{img/Rast} 
+
+}
+
+\caption{Fig.1 Rastrigin function}\label{fig:Rast}
+\end{figure}
+
+\subsubsection{BAS算法}\label{bas-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Rast <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  y <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\DecValTok{10}\OperatorTok{*}\KeywordTok{cos}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{pi}\OperatorTok{*}\NormalTok{x))}
+  \KeywordTok{return}\NormalTok{(}\DecValTok{10}\OperatorTok{*}\KeywordTok{length}\NormalTok{(x) }\OperatorTok{+}\StringTok{ }\NormalTok{y)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BAS_Rast_n <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n,dims,}\DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,dims),}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)\{}
+\NormalTok{  m <-}\StringTok{ }\NormalTok{dims}
+\NormalTok{  fit_BAS <-}\StringTok{ }\KeywordTok{BASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ Rast,}
+                      \DataTypeTok{init =}\NormalTok{ init,}
+                      \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{trace =}\NormalTok{ F,}
+                      \DataTypeTok{d1 =} \DecValTok{1}\NormalTok{,}
+                      \DataTypeTok{step =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =}\NormalTok{ n,}
+                      \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =}\NormalTok{ seed)}
+  \KeywordTok{return}\NormalTok{(fit_BAS)}
+\NormalTok{\}}
+\NormalTok{fit_Rast <-}\StringTok{ }\KeywordTok{BAS_Rast_n}\NormalTok{(}\DataTypeTok{n =} \DecValTok{200}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{5}\NormalTok{)}
+\NormalTok{fit_Rast}\OperatorTok{$}\NormalTok{par; fit_Rast}\OperatorTok{$}\NormalTok{value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -1.869276e-05 -9.950173e-01  1.989897e+00  4.974418e+00  1.989810e+00
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 33.82836
+\end{verbatim}
+
+结果与\((0,0,0,0,0)\)还是存在较大的差距。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit_Rast}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7.838014e-05
+\end{verbatim}
+
+此时的步长为 \(7.8*10^{-5}\)，天牛也存在走不动的现象。此处的梯度为
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grad}\NormalTok{(Rast,fit_Rast}\OperatorTok{$}\NormalTok{par)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.007423366 -0.023255606 -0.006154134 -0.106994981 -0.040438609
+\end{verbatim}
+
+从梯度接近于0来看，应该是陷入了局部最小值，也就是属于情况1。我们再给定一个大的步长，重新搜索。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit_Rast <-}\StringTok{ }\KeywordTok{BAS_Rast_n}\NormalTok{(}\DataTypeTok{n =} \DecValTok{200}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{5}\NormalTok{, }
+                       \DataTypeTok{init =}\NormalTok{ fit_Rast}\OperatorTok{$}\NormalTok{par,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)}
+\NormalTok{fit_Rast}\OperatorTok{$}\NormalTok{par; fit_Rast}\OperatorTok{$}\NormalTok{value;fit_Rast}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -1.9898668 -0.9949566 -0.9950607  1.9898565  0.9949586
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 10.94454
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 7.838014e-05
+\end{verbatim}
+
+可以得知，结果进一步提升。此时的梯度是
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grad}\NormalTok{(Rast,fit_Rast}\OperatorTok{$}\NormalTok{par)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.0180051671  0.0007939765 -0.0404656270 -0.0220834035 -0.0000156832
+\end{verbatim}
+
+同样，梯度十分接近于0，表明此处是一个局部最小值。即对于情况1，重新使用大的步长也能改善优化结果，有助于找到一个更优的局部最小值。\textbf{换一个初始步长，可能会导致策略失效，即这样的策略也需要辅以调差}。感兴趣的同学可以自行调节代码。
+
+\subsubsection{BSAS算法}\label{bsas-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{BSAS_Rast_n <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n,dims,}\DataTypeTok{k =} \DecValTok{1}\NormalTok{,}\DataTypeTok{init =} \KeywordTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,dims),}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{)\{}
+\NormalTok{  m <-}\StringTok{ }\NormalTok{dims}
+\NormalTok{  fit_BSAS <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ Rast,}
+                        \DataTypeTok{init =}\NormalTok{ init,}
+                        \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,m),}
+                        \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\FloatTok{5.12}\NormalTok{,m),}
+                        \DataTypeTok{trace =}\NormalTok{ F,}
+                        \DataTypeTok{d1 =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}
+                        \DataTypeTok{k =}\NormalTok{ k,}
+                        \DataTypeTok{step =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =}\NormalTok{ n,}
+                        \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =}\NormalTok{ seed)}
+  \KeywordTok{return}\NormalTok{(fit_BSAS)}
+\NormalTok{\}}
+
+\NormalTok{fit_Rast <-}\StringTok{ }\KeywordTok{BSAS_Rast_n}\NormalTok{(}\DataTypeTok{n =} \DecValTok{200}\NormalTok{,}\DataTypeTok{k =} \DecValTok{1}\NormalTok{, }\DataTypeTok{dims =} \DecValTok{5}\NormalTok{,}\DataTypeTok{seed =} \DecValTok{1}\NormalTok{) }\CommentTok{#2,2}
+\NormalTok{fit_Rast}\OperatorTok{$}\NormalTok{par; fit_Rast}\OperatorTok{$}\NormalTok{value;fit_Rast}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.984883 3.979838 1.989614 4.974257 2.984340
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 62.68211
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.00131646
+\end{verbatim}
+
+梯度如下
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grad}\NormalTok{(Rast,fit_Rast}\OperatorTok{$}\NormalTok{par)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.01066209  0.02145915 -0.11811262 -0.17008744 -0.20354255
+\end{verbatim}
+
+结果比BAS要差，且从梯度来看，算法已经达到了局部极值，属于情况1。
+
+此时沿用实验1中的结论，打算重新使用大的步长使其跳出局部极值。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m =}\StringTok{ }\DecValTok{5}
+\NormalTok{n =}\StringTok{ }\DecValTok{200}
+\NormalTok{k =}\StringTok{ }\DecValTok{1}
+\NormalTok{seed =}\DecValTok{1}
+\NormalTok{fit_Rast <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ Rast,}
+                      \DataTypeTok{init =}\NormalTok{ fit_Rast}\OperatorTok{$}\NormalTok{par,}
+                      \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{trace =}\NormalTok{ F,}
+                      \DataTypeTok{d1 =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}
+                      \DataTypeTok{k =}\NormalTok{ k,}
+                      \CommentTok{#p_step = 0.8,}
+                      \DataTypeTok{step =} \DecValTok{3}\NormalTok{,}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =}\NormalTok{ n,}
+                      \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =}\NormalTok{ seed)}
+\NormalTok{fit_Rast}\OperatorTok{$}\NormalTok{par; fit_Rast}\OperatorTok{$}\NormalTok{value;fit_Rast}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.984560 3.979510 1.989868 4.974568 2.984608
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 62.68205
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.0006664883
+\end{verbatim}
+
+从结果看来，并未有改善。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grad}\NormalTok{(Rast,fit_Rast}\OperatorTok{$}\NormalTok{par)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.11667250 -0.10781782 -0.01768515 -0.04851506 -0.09778878
+\end{verbatim}
+
+从梯度看，算法仍然处于陷入了局部最优
+
+\subsubsection{BSAS步长更新概率}\label{bsas}
+
+还是考虑从步长着手，设置\(p_{step}\)参数为0.8，即有0.8的概率，哪怕找不到更优的位置，天牛也有0.8的概率会保持当前的步长继续搜索。\textbf{尽管BSAS是根据结果反馈来调节步长的，在局部极值过多的情况下，找不到更优值，也会使得BSAS的步长一直衰减}。
+
+可以会有同学担心，如果\(p_{step}\)过大，又找不到更优位置，步长一直不更新怎么办。由于BSAS算法中有\(n_{flag}\)参数来限制步长不更新的次数，因此不会出现找不到更优解一直保持原步长的现象。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n =}\StringTok{ }\DecValTok{400}
+\NormalTok{fit_Rast <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ Rast,}
+                      \DataTypeTok{init =}\NormalTok{ fit_Rast}\OperatorTok{$}\NormalTok{par,}
+                      \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{trace =}\NormalTok{ F,}
+                      \DataTypeTok{d1 =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}
+                      \DataTypeTok{k =}\NormalTok{ k,}
+                      \DataTypeTok{p_step =} \FloatTok{0.8}\NormalTok{,}
+                      \DataTypeTok{step =} \DecValTok{3}\NormalTok{,}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =}\NormalTok{ n,}
+                      \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =}\NormalTok{ seed)}
+\NormalTok{fit_Rast}\OperatorTok{$}\NormalTok{par; fit_Rast}\OperatorTok{$}\NormalTok{value;fit_Rast}\OperatorTok{$}\NormalTok{step}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9.956177e-01 2.985797e+00 3.578282e-05 1.989544e+00 2.983359e+00
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 22.88472
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.003268592
+\end{verbatim}
+
+可以看到，结果存在较大的提升。
+
+\subsubsection{天牛数}
+
+此外，由于测试函数的局部极小值过多，尝试在每回合多派天牛出去探索。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{k =}\StringTok{ }\DecValTok{12}
+\NormalTok{n =}\StringTok{ }\DecValTok{400}
+\NormalTok{seed =}\DecValTok{1}
+\NormalTok{fit_Rast <-}\StringTok{ }\KeywordTok{BSASoptim}\NormalTok{(}\DataTypeTok{fn =}\NormalTok{ Rast,}
+                      \DataTypeTok{init =}\NormalTok{ fit_Rast}\OperatorTok{$}\NormalTok{par,}
+                      \DataTypeTok{lower =} \KeywordTok{rep}\NormalTok{(}\OperatorTok{-}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{upper =} \KeywordTok{rep}\NormalTok{(}\FloatTok{5.12}\NormalTok{,m),}
+                      \DataTypeTok{trace =}\NormalTok{ F,}
+                      \DataTypeTok{d1 =}\NormalTok{ (}\DecValTok{1}\OperatorTok{*}\KeywordTok{sqrt}\NormalTok{(m)),}
+                      \DataTypeTok{k =}\NormalTok{ k,}
+                      \DataTypeTok{step =} \DecValTok{3}\NormalTok{,}\DataTypeTok{eta_d =} \FloatTok{0.98}\NormalTok{,}\DataTypeTok{n =}\NormalTok{ n,}
+                      \DataTypeTok{steptol =}\NormalTok{ .Machine}\OperatorTok{$}\NormalTok{double.eps,}\DataTypeTok{seed =}\NormalTok{ seed)}
+\NormalTok{fit_Rast}\OperatorTok{$}\NormalTok{value;fit_Rast}\OperatorTok{$}\NormalTok{par}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.969749
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  9.632584e-07  1.989909e+00 -2.924944e-06  9.949562e-01  9.949555e-01
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grad}\NormalTok{(Rast,fit_Rast}\OperatorTok{$}\NormalTok{par)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.0003822056 -0.0014643535 -0.0011605715 -0.0009625320 -0.0012620304
+\end{verbatim}
+
+效果也得到了改善，从梯度上看，达到了新的局部最小值。
+
+\subsubsection{总结}\label{-4}
+
+\begin{itemize}
+\item
+  此前提出的改善方法（主要集中在步长的策略），在复杂的测试函数下，仍然适用。
+\item
+  在局部最小值较多的复杂测试函数下，\textbf{步长不能轻易衰减}。BSAS算法在提高了步长不衰减的概率参数后效果出现了提高。而没有设置该参数的情况下，步长很容易衰减到很小（因为BSAS的逻辑是\textbf{效果不改善就减小步长}），导致无法跳出局部最小。
+\item
+  在进入局部最小值后，\textbf{提高天牛数目}和\textbf{给定大的步长}重新寻优策略结合使用，可以使得效果进一步提高。
+\end{itemize}
+
+总的来说，这些技巧都是希望大家能重新审视优化过程中步长的变化策略。大家也可以根据不同的问题，自己指定一些步长的衰减策略。
+
+有意思的是，BSAS在\(k=1\)时，其实就是\textbf{步长根据结果反馈调节}的BAS。也就是，\textbf{下一步找得到更优的位置，天牛就保持当前步长，继续寻优；反之，则步长衰减}。尽管有很多参数限制BSAS不要过于贪婪，但遇到复杂的优化问题时（如实验2），找不到更优位置，BSAS的步长也如同BAS一样，一直衰减。
+
+而对\(p_{step}\)参数的调节，更像是对不同的问题，给出的不同的步长衰减策略。因此，大家不必局限于BSAS算法，完全可以在BAS算法和自己的问题基础上，改进适合自己的步长调节策略。
+
+最后，\texttt{rBAS}的下一次更新，\textbf{将包含对算法的结果做出判断，并给出可能的参数改进建议的功能}。判断依据和改进建议来自于上面的实验。
+
 \chapter{更新及维护计划}\label{updates}
+
+\section{工具箱}
+
+计划开发BAS算法的\texttt{Matlab}工具箱。
 
 \section{待加入的功能}
 
@@ -4433,7 +4618,7 @@ Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
 \item
   \sout{加入\texttt{BSAS-WPT}}
 \item
-  加入\texttt{binary\ BAS} (阮月)
+  \sout{加入\texttt{binary\ BAS}} (阮月)
 \item
   \sout{加入二阶 \texttt{BAS}} (李晓晓)
 \item
@@ -4456,11 +4641,9 @@ Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
   \item
     \sout{龙门起重机摆角优化}(李晓晓)
   \item
-    建筑系统阻容模型辨识
-  \item
     装配路径规划
   \item
-    批量问题(binary BAS)
+    \sout{批量问题(binary BAS)}(阮月)
   \item
     \ldots{}
   \end{itemize}

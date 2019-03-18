@@ -41,9 +41,9 @@ rmd_files: ["index.Rmd","00-author.Rmd","01-install.Rmd","02-algorithm.Rmd","02-
 
 - 第 \@ref(python) 章主要介绍吴会欢同学提供的python接口，目前有基本的BAS，以及三个测试函数，后续会持续更新。
 
-- 第 \@ref(matlabr) 章中主要介绍了两种方法供matlab用户来使用rBAS package。当然，未来可能会出现matlab中R的接口，或者是BAS toolbox，到时候此章无用。如果你发现了**更便捷的方法**，来实现两者的通讯，还请[提出建议](https://github.com/jywang2016/rBAS_documents/issues)。
-
 - 第 \@ref(paper) 章用于收录基于BAS及相关算法的工具箱，软件或者文献等等。
+
+- 第 \@ref(parsTuning) 章会记录一些BAS算法的调参经验，或者存在不足的原因及后续的改进方向。
 
 - 第 \@ref(updates) 章讲述了`rBAS`包的**开发和使用手册更新的计划**。因为算法总是会不断地推陈出新，所以`rBAS`包也必须和目前的研究保持一致。如果你有好的想法，可以看此章的内容，然后把自己的建议传达给我们。
 

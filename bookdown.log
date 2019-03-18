@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.2.14)  14 MAR 2019 22:34
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.2.14)  18 MAR 2019 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -901,6 +901,33 @@ LaTeX Warning: Label `-1' multiply defined.
 
 LaTeX Warning: Label `-1' multiply defined.
 
+
+LaTeX Warning: Label `bas' multiply defined.
+
+
+LaTeX Warning: Label `bas' multiply defined.
+
+
+LaTeX Warning: Label `bsas' multiply defined.
+
+
+LaTeX Warning: Label `1' multiply defined.
+
+
+LaTeX Warning: Label `bas' multiply defined.
+
+
+LaTeX Warning: Label `bsas' multiply defined.
+
+
+LaTeX Warning: Label `2' multiply defined.
+
+
+LaTeX Warning: Label `-1' multiply defined.
+
+
+LaTeX Warning: Label `bsas' multiply defined.
+
 )
 \openout1 = `bookdown.aux'.
 
@@ -1033,10 +1060,7 @@ LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10.53937> not avail
 able
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
 69.
-[4]
-Underfull \vbox (badness 2073) has occurred while \output is active []
-
-[5])
+[4] [5])
 \tf@toc=\write6
 \openout6 = `bookdown.toc'.
 
@@ -1056,10 +1080,6 @@ Underfull \vbox (badness 1199) has occurred while \output is active []
 \openout8 = `bookdown.lof'.
 
 [10]
-
-Package natbib Warning: Citation `R-rBAS' on page 1 undefined on input line 195
-.
-
 
 Package fontspec Info: FangSong scale = 0.9764237428784157.
 
@@ -1098,18 +1118,10 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.53937> not available
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.52812> on input line 227.
-
-Package natbib Warning: Citation `xie2015' on page 2 undefined on input line 25
-1.
-
-
-Package natbib Warning: Citation `R-bookdown' on page 2 undefined on input line
- 252.
-
+(Font)              <7.52812> on input line 248.
 [2]
 LaTeX Font Info:    Font shape `TU/FangSong(0)/m/n' will be
-(Font)              scaled to size 10.2909pt on input line 260.
+(Font)              scaled to size 10.2909pt on input line 259.
 [3] [4
 
 ] [5] [6
@@ -1132,14 +1144,14 @@ File: img/rBAS.png Graphic file (type bmp)
 <img/rBAS.png>
 
 LaTeX Font Warning: Font shape `TU/FangSong(0)/m/it' undefined
-(Font)              using `TU/FangSong(0)/m/n' instead on input line 399.
+(Font)              using `TU/FangSong(0)/m/n' instead on input line 398.
 
 [9] [10]
 第二章
 [11
 
 ] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 526--527
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
 \TU/lmtt/m/n/10.53937 Antennae Search Algorithm for Optimization Problems[][][]
 [][]\TU/SimSun(0)/m/n/10.53937 中，|  我
  []
@@ -1164,17 +1176,28 @@ Underfull \vbox (badness 2547) has occurred while \output is active []
 [29
 
 ]
+Underfull \hbox (badness 7888) in paragraph at lines 1092--1095
+[]\TU/lmr/m/n/10.53937 l0/l1/eta_l \TU/SimSun(0)/m/n/10.53937 这 一 系 列 关 于 $\OML
+/lmm/m/it/10.53937 l$ \TU/SimSun(0)/m/n/10.53937 的 参 数，|  来 源 于 \TU/lmr/bx/n/10
+.53937 BAS[]
+ []
 
-Package natbib Warning: Citation `Jiang2017BAS' on page 30 undefined on input l
-ine 1094.
+
+Underfull \hbox (badness 2846) in paragraph at lines 1092--1095
+\TU/lmr/m/n/10.53937 ([][]Jiang Xiangyuan[][], [][]2017a[][]) \TU/SimSun(0)/m/n
+/10.53937 论 文 中 给 出 的 \TU/lmtt/m/n/10.53937 matlab \TU/SimSun(0)/m/n/10.53937 代
+ 码。|
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 1092--1095
+\TU/SimSun(0)/m/n/10.53937 其 作 用 在 于 每 回 合 位 置 更 新 时，|  产 生 一 个 \TU/SimSun(0)/b
+x/n/10.53937 随 机 抖 动$\OML/lmm/m/it/10.53937 x \OT1/lmr/m/n/10.53937 =
+ []
 
 [30]
 
-LaTeX Warning: Command \d invalid in math mode on input line 1134.
-
-
-Package natbib Warning: Citation `Jiang2017BAS' on page 31 undefined on input l
-ine 1149.
+LaTeX Warning: Command \d invalid in math mode on input line 1133.
 
 [31]
 File: img/mich.png Graphic file (type bmp)
@@ -1182,152 +1205,130 @@ File: img/mich.png Graphic file (type bmp)
 [32]
 File: img/gold.png Graphic file (type bmp)
 <img/gold.png>
-[33] [34] [35] [36] [37] [38]
-
-Package natbib Warning: Citation `Wang2018BSAS' on page 39 undefined on input l
-ine 1437.
-
-[39]
-
-Package natbib Warning: Citation `Jiangwpt' on page 40 undefined on input line 
-1477.
-
-[40] [41]
-
-Package natbib Warning: Citation `Jiangwpt' on page 42 undefined on input line 
-1561.
-
-
-Package natbib Warning: Citation `Jiangwpt' on page 42 undefined on input line 
-1563.
+[33] [34] [35] [36] [37] [38] [39] [40] [41]
+Overfull \hbox (11.47252pt too wide) in paragraph at lines 1562--1563
+[]\TU/SimSun(0)/m/n/10.53937 好 在，|  改 进 后 的 \TU/lmtt/m/n/10.53937 BSAS-WPT \TU/
+SimSun(0)/m/n/10.53937 能 够 比 较 好 地 得 到 不 逊 于 \TU/lmr/bx/n/10.53937 BAS-WPT[]\TU
+/lmr/m/n/10.53937 ([][]Jiang Xi-
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [42] [43]
-Overfull \vbox (2.1031pt too high) detected at line 1644
+Overfull \vbox (2.1031pt too high) detected at line 1643
  []
 
-[44]
-
-Package natbib Warning: Citation `Jiangwpt' on page 45 undefined on input line 
-1660.
-
-[45] [46] [47]
+[44] [45] [46] [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [48] [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[50]
-
-Package natbib Warning: Citation `Wang2018BSO' on page 51 undefined on input li
-ne 1887.
-
-[51] [52] [53]
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+[50] [51] [52] [53]
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 20 xbest = [ -3.651663 1.607843 ], fbest = -0.
 9949117[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 40 xbest = [ -4.581213 1.568627 ], fbest = -0.
 9998098[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 60 xbest = [ -4.581213 1.568627 ], fbest = -0.
 9998098[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 80 xbest = [ -4.581213 1.568627 ], fbest = -0.
 9998098[] 
  []
 
 
-Overfull \hbox (7.47137pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (7.47137pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 100 xbest = [ -3.78865 1.458824 ], fbest = -1.
 111469[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 120 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 140 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 160 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 180 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 200 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 220 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 240 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 260 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 280 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 300 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 320 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 340 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 360 xbest = [ -3.798434 1.537255 ], fbest = -1
 .485165[] 
  []
@@ -1336,83 +1337,83 @@ Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
 Underfull \vbox (badness 2269) has occurred while \output is active []
 
 [54]
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 620 xbest = [ -4.972603 1.537255 ], fbest = -1
 .919954[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 640 xbest = [ -4.972603 1.537255 ], fbest = -1
 .919954[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 660 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 680 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 700 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 720 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 740 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 760 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 780 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 
-Overfull \hbox (13.00453pt too wide) in paragraph at lines 2056--2056
+Overfull \hbox (13.00453pt too wide) in paragraph at lines 2055--2055
 []\TU/lmtt/m/n/10.53937 ## Iters 800 xbest = [ -4.972603 1.568627 ], fbest = -1
 .963422[] 
  []
 
 [55]
-Underfull \vbox (badness 10000) detected at line 2123
+Underfull \vbox (badness 10000) detected at line 2122
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2123
+Underfull \vbox (badness 10000) detected at line 2122
  []
 
 [56] [57] [58]
 第五章
 
-Underfull \hbox (badness 1097) in paragraph at lines 2207--2208
+Underfull \hbox (badness 1097) in paragraph at lines 2206--2207
 \TU/SimSun(0)/m/n/10.53937 使 用 \TU/lmtt/m/n/10.53937 help(run_BAS_App) \TU/SimS
 un(0)/m/n/10.53937 语 句 来 看 可 选 的 主 题 样 式 都 有 哪 些，|
  []
 
 
-Underfull \hbox (badness 2158) in paragraph at lines 2207--2208
+Underfull \hbox (badness 2158) in paragraph at lines 2206--2207
 \TU/SimSun(0)/m/n/10.53937 如 \TU/lmtt/m/n/10.53937 superhero\TU/lmr/m/n/10.5393
 7 ,\TU/lmtt/m/n/10.53937 cosmo\TU/lmr/m/n/10.53937 ,\TU/lmtt/m/n/10.53937 paper
 \TU/lmr/m/n/10.53937 ,\TU/lmtt/m/n/10.53937 journal \TU/SimSun(0)/m/n/10.53937 
@@ -1431,19 +1432,19 @@ File: img/app3.png Graphic file (type bmp)
 File: img/app4.png Graphic file (type bmp)
 <img/app4.png>
 [60] [61]
-Underfull \vbox (badness 10000) detected at line 2318
+Underfull \vbox (badness 10000) detected at line 2317
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2318
+Underfull \vbox (badness 10000) detected at line 2317
  []
 
 [62]
-Underfull \vbox (badness 10000) detected at line 2318
+Underfull \vbox (badness 10000) detected at line 2317
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2318
+Underfull \vbox (badness 10000) detected at line 2317
  []
 
 [63] [64]
@@ -1471,25 +1472,25 @@ File: img/bars6.png Graphic file (type bmp)
 <img/bars6.png>
 [70] [71] [72] [73]
 
-LaTeX Warning: Reference `fig:case1gif' on page 74 undefined on input line 2614
+LaTeX Warning: Reference `fig:case1gif' on page 74 undefined on input line 2613
 .
 
 [74]
 File: img/case1png.png Graphic file (type bmp)
 <img/case1png.png>
 
-Overfull \hbox (13.58302pt too wide) in paragraph at lines 2633--2658
+Overfull \hbox (13.58302pt too wide) in paragraph at lines 2632--2657
  [][] 
  []
 
 
-Overfull \hbox (3.00974pt too wide) detected at line 2674
+Overfull \hbox (3.00974pt too wide) detected at line 2673
 []
  []
 
 [75]
 
-LaTeX Warning: Reference `fig:case2gif' on page 76 undefined on input line 2683
+LaTeX Warning: Reference `fig:case2gif' on page 76 undefined on input line 2682
 .
 
 File: img/case2png.png Graphic file (type bmp)
@@ -1499,51 +1500,51 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [76] [77]
 
-LaTeX Warning: Reference `fig:case3gif' on page 78 undefined on input line 2745
+LaTeX Warning: Reference `fig:case3gif' on page 78 undefined on input line 2744
 .
 
 File: img/case3png.png Graphic file (type bmp)
 <img/case3png.png>
 
-Overfull \hbox (27.0542pt too wide) in paragraph at lines 2764--2783
+Overfull \hbox (27.0542pt too wide) in paragraph at lines 2763--2782
  [][] 
  []
 
 [78]
-Overfull \hbox (63.31853pt too wide) detected at line 2800
+Overfull \hbox (63.31853pt too wide) detected at line 2799
 []
  []
 
 
-LaTeX Warning: Reference `fig:case4gif' on page 79 undefined on input line 2809
+LaTeX Warning: Reference `fig:case4gif' on page 79 undefined on input line 2808
 .
 
 File: img/case4png.png Graphic file (type bmp)
 <img/case4png.png>
 [79]
-Overfull \hbox (34.65123pt too wide) in paragraph at lines 2828--2845
+Overfull \hbox (34.65123pt too wide) in paragraph at lines 2827--2844
  [][] 
  []
 
 [80]
-Overfull \hbox (29.35814pt too wide) detected at line 2862
+Overfull \hbox (29.35814pt too wide) detected at line 2861
 []
  []
 
 
-LaTeX Warning: Reference `fig:case5gif' on page 81 undefined on input line 2871
+LaTeX Warning: Reference `fig:case5gif' on page 81 undefined on input line 2870
 .
 
 File: img/case5png.png Graphic file (type bmp)
 <img/case5png.png>
 
-Overfull \hbox (68.9209pt too wide) in paragraph at lines 2890--2919
+Overfull \hbox (68.9209pt too wide) in paragraph at lines 2889--2918
  [][] 
  []
 
 [81] [82]
 
-LaTeX Warning: Reference `fig:case6gif' on page 83 undefined on input line 2966
+LaTeX Warning: Reference `fig:case6gif' on page 83 undefined on input line 2965
 .
 
 File: img/case6png.png Graphic file (type bmp)
@@ -1551,18 +1552,18 @@ File: img/case6png.png Graphic file (type bmp)
 File: img/case6png2.png Graphic file (type bmp)
 <img/case6png2.png>
 
-Overfull \hbox (94.10478pt too wide) in paragraph at lines 2995--3020
+Overfull \hbox (94.10478pt too wide) in paragraph at lines 2994--3019
  [][] 
  []
 
 [83]
-Overfull \hbox (42.82526pt too wide) detected at line 3037
+Overfull \hbox (42.82526pt too wide) detected at line 3036
 []
  []
 
 [84]
 
-LaTeX Warning: Reference `fig:case7gif' on page 85 undefined on input line 3047
+LaTeX Warning: Reference `fig:case7gif' on page 85 undefined on input line 3046
 .
 
 [85]
@@ -1573,7 +1574,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [86]
 
-LaTeX Warning: Reference `fig:case8gif' on page 87 undefined on input line 3114
+LaTeX Warning: Reference `fig:case8gif' on page 87 undefined on input line 3113
 .
 
 File: img/case8png.png Graphic file (type bmp)
@@ -1590,7 +1591,7 @@ File: img/gc2.png Graphic file (type bmp)
 Underfull \vbox (badness 6691) has occurred while \output is active []
 
 [90]
-Underfull \hbox (badness 10000) in paragraph at lines 3240--3241
+Underfull \hbox (badness 10000) in paragraph at lines 3239--3240
 []\TU/SimSun(0)/m/n/10.53937 其 中，| $\OML/lmm/m/it/10.53937 n$ \TU/SimSun(0)/m/n
 /10.53937 表 示 系 统 的 自 由 度，| $\OMS/lmsy/m/n/10.53937 f\OML/lmm/m/it/10.53937 q[]
 ; []  ; q[]\OMS/lmsy/m/n/10.53937 g$ \TU/SimSun(0)/m/n/10.53937 表 示 广 义 坐 标 集 合
@@ -1600,11 +1601,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 3240--3241
 [91]
 
 LaTeX Warning: Reference `fig:example2fminconbob' on page 92 undefined on input
- line 3298.
+ line 3297.
 
 
 LaTeX Warning: Reference `fig:example2bastrace' on page 92 undefined on input l
-ine 3298.
+ine 3297.
 
 [92]
 File: img/ex2_1.png Graphic file (type bmp)
@@ -1627,13 +1628,13 @@ File: img/python2.png Graphic file (type bmp)
 File: img/python3.png Graphic file (type bmp)
 <img/python3.png>
 [98]
-Overfull \hbox (19.03299pt too wide) in paragraph at lines 3510--3511
+Overfull \hbox (19.03299pt too wide) in paragraph at lines 3509--3510
 []\TU/lmr/bx/n/10.53937 Solution[solution.variables|solution.objectives|solutio
 n.constraints] 
  []
 
 [99]
-Overfull \hbox (68.33614pt too wide) in paragraph at lines 3524--3524
+Overfull \hbox (68.33614pt too wide) in paragraph at lines 3523--3523
 []\TU/lmtt/m/n/10.53937 Solution[-0.0024583254426162517,-1.002363921850713|3.00
 26888420039026|0][] 
  []
@@ -1641,120 +1642,245 @@ Overfull \hbox (68.33614pt too wide) in paragraph at lines 3524--3524
 [100]
 第九章
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[101
-
-] [102] [103] [104] [105]
-File: img/mex.png Graphic file (type bmp)
-<img/mex.png>
-
-Underfull \hbox (badness 1067) in paragraph at lines 3779--3780
-[]\TU/SimSun(0)/m/n/10.53937 假 设 你 的 路 径 下 有 \TU/lmr/m/n/10.53937 2 \TU/SimSun(
-0)/m/n/10.53937 个 \TU/lmr/m/n/10.53937 M \TU/SimSun(0)/m/n/10.53937 文 件，|  一 个 
-是 我 们 之 前 所 说 的 测 试 函
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 3779--3780
-\TU/SimSun(0)/m/n/10.53937 数 \TU/lmtt/m/n/10.53937 test.m\TU/SimSun(0)/m/n/10.5
-3937 ，|  还 有 一 个 是 我 们 所 说 的，|  用 来 测 试 \TU/lmtt/m/n/10.53937 test \TU/SimSun(0
-)/m/n/10.53937 函 数 的 文 件
- []
-
-[106]
-File: img/coder1.png Graphic file (type bmp)
-<img/coder1.png>
-File: img/coder2.png Graphic file (type bmp)
-<img/coder2.png>
-File: img/coder3.png Graphic file (type bmp)
-<img/coder3.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 3833--3834
-[]\TU/SimSun(0)/m/n/10.53937 点 击 图[][]\TU/lmr/m/n/10.53937 9.4[][]\TU/SimSun(0)
-/m/n/10.53937 红 色 箭 头 所 指 处，|  并 选 中 \TU/lmtt/m/n/10.53937 test_main.m \TU/SimS
-un(0)/m/n/10.53937 文 件，|  点 击
- []
-
-
-Underfull \hbox (badness 7486) in paragraph at lines 3833--3834
-\TU/lmtt/m/n/10.53937 Autodefine Input types\TU/SimSun(0)/m/n/10.53937 ，|  可 以 
-看 到 如 图[][]\TU/lmr/m/n/10.53937 9.5[][]\TU/SimSun(0)/m/n/10.53937 的 界 面，|  接 下 
-来 就 是
- []
-
-File: img/coder4.png Graphic file (type bmp)
-<img/coder4.png>
-File: img/coder5.png Graphic file (type bmp)
-<img/coder5.png>
-File: img/coder6.png Graphic file (type bmp)
-<img/coder6.png>
-File: img/coder7.png Graphic file (type bmp)
-<img/coder7.png>
-[107] [108] [109] [110] [111] [112]
-Underfull \hbox (badness 1231) in paragraph at lines 3981--3982
-[]\TU/SimSun(0)/m/n/10.53937 接 下 来 我 们 看 看 另 外 两 个 例 子，|  也 就 是 \TU/lmtt/m/n/10
-.53937 Michalewicz function \TU/SimSun(0)/m/n/10.53937 和
- []
-
-[113] [114] [115] [116] [117] [118
-
-]
-第十章
-
-Underfull \hbox (badness 10000) in paragraph at lines 4197--4200
+Underfull \hbox (badness 10000) in paragraph at lines 3564--3567
 []\TU/lmr/m/n/10.53937 rBAS[][][][][] ; R \TU/SimSun(0)/m/n/10.53937 语 言 环 境 下 
 的 包。|  收 录 有 \TU/lmr/m/n/10.53937 BAS/BSAS/BAS-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4197--4200
+Underfull \hbox (badness 10000) in paragraph at lines 3564--3567
 \TU/lmr/m/n/10.53937 WPT/Second-Order-BAS/BSO \TU/SimSun(0)/m/n/10.53937 算 法，| 
  还 会 持 续 更 新。|  此 外，|
  []
 
-[119] [120]
-Underfull \hbox (badness 2671) in paragraph at lines 4305--4309
+[101
+
+] [102]
+Underfull \hbox (badness 2671) in paragraph at lines 3672--3676
 \TU/lmr/m/n/10.53937 algorithm for multi-objective energy management in micro-
  []
 
-[121]
+[103]
 Underfull \vbox (badness 1552) has occurred while \output is active []
 
-[122]
-Underfull \hbox (badness 4739) in paragraph at lines 4408--4410
+[104]
+Underfull \hbox (badness 4739) in paragraph at lines 3775--3777
 []\TU/SimSun(0)/m/n/10.53937 奇 异 值 分 解 和 天 牛 须 寻 优 算 法 的 灰 度 图 像 自 适 应 增 强 方 法
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4410--4412
+Underfull \hbox (badness 10000) in paragraph at lines 3777--3779
 []\TU/SimSun(0)/m/n/10.53937 基 于 天 牛 须 算 法 和 数 学 形 态 学 的 射 线 图 像 焊 缝 提 取 方 法
  []
 
-[123] [124
+[105] [106
+
+]
+第十章
+[107] [108]
+File: bookdown_files/figure-latex/unnamed-chunk-41-1.pdf Graphic file (type pdf
+)
+<use bookdown_files/figure-latex/unnamed-chunk-41-1.pdf>
+
+Overfull \hbox (31.29715pt too wide) in paragraph at lines 3891--3892
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[109] [110]
+File: bookdown_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf
+)
+<use bookdown_files/figure-latex/unnamed-chunk-43-1.pdf>
+
+Overfull \hbox (103.56697pt too wide) in paragraph at lines 3939--3940
+ [][] 
+ []
+
+[111]
+File: bookdown_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf
+)
+<use bookdown_files/figure-latex/unnamed-chunk-44-1.pdf>
+
+Overfull \hbox (103.56697pt too wide) in paragraph at lines 3950--3951
+ [][] 
+ []
+
+File: bookdown_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf
+)
+<use bookdown_files/figure-latex/unnamed-chunk-45-1.pdf>
+
+Overfull \hbox (103.56697pt too wide) in paragraph at lines 3961--3962
+ [][] 
+ []
+
+File: bookdown_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf
+)
+<use bookdown_files/figure-latex/unnamed-chunk-46-1.pdf>
+
+Overfull \hbox (103.56697pt too wide) in paragraph at lines 3970--3971
+ [][] 
+ []
+
+[112] [113] [114]
+Overfull \hbox (40.67033pt too wide) in paragraph at lines 4052--4052
+[]\TU/lmtt/m/n/10.53937 ##  [1]  1.25580526  0.23166118  0.71917160 -0.42806595
+  1.12091543[] 
+ []
+
+
+Overfull \hbox (40.67033pt too wide) in paragraph at lines 4052--4052
+[]\TU/lmtt/m/n/10.53937 ##  [6]  1.62701181  1.18880886  0.58474173  0.09426773
+  0.62736667[] 
+ []
+
+[115]
+Overfull \hbox (68.3362pt too wide) in paragraph at lines 4087--4087
+[]\TU/lmtt/m/n/10.53937 ##  [1]  0.034425449  0.011889588  0.021235726  0.01790
+3444  0.041177485[] 
+ []
+
+
+Overfull \hbox (68.3362pt too wide) in paragraph at lines 4087--4087
+[]\TU/lmtt/m/n/10.53937 ##  [6] -0.023956800  0.008979989  0.005722928  0.02488
+7352 -0.001700370[] 
+ []
+
+
+Overfull \hbox (96.00206pt too wide) in paragraph at lines 4119--4119
+[]\TU/lmtt/m/n/10.53937 ##  [1] -0.0011431003 -0.0031872963 -0.0039303321  0.00
+20186072  0.0021288149[] 
+ []
+
+
+Overfull \hbox (96.00206pt too wide) in paragraph at lines 4119--4119
+[]\TU/lmtt/m/n/10.53937 ##  [6]  0.0001232545 -0.0019088662 -0.0037557675  0.00
+03802965 -0.0010499301[] 
+ []
+
+[116] [117]
+Overfull \hbox (96.00206pt too wide) in paragraph at lines 4190--4190
+[]\TU/lmtt/m/n/10.53937 ##  [1] -0.0004297315 -0.0093523824  0.0077216584  0.00
+16681671  0.0032866863[] 
+ []
+
+
+Overfull \hbox (96.00206pt too wide) in paragraph at lines 4190--4190
+[]\TU/lmtt/m/n/10.53937 ##  [6] -0.0128492187  0.0085156508 -0.0104277522 -0.00
+30415481  0.0228343806[] 
+ []
+
+
+Overfull \hbox (96.00198pt too wide) in paragraph at lines 4216--4216
+[]\TU/lmtt/m/n/10.53937 ##  [1] -1.610736e-06  2.899101e-07 -4.068405e-08 -2.80
+2695e-07 -1.098365e-06[] 
+ []
+
+
+Overfull \hbox (96.00198pt too wide) in paragraph at lines 4216--4216
+[]\TU/lmtt/m/n/10.53937 ##  [6] -6.222215e-08  8.150385e-07 -7.817550e-07 -1.01
+9755e-06  1.515487e-06[] 
+ []
+
+
+Overfull \hbox (96.00198pt too wide) in paragraph at lines 4239--4239
+[]\TU/lmtt/m/n/10.53937 ##  [1] -3.785371e-13 -1.806485e-13  2.075196e-13 -3.06
+0651e-13  3.156182e-14[] 
+ []
+
+
+Overfull \hbox (96.00198pt too wide) in paragraph at lines 4239--4239
+[]\TU/lmtt/m/n/10.53937 ##  [6] -6.596821e-14  1.428151e-13 -1.098809e-13  9.32
+0642e-14 -1.186302e-13[] 
+ []
+
+[118]
+Underfull \vbox (badness 1708) has occurred while \output is active []
+
+[119]
+File: img/Rast.png Graphic file (type bmp)
+<img/Rast.png>
+
+Underfull \vbox (badness 1590) has occurred while \output is active []
+
+[120]
+Overfull \hbox (90.46886pt too wide) in paragraph at lines 4343--4343
+[]\TU/lmtt/m/n/10.53937 ## [1] -1.869276e-05 -9.950173e-01  1.989897e+00  4.974
+418e+00  1.989810e+00[] 
+ []
+
+[121]
+Overfull \hbox (62.80302pt too wide) in paragraph at lines 4371--4371
+[]\TU/lmtt/m/n/10.53937 ## [1] -0.007423366 -0.023255606 -0.006154134 -0.106994
+981 -0.040438609[] 
+ []
+
+
+Overfull \hbox (7.4713pt too wide) in paragraph at lines 4385--4385
+[]\TU/lmtt/m/n/10.53937 ## [1] -1.9898668 -0.9949566 -0.9950607  1.9898565  0.9
+949586[] 
+ []
+
+
+Overfull \hbox (90.46889pt too wide) in paragraph at lines 4405--4405
+[]\TU/lmtt/m/n/10.53937 ## [1]  0.0180051671  0.0007939765 -0.0404656270 -0.022
+0834035 -0.0000156832[] 
+ []
+
+[122]
+Overfull \hbox (35.13716pt too wide) in paragraph at lines 4454--4454
+[]\TU/lmtt/m/n/10.53937 ## [1]  0.01066209  0.02145915 -0.11811262 -0.17008744 
+-0.20354255[] 
+ []
+
+[123]
+Overfull \hbox (35.13716pt too wide) in paragraph at lines 4502--4502
+[]\TU/lmtt/m/n/10.53937 ## [1] -0.11667250 -0.10781782 -0.01768515 -0.04851506 
+-0.09778878[] 
+ []
+
+[124]
+Overfull \hbox (62.803pt too wide) in paragraph at lines 4531--4531
+[]\TU/lmtt/m/n/10.53937 ## [1] 9.956177e-01 2.985797e+00 3.578282e-05 1.989544e
++00 2.983359e+00[] 
+ []
+
+[125]
+Overfull \hbox (90.46883pt too wide) in paragraph at lines 4571--4571
+[]\TU/lmtt/m/n/10.53937 ## [1]  9.632584e-07  1.989909e+00 -2.924944e-06  9.949
+562e-01  9.949555e-01[] 
+ []
+
+
+Overfull \hbox (90.46889pt too wide) in paragraph at lines 4581--4581
+[]\TU/lmtt/m/n/10.53937 ## [1]  0.0003822056 -0.0014643535 -0.0011605715 -0.000
+9625320 -0.0012620304[] 
+ []
+
+[126] [127] [128
 
 ]
 第十一章
-[125] [126]
-No file bookdown.bbl.
-[127
+[129] [130] (./bookdown.bbl [131
 
 
-] [128
+] [132
 
-]
-No file bookdown.ind.
+]) [133] [134
 
-Package natbib Warning: There were undefined citations.
+] (./bookdown.ind [135
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4538.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4538.
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4721.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4721.
 (./bookdown.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4538.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4538.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4721.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4721.
 
 Package rerunfilecheck Info: File `bookdown.out' has not changed.
-(rerunfilecheck)             Checksum: 693FD56580480609C9D98EFA1C25AD1E.
+(rerunfilecheck)             Checksum: DF0FD65C08732C55BBEC35E32BD0C2EA.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1764,15 +1890,15 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4538.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4721.
  ) 
 Here is how much of TeX's memory you used:
- 32028 strings out of 494921
- 621601 string characters out of 6178072
- 675947 words of memory out of 5000000
- 35501 multiletter control sequences out of 15000+600000
+ 32064 strings out of 494921
+ 623384 string characters out of 6178072
+ 677718 words of memory out of 5000000
+ 35534 multiletter control sequences out of 15000+600000
  573247 words of font info for 112 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  53i,27n,122p,971b,881s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bookdown.pdf (138 pages).
+Output written on bookdown.pdf (145 pages).

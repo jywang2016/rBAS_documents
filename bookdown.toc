@@ -86,14 +86,33 @@
 \contentsline {chapter}{\numberline {第八章\hspace {.3em}}Python接口}{95}{chapter.8}% 
 \contentsline {section}{\numberline {8.1}安装方式}{95}{section.8.1}% 
 \contentsline {section}{\numberline {8.2}使用}{95}{section.8.2}% 
-\contentsline {chapter}{\numberline {第九章\hspace {.3em}}Matlab用户}{101}{chapter.9}% 
-\contentsline {section}{\numberline {9.1}使用R.matlab包}{102}{section.9.1}% 
-\contentsline {section}{\numberline {9.2}中转站：C/C++}{105}{section.9.2}% 
-\contentsline {chapter}{\numberline {第十章\hspace {.3em}}已发表工作}{119}{chapter.10}% 
-\contentsline {section}{\numberline {10.1}工具箱/软件}{119}{section.10.1}% 
-\contentsline {section}{\numberline {10.2}论文}{119}{section.10.2}% 
-\contentsline {section}{\numberline {10.3}专利}{123}{section.10.3}% 
-\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}更新及维护计划}{125}{chapter.11}% 
-\contentsline {section}{\numberline {11.1}待加入的功能}{125}{section.11.1}% 
-\contentsline {section}{\numberline {11.2}联系方式}{126}{section.11.2}% 
-\contentsline {chapter}{附录}{127}{Item.3}% 
+\contentsline {chapter}{\numberline {第九章\hspace {.3em}}已发表工作}{101}{chapter.9}% 
+\contentsline {section}{\numberline {9.1}工具箱/软件}{101}{section.9.1}% 
+\contentsline {section}{\numberline {9.2}论文}{101}{section.9.2}% 
+\contentsline {section}{\numberline {9.3}专利}{105}{section.9.3}% 
+\contentsline {chapter}{\numberline {第十章\hspace {.3em}}调参}{107}{chapter.10}% 
+\contentsline {section}{\numberline {10.1}技巧1：高维问题的初始步长设定}{107}{section.10.1}% 
+\contentsline {subsection}{\numberline {10.1.1}原理}{107}{subsection.10.1.1}% 
+\contentsline {subsection}{\numberline {10.1.2}测试函数}{108}{subsection.10.1.2}% 
+\contentsline {subsection}{\numberline {10.1.3}BAS测试代码}{108}{subsection.10.1.3}% 
+\contentsline {subsection}{\numberline {10.1.4}BAS测试结果}{109}{subsection.10.1.4}% 
+\contentsline {subsection}{\numberline {10.1.5}BSAS 测试代码}{110}{subsection.10.1.5}% 
+\contentsline {subsection}{\numberline {10.1.6}BSAS测试结果}{111}{subsection.10.1.6}% 
+\contentsline {subsection}{\numberline {10.1.7}总结}{112}{subsection.10.1.7}% 
+\contentsline {section}{\numberline {10.2}技巧2：判断迭代终止时算法收敛状况}{114}{section.10.2}% 
+\contentsline {subsection}{\numberline {10.2.1}实验1}{114}{subsection.10.2.1}% 
+\contentsline {subsubsection}{\numberline {10.2.1.1}BAS算法}{114}{subsubsection.10.2.1.1}% 
+\contentsline {subsubsection}{\numberline {10.2.1.2}BSAS算法}{117}{subsubsection.10.2.1.2}% 
+\contentsline {subsubsection}{\numberline {10.2.1.3}总结}{119}{subsubsection.10.2.1.3}% 
+\contentsline {subsection}{\numberline {10.2.2}实验2}{120}{subsection.10.2.2}% 
+\contentsline {subsubsection}{\numberline {10.2.2.1}测试函数}{120}{subsubsection.10.2.2.1}% 
+\contentsline {subsubsection}{\numberline {10.2.2.2}BAS算法}{121}{subsubsection.10.2.2.2}% 
+\contentsline {subsubsection}{\numberline {10.2.2.3}BSAS算法}{122}{subsubsection.10.2.2.3}% 
+\contentsline {subsubsection}{\numberline {10.2.2.4}BSAS步长更新概率}{124}{subsubsection.10.2.2.4}% 
+\contentsline {subsubsection}{\numberline {10.2.2.5}天牛数}{125}{subsubsection.10.2.2.5}% 
+\contentsline {subsubsection}{\numberline {10.2.2.6}总结}{126}{subsubsection.10.2.2.6}% 
+\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}更新及维护计划}{129}{chapter.11}% 
+\contentsline {section}{\numberline {11.1}工具箱}{129}{section.11.1}% 
+\contentsline {section}{\numberline {11.2}待加入的功能}{129}{section.11.2}% 
+\contentsline {section}{\numberline {11.3}联系方式}{130}{section.11.3}% 
+\contentsline {chapter}{附录}{131}{Item.6}% 
