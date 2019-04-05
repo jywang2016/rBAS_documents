@@ -57,6 +57,55 @@ d^t &= \frac{\delta^t}{c_2}\\
 (\#eq:WPTupdate) 
 \end{equation}
 
+### 收敛性分析 {#Convergence}
+
+章节\@ref(Convergence)来源于文章[@Zhang2019BASCon].
+
+本章节中对BAS算法收敛性进行了分析。首先给出收敛性的定义。
+
+```{definition,def1,name = "依概率1收敛"}
+依概率1收敛指的是，在闭集$\Omega\in\mathbb{R}^n$上，一个单调序列$\{f(\mathbf{x})\}^\infty_{k=1}$收敛于其下确界$f$的概率为1.
+```
+
+收敛性分析基于definition \@ref(def:def1)进行的。在分析之前，为便于解释，记 $\mathbf{f}^k_{bst}=\min_{\mathbf{x}^j}\{f(\mathbf{x}^j)\}$ ，其中，$j=0,1,\cdots,k$ 以及 $f^k_{bst}=f(\mathbf{x}^k_{bst})$.
+
+```{lemma,lem1}
+对于BAS算法，$f_{bst}^k$不会增大。
+```
+
+```{proof,pro1}
+根据天牛须算法的原理，在每一个时刻 $k$，如果$f(\mathbf{x}^{k+1}) < f_{bst}$，那么$f_{bst}=f(\mathbf{x}^{k+1})$。因此，BAS算法能保证$f_{bst}^k$不会增大。
+```
+
+引理 \@ref(lem:lem1)给出了一个确定性的结论，即BAS算法在长期看来是不会发散的。
+
+```{theorem, BAS}
+如果BAS的参数设置合理，那么BAS会依概率1收敛。
+```
+
+```{proof,pro2}
+假设已经合理设置了BAS算法的参数，在每个时刻$k$，$P_\Omega(\mathbf{x}^k+\delta^k\mathbf{b}~\text{sgn}(f(\mathbf{x}^k_r)-f(\mathbf{x}^k_l)))$ 处于最小化$f$优化问题的最优解 $\mathbf{x}^*$上的概率要大于0。$P_\Omega(\cdot)$ 表示在$\Omega$上的投影。令$p_k$表示在时刻$k$时，$\mathbf{x}^k$不处于最优解$\mathbf{x}^*$上的概率。 然后，我们可以得到
+
+\begin{equation*}
+p(\mathbf{x}^k_{bst}=\mathbf{x}^*)>=1-p_0p_1\cdots p_k.
+\end{equation*}
+
+注意，在上面的假设中，我们可知 $0\leq p_k<1$ . 因此，
+\begin{equation*}
+\lim_{k\rightarrow+\infty} (1-p_0p_1 \cdots  p_k )= 1-
+\lim_{k\rightarrow+\infty} p_0p_1 \cdots  p_k = 1.
+\end{equation*}
+
+注意到 $$p(\mathbf{x}^k_{bst}=\mathbf{x}^*)\leq1.$$ 因此，通过夹逼定理，我们进一步地得到 $$\lim_{t\rightarrow+\infty}
+p(\mathbf{x}^k_{bst}=\mathbf{x}^*) =1.$$ 
+
+证明完成。
+```
+
+定理\@ref(thm:BAS)展示了，通过合理地选择步长，我们能保证BAS算法是依概率1渐进收敛的。
+
+这个结论很重要。第一，该结论展示了BAS算法能在给定的某个步长下收敛。第二，当面对一个确定的函数时，这个定理能帮助我们来判断为什么BAS算法不能有一个好的解。这也是绝大多数仿生算法都会存在的问题。
+
 ### 不足与改进 {#BASimprove}
 
 在对`BAS`算法的复现与案例应用中，我个人认为，其可能存在如下的缺点。
@@ -64,19 +113,15 @@ d^t &= \frac{\delta^t}{c_2}\\
 - 步长更新策略（反馈）
     + 缺点：无论每一步得到的结果是否变得更优，步长总会衰减；
     + 改进：带有反馈的步长更新，在无法找到更优的位置时，才进行步长的更新；
-    + 关键：反馈
 - 初始步长选取（参数标准化）
     + 缺点：对于多参数且量纲相差较大的问题，步长 $\delta$ 的初始值并不好选取；
     + 改进：标准化参数后，再进行调节，这也是`BAS-WPT`的技巧所在；
-    + 关键：标准化
 - 群体寻优
     + 缺点：1只天牛在随机方向上搜索更优的位置，容易迷失；
     + 改进：多只天牛寻优，设定的回合内无法找到更优位置，再考虑步长更新；
-    + 关键：群体智能
 - 约束处理能力不足
     + 缺点：在约束边界上优化目标突变问题的处理上表现不佳
     + 改进：二阶`BAS`
-    + 关键：`暂时没有能力归纳`，有待学习二阶`BAS`
 
 ## BSAS
 
