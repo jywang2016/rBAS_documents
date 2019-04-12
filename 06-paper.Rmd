@@ -4,6 +4,8 @@
 
 - [rBAS](https://github.com/jywang2016/rBAS) ; R语言环境下的包 。收录有BAS/BSAS/BAS-WPT/Second-Order-BAS/BSO算法，还会持续更新。此外，有用户界面可供调用。
 
+- [BASmatlab](https://github.com/jywang2016/BASmatlab); matlab工具箱。目前收录有BAS/BSAS/BSO算法。
+
 - [platpus](https://github.com/whhxp/Platypus/tree/master/platypus); python环境下的包。目前仅收录有BAS以及三个测试函数，后续会持续更新。由吴会欢同学提供，具体的使用说明下次手册更新会进行介绍。
 
 - [BSO](https://github.com/RoyalTeng/BSO);
