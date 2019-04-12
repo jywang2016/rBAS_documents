@@ -34,7 +34,7 @@ f = \sum_{i=1}^{n}x_i^2
 (\#eq:testPT)
 \end{equation}
 
-### BAS测试代码
+### BAS测试代码{#BAStestCode}
 
 代码用R语言编写，直接调用`rBAS`包，大家也可以用matlab来实现，因为在BAS上只要改变初始步长即可以重复此处实验。
 
@@ -85,7 +85,7 @@ dims <- matrix(data = dimsx, nrow = 1)
 BAS_experiment <- apply(dims,2,test_BAS)
 ```
 
-### BAS测试结果
+### BAS测试结果{#BAStestResult}
 
 ```{r,echo=FALSE,warning=FALSE,fig.width=5,fig.height=3,fig.align='center',fig.cap='高维优化问题下BAS不同初始步长结果对比'}
 t(BAS_experiment) %>%
@@ -115,7 +115,7 @@ t(BAS_experiment) %>%
 
 从结果可以看到，橙色线代表的改进策略，会带来显著的效果提升。
 
-### BSAS 测试代码
+### BSAS 测试代码{#BSAStestCode}
 
 同样，对BSAS算法的不同粒子数量的取值，也分别进行了对比实验。同样，维度也是从2到40。
 
@@ -148,7 +148,7 @@ test_BSAS <- function(dims,k){
 BSAS_experiment <- apply(dims,2,test_BSAS,k=1)
 ```
 
-### BSAS测试结果
+### BSAS测试结果{#BSAStestResult}
 
 ```{r,echo=FALSE,warning=FALSE,fig.width=6,fig.height=3,fig.align='center',fig.cap='高维优化问题下BSAS不同初始步长结果对比'}
 t(BSAS_experiment) %>%
