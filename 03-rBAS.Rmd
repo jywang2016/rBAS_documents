@@ -420,7 +420,7 @@ result$par
 result$value
 ```
 
-这个结果，比**BAS-WPT**\index{BAS-WPT}[@Jiangwpt]中`TABLE 2`记载的结果都要好。但只要你愿意调差，嘿嘿，总有更好的。
+这个结果，比**BAS-WPT**\index{BAS-WPT}[@Jiangwpt]中`TABLE 2`记载的结果要好，但与参数设置关系较大。
 
 ## BSAS-WPT {#bsaswpt}
 
