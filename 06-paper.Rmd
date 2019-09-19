@@ -96,6 +96,50 @@ Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
 
 - 邹东尧,陈鹏伟,刘宽.基于天牛须搜索优化的室内定位算法[J].湖北民族学院学报(自然科学版),2018(04):427-431+455.
 
+电力系统建模
+
+- Ghosh T, Martinsen K, Dan P K. Data-Driven Beetle Antennae Search Algorithm for Electrical Power Modeling of a Combined Cycle Power Plant[C]//World Congress on Global Optimization. Springer, Cham, 2019: 906-915.
+
+机械臂运动规划
+
+- Obstacle Avoidance and Tracking Control of Redundant Robotic Manipulator: An RNN based
+Metaheuristic Approach(已被ieee transactions on industrial informatics录用)
+
+电力调度
+
+- Li Q, Wei A, Zhang Z. Application of Economic Load Distribution of Power System Based on BAS-PSO[C]//IOP Conference Series: Materials Science and Engineering. IOP Publishing, 2019, 490(7): 072056.
+
+MPPT控制
+
+- 基于SABAS不同环境下的MPPT控制方法[J/OL].电力系统及其自动化学报:1-7[2019-05-28].https://doi.org/10.19635/j.cnki.csu-epsa.000224.
+
+能耗预测
+
+- 基于改进天牛须算法-优化极限学习机的地源热泵能耗预测研究
+
+化工工艺
+
+- 基于数据挖掘的空分装置工艺仿真与工艺参数优化
+
+电机控制
+
+- Lin X, Liu Y, Wang Y. Design and Research of DC Motor Speed Control System Based on Improved BAS[C]//2018 Chinese Automation Congress (CAC). IEEE, 3701-3705.
+
+PID参数整定
+
+- 吴强,张伟,杨慧婷,汪朝盈.基于天牛须算法的粒子群算法在PID参数整定上的应用[J/OL].电子科技,2020(06):1-6[2019-09-19].http://kns.cnki.net/kcms/detail/61.1291.TN.20190712.1328.034.html.
+
+其他
+
+- 丁为杰. 无人机自主电力巡线关键技术研究[D].山东大学,2019.
+- 王凡. 基于天牛须搜索算法的人群疏散方法及仿真研究[D].山东师范大学,2019.
+- 陈馨凝,刘辉,刘雨薇,邹琪骁,李侯君.基于BAS-BP模型的电缆阻水性评估研究[J].湖北工业大学学报,2019,34(04):35-39.
+- 含分布式电源的配电网重构研究
+- 殷献勇. 基于SaltStack的vCPE云端服务部署系统的设计与实现[D].北京邮电大学,2019.
+- 一种基于天牛须算法的新型超宽带功分器研究
+- 卢光辉,滕欢,廖寒逊,吴泽穹.基于改进天牛须搜索算法的分布式电源选址定容[J/OL].电测与仪表:1-7[2019-09-19].http://kns.cnki.net/kcms/detail/23.1202.th.20190719.1255.006.html.
+- Fei S W, He C X. Prediction of dissolved gases content in power transformer oil using BASA-based mixed kernel RVR model[J]. International Journal of Green Energy, 2019, 16(8): 652-656.
+- Li Q, Wang Z, Wei A. Research on Optimal Scheduling of Wind-PV-Hydro-Storage Power Complementary System Based on BAS Algorithm[C]//IOP Conference Series: Materials Science and Engineering. IOP Publishing, 2019, 490(7): 072059.
 
 ## 专利
 
@@ -105,6 +149,11 @@ Qubit神经树网络（结合PIPE与BAS进行网络结构参数优化）
 - 一种基于天牛群优化算法的激光谐振腔设计方法(2018112408058)
 - 基于天牛须搜索算法的空间圆柱度误差评定方法(2018106999239)
 - 一种BASA优化GRBF-SVM的液压泵故障检测方法及系统(2018109210959)
+- 基于改进天牛须搜索算法的无人机网络资源分配方法(201910001560.1 )
+- 一种基于天牛须搜索的无线传感网络分簇路由方法(201811620191.6)
+- 一种基于天牛须搜索算法的PID控制器参数整定方法(201811578658.5)
+- 一种火电厂汽轮机组瞬态等效热应力在线软测量方法(CN201910285890.8)
+- 一种球团原料最佳配比的自动推荐方法(CN201811194347.9)
 
 此外，由于个人能力与时间有限，希望大家看到相关的BAS文章或者软件后，可以在 https://github.com/jywang2016/rBAS_documents/issues  上**写明文章(软件)的信息，应用的领域（如果有具体的应用案例的话）以及采用的是哪种BAS算法**，以此来帮助我的整理。十分感谢大家的帮助！
 

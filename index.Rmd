@@ -19,6 +19,13 @@ rmd_files: ["index.Rmd","00-author.Rmd","01-install.Rmd","02-algorithm.Rmd","02-
 ---
 \mainmatter
 
+```{r setup, include=FALSE}
+# 填上你需要用到的包，如 c('ggplot2', 'dplyr')
+# lapply(c('kableExtra','numDeriv'), function(pkg) {
+#   if (system.file(package = pkg) == '') install.packages(pkg)
+# })
+```
+
 # 前言 {-}
 
 ## 手册内容概述 {-}

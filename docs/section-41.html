@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 5 章 用户界面 | rBAS使用文档</title>
+  <title>结语 | rBAS使用文档</title>
   <meta name="description" content="rBAS中文使用说明文档V0.2" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 5 章 用户界面 | rBAS使用文档" />
+  <meta property="og:title" content="结语 | rBAS使用文档" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jywang2016/rBAS" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 5 章 用户界面 | rBAS使用文档" />
+  <meta name="twitter:title" content="结语 | rBAS使用文档" />
   
   <meta name="twitter:description" content="rBAS中文使用说明文档V0.2" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rBAS.html">
-<link rel="next" href="examples.html">
+<link rel="prev" href="updates.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -284,143 +284,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="interface" class="section level1">
-<h1><span class="header-section-number">第 5 章</span> 用户界面</h1>
-<p>用户界面基于<a href="https://github.com/rstudio/shiny">shiny</a>包开发。核心思想是，把目标函数或者约束在<code>R</code>的脚本中预先定义好，然后调用<code>run_BAS_App(func = ..., constr = ...,theme = ...)</code>函数来人为调节参数，运行以及可视化。</p>
-<div id="section-12" class="section level2">
-<h2><span class="header-section-number">5.1</span> 调用语句</h2>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">run_BAS_App</span>(<span class="dt">func =</span> Your<span class="op">-</span>objective<span class="op">-</span>func,</a>
-<a class="sourceLine" id="cb76-2" title="2">            <span class="dt">constr =</span> Your<span class="op">-</span>constraint<span class="op">-</span>func,</a>
-<a class="sourceLine" id="cb76-3" title="3">            <span class="dt">theme =</span> <span class="st">&#39;united&#39;</span>)</a></code></pre></div>
-<p>其中：</p>
-<ul>
-<li><p><code>func</code>指的是，需要优化的目标函数</p></li>
-<li><p><code>constr</code>则是不等式约束，至于上下限约束，可以直接在用户界面里面定义</p></li>
-<li><p><code>theme</code>也就是界面主题，即<strong>皮肤</strong>，默认的主题是<code>united</code>。可以使用<code>help(run_BAS_App)</code>语句来看可选的主题样式都有哪些，如<code>superhero</code>,<code>cosmo</code>,<code>paper</code>,<code>journal</code>等主题。这些主题是调用<a href="https://github.com/rstudio/shinythemes">shinythemes</a>而来。</p></li>
-</ul>
-</div>
-<div id="section-13" class="section level2">
-<h2><span class="header-section-number">5.2</span> 使用案例</h2>
-<div id="michalewicz-function-2" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> Michalewicz function</h3>
-<p>先在代码中预定义函数：</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1">mich &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb77-2" title="2">  y1 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">1</span>])<span class="op">*</span>(<span class="kw">sin</span>((x[<span class="dv">1</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb77-3" title="3">  y2 &lt;-<span class="st"> </span><span class="op">-</span><span class="kw">sin</span>(x[<span class="dv">2</span>])<span class="op">*</span>(<span class="kw">sin</span>((<span class="dv">2</span><span class="op">*</span>x[<span class="dv">2</span>]<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>pi))<span class="op">^</span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb77-4" title="4">  <span class="kw">return</span>(y1<span class="op">+</span>y2)</a>
-<a class="sourceLine" id="cb77-5" title="5">}</a></code></pre></div>
-<p>然后调用用户界面：</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">run_BAS_App</span>(<span class="dt">func =</span> mich)</a>
-<a class="sourceLine" id="cb78-2" title="2"><span class="co">#run_BAS_App(func = mich, theme = &#39;paper&#39;) 可以尝试下paper或是其他的主题</span></a></code></pre></div>
-<p>出现了如图<a href="interface.html#fig:basapp">5.1</a>的界面：</p>
-<div class="figure" style="text-align: center"><span id="fig:basapp"></span>
-<img src="img/app1.png" alt="shiny interface" width="95%" />
-<p class="caption">
-图 5.1: shiny interface
-</p>
-</div>
-<p>左边是固定的参数调节栏，最上方有目前的收录的三种算法可供选择，以及本包的作者信息。右侧也有三个选项，分别是<strong>优化过程信息</strong>，<strong>优化参数结果</strong>以及<strong>优化结果可视化</strong>。</p>
-<p>按照你的需要，调节好左边的参数信息（第一个参数，也就是初始值<code>init</code>，默认为空，也可以指定），然后点击左下方的<code>Run BAS</code>键，即可看到如图<a href="interface.html#fig:basprogress">5.2</a>的内容：</p>
-<div class="figure" style="text-align: center"><span id="fig:basprogress"></span>
-<img src="img/app2.png" alt="optimization progress栏信息" width="95%" />
-<p class="caption">
-图 5.2: optimization progress栏信息
-</p>
-</div>
-<blockquote>
-<p>由于回合数较大，因此只截取了部分内容显示。</p>
-</blockquote>
-<p>分别点击<code>Optimization Parameters</code>和<code>Progress Plot</code>键，可以看到最后的结果，以及可视化信息，分别如图<a href="interface.html#fig:basparms">5.3</a>与 <a href="interface.html#fig:basplot">5.4</a>所示。</p>
-<div class="figure" style="text-align: center"><span id="fig:basparms"></span>
-<img src="img/app3.png" alt="Optimization Parameters栏信息" width="95%" />
-<p class="caption">
-图 5.3: Optimization Parameters栏信息
-</p>
-</div>
-<p>可以看到，窗口的<code>$par</code>显示的是参数的优化结果，而<code>$value</code>则是对应的目标函数值。</p>
-<div class="figure" style="text-align: center"><span id="fig:basplot"></span>
-<img src="img/app4.png" alt="Progress Plot栏信息" width="95%" />
-<p class="caption">
-图 5.4: Progress Plot栏信息
-</p>
-</div>
-<p><code>BAS</code>与其他两种算法有着不同的可视化结果，其并不是基于反馈来控制步长的。因此，图中的两条曲线，红色的为每一回合的目标函数值，而蓝色的为此前回合中最优的目标函数值。</p>
-</div>
-<div id="pressure-vessel-function-1" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Pressure Vessel function</h3>
-<p>这次，我们在<code>BSAS-WPT</code>栏下进行界面使用。先在代码中预定义目标函数和约束：</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1">pressure_Vessel &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb79-2" title="2">  <span class="dt">obj =</span> <span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb79-3" title="3">    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
-<a class="sourceLine" id="cb79-4" title="4">    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
-<a class="sourceLine" id="cb79-5" title="5">    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb79-6" title="6">    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb79-7" title="7">    result &lt;-<span class="st"> </span><span class="fl">0.6224</span><span class="op">*</span>x1<span class="op">*</span>x3<span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb79-8" title="8"><span class="st">      </span><span class="fl">1.7781</span><span class="op">*</span>x2<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span> <span class="op">+</span></a>
-<a class="sourceLine" id="cb79-9" title="9"><span class="st">      </span><span class="fl">3.1611</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb79-10" title="10"><span class="st">      </span><span class="fl">19.84</span><span class="op">*</span>x1<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x3</a>
-<a class="sourceLine" id="cb79-11" title="11">  },</a>
-<a class="sourceLine" id="cb79-12" title="12">  <span class="dt">con =</span> <span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb79-13" title="13">    x1 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">1</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
-<a class="sourceLine" id="cb79-14" title="14">    x2 &lt;-<span class="st"> </span><span class="kw">floor</span>(x[<span class="dv">2</span>])<span class="op">*</span><span class="fl">0.0625</span></a>
-<a class="sourceLine" id="cb79-15" title="15">    x3 &lt;-<span class="st"> </span>x[<span class="dv">3</span>]</a>
-<a class="sourceLine" id="cb79-16" title="16">    x4 &lt;-<span class="st"> </span>x[<span class="dv">4</span>]</a>
-<a class="sourceLine" id="cb79-17" title="17">    <span class="kw">c</span>(</a>
-<a class="sourceLine" id="cb79-18" title="18">      <span class="fl">0.0193</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x1,<span class="co">#&lt;=0</span></a>
-<a class="sourceLine" id="cb79-19" title="19">      <span class="fl">0.00954</span><span class="op">*</span>x3 <span class="op">-</span><span class="st"> </span>x2,</a>
-<a class="sourceLine" id="cb79-20" title="20">      <span class="fl">750.0</span><span class="op">*</span><span class="fl">1728.0</span> <span class="op">-</span><span class="st"> </span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">2</span><span class="op">*</span>x4 <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>pi<span class="op">*</span>x3<span class="op">^</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb79-21" title="21">    )</a>
-<a class="sourceLine" id="cb79-22" title="22">  }</a>
-<a class="sourceLine" id="cb79-23" title="23">)</a></code></pre></div>
-<p>调用用户界面，注意此时多出了<code>constr</code>，也就是约束函数，<code>$</code>符号在索引列表中的元素时使用：</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="kw">run_BAS_App</span>(<span class="dt">func =</span> pressure_Vessel<span class="op">$</span>obj,</a>
-<a class="sourceLine" id="cb80-2" title="2">            <span class="dt">constr =</span> pressure_Vessel<span class="op">$</span>con)</a></code></pre></div>
-<p>自行调整参数后，用户界面如图<a href="interface.html#fig:wpt1">5.5</a>所示：</p>
-<div class="figure" style="text-align: center"><span id="fig:wpt1"></span>
-<img src="img/wpt1.png" alt="BSAS-WPT参数调整" width="95%" />
-<p class="caption">
-图 5.5: BSAS-WPT参数调整
-</p>
-</div>
-<p>点击<code>Run BAS-WPT</code>之后，选择<code>optimization Parameters</code>栏目，可以看到优化结果如图<a href="interface.html#fig:wptparms">5.6</a>所示：</p>
-<div class="figure" style="text-align: center"><span id="fig:wptparms"></span>
-<img src="img/wpt2.png" alt="BSAS-WPT优化结果" width="95%" />
-<p class="caption">
-图 5.6: BSAS-WPT优化结果
-</p>
-</div>
-<p>选择<code>Progress Plot</code>栏目，过程可视化如图<a href="interface.html#fig:wptplot">5.7</a>所示：</p>
-<div class="figure" style="text-align: center"><span id="fig:wptplot"></span>
-<img src="img/wpt3.png" alt="BSAS-WPT优化过程可视化" width="95%" />
-<p class="caption">
-图 5.7: BSAS-WPT优化过程可视化
-</p>
-</div>
-</div>
-</div>
-<div id="authors" class="section level2">
-<h2><span class="header-section-number">5.3</span> Authors界面</h2>
-<p>如果并不想执行任何函数优化，则可以不指定函数和约束。在<code>R</code>里面输入以下代码：</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">library</span>(rBAS) <span class="co">#加载rBAS包</span></a>
-<a class="sourceLine" id="cb81-2" title="2"><span class="kw">run_BAS_App</span>() <span class="co">#直接调用函数</span></a></code></pre></div>
-<p>可以看到<code>rBAS</code>的用户界面，里面有关于<code>rBAS</code>的作者信息，如图<a href="interface.html#fig:author">5.8</a>所示。</p>
-<div class="figure" style="text-align: center"><span id="fig:author"></span>
-<img src="img/author.png" alt="用户界面作者信息" width="100%" />
-<p class="caption">
-图 5.8: 用户界面作者信息
-</p>
-</div>
-<p>如果大家对该项目有兴趣，参与了包的开发，或者<code>BAS</code>算法应用案例的提出。我会在征得当事人同意的情况下，将名字加入该界面:)。</p>
+<div id="section-41" class="section level1 unnumbered">
+<h1>结语</h1>
+<p>暂无</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="rBAS.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="updates.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
