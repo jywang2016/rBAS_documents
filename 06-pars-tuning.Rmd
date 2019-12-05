@@ -265,7 +265,227 @@ t(BSAS_experiment) %>%
 
 当然，大家可以还是按照原来的经验，即根据参数范围来估计一个初始步长。只要记得最后在高维问题时乘以对应的 $\sqrt{n}$即可。这样算法在高维下会体现出更优的性能。
 
-## 技巧2：判断迭代终止时算法收敛状况
+## 技巧2: 步长衰减率设定
+
+为了解决高维度问题，李帅老师提出了两个改进策略。第一个，即为此前文档中描述的**将初始步长乘以$\sqrt{n}$**改进步长分量过小的问题。第二个，即本文档中讨论的是，步长衰减率设定为$\eta = \eta_0^{\frac{1}{n}}$。
+
+- 改进策略1(BAS_tricks1): 初始步长乘以$\sqrt{dims}$。在维度提高后，步长相应提高，在每个维度上的分量也会相应提高，不至于让天牛在中后期*走不动*。
+- 改进策略2(BAS_tricks2):步长衰减率设定为$\eta = \eta_0^{\frac{1}{n}}$，其中，$\eta_0$可设定为0.98。每次迭代，保证了n维搜索空间体积缩减为原来的$\frac{1}{\eta_0}$。
+
+### 代码
+
+测试函数如\@ref(eq:testPT)。
+
+> 代码用R语言编写，直接调用`rBAS`包，大家也可以用matlab来实现，因为在BAS上只要改变**初始步长step**与**衰减比例eta_step**即可重复此处实验。
+
+```{r,warning=FALSE,message=FALSE}
+library(patchwork)
+obj <- function(x){
+  return(sum(x^2))
+}
+test_BAS <- function(dims,c_init,n){
+  m <- dims
+  fit_raw <- BASoptim(fn = obj,
+                      init = rep(5,m),
+                      lower = rep(-10,m),
+                      upper = rep(10,m),
+                      trace = F,
+                      d1 = 1,eta_d = c_init,
+                      step = 1,eta_step = c_init,n = n,
+                      steptol = .Machine$double.eps,seed = 1)
+  fit_tricks2 <- BASoptim(fn = obj,
+                       init = rep(5,m),
+                       lower = rep(-10,m),
+                       upper = rep(10,m),
+                       trace = F,
+                       d1 = 1,eta_d = c_init^(1/m),
+                       step = 1,eta_step = c_init^(1/m),n = n,
+                       steptol = .Machine$double.eps,seed = 1)
+  fit_tricks1 <- BASoptim(fn = obj,
+                          init = rep(5,m),
+                          lower = rep(-10,m),
+                          upper = rep(10,m),
+                          trace = F,
+                          d1 = 1,eta_d = c_init,
+                          step = 1*sqrt(m),eta_step = c_init,n = n,
+                          steptol = .Machine$double.eps,seed = 1)
+  result <- c(BAS_original = fit_raw$value,
+              BAS_tricks1  = fit_tricks1$value,
+              BAS_tricks2  = fit_tricks2$value)
+  return(result)
+}
+dimsx = seq(2,40,by = 2)#维度设定为2,4,6...40
+dims <- matrix(data = dimsx, nrow = 1)
+BAS_experiment <- apply(dims,2,test_BAS,c_init = 0.98,n = 200)
+```
+
+
+结果如下图所示。
+
+```{r,echo=FALSE,warning=FALSE,fig.width=5,fig.height=3,fig.align='center',fig.cap='不同维度虾两种改进BAS与原始BAS算法性能对比'}
+plot_func <- function(data,legend_position = 'none',iterations = 50,
+                      caps = NULL,text = NULL){
+  p <- t(data) %>%
+    as.data.frame() %>%
+    cbind(id = dimsx,.) %>%
+    reshape2::melt(id = 'id') %>%
+    ggplot(aes(x = id, y = value, color = variable)) +
+    geom_line(size = 1) +
+    geom_point() +
+    theme_bw() +
+    scale_x_continuous(expand = c(0,2), 
+                       breaks = seq(0,40,by = 8), 
+                       labels = seq(0,40,by = 8)) +
+    labs(x = 'n: dimension',
+         y = 'f: objective function',color = '',
+         caption = caps,
+         title = paste0('iterations = ',iterations))+
+    theme(legend.background = element_blank(),
+          legend.position = legend_position,
+          legend.text = element_text(size = 10,hjust = 0),
+          plot.caption = element_text(hjust = 0, size = 10,face = "italic"),
+          title = element_text(size = 12)) +
+    annotate('text', x=10, y = 400,
+             label = text,
+             parse = TRUE, size = 6)
+  return(p)
+}
+p1 <- BAS_experiment  %>% plot_func(legend_position = c(0.8,0.5),iterations = 200,
+                                    caps = '@ Source: rBAS package https://github.com/jywang2016/rBAS',
+                                    text = expression(paste(f ,'=' ,sum(x[i]^2, i==1, n))))
+print(p1)
+```
+
+从上图来看，2种策略都能够有效地防止天牛提前老化。
+
+此外，还可以进一步探索，迭代次数的不同，结果的变化。
+
+```{r,echo=FALSE,warning=FALSE,fig.align='center',fig.cap='不同迭代次数下，两种改进BAS与BAS算法的性能对比'}
+p1 <- apply(dims,2,test_BAS,c_init = 0.98,n = 50)  %>% 
+  plot_func(iterations = 50)
+p2 <- apply(dims,2,test_BAS,c_init = 0.98,n = 100)  %>% 
+  plot_func(iterations = 100)
+p3 <- apply(dims,2,test_BAS,c_init = 0.98,n = 150)  %>% 
+  plot_func(iterations = 150)
+p4 <- apply(dims,2,test_BAS,c_init = 0.98,n = 200)  %>% 
+  plot_func(iterations = 200)
+(p1 | p2)/(p3 | p4)
+```
+
+原始的BAS，由于步长衰减过快，在迭代次数从50至200的变化中，没有得到效果的提升。而改进的BAS算法，则会随着迭代次数的提升，获得效果上的提升。
+
+tricks2的步长设置，保证了搜索空间每次缩小$1/\eta_0$。相较于步长衰减设定为$\eta_0$时，搜索空间每次缩小$1/\eta_0^{dims}$而言，tricks2的技巧让天牛不至于迅速老化，由于步长过小而“走不动”。
+
+## 技巧3：按照维度设定步长初始值和衰减率
+
+是否有可能融合两种tricks的优点呢？假设存在技巧3，考虑$\eta = \eta_0^{\frac{1}{1+p}}=\eta_0^{\frac{1}{1+k_0(n-1)}}$，其中，$k_0\in [0,1]$，$\eta_0$为常用的步长衰减系数，如0.98。而步长的初始值设定为$step = step_0 * \sqrt{dims}$，其中，$step_0$是步长的初始值，$dims$是问题的维度。
+
+可以看到，当$k_0=0$的时候，技巧3就退化为了技巧1，当$k_0=1$的时候，技巧3就变为了步长乘以了维度平方根的技巧2。我们可以利用一些仿真实验，来看在$k_0$取值对优化结果的影响，以及是否会获得较技巧2和3更好的效果。
+
+```{r}
+test_BAS <- function(dims,c_init,n,k0){
+  m <- dims
+  c_power <- k0 * (m - 1)
+  fit_raw <- BASoptim(fn = obj,
+                      init = rep(5,m),
+                      lower = rep(-10,m),
+                      upper = rep(10,m),
+                      trace = F,
+                      d1 = 1,eta_d = c_init,
+                      step = 1,eta_step = c_init,n = n,
+                      steptol = .Machine$double.eps,seed = 1)
+  fit_tricks1 <- BASoptim(fn = obj,
+                          init = rep(5,m),
+                          lower = rep(-10,m),
+                          upper = rep(10,m),
+                          trace = F,
+                          d1 = 1,eta_d = c_init,
+                          step = 1*sqrt(m),eta_step = c_init,n = n,
+                          steptol = .Machine$double.eps,seed = 1)
+  fit_tricks2 <- BASoptim(fn = obj,
+                       init = rep(5,m),
+                       lower = rep(-10,m),
+                       upper = rep(10,m),
+                       trace = F,
+                       d1 = 1,eta_d = c_init^(1/m),
+                       step = 1,eta_step = c_init^(1/m),n = n,
+                       steptol = .Machine$double.eps,seed = 1)
+  fit_tricks3 <- BASoptim(fn = obj,
+                          init = rep(5,m),
+                          lower = rep(-10,m),
+                          upper = rep(10,m),
+                          trace = F,
+                          d1 = 1,eta_d = c_init^(1/(1+c_power)),
+                          step = 1*sqrt(m),eta_step =c_init^(1/(1+c_power)),n = n,
+                          steptol = .Machine$double.eps,seed = 1)
+  result <- c(BAS_original = fit_raw$value,
+              BAS_tricks1  = fit_tricks1$value,
+              BAS_tricks2  = fit_tricks2$value,
+              BAS_tricks3  = fit_tricks3$value)
+  return(result)
+}
+```
+
+```{r}
+dimsx <- seq(2,40,by = 2)
+dims <- matrix(data = dimsx, nrow = 1)
+BAS_experiment <- apply(dims,2,test_BAS,c_init = 0.95,n = 200,k0 = 0)
+```
+
+```{r,echo=FALSE,warning=FALSE,fig.align='center',fig.cap='不同k0值三种改进BAS与原始BAS算法性能对比'}
+plot_func <- function(data,legend_position = 'none',k0 = 0,
+                      caps = NULL,text = NULL){
+  p <- t(data) %>%
+    as.data.frame() %>%
+    cbind(id = dimsx,.) %>%
+    reshape2::melt(id = 'id') %>%
+    ggplot(aes(x = id, y = value, color = variable)) +
+    geom_line(size = 1) +
+    geom_point() +
+    theme_bw() +
+    scale_x_continuous(expand = c(0,2), 
+                       breaks = seq(0,40,by = 8), 
+                       labels = seq(0,40,by = 8)) +
+    labs(x = 'dims',
+         y = 'f',color = '',
+         title = paste0('k0 = ',k0))+
+    theme(legend.background = element_blank(),
+          legend.position = legend_position,
+          legend.text = element_text(size = 10,hjust = 0),
+          plot.caption = element_text(hjust = 0, size = 10,face = "italic"),
+          title = element_text(size = 12)) +
+    annotate('text', x=10, y = 400,
+             label = text,
+             parse = TRUE, size = 6)
+  return(p)
+}
+k0 = 0
+p1 <- apply(dims,2,test_BAS,c_init = 0.95,n = 200, k0 = k0)  %>% 
+  plot_func(legend_position = c(0.2,0.4),k0 = k0)
+
+k0 = 0.2
+p2 <- apply(dims,2,test_BAS,c_init = 0.95,n = 200, k0 = k0)  %>% 
+  plot_func(k0 = k0)
+k0 = 0.4
+p3 <- apply(dims,2,test_BAS,c_init = 0.95,n = 200, k0 = k0)  %>% 
+  plot_func(k0 = k0)
+k0 = 0.6
+p4 <- apply(dims,2,test_BAS,c_init = 0.95,n = 200, k0 = k0)  %>% 
+  plot_func(k0 = k0)
+k0 = 0.8
+p5 <- apply(dims,2,test_BAS,c_init = 0.95,n = 200, k0 = k0)  %>% 
+  plot_func(k0 = k0)
+k0 = 1.0
+p6 <- apply(dims,2,test_BAS,c_init = 0.95,n = 200, k0 = k0)  %>% 
+  plot_func(k0 = k0)
+(p1|p2)/(p3|p4)/(p5|p6)
+```
+
+可以看到，在$k_0 = 0$的时候，技巧3的曲线与技巧1重合.而在$k_0 = 0.2$时，技巧3的效果表现得最好，优于技巧1和2。随着$k_0$继续增大，技巧3的结果曲线变化，在技巧2对应的结果曲线附近发生波动。可以猜测，$k_0 = 0.2$左右处，技巧3在当前参数配置下的寻优效果最佳。
+
+大家可以在调参时，按照上面的技巧来设定步长初始值及衰减率。更好的方法是，按照技巧3的设定，将调步长与衰减率转为调节变量$k_0$。
+
+## 判断迭代终止时算法收敛状况
 
 李老师指出目前可能存在三种比较常见的迭代终止原因。
 

@@ -24,7 +24,7 @@
 <meta name="author" content="王江宇" />
 
 
-<meta name="date" content="2019-09-19" />
+<meta name="date" content="2019-12-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="parsTuning.html">
-<link rel="next" href="section-41.html">
+<link rel="next" href="section-44.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -251,18 +251,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.6" data-path="parsTuning.html"><a href="parsTuning.html#BSAStestResult"><i class="fa fa-check"></i><b>10.1.6</b> BSAS测试结果</a></li>
 <li class="chapter" data-level="10.1.7" data-path="parsTuning.html"><a href="parsTuning.html#section-30"><i class="fa fa-check"></i><b>10.1.7</b> 总结</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="parsTuning.html"><a href="parsTuning.html#section-31"><i class="fa fa-check"></i><b>10.2</b> 技巧2：判断迭代终止时算法收敛状况</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="parsTuning.html"><a href="parsTuning.html#section-32"><i class="fa fa-check"></i><b>10.2.1</b> 实验1</a></li>
-<li class="chapter" data-level="10.2.2" data-path="parsTuning.html"><a href="parsTuning.html#section-34"><i class="fa fa-check"></i><b>10.2.2</b> 实验2</a></li>
+<li class="chapter" data-level="10.2" data-path="parsTuning.html"><a href="parsTuning.html#section-31"><i class="fa fa-check"></i><b>10.2</b> 技巧2: 步长衰减率设定</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="parsTuning.html"><a href="parsTuning.html#section-32"><i class="fa fa-check"></i><b>10.2.1</b> 代码</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="parsTuning.html"><a href="parsTuning.html#section-33"><i class="fa fa-check"></i><b>10.3</b> 技巧3：按照维度设定步长初始值和衰减率</a></li>
+<li class="chapter" data-level="10.4" data-path="parsTuning.html"><a href="parsTuning.html#section-34"><i class="fa fa-check"></i><b>10.4</b> 判断迭代终止时算法收敛状况</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="parsTuning.html"><a href="parsTuning.html#section-35"><i class="fa fa-check"></i><b>10.4.1</b> 实验1</a></li>
+<li class="chapter" data-level="10.4.2" data-path="parsTuning.html"><a href="parsTuning.html#section-37"><i class="fa fa-check"></i><b>10.4.2</b> 实验2</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="updates.html"><a href="updates.html"><i class="fa fa-check"></i><b>11</b> 更新及维护计划</a><ul>
-<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-38"><i class="fa fa-check"></i><b>11.1</b> 工具箱</a></li>
-<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-39"><i class="fa fa-check"></i><b>11.2</b> 待加入的功能</a></li>
-<li class="chapter" data-level="11.3" data-path="updates.html"><a href="updates.html#section-40"><i class="fa fa-check"></i><b>11.3</b> 联系方式</a></li>
+<li class="chapter" data-level="11.1" data-path="updates.html"><a href="updates.html#section-41"><i class="fa fa-check"></i><b>11.1</b> 工具箱</a></li>
+<li class="chapter" data-level="11.2" data-path="updates.html"><a href="updates.html#section-42"><i class="fa fa-check"></i><b>11.2</b> 待加入的功能</a></li>
+<li class="chapter" data-level="11.3" data-path="updates.html"><a href="updates.html#section-43"><i class="fa fa-check"></i><b>11.3</b> 联系方式</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
-<li class="chapter" data-level="" data-path="section-41.html"><a href="section-41.html"><i class="fa fa-check"></i>结语</a></li>
+<li class="chapter" data-level="" data-path="section-44.html"><a href="section-44.html"><i class="fa fa-check"></i>结语</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书基于 bookdown 编写</a></li>
@@ -286,11 +290,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="updates" class="section level1">
 <h1><span class="header-section-number">第 11 章</span> 更新及维护计划</h1>
-<div id="section-38" class="section level2">
+<div id="section-41" class="section level2">
 <h2><span class="header-section-number">11.1</span> 工具箱</h2>
 <p>计划开发BAS算法的<code>Matlab</code>工具箱。</p>
 </div>
-<div id="section-39" class="section level2">
+<div id="section-42" class="section level2">
 <h2><span class="header-section-number">11.2</span> 待加入的功能</h2>
 <p>算法:</p>
 <ul>
@@ -334,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>算法部分与用户界面将会在<code>rBAS</code>包中不断更新。应用方面虽然有计划，但是除却基准测试外，更多的需要各位同学们的贡献。这部分暂时会选择几个重要的应用集成在<code>rBAS</code>包的案例库中，全部内容则会在本手册中更新。</p>
 </div>
-<div id="section-40" class="section level2">
+<div id="section-43" class="section level2">
 <h2><span class="header-section-number">11.3</span> 联系方式</h2>
 <ol style="list-style-type: decimal">
 <li><p>大家可以加入QQ群(437958608)来讨论涉及<code>BAS</code>算法的各种问题。</p></li>
@@ -354,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="parsTuning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="section-41.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section-44.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
