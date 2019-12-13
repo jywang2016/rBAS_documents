@@ -31,14 +31,13 @@
 3.根据两须对应函数值，决定天牛下一时刻移动位置
 
 \begin{equation}
-\mathbf{x}^t=\mathbf{x}^{t-1}+\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
+\mathbf{x}^t=\mathbf{x}^{t-1}-\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
 (\#eq:xupdate)
 \end{equation}
 
 其中，$\delta^t$为t时刻的步长,$f$为待优化目标函数。
 
-4.步长与搜索距离更新
-
+4.搜索距离与步长更新
 
 \begin{align}
 d^t&= \eta_d d^{t-1}+d_0 (\#eq:dupdate)\\

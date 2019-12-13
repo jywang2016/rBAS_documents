@@ -24,7 +24,7 @@
 <meta name="author" content="王江宇" />
 
 
-<meta name="date" content="2019-12-05" />
+<meta name="date" content="2019-12-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,11 +313,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>其中，<span class="math inline">\(\mathbf{x}^t\)</span>为<span class="math inline">\(t\)</span>时刻天牛的位置，<span class="math inline">\(d^t\)</span>则是<span class="math inline">\(t\)</span>时刻，质心到须的距离。</p>
 <p>3.根据两须对应函数值，决定天牛下一时刻移动位置</p>
 <p><span class="math display" id="eq:xupdate">\[\begin{equation}
-\mathbf{x}^t=\mathbf{x}^{t-1}+\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
+\mathbf{x}^t=\mathbf{x}^{t-1}-\delta^t\overrightarrow{\mathbf{b}}\text{sign}(f(\mathbf{x}_r)-f(\mathbf{x}_l))
 \tag{2.3}
 \end{equation}\]</span></p>
 <p>其中，<span class="math inline">\(\delta^t\)</span>为t时刻的步长,<span class="math inline">\(f\)</span>为待优化目标函数。</p>
-<p>4.步长与搜索距离更新</p>
+<p>4.搜索距离与步长更新</p>
 <p><span class="math display" id="eq:deltaupdate" id="eq:dupdate">\[\begin{align}
 d^t&amp;= \eta_d d^{t-1}+d_0 \tag{2.4}\\
 \delta^t&amp;=\eta_{\delta} \delta^{t-1} \tag{2.5}
